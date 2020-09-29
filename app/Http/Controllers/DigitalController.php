@@ -24,26 +24,35 @@ class DigitalController extends Controller
             ->where("category_program_kegiatan_id", $id_category)->first();
         }
         
-        $categoryProgramKegiatan = CategoryProgramKegiatan::findOrFail($id_category);
+        $category = CategoryProgramKegiatan::findOrFail($id_category);
 
         return view("digital.index", compact([
             "mata_pelajaran", 
             "digital",
-            "categoryProgramKegiatan"
+            "category"
         ]));
     }
 
     public function create($idmp, $id_category)
     {
-        ($idmp == 0) ? $mata_pelajaran = null : $mata_pelajaran = MataPelajaran::findOrFail($idmp);
-        
-        $digital = Digital::where("mata_pelajaran_id", $idmp)->first();
 
-        $categoryProgramKegiatan = CategoryProgramKegiatan::findOrFail($id_category);
+        $category = CategoryProgramKegiatan::findOrFail($id_category);
+
+        if ($idmp == 0 ) {
+            $mata_pelajaran = null;
+            
+            $digital = Digital::where("mata_pelajaran_id", $mata_pelajaran)
+                ->where("category_program_kegiatan_id", $id_category)->first();
+        } else  {
+            $mata_pelajaran = MataPelajaran::findOrFail($idmp);
+
+            $digital = Digital::where("mata_pelajaran_id", $idmp)
+            ->where("category_program_kegiatan_id", $id_category)->first();
+        }
 
         return view("digital.create", compact([
             "mata_pelajaran",
-            "categoryProgramKegiatan",
+            "category",
             "digital"
         ]));
     }

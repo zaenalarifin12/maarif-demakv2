@@ -15,7 +15,13 @@ class CreateInformasisTable extends Migration
     {
         Schema::create('informasis', function (Blueprint $table) {
             $table->id();
+            $table->string("banner");
+            $table->string("judul", 100);
+            $table->string("slug", 150);
+            $table->longText("deskripsi");
+            $table->unsignedBigInteger("category_program_kegiatan_id")->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

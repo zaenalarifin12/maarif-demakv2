@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class MataPelajaran extends Model
 {
+    use SoftDeletes;
+
     protected $guarded = [];
 
     public function galeries()
@@ -20,6 +23,6 @@ class MataPelajaran extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class, "enroll" ,"user_id", "mata_pelajaran_id");
+        return $this->hasMany(User::class);
     }
 }

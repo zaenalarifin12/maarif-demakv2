@@ -24,22 +24,23 @@
                                         <a href="" class="font-weight-bold text-danger">Jajaran Pengurus</a>
                                     </li>
                                     <li>
-                                        <a href="" class="font-weight-bold text-danger">Program</a>
+                                        <a href="{{ url("/admin/unit/0/category/6/program") }}" class="font-weight-bold text-info">Program Kegiatan</a>                                    </li>
+                                    <li>
+                                        <a href="{{ url("/admin/unit/0/category/6/event") }}" class="font-weight-bold text-info">Event</a>
                                     </li>
                                     <li>
-                                        <a href="{{ url("/admin/unit/0/category/2/event") }}" class="font-weight-bold text-info">Event</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ url("/admin/unit/0/category/2/galeri") }}" class="font-weight-bold text-info">Galeri</a>
+                                        <a href="{{ url("/admin/unit/0/category/6/galeri") }}" class="font-weight-bold text-info">Galeri</a>
                                     </li>
           
                                     <li>
-                                    <a href="" class="font-weight-bold text-danger">Product</a>
+                                    <a href="" class="font-weight-bold text-secondary">Product</a>
                                     <div class="container">
                                         <div class="collapse show" id="collapseExample">
                                             <ul>
-                                                <li><a href="#" class="font-weight-bold text-primary">E-print</a></li>
-                                                <li><a href="#" class="font-weight-bold text-primary">Digital</a></li>
+                                                <li>
+                                                    <a href="{{ url("/admin/unit/0/category/6/eprint") }}" class="font-weight-bold text-info">E-Print</a>
+                                                </li>
+                                                <a href="{{ url("/admin/unit/0/category/6/digital") }}" class="font-weight-bold text-info">Digital</a>
                                             </ul>
                                         </div>
                                     </div>
@@ -61,13 +62,13 @@
                                         <a href="" class="font-weight-bold text-info">Jajaran Pimpinan</a>
                                     </li>
                                     <li>
-                                        <a href="" class="font-weight-bold text-info">Program Kegiatan</a>
-                                    </li>
+                                        <a href="{{ url("/admin/unit/0/category/3/program") }}" class="font-weight-bold text-info">Program Kegiatan</a>                                    </li>
                                     <li>
-                                        <a href="{{ url("/admin/unit/0/category/3/galeri") }}" class="font-weight-bold text-danger">Event</a>
+                                        <a href="{{ url("/admin/unit/0/category/3/event") }}" class="font-weight-bold text-info">Event</a>
                                     </li>
                                     <li>
                                         <a href="{{ url("/admin/unit/0/category/3/galeri") }}" class="font-weight-bold text-info">Galeri</a>
+                                    </li>
                                     </li>
                                 </ul>
                             </div>
@@ -85,13 +86,13 @@
                                         <a href="" class="font-weight-bold text-info">Jajaran Pengurus</a>
                                     </li>
                                     <li>
-                                        <a href="" class="font-weight-bold text-info">Program Kegiatan</a>
+                                        <a href="{{ url("/admin/unit/0/category/4/program") }}" class="font-weight-bold text-info">Program Kegiatan</a>
                                     </li>
                                     <li>
                                         <a href="{{ url("/admin/unit/0/category/4/galeri") }}" class="font-weight-bold text-info">Galeri</a>
                                     </li>
                                     <li>
-                                        <a href="" class="font-weight-bold text-info">Informasi</a>
+                                        <a href="{{ url("/admin/unit/0/category/4/informasi") }}" class="font-weight-bold text-info">Informasi</a>
                                     </li>
                                 </ul>
                             </div>

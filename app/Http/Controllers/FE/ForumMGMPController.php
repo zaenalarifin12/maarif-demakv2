@@ -34,7 +34,7 @@ class ForumMGMPController extends Controller
         $mp      = MataPelajaran::findOrFail($id_mp);
 
         $c      = CategoryProgramKegiatan::findOrFail(1);
-        $eprint = Eprint::where("mata_pelajaran_id", $id_mp)->where("category_program_kegiatan_id", $c->id)->get();
+        $eprint = Eprint::where("mata_pelajaran_id", $id_mp)->where("category_program_kegiatan_id", $c->id)->latest()->paginate(10);
 
         $ce     = CategoryEprint::orderBy("nama", "asc")->get();
 
@@ -61,10 +61,10 @@ class ForumMGMPController extends Controller
     {
         $lembaga = Lembaga::findOrFail($id_l);
         $mp      = MataPelajaran::findOrFail($id_mp);
-
+        
         $c       = CategoryProgramKegiatan::findOrFail(1);
         $event   = Event::where("mata_pelajaran_id", $id_mp)
-                    ->where("category_program_kegiatan_id", $c->id)->get();
+                    ->where("category_program_kegiatan_id", $c->id)->latest()->paginate(3);
         
         return view("fe.forum-mgmp.event", compact([
             "event", "lembaga", "mp"

@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    Edit E-Print
+@endsection
+
 @section('heading')
     Edit E-Print
 @endsection
@@ -10,14 +14,22 @@
 
 @section('breadcump')
     <li class="breadcrumb-item"><a href="{{ url("admin") }}">Dashboard</a></li>
-    <li class="breadcrumb-item"><a href="{{ url("admin/forum-mgmp/") }}">Forum MGMP</a></li>
-    <li class="breadcrumb-item"><a href="{{ url("admin/forum-mgmp/lembaga/".$mata_pelajaran->lembaga->id."/mata-pelajaran") }}">Lembaga {{ $mata_pelajaran->lembaga->nama }}</a></li>
-    <li class="breadcrumb-item active" aria-current="page">{{ ucfirst($mata_pelajaran->nama) }}</li>
-    
-    
-    <li class="breadcrumb-item active" aria-current="page">Product</li>
-    <li class="breadcrumb-item"><a href="{{ url("admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/$category->id/eprint") }}">E-Print</a></li>
-  
+        
+    @include('component.bc-program',
+      [
+        "category"        => $category,
+        "mata_pelajaran"  => $mata_pelajaran
+      ]
+    )
+
+    @include('component.bc-program-title',
+      [
+        "category"        => $category,
+        "mata_pelajaran"  => $mata_pelajaran,
+        "name"            => "eprint"
+        ]
+      )
+
     <li class="breadcrumb-item active" aria-current="page">Edit</li>
 @endsection
 
@@ -32,7 +44,12 @@
       <div class="container d-flex justify-content-center">
         <div class="col-12">
           
-          <form action="{{ url("admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/$category->id/eprint/$eprint->id") }}" method="post" enctype="multipart/form-data">
+          @if ($mata_pelajaran != null)
+              <form action="{{ url("admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/$category->id/eprint/$eprint->id") }}" method="post" enctype="multipart/form-data">
+          @else
+              <form action="{{ url("admin/unit/0/category/$category->id/eprint/$eprint->id") }}" method="post" enctype="multipart/form-data">
+          @endif
+            
               <div class="form-group">
                 <label for="">Judul</label>
                   <input type="text" class="form-control" name="judul" required value="{{ $eprint->judul }}">
@@ -42,18 +59,18 @@
               <textarea class="ckeditor form-control"  name="deskripsi"required cols="30" rows="10">{!! $eprint->deskripsi !!}</textarea>
               </div>
               <div class="form-group">
-                <label for="">Banner</label>
+
+                <label for="">File</label>
+                  <a class="btn btn-secondary btn-sm" target="_blank" href="{{ asset("/storage/$eprint->banner") }}">Lihat</a>
                   <input type="file" class="form-control" name="banner" accept="image/x-png,image/jpeg">
               </div>
               <div class="form-group">
                 <label for="">Kategori</label><br>
                 @foreach ($categoryEprint as $item)
-                    <input type="checkbox" name="categoryEprint[]"
-                    @foreach ($eprint->category_eprints as $item2)
-                        @if ($item->id == $item2->id)
+                    <input type="radio" name="categoryEprint"
+                        @if ($item->id == $eprint->category_eprint->id)
                             checked
                         @endif
-                    @endforeach
 
                     value="{{ $item->id }}"> {{$item->nama}} <br> 
                 @endforeach

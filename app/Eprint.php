@@ -3,15 +3,17 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Eprint extends Model
 {
+    use SoftDeletes;
+    
     protected $guarded = [];
 
     // public function mata_pelajaran(){}
-    public function category_eprints()
+    public function category_eprint()
     {
-        return $this->belongsToMany(CategoryEprint::class, 
-            "category_eprint_eprint", "eprint_id", "categoryeprint_id");
+        return $this->belongsTo(CategoryEprint::class);
     }
 }

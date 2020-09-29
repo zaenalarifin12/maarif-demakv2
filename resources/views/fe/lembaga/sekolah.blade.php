@@ -2,17 +2,37 @@
 
 @section('content')
     
-<div class="px-10 py-4 flex justify-end bg-gray-300">
-    <p class="mx-auto">
-    <a href="index.html"><strong>Home</strong></a> 
-    / <strong>Lembaga</strong> 
-    / {{ $lembaga->nama }}</p>
-</div>
+<section id="sp-body">
+    <div class="row">
+      <div id="sp-component" class="col-sm-12 col-md-12">
+        <div class="sp-column ">
+          <div id="system-message-container">
+          </div>
 
-<div class="px-10 py-10">
-    <h1 class="text-center text-2xl">Sekolah {{ $lembaga->nama }}</h1>
-    <p class="">
-        {!! $isiLembaga->deskripsi ?? "Belum ada deskripsi" !!}
-    </p>
-</div>
+          <div id="sp-page-builder" class="sp-page-builder  page-54">
+
+            <div class="page-content">
+              <section class="sppb-section " style="padding:50px 50px 50px 50px;">
+                <div class="sppb-row">
+                  <div class="sppb-col-sm-12">
+                    <div class="sppb-addon-container" style="" data-sppb-wow-duration="300ms">
+                      <div class="sppb-addon sppb-addon-text-block sppb-text-left ">
+                        <div class="sppb-addon-content">
+                            <h1>Lembaga {{ $lembaga->nama }}</h1>
+                            <p>
+                                {!! $isiLembaga->deskripsi ?? "KOSONG" !!}
+                            </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
 @endsection

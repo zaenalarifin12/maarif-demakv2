@@ -24,7 +24,7 @@ class EventRequest extends FormRequest
     public function rules()
     {
         return [
-            "banner"    => "required",
+            "gambar"    => "required",
             "judul"     => "required",
             "deskripsi" => "required",
         ];

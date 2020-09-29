@@ -1,13 +1,13 @@
 @extends('layouts.master')
 
-@section("title", "Banner")
+@section("title", "Foto")
 
-@section('heading', "Banner")
+@section('heading', "Foto")
 
 @section('breadcump')
     <li class="breadcrumb-item"><a href="{{ url("admin") }}">Dashboard</a></li>
     <li class="breadcrumb-item"><a href="{{ url("admin/home") }}">Home</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Banner</li>
+    <li class="breadcrumb-item active" aria-current="page">Foto</li>
 @endsection
 
 @section('content')
@@ -22,7 +22,7 @@
               
                 <div class="card-body">
                     <div class="row my-4">
-                        <a href="{{ url("/admin/home/banner/create") }}" class="btn btn-block btn-primary">Tambah Banner</a>
+                        <a href="{{ url("/admin/home/banner/create") }}" class="btn btn-block btn-primary">Tambah Foto</a>
                     </div>
                     @foreach ($banner as $item)
                         <div class="row">

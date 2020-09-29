@@ -12,19 +12,20 @@
     
     <li class="breadcrumb-item"><a href="{{ url("admin") }}">Dashboard</a></li>
 
-    @if ($mata_pelajaran != null)
-      <li class="breadcrumb-item"><a href="{{ url("admin/forum-mgmp/") }}">Forum MGMP</a></li>
-      <li class="breadcrumb-item"><a href="{{ url("admin/forum-mgmp/lembaga/".$mata_pelajaran->lembaga->id."/mata-pelajaran") }}">Lembaga {{ $mata_pelajaran->lembaga->nama }}</a></li>    
-    @else
-      <li class="breadcrumb-item"><a href="{{ url("admin/unit/") }}">Unit</a></li>
-    @endif
+    @include('component.bc-program',
+      [
+        "category"        => $category,
+        "mata_pelajaran"  => $mata_pelajaran
+      ]
+    )
     
-    @if ($mata_pelajaran != null)
-      <li class="breadcrumb-item active" aria-current="page">{{ ucfirst($mata_pelajaran->nama) }}</li>    
-    @endif
-    
-    <li class="breadcrumb-item active" aria-current="page">Product</li>
-    <li class="breadcrumb-item active" aria-current="page">Event</li>
+    @include('component.bc-program-title',
+      [
+        "category"        => $category,
+        "mata_pelajaran"  => $mata_pelajaran,
+        "name"            => "event"
+      ]
+    )
     
 @endsection
 
@@ -39,7 +40,7 @@
                     @if ($mata_pelajaran != null)
                         <a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/1/event/create") }}" class="btn btn-primary btn-sm">Tambah Event</a>
                     @else
-                       <a href="{{ url("/admin/unit/0/category/2/event/create") }}" class="btn btn-primary btn-sm">Tambah Event</a>     
+                       <a href="{{ url("/admin/unit/0/category/$category->id/event/create") }}" class="btn btn-primary btn-sm">Tambah Event</a>     
                     @endif
                 </div>
 

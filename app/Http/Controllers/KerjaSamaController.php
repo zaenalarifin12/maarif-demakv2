@@ -35,7 +35,7 @@ class KerjaSamaController extends Controller
             "gambar"    => $nama
         ]);
 
-        return redirect("admin/kerja-sama")->withSuccess("data kerja sama berhasil ditambahkan");
+        return redirect("admin/kerja-sama")->withSuccess("Logo Kerja sama berhasil ditambahkan");
     }
 
     public function destroy($id)
@@ -43,6 +43,6 @@ class KerjaSamaController extends Controller
         $kerjaSama = KerjaSama::findOrFail($id);
         $kerjaSama->delete();
 
-        return redirect("/admin/kerja-sama")->withSuccess("data kerja sama berhasil dihapus");
+        return redirect("/admin/kerja-sama")->withSuccess("Logo Kerja sama berhasil dihapus");
     }
 }

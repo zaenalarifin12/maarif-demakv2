@@ -38,8 +38,12 @@ class EprintController extends Controller
 
     public function create($idmp, $id_category)
     {
-        $mata_pelajaran = MataPelajaran::findOrFail($idmp);
-
+        if ($idmp == 0 ) {
+            $mata_pelajaran = null;
+        } else  {
+            $mata_pelajaran = MataPelajaran::findOrFail($idmp);
+        }
+                
         $category = CategoryProgramKegiatan::findOrFail($id_category);
 
         $categoryEprint = CategoryEprint::get();
@@ -53,8 +57,6 @@ class EprintController extends Controller
      
         $nama = UploadFileServices::image($request, "banner");
 
-        $mata_pelajaran = MataPelajaran::findOrFail($id_mp);
-        
 
         if ($id_mp == 0) {
 
@@ -63,30 +65,40 @@ class EprintController extends Controller
                 "judul"                         => $request->judul,
                 "deskripsi"                     => $request->deskripsi,
                 "mata_pelajaran_id"             => null,
-                "category_program_kegiatan_id"  => $id_category
+                "category_program_kegiatan_id"  => $id_category,
+                "category_eprint_id"            => $request->categoryEprint
             ]);
+
+            return redirect("/admin/unit/0/category/$id_category/eprint")
+            ->withSuccess("Eprint berhasil ditambahkan");
 
         } else {
         
+            $mata_pelajaran = MataPelajaran::findOrFail($id_mp);
+
             $eprint = Eprint::create([
                 "banner"                        => $nama,
                 "judul"                         => $request->judul,
                 "deskripsi"                     => $request->deskripsi,
                 "mata_pelajaran_id"             => $id_mp,
-                "category_program_kegiatan_id"  => $id_category
+                "category_program_kegiatan_id"  => $id_category,
+                "category_eprint_id"            => $request->categoryEprint
             ]);
 
+            return redirect("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/$id_category/eprint")
+            ->withSuccess("eprint berhasil ditambahkan");
         }
 
-        $eprint->category_eprints()->sync($request->categoryEprint);
-
-        return redirect("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/$id_category/eprint")
-            ->withSuccess("eprint berhasil ditambahkan");
+        
     }
 
     public function show($idmp, $idc, $id)
     {
-        $mata_pelajaran   = MataPelajaran::findOrFail($idmp);
+        if($idmp == 0) {
+            $mata_pelajaran = null;
+        }  else {
+            $mata_pelajaran = MataPelajaran::findOrFail($idmp);
+        } 
 
         $category         = CategoryProgramKegiatan::findOrfail($idc);
 
@@ -101,7 +113,11 @@ class EprintController extends Controller
 
     public function edit(Request $request, $idmp, $idc, $id)
     {
-        $mata_pelajaran   = MataPelajaran::findOrFail($idmp);
+        if($idmp == 0) {
+            $mata_pelajaran = null;
+        }  else {
+            $mata_pelajaran = MataPelajaran::findOrFail($idmp);
+        } 
 
         $category         = CategoryProgramKegiatan::findOrfail($idc);
 
@@ -119,8 +135,12 @@ class EprintController extends Controller
 
     public function update(Request $request, $idmp, $idc, $id)
     {
-        $mata_pelajaran = MataPelajaran::findOrFail($idmp);
-    
+        if($idmp == 0) {
+            $mata_pelajaran = null;
+        }  else {
+            $mata_pelajaran = MataPelajaran::findOrFail($idmp);
+        } 
+
         $category         = CategoryProgramKegiatan::findOrfail($idc);
 
         $eprint           = Eprint::findOrfail($id);
@@ -136,7 +156,8 @@ class EprintController extends Controller
                     "judul"                         => $request->judul,
                     "deskripsi"                     => $request->deskripsi,
                     "mata_pelajaran_id"             => null,
-                    "category_program_kegiatan_id"  => $id_category
+                    "category_program_kegiatan_id"  => $idc,
+                    "category_eprint_id"            => $request->categoryEprint
                 ]);
             }else{
                 $eprint->update([
@@ -144,10 +165,14 @@ class EprintController extends Controller
                     "judul"                         => $request->judul,
                     "deskripsi"                     => $request->deskripsi,
                     "mata_pelajaran_id"             => null,
-                    "category_program_kegiatan_id"  => $id_category
+                    "category_program_kegiatan_id"  => $idc,
+                    "category_eprint_id"            => $request->categoryEprint
+
                 ]);
             }
 
+            return redirect("/admin/unit/0/category/$idc/eprint")
+                ->withSuccess("E-Print berhasil diedit");
         } else {
         
             if($request->has("banner"))
@@ -159,7 +184,9 @@ class EprintController extends Controller
                     "judul"                         => $request->judul,
                     "deskripsi"                     => $request->deskripsi,
                     "mata_pelajaran_id"             => $idmp,
-                    "category_program_kegiatan_id"  => $idc
+                    "category_program_kegiatan_id"  => $idc,
+                    "category_eprint_id"            => $request->categoryEprint
+
                 ]);
             }else{
                 $eprint->update([
@@ -167,16 +194,17 @@ class EprintController extends Controller
                     "judul"                         => $request->judul,
                     "deskripsi"                     => $request->deskripsi,
                     "mata_pelajaran_id"             => $idmp,
-                    "category_program_kegiatan_id"  => $idc
+                    "category_program_kegiatan_id"  => $idc,
+                    "category_eprint_id"            => $request->categoryEprint
+
                 ]);
             }
 
+            return redirect("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/$idc/eprint")
+            ->withSuccess("eprint berhasil diedit");
         }
 
-        $eprint->category_eprints()->sync($request->categoryEprint);
-
-        return redirect("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/$idc/eprint")
-            ->withSuccess("eprint berhasil diedit");
+        
     }
 
     public function destroy($idmp, $idc ,$id)
@@ -184,8 +212,17 @@ class EprintController extends Controller
         $eprint = Eprint::findOrFail($id);
         $eprint->delete();
 
-        return redirect("/admin/forum-mgmp/mata-pelajaran/$idmp/category/$idc/eprint")
-            ->withSuccess("eprint berhasil dihapus");
+        if($idmp == 0) {
+            $mata_pelajaran = null;
+
+                return redirect("/admin/unit/0/category/$idc/program")
+                ->withSuccess("Eprint berhasil dihapus");
+        }  else {
+            $mata_pelajaran = MataPelajaran::findOrFail($idmp);
+
+            return redirect("/admin/forum-mgmp/mata-pelajaran/$idmp/category/$idc/event")
+            ->withSuccess("Eprint berhasil dihapus");
+        } 
     }
 
 }

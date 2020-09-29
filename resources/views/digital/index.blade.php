@@ -9,14 +9,20 @@
 @section('breadcump')
     <li class="breadcrumb-item"><a href="{{ url("admin") }}">Dashboard</a></li>
 
-    @include('component.breadcump', ["categoryProgramKegiatan" => $categoryProgramKegiatan])
-
-    @if ($mata_pelajaran != null)
-        <li class="breadcrumb-item"><a href="{{ url("admin/forum-mgmp/lembaga/".$mata_pelajaran->lembaga->id."/mata-pelajaran") }}">Lembaga {{ $mata_pelajaran->lembaga->nama }}</a></li>
-        <li class="breadcrumb-item active" aria-current="page">{{ ucfirst($mata_pelajaran->nama) }}</li>
-    @endif
+    @include('component.bc-program',
+      [
+        "category"        => $category,
+        "mata_pelajaran"  => $mata_pelajaran
+      ]
+    )
     
-    <li class="breadcrumb-item active" aria-current="page">Digital</li>
+    @include('component.bc-program-title',
+      [
+        "category"        => $category,
+        "mata_pelajaran"  => $mata_pelajaran,
+        "name"            => "digital"
+      ]
+    )
 @endsection
 
 @section('content')
@@ -30,7 +36,7 @@
                     @if ($mata_pelajaran != null)
                         <a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/1/digital/create") }}" class="btn btn-primary btn-sm">Edit Product Digital</a>
                     @else
-                       <a href="{{ url("/admin/unit/0/category/$categoryProgramKegiatan->id/digital/create") }}" class="btn btn-primary btn-sm">Edit Product Digital</a>     
+                       <a href="{{ url("/admin/unit/0/category/$category->id/digital/create") }}" class="btn btn-primary btn-sm">Edit Product Digital</a>     
                     @endif
 
                 </div>

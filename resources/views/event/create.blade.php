@@ -45,14 +45,19 @@
                 <div class="form-group">
                 <label for="">Judul</label>
                   <input type="text" class="form-control" name="judul" required >
+                  @include('component.error', ["name" => "judul"])
               </div>
               <div class="form-group">
                 <label for="">Deskripsi</label>
                   <textarea class="ckeditor form-control"  name="deskripsi"required cols="30" rows="10"></textarea>
+                  @include('component.error', ["name" => "deskripsi"])
               </div>
               <div class="form-group">
-                <label for="">Banner</label>
-                  <input type="file" class="form-control @error("banner") is-invalid @enderror"" name="banner" required accept="image/x-png,image/jpeg">
+                <label for="">Foto</label>
+                  <input id="imgInp" type="file" class="form-control" name="gambar" required accept="image/x-png,image/jpeg">
+                  @include('component.error', ["name" => "gambar"])
+                <br>
+                  <img id="blah" src="#" alt="" srcset="">
               </div>
               <button type="submit" class="btn btn-primary btn-block">Tambah</button>
               @csrf

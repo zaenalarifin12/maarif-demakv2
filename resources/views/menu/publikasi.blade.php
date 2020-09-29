@@ -22,7 +22,7 @@
                             <div class="card-body">
                                 <ul>
                                     <li>
-                                        <a href="" class="font-weight-bold text-info">E-Print</a>
+                                        <a href="{{ url("/admin/unit/0/category/5/eprint") }}" class="font-weight-bold text-info">E-Print</a>
                                     </li>
                                     <li>
                                         <a href="{{url("/admin/unit/0/category/5/digital")}}" class="font-weight-bold text-info">Digital Library</a>

@@ -191,37 +191,46 @@
                     <h1 class="h4 text-gray-900 mb-4">Selamat Datang </h1>
                     <h3 class="h5 text-gray-900 mb-4">Silahkan Membuat Akun Baru </h3>
                   </div>
-                  <form class="user" action="{{ url("/register") }}" method="POST">
+                  <form class="user" action="{{ url("/siswa") }}" method="POST">
                       @csrf
+
                     <div class="form-group">
-                      <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
-                      @error('email')
-                            <span class="invalid-feedback">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+                        <label for="">Nama</label>
+                        <input type="text" name="nama" class="form-control" value="{{ old("nama") }}">
+                        @include('component.error', ["name" => "nama"])
+    
                     </div>
                     <div class="form-group">
-                        <input type="text" name="name" class="form-control form-control-user" placeholder="Nama">
-                        
+                        <label for="">No Induk</label>
+                        <input type="number" name="no_induk" class="form-control" value="{{ old("no_induk") }}">
+                        @include('component.error', ["name" => "no_induk"])
+
                     </div>
                     <div class="form-group">
-                      <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                        <label for="">Asal Sekolah</label>
+                        <input type="text" name="asal_sekolah" class="form-control" >
+                        @include('component.error', ["name" => "asal_sekolah"])
                     </div>
-                    {{-- <div class="form-group">
-                      <div class="custom-control custom-checkbox small">
-                        <input type="checkbox" class="custom-control-input" id="customCheck">
-                        <label class="custom-control-label" for="customCheck">Remember Me</label>
-                      </div>
-                    </div> --}}
+                    <div class="form-group">
+                        <label for="">Email</label>
+                        <input type="email" name="email" class="form-control" >
+                        @include('component.error', ["name" => "email"])
+                    </div>
+                    <div class="form-group">
+                        <label for="">Password</label>
+                        <input type="password" name="password" class="form-control" >
+                        @include('component.error', ["name" => "password"])
+                    </div>
+
                     <button type="submit" class="btn btn-primary btn-user btn-block">Daftar</button>
                   </form>
                   {{-- <div class="text-center">
                     <a class="small" href="forgot-password.html">Forgot Password?</a>
                   </div> --}}
-                  {{-- <div class="text-center">
-                    <a class="small" href="register.html">Create an Account!</a>
-                  </div> --}}
+                  <div class="text-center my-3">
+                    <span>Sudah Punya Akun ? </span>
+                    <a class="" href="{{ url("/login") }}">Masuk</a>
+                  </div>
                 </div>
               </div>
             </div>

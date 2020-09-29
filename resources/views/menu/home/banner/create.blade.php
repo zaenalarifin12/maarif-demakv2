@@ -1,13 +1,13 @@
 @extends('layouts.master')
 
-@section("title", "Banner")
+@section("title", "Foto")
 
-@section('heading', "Banner")
+@section('heading', "Foto")
 
 @section('breadcump')
     <li class="breadcrumb-item"><a href="{{ url("admin") }}">Dashboard</a></li>
     <li class="breadcrumb-item"><a href="{{ url("admin/home") }}">Home</a></li>
-    <li class="breadcrumb-item"><a href="{{ url("admin/home/banner") }}">Banner</a></li>
+    <li class="breadcrumb-item"><a href="{{ url("admin/home/banner") }}">Foto</a></li>
     <li class="breadcrumb-item active" aria-current="page">Tambah</li>
 @endsection
 
@@ -25,7 +25,11 @@
                 <div class="card-body">
                 <form action="{{ url("admin/home/banner") }}" method="post" enctype="multipart/form-data">
                         <div class="form-group">
-                            <input type="file" name="gambar">
+                            <label for="">Foto  <br><span class="text-primary"> ukuran maximum: 5 mb <br> jenis file: jpeg,png</span></label><br>
+                            <input id="imgInp"  type="file" name="gambar" accept="image/x-png,image/jpeg">
+                            @include('component.error', ["name" => "gambar"])
+                            <br><br>
+                            <img id="blah" width="50%" src="#" alt="" srcset="">
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-sm btn-primary">Upload</button>

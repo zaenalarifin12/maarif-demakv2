@@ -1,44 +1,88 @@
 @extends('fe.layouts.master')
 
-
 @section('content')
-<div class="px-10 py-4 flex justify-end bg-gray-300">
-    <p class="mx-auto">
-        <a href="index.html"><strong>Home</strong></a>
-        / <strong>profil</strong>
-        / jajaran</p>
-</div>
+<section id="sp-body">
+    <div class="container">
+        <div class="row">
+            <div id="sp-component" class="col-sm-12 col-md-12">
+                <div class="sp-column ">
+                    <div id="system-message-container">
+                    </div>
+                    <div class="blog" itemscope itemtype="http://schema.org/Blog">
+                        <div class="page-header">
+                            <h1> Event {{ $lembaga->nama }} - {{ $mp->nama }} </h1>
+                        </div>
 
-<div class="px-10 py-10 bg-gray-bg ">
-    <div class="flex py-5 justify-center">
-        <h1 class="custom-heading capitalize">Sekolah {{ $lembaga->nama }} Mata Pelajaran {{ $mp->nama }}</h1>
-    </div>
+                        <div class="items-row row-0 row clearfix">
+                            @forelse ($event as $item)
+                            <div class="col-sm-3">
+                                <article class="item column-1" itemprop="blogPost" itemscope
+                                    itemtype="http://schema.org/BlogPosting">
 
-    <div class="flex justify-center">
-        <h1 class=" custom-heading">Event</h1>
-    </div>
 
-    <div class="px-10 py-10">
+                                    <div class="entry-image intro-image">
+                                        <a
+                                            href="#") }}">
+                                            <img src="{{ asset("/storage/".$item->banner) }}"
+                                                alt="" itemprop="thumbnailUrl" />
+                                        </a>
+                                    </div>
 
-        @forelse ($event as $item)
-            <div class="my-10">
-                <h1 class="custom-text-title text-xl">{{ $item->judul }}</h1>
-                <p>
-                    <span class="custom-text-date"> {{ $item->created_at }}</span>
-                </p>
-                {{-- TODO
-                    link download file
-                    --}}
-                <p class="py-2">
-                    {!! $item->deskripsi !!}
-                </p>
+                                    <div class="entry-header has-post-format">
+
+                                        <span class="post-format"><i style="margin-right:-6px;"
+                                                class="fa fa-pencil-square-o"></i></span>
+
+                                        <h2 itemprop="name">
+                                            <a 
+                                            href="#"
+                                                itemprop="url">
+                                                {{ $item->judul }}</a>
+                                            <div class="divider"></div>
+                                        </h2>
+
+
+                                        <dl class="article-info">
+
+
+                                            <dt class="article-info-term"></dt>
+
+                                            <dd class="published">
+                                                <i class="fa fa-calendar-o"></i>
+                                                <time datetime="2020-09-25T08:21:58+07:00"
+                                                    itemprop="datePublished" data-toggle="tooltip"
+                                                    title="Published Date">
+                                                    {{ $item->created_at}} </time>
+                                            </dd>
+                                            <p>{!! $item->deskripsi !!}</p>
+
+                                        </dl>
+
+
+                                    </div>
+
+
+
+                                </article>
+                                <!-- end item -->
+                            </div>
+                            @empty
+                            <div class="col-sm-3">
+                                KOSONG
+                            </div>
+                                
+                            @endforelse
+                            
+                        </div>
+
+
+
+                        {{ $event->links() }}
+                       
+                    </div>
+                </div>
             </div>
-        
-        @empty
-            <div class="text-center">
-                Belum Ada Event
-            </div>        
-        @endforelse
+        </div>
     </div>
-</div>
+</section>
 @endsection

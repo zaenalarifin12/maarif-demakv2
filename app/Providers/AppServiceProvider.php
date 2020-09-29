@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
 
-        view()->composer('fe.layouts.master', function($view) {
+        view()->composer('fe.layouts.header', function($view) {
 
             $lembaga  = lembaga::get();
 

@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             CategoryProgramKegiatanSeeder::class,
             CategoryEprintSeeder::class,
             LembagaSeeder::class,
+            MataPelajaranSeeder::class,
         ]);
     }
 }

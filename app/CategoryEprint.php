@@ -10,8 +10,7 @@ class CategoryEprint extends Model
 
     public function eprints()
     {
-        return $this->belongsToMany(Eprint::class, 
-        "category_eprint_eprint", "categoryeprint_id", "eprint_id");
+        return $this->hasMany(Eprint::class);
 
     }
 }

@@ -57,7 +57,7 @@
                                         <img src="{{ asset("storage/$item->banner") }}" style="height: 100px !important;" width="100%" alt="">
                                     </div>
                                     <div class="form-group">
-                                        <label for="">Banner <span class="text-primary">* Di isi bila ingin mengganti gambar</span> </label> 
+                                        <label for="">Foto <span class="text-primary">* Di isi bila ingin mengganti gambar</span> </label> 
                                         <input type="file" class="form-control" name="banner">
                                     </div>
                     
@@ -138,7 +138,7 @@
                                         <textarea name="deskripsi" class="form-control" id="" cols="30" rows="10"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label for="">Banner</label>
+                                        <label for="">Foto</label>
                                         <input type="file" class="form-control" name="banner">
                                     </div>
                     

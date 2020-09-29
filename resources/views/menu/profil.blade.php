@@ -21,7 +21,7 @@
 
             @include('layouts.includes.alert-card', [
               "url" => url("/admin/profil/banner-fasilitas"),
-              "name" => "Banner Fasilitas ",
+              "name" => "Foto Fasilitas ",
             ])
 
             @include('layouts.includes.alert-card', [

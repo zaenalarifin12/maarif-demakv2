@@ -17,6 +17,7 @@ class CreateBannerHomesTable extends Migration
             $table->id();
             $table->string("gambar");
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

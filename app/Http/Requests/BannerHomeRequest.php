@@ -24,7 +24,7 @@ class BannerHomeRequest extends FormRequest
     public function rules()
     {
         return [
-            'gambar' => 'required|mimes:jpeg,png|max:10240',
+            'gambar' => 'required|mimes:jpeg,png|max:60000',
         ];
     }
 }

@@ -1,46 +1,74 @@
 @extends('fe.layouts.master')
 
 @section('content')
-<div class="px-10 py-4 flex justify-end bg-gray-300">
-    <p class="mx-auto">
-        <a href="index.html"><strong>Home</strong></a>
-        / <strong>profil</strong>
-        / jajaran</p>
-</div>
+<section id="sp-body">
+    <div class="container">
+      <div class="row">
+        <div id="sp-component" class="col-sm-12 col-md-12">
+          <div class="sp-column ">
+            <div id="system-message-container">
+            </div>
+            <article class="item item-page" itemscope itemtype="http://schema.org/Article">
+              <meta itemprop="inLanguage" content="en-GB" />
+              <div class="page-header">
+                <h1> {{ $category->nama }} </h1>
+              </div>
 
-<div class="px-10 py-10 bg-gray-bg ">
-    {{-- <div class="flex py-5 justify-center">
-        <h1 class="custom-heading capitalize"> {{ $category->nama }}</h1>
-    </div> --}}
+
+              <div class="entry-image full-image"> <img
+                  src="{{ asset("storage/$article->banner") }}" alt="" itemprop="image" /> </div>
+
+              <div class="entry-header has-post-format">
+                <span class="post-format"><i style="margin-right:-6px;" class="fa fa-pencil-square-o"></i></span>
+                <h2 itemprop="name">
+                  {{ $article->judul }} <div class="divider"></div>
+                </h2>
+
+                <dl class="article-info">
 
 
-    
-    <!-- berita -->
-    <div class="px-10 py-10">
-        <div class="flex">
-            <h2 class="w-auto custom-heading text-left pl-0 capitalize"> {{ $category->nama }} terbaru</h2>
-        </div>
+                  <dt class="article-info-term"></dt>
 
-        <div class="flex flex-col lg:flex-row flex-wrap justify-around py-3">
-            <div class="pr-3 py-2 w-full break-all">
-                    <img src="{{ asset("storage/$article->banner") }}" class="object-cover h-64 w-auto" alt="" srcset="">
-                    <h1 class="custom-text-title capitalize text-3xl font-hairline">
-                        <a href="" class="border-b-2 border-green-nu">
-                            {{ $article->judul }}
-                        </a>
-                    </h1>
-                    <p class="custom-text-date">{{ $article->created_at }}</p>
-                    <p>
-                        {!! $article->deskripsi !!}
-                    </p>
+
+
+                  <dd class="published">
+                    <i class="fa fa-calendar-o"></i>
+                    <time datetime="2020-06-30T11:15:48+07:00" itemprop="datePublished" data-toggle="tooltip"
+                      title="Published Date">
+                      {{ $article->created_at}} </time>
+                  </dd>
+
+                </dl>
+              </div>
+
+
+              <div itemprop="articleBody">
+                <p> {!! $article->deskripsi !!}</p>
             </div>
 
-        </div>
 
-        <div class="my-3">
-            {{-- {{ $article->links() }} --}}
+
+
+              {{-- <nav role="pagination">
+                <ul class="cd-pagination no-space animated-buttons custom-icons">
+                  <li class="button btn-previous">
+                    <a href="3034-kui-umk-siapkan-dua-agenda-virtual-internasional.html" rel="prev"><i>Prev</i></a>
+                  </li>
+
+                  <li class="button btn-next">
+                    <a href="3032-pandemi-50-mahasiswa-umk-dapat-beasiswa-bi.html" rel="next"><i>Next</i></a>
+                  </li>
+                </ul>
+              </nav> --}}
+
+
+
+
+
+            </article>
+          </div>
         </div>
+      </div>
     </div>
-
-</div>
+  </section>
 @endsection

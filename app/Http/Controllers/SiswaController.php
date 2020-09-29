@@ -2,23 +2,71 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
-use App\User;
+use App\Siswa;
+
 
 class SiswaController extends Controller
 {
     public function index()
     {
-        $user = User::isSiswa()->get();
+        $siswa = Siswa::get();
         
-        return view("siswa.index", compact("user"));
+        return view("siswa.index", compact("siswa"));
     }
 
-    public function approve(Request $request)
+    public function store(Request $request)
     {
-        User::isSiswa()->where("status", 0)->update(["status" => 1]);
+        $request->validate([
+            "nama"          => "required",
+            "no_induk"      => 'required',
+            "asal_sekolah"  => "required",
+            "email"         => "required|string|email",
+            "password"     =>  "required|string|min:8"
+        ]);
 
-        return redirect("/admin/siswa")->withSuccess("semua siswa berhasil diaktifkan");
+        Siswa::create([
+            "nama"          => $request->nama,
+            "no_induk"      => $request->no_induk,
+            "asal_sekolah"  => $request->asal_sekolah,
+            "email"         => $request->email,
+            "password"      => Hash::make($request->password)
+        ]);
+
+    return redirect("/siswa")->withSuccess("akun berhasil dibuat");
+    }
+
+    public function destroy($no_induk)
+    {
+        $siswa = Siswa::findOrFail($no_induk);
+        $siswa->delete();
+
+        return redirect("/siswa")->withSuccess("siswa berhasil dihapus");
+    }
+
+    public function approve_all(Request $request)
+    {
+        Siswa::where("status", 0)->update(["status" => 1]);
+
+        return redirect("/siswa")->withSuccess("semua siswa berhasil diaktifkan");
+    }
+
+    // setujui individu
+    public function approve($no_induk)
+    {
+        $siswa = Siswa::findOrFail($no_induk);
+        $siswa->update(["status" => 1]);
+
+        return redirect("/siswa")->withSuccess("siswa dengan no induk $no_induk berhasil diaktifkan");
+    }
+
+    public function disapprove($no_induk)
+    {
+        $siswa = Siswa::findOrFail($no_induk);
+        $siswa->update(["status" => 0]);
+
+        return redirect("/siswa")->withSuccess("siswa dengan no induk $no_induk berhasil dinonaktifkan");
     }
 
     //TODO NONAKTIFKAN PER INDIVIDU / PILIH

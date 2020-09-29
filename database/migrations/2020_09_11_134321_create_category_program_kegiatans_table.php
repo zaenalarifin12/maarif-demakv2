@@ -14,9 +14,10 @@ class CreateCategoryProgramKegiatansTable extends Migration
     public function up()
     {
         Schema::create('category_program_kegiatans', function (Blueprint $table) {
-            $table->id();
-            $table->string("nama");
-            $table->timestamps();
+        $table->bigInteger("id");
+        $table->string("nama");
+        $table->string("slug");
+        $table->timestamps();
         });
     }
 

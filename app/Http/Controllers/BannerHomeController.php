@@ -32,7 +32,7 @@ class BannerHomeController extends Controller
 
         BannerHome::create(["gambar" => $nama]);
 
-        return redirect("/admin/home/banner")->withSuccess("banner berhasil diupload");
+        return redirect("/admin/home/banner")->withSuccess("foto berhasil diupload");
     }
 
     public function destroy($id)
@@ -43,6 +43,6 @@ class BannerHomeController extends Controller
         
         $banner->delete();
 
-        return redirect("/admin/home/banner")->withSuccess("banner berhasil dihapus");
+        return redirect("/admin/home/banner")->withSuccess("foto berhasil dihapus");
     }
 }

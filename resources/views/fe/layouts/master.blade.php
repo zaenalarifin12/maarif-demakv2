@@ -1,648 +1,416 @@
 <!DOCTYPE html>
-<html lang="en">
+<html prefix="og: http://ogp.me/ns#" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" lang="en-gb" dir="ltr">
+
+<!-- Mirrored from umk.ac.id/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 25 Sep 2020 21:28:39 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title')</title>
-    <link rel="stylesheet" href="{{ asset("fe/dist/main.css")}}">
-    <link rel="stylesheet" href="{{ asset("fe/dist/owl.carousel.min.css")}}">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link type="text/css" rel="stylesheet" href="{{ asset("fe/dist/lightslider.css")}}" />                  
+	<!-- Start custom script Google Tag Manager
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W5GHDR7');</script>
+ End Google Tag Manager -->
+
+	<base />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Universitas Muria Kudus
+UMK
+Kudus
+Muria Kudus
+Web Property ID UA-96589258-1
+Code Version/Syntax Universal" />
+	<meta name="rights" content="Copyright © 2009 - 2020 Universitas Muria Kudus. All rights reserved." />
+	<meta name="description"
+		content="Menjadi Universitas Kebudayaan (Indigenous University) yang menghasilkan lulusan unggul, berbudi luhur, berkepribadian luhur, berilmu, berteknologi dan seni." />
+	<meta name="generator" content="Joomla! - Open Source Content Management" />
+	<title>Maarif Demak | HOME</title>
+	<link href="images/logo.png" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+	<link href="favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+	<link href="{{ asset("assetfile/component/search/indexebeb.html?id=1&amp;Itemid=1865&amp;format=opensearch")}}" rel="search"
+		title="Search Universitas Muria Kudus" type="application/opensearchdescription+xml" />
+	<link href="{{ asset("assetfile/media/k2/assets/css/k2.fonts91f5.css?v2.7.1")}}" rel="stylesheet" type="text/css" />
+	<link href="{{ asset("assetfile/components/com_k2/css/k291f5.css?v2.7.1")}}" rel="stylesheet" type="text/css" />
+	<link
+		href="http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,regular,italic,600,600italic,700,700italic,800,800italic&amp;subset=latin,greek-ext"
+		rel="stylesheet" type="text/css" />
+	<link href="{{ asset("assetfile/cache/com_templates/templates/flex/7b84d00e7bf910f8673b4c6374ea5c2c.css")}}" rel="stylesheet"
+		type="text/css" />
+	<style type="text/css">
+		.slick-carousel-652 .slick-slide {
+			margin: 0 0px;
+		}
+
+		.slick-carousel-652 .slick-list {
+			margin: 0 auto;
+		}
+
+		.slick-carousel-652 .slick-prev,
+		.slick-carousel-652 .slick-next {
+			margin-top: -20px;
+		}
+
+		.slick-carousel-652 .slick-prev i.pe,
+		.slick-carousel-652 .slick-next i.pe {
+			font-size: 44px;
+			color:
+		}
+
+		@media screen and (max-width: 768px) {
+			.img-wrapper a {
+				font-size: 150%;
+				line-height: 1.5;
+			}
+		}
+
+		@media screen and (min-width: 992px) and (max-width: 1199px) {
+			.columns-4 {
+				width: 33.3333%;
+			}
+		}
+
+		@media screen and (min-width: 768px) and (max-width: 991px) {
+			.columns-4 {
+				width: 50%
+			}
+		}
+
+		.slick-carousel-620 .slick-slide {
+			margin: 0 10px;
+		}
+
+		.slick-carousel-620 .slick-list {
+			margin: 0 -10px;
+		}
+
+		.slick-carousel-620 .slick-prev,
+		.slick-carousel-620 .slick-next {
+			margin-top: -20px;
+		}
+
+		.slick-carousel-620 .slick-prev i.pe,
+		.slick-carousel-620 .slick-next i.pe {
+			font-size: 44px;
+			color:
+		}
+
+		body {
+			font-family: Open Sans, sans-serif;
+			font-weight: 300;
+		}
+
+		h1 {
+			font-family: Open Sans, sans-serif;
+			font-weight: 800;
+		}
+
+		h2 {
+			font-family: Open Sans, sans-serif;
+			font-weight: 300;
+		}
+
+		h3 {
+			font-family: Open Sans, sans-serif;
+			font-weight: normal;
+		}
+
+		h4 {
+			font-family: Open Sans, sans-serif;
+			font-weight: normal;
+		}
+
+		h5 {
+			font-family: Open Sans, sans-serif;
+			font-weight: 600;
+		}
+
+		h6 {
+			font-family: Open Sans, sans-serif;
+			font-weight: 600;
+		}
+
+		.sp-megamenu-parent {
+			font-family: Open Sans, sans-serif;
+			font-size: 15px;
+			font-weight: 600;
+		}
+
+		#sp-top-menu {
+			background-color: #fbc800;
+			color: #030000;
+			margin: 1px 0px 1px 0px;
+		}
+
+		#sp-top-menu a {
+			color: #030000;
+		}
+
+		#sp-top-menu a:hover {
+			color: #030000;
+		}
+
+		#sp-header {
+			background-color: #0057a6;
+			color: #f0f0f0;
+		}
+
+		#sp-header a {
+			color: #e0e0e0;
+		}
+
+		#sp-header a:hover {
+			color: #ffffff;
+		}
+
+		#sp-footer-copyright a {
+			color: #2f05ff;
+		}
+
+		#goog-gt-tt {
+			display: none !important;
+		}
+
+		.goog-te-banner-frame {
+			display: none !important;
+		}
+
+		.goog-te-menu-value:hover {
+			text-decoration: none !important;
+		}
+
+		body {
+			top: 0 !important;
+		}
+
+		#google_translate_element2 {
+			display: none !important;
+		}
+
+		a.flag {
+			text-decoration: none;
+		}
+
+		a.flag img {
+			vertical-align: middle;
+			padding: 0;
+			margin: 0;
+			border: 0;
+			display: inline;
+			height: 24px;
+			opacity: 0.8;
+		}
+
+		a.flag:hover img {
+			opacity: 1;
+		}
+
+		a.flag span {
+			margin-right: 5px;
+			font-size: 15px;
+			vertical-align: middle;
+		}
+    </style>
+    
+    {{-- mystyle --}}
+
+    <style>
+        #sp-top-menu{
+            background-color: #28df99 !important;
+        }
+        #sp-header{
+            background-color: #14704d !important;
+        }
+        .sppb-btn-info{
+            background-color: #14704d !important;
+        }
+        .sppb-addon-title, .entry-title{
+            color: #14704d !important;
+        }
+
+        @media screen and (min-width: 800px) {
+            .my-center{
+                width: 20% !important;
+            }
+        }
+
+    </style>
+	<script src="{{ asset("assetfile/media/k2/assets/js/k2.frontende94a.js?v2.7.1&amp;sitepath=/")}}" type="text/javascript"></script>
+	<script src="{{ asset("assetfile/cache/com_templates/templates/flex/28f32b7ad6b12bd0a80f47e8b9962d2e.js")}}" type="text/javascript">
+	</script>
+	<script type="text/javascript">
+		jQuery(function ($) {
+			jQuery(window).load(function () {
+				var $grid = jQuery("#grid-649"),
+					$sizer = $grid.find(".shuffle_sizer");
+				$grid.shuffle({
+					itemSelector: ".shuffle-item",
+					gutterWidth: 0,
+					columnWidth: 200,
+					speed: 700,
+					sequentialFadeDelay: 150,
+					easing: 'cubic-bezier(0.635, 0.010, 0.355, 1.000)',
+					sizer: $sizer
+				});
+			});
+		});
+
+		jQuery(function ($) {
+			var $slick_carousel = $(".slick-carousel-652");
+			jQuery(document).ready(function () {
+
+				$slick_carousel.slick({
+
+					lazyLoad: 'ondemand',
+					slidesToShow: 1,
+					slidesToScroll: 1,
+					nextArrow: '<span style="font-size:44px;" class="slick-next"><i style="font-size:44px;" class="pe pe-7s-angle-right"></i></span>',
+					prevArrow: '<span style="font-size:44px;" class="slick-prev"><i style="font-size:44px;" class="pe pe-7s-angle-left"></i></span>',
+
+					autoplay: true,
+					autoplaySpeed: 5000,
+					fade: true,
+					speed: 500,
+
+
+					adaptiveHeight: true,
+					cssEase: 'cubic-bezier(0.635, 0.010, 0.355, 1.000)',
+					responsive: [{
+							breakpoint: 992,
+							settings: {
+								slidesToShow: 1,
+								slidesToScroll: 1
+							}
+						},
+						{
+							breakpoint: 768,
+							settings: {
+								slidesToShow: 1,
+								slidesToScroll: 1
+							}
+						},
+						{
+							breakpoint: 480,
+							settings: {
+								slidesToShow: 1,
+								slidesToScroll: 1
+							}
+						}
+					]
+				});
+			});
+		});
+		jQuery(function ($) {
+			var $slick_carousel = $(".slick-carousel-620");
+			jQuery(document).ready(function () {
+
+				$slick_carousel.slick({
+
+					lazyLoad: 'ondemand',
+					slidesToShow: 5,
+					slidesToScroll: 1,
+					nextArrow: '<span style="font-size:44px;" class="slick-next"><i style="font-size:44px;" class="pe pe-7s-angle-right"></i></span>',
+					prevArrow: '<span style="font-size:44px;" class="slick-prev"><i style="font-size:44px;" class="pe pe-7s-angle-left"></i></span>',
+
+					autoplay: true,
+					autoplaySpeed: 5000,
+
+					speed: 500,
+					arrows: false,
+
+
+					cssEase: 'cubic-bezier(0.635, 0.010, 0.355, 1.000)',
+					responsive: [{
+							breakpoint: 992,
+							settings: {
+								slidesToShow: 3,
+								slidesToScroll: 3
+							}
+						},
+						{
+							breakpoint: 768,
+							settings: {
+								slidesToShow: 2,
+								slidesToScroll: 2
+							}
+						},
+						{
+							breakpoint: 480,
+							settings: {
+								slidesToShow: 1,
+								slidesToScroll: 1
+							}
+						}
+					]
+				});
+			});
+		});
+	</script>
+	<meta content="HOME" property="og:title" />
+	<meta content="website" property="og:type" />
+	<meta content="https://umk.ac.id/" property="og:url" />
+
+	
+
+
+	<script>
+		(function (i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r;
+			i[r] = i[r] || function () {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date();
+			a = s.createElement(o),
+				m = s.getElementsByTagName(o)[0];
+			a.async = 1;
+			a.src = g;
+			m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', 'http://www.google-analytics.com/analytics.js', 'ga');
+
+		ga('create', 'UA-96589258-1', 'umk.ac.id');
+		ga('send', 'pageview');
+	</script>
+	<!-- Universal Google Analytics Plugin by PB Web Development -->
 
 
 </head>
-<style>
-    .dropdown-menu[data-show] {
-        display: block;
-    }
-</style>
 
-<body class="font-sans">
+<!-- START custom script for google analytic -->
+<script>
+	(function (i, s, o, g, r, a, m) {
+		i
 
-    <div class="relative">
+			['GoogleAnalyticsObject'] = r;
+		i[r] = i[r] ||
 
-    <!-- up header -->
-    <div class="flex flex-col lg:flex-row px-16 justify-around bg-green-custom p-2 text-white">
-        <div class="w-full lg:w-1/4 mb-4 lg:mb-0 flex justify-content-start">
-            <a class="mx-2" href="">
-                <img src="{{ asset("fe/asset/facebook.svg") }}" alt="">
-            </a>
-            <a class="mx-2" href="">
-                <img src="{{ asset("fe/asset/instagram.svg") }}" alt="">
-            </a>
-            <a class="mx-2" href="">
-                <img src="{{ asset("fe/asset/twitter.svg") }}" alt="">
-            </a>
-            <a class="mx-2" href="">
-                <img src="{{ asset("fe/asset/youtube.svg") }}" alt="">
-            </a>
-        </div>
+			function () {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i
 
-        <div class="w-full lg:w-2/4">
-            <ul class="flex justify-around">
-                <li class="text-xs font-extrabold">Hotline 089123123123</li>
-                <li class="text-xs font-extrabold">Senin - sabtu 08.00 - 15.00</li>
-                <li class="text-xs font-extrabold">maarif@gmail.com</li>
-            </ul>
-        </div>
+		[r].l = 1 * new Date();
+		a = s.createElement(o),
+			m = s.getElementsByTagName(o)
 
-    </div>
+		[0];
+		a.async = 1;
+		a.src = g;
+		m.parentNode.insertBefo
 
-    <!-- header -->
-    <div class="flex px-4 lg:px-16 z-10 justify-around bg-green-nu py-4 text-white">
-        <div class="w-1/4">
-            <span>Logo</span>
-        </div>
+		re(a, m)
+	})
 
-        <div class="w-3/4">
+	(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-            <div class="flex hidden z-10 w-1/2 h-full overflow-y-scroll top-0 right-0 inset-y-0 bg-white">
-                <div class="pt-5 pl-5">
-                    <ul class="">
-                        <a href="" class="text-green-nu font-bold uppercase mt-2">Label 1</a>
-                        <ul class="pl-5 mb-2">
-                            <li class="text-green-nu font-light"><a href=""> submenu 1</a></li>
-                            <li class="text-green-nu font-light border-b-2 border-green-nu">submenu 1</li>
-                            <li class="text-green-nu font-light border-b-2 border-green-nu">submenu 1</li>
-                                <ul class="pl-5 mb-2">
-                                    <li class="text-green-nu font-light border-b-2 border-green-nu"><a href=""> submenu 1</a></li>
-                                    <li class="text-green-nu font-light border-b-2 border-green-nu">submenu 1</li>
-                                    <li class="text-green-nu font-light border-b-2 border-green-nu">submenu 1</li>
-                                </ul>
-                        </ul>
-                        <a href="" class="text-green-nu font-bold uppercase mt-2">Label 1</a>
-                        <ul class="pl-5 mb-2">
-                            <li class="text-green-nu font-light border-b-2 border-green-nu"><a href=""> submenu 1</a></li>
-                            <li class="text-green-nu font-light border-b-2 border-green-nu">submenu 1</li>
-                            <li class="text-green-nu font-light border-b-2 border-green-nu">submenu 1</li>
-                        </ul>
-                        <a href="" class="text-green-nu font-bold uppercase mt-2">Label 1</a>
-                        <ul class="pl-5 mb-2">
-                            <li class="text-green-nu font-light border-b-2 border-green-nu"><a href=""> submenu 1</a></li>
-                            <li class="text-green-nu font-light border-b-2 border-green-nu">submenu 1</li>
-                            <li class="text-green-nu font-light border-b-2 border-green-nu">submenu 1</li>
-                        </ul>
-                        <a href="" class="text-green-nu font-bold uppercase mt-2">Label 1</a>
-                        <ul class="pl-5 mb-2">
-                            <li class="text-green-nu font-light border-b-2 border-green-nu"><a href=""> submenu 1</a></li>
-                            <li class="text-green-nu font-light border-b-2 border-green-nu">submenu 1</li>
-                            <li class="text-green-nu font-light border-b-2 border-green-nu">submenu 1</li>
-                        </ul>
-                        <a href="" class="text-green-nu font-bold uppercase mt-2">Label 1</a>
-                        <ul class="pl-5 mb-2">
-                            <li class="text-green-nu font-light border-b-2 border-green-nu"><a href=""> submenu 1</a></li>
-                            <li class="text-green-nu font-light border-b-2 border-green-nu">submenu 1</li>
-                            <li class="text-green-nu font-light border-b-2 border-green-nu">submenu 1</li>
-                        </ul>
-                        <a href="" class="text-green-nu font-bold uppercase mt-2">Label 1</a>
-                        <ul class="pl-5 mb-2">
-                            <li class="text-green-nu font-light border-b-2 border-green-nu"><a href=""> submenu 1</a></li>
-                            <li class="text-green-nu font-light border-b-2 border-green-nu">submenu 1</li>
-                            <li class="text-green-nu font-light border-b-2 border-green-nu">submenu 1</li>
-                        </ul>
+	ga('create', 'UA-96589258-1', 'auto');
+	ga('send', 'pageview');
+</script>
+<!-- END custom script for google analytic -->
 
-                        <a href="" class="text-green-nu font-bold uppercase mt-2">Label 1</a>
-                        <ul class="pl-5 mb-2">
-                            <li class="text-green-nu font-light border-b-2 border-green-nu"><a href=""> submenu 1</a></li>
-                            <li class="text-green-nu font-light border-b-2 border-green-nu">submenu 1</li>
-                            <li class="text-green-nu font-light border-b-2 border-green-nu">submenu 1</li>
-                        </ul>
-                        <a href="" class="text-green-nu font-bold uppercase mt-2">Label 1</a>
-                        <ul class="pl-5 mb-2">
-                            <li class="text-green-nu font-light border-b-2 border-green-nu"><a href=""> submenu 1</a></li>
-                            <li class="text-green-nu font-light border-b-2 border-green-nu">submenu 1</li>
-                            <li class="text-green-nu font-light border-b-2 border-green-nu">submenu 1</li>
-                        </ul>
-                        <a href="" class="text-green-nu font-bold uppercase mt-2">Label 1</a>
-                        <ul class="pl-5 mb-2">
-                            <li class="text-green-nu font-light border-b-2 border-green-nu"><a href=""> submenu 1</a></li>
-                            <li class="text-green-nu font-light border-b-2 border-green-nu">submenu 1</li>
-                            <li class="text-green-nu font-light border-b-2 border-green-nu">submenu 1</li>
-                        </ul>
-                        <a href="" class="text-green-nu font-bold uppercase mt-2">Label 1</a>
-                        <ul class="pl-5 mb-2">
-                            <li class="text-green-nu font-light border-b-2 border-green-nu"><a href=""> submenu 1</a></li>
-                            <li class="text-green-nu font-light border-b-2 border-green-nu">submenu 1</li>
-                            <li class="text-green-nu font-light border-b-2 border-green-nu">submenu 1</li>
-                        </ul>
-                        <a href="" class="text-green-nu font-bold uppercase mt-2">Label 1</a>
-                        <ul class="pl-5 mb-2">
-                            <li class="text-green-nu font-light border-b-2 border-green-nu"><a href=""> submenu 1</a></li>
-                            <li class="text-green-nu font-light border-b-2 border-green-nu">submenu 1</li>
-                            <li class="text-green-nu font-light border-b-2 border-green-nu">submenu 1</li>
-                        </ul>
-                        <a href="" class="text-green-nu font-bold uppercase mt-2">Label 1</a>
-                        <ul class="pl-5 mb-2">
-                            <li class="text-green-nu font-light border-b-2 border-green-nu"><a href=""> submenu 1</a></li>
-                            <li class="text-green-nu font-light border-b-2 border-green-nu">submenu 1</li>
-                            <li class="text-green-nu font-light border-b-2 border-green-nu">submenu 1</li>
-                        </ul>
-                        <a href="" class="text-green-nu font-bold uppercase mt-2">Label 1</a>
-                        <ul class="pl-5 mb-2">
-                            <li class="text-green-nu font-light border-b-2 border-green-nu"><a href=""> submenu 1</a></li>
-                            <li class="text-green-nu font-light border-b-2 border-green-nu">submenu 1</li>
-                            <li class="text-green-nu font-light border-b-2 border-green-nu">submenu 1</li>
-                        </ul>
-                        <a href="" class="text-green-nu font-bold uppercase mt-2">Label 1</a>
-                        <ul class="pl-5 mb-2">
-                            <li class="text-green-nu font-light border-b-2 border-green-nu"><a href=""> submenu 1</a></li>
-                            <li class="text-green-nu font-light border-b-2 border-green-nu">submenu 1</li>
-                            <li class="text-green-nu font-light border-b-2 border-green-nu">submenu 1</li>
-                        </ul>
-                        <a href="" class="text-green-nu font-bold uppercase mt-2">Label 1</a>
-                        <ul class="pl-5 mb-2">
-                            <li class="text-green-nu font-light border-b-2 border-green-nu"><a href=""> submenu 1</a></li>
-                            <li class="text-green-nu font-light border-b-2 border-green-nu">submenu 1</li>
-                            <li class="text-green-nu font-light border-b-2 border-green-nu">submenu 1</li>
-                        </ul>
-                       
-                        
-                        
-                    </ul>
-                </div>
-            </div>
+@include('fe.layouts.header')
 
-            <ul class="hidden lg:flex justify-start pl-12">
-                <li class=" mx-4 text-sm font-bold text-white cursor-pointer uppercase">
-                    <a href="{{ url("/") }}">
-                        Home
-                    </a>
-                </li>
-                <div class="mx-4  dropdown flex flex-col">
-                    <span class="text-sm font-bold text-white hover:text-gray-nu2 cursor-pointer uppercase">
-                        Profil
-                    </span>
+@yield('content')
 
-                    <div class="dropdown-menu hidden pt-5">
-                        <div class="rounded bg-green-nu opacity-90">
-                        <div class="dropdown-item p-2">
-                                <a href="#" class="dropdown-link flex px-4 py-3 text-white whitespace-no-wrap rounded 
-                                hover:text-green-nu hover:bg-gray-100 capitalize">Visi Misi</a>
-                            </div>
-                            <div class="dropdown-item p-2">
-                                <a href="{{ url("profil/jajaran") }}" class="dropdown-link flex px-4 py-3 text-white whitespace-no-wrap rounded 
-                                hover:text-green-nu hover:bg-gray-100 capitalize">Jajaran pengurus</a>
-                            </div>
-                            {{-- <div class="dropdown-item p-2">
-                                <a href="#" class="dropdown-link flex px-4 py-3 text-white whitespace-no-wrap rounded 
-                                hover:text-green-nu hover:bg-gray-100 capitalize">Visi Misi</a>
-                            </div> --}}
-                            <div class="dropdown-item p-2">
-                                <a href="{{ url("/profil/fasilitas") }}" class="dropdown-link flex px-4 py-3 text-white whitespace-no-wrap rounded 
-                                hover:text-green-nu hover:bg-gray-100 capitalize">Fasilitas</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="mx-4 dropdown flex flex-col">
-                    <span class="text-sm font-bold text-white hover:text-gray-nu2 cursor-pointer uppercase">
-                        Informasi
-                    </span>
-
-                    <div class="dropdown-menu hidden pt-5">
-                        <div class="rounded bg-green-nu bg-opacity-90 font-bold">
-                           @foreach ($category as $item)
-                            <div class="dropdown-item p-2">
-                                    <a href="{{ url("/informasi/$item->id") }}" class="dropdown-link flex px-2 py-3 text-white whitespace-no-wrap rounded 
-                                    hover:text-green-nu hover:bg-gray-100 capitalize">{{ $item->nama }}</a>
-                                </div>       
-                           @endforeach
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="mx-4 dropdown flex flex-col">
-                    <span class=" text-sm font-bold text-white hover:text-gray-nu2 cursor-pointer uppercase">
-                        Unit
-                    </span>
-
-                    <div class="dropdown-menu hidden pt-5 ">
-                        @foreach ($lembaga as $item)
-                            <div class=" bg-green-nu opacity-90 text-white py-1">
-                                <div class="dropdown-item">
-                                    <div class="dropdown2 relative inline-flex">
-                                        <span class="
-                                        dropdown-text inline-flex px-12 py-3 items-center hover:bg-white rounded mx-1 my-1
-                                        hover:text-green-nu
-                                        ">{{ $item->nama }}</span>
-                                        <div class="dropdown-menu hidden absolute ">
-                                            <div class="rounded bg-green-nu text-white ml-3">
-                                                @foreach ($item->mata_pelajarans as $mp)
-                                                <div class="dropdown-item p-2 rounded">
-                                                    <div class="dropdown2 relative inline-flex rounded">
-                                                        <span class="
-                                                        dropdown-text inline-flex px-8 py-3 items-center rounded hover:bg-white
-                                                        hover:text-green-nu
-                                                        ">{{ $mp->nama }}</span>
-                                               
-                                                    </div>
-                                                </div>
-                                                @endforeach
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-
-                </div>
-
-
-                <div class=" mx-4 dropdown flex flex-col">
-                    <span class="text-sm font-bold text-white hover:text-gray-nu2 cursor-pointer uppercase">
-                        Forum MGMP
-                    </span>
-
-                    <div class="dropdown-menu hidden pt-5 ">
-                        @foreach ($lembaga as $item)
-                            <div class=" bg-green-nu opacity-90 text-white py-1">
-                                <div class="dropdown-item">
-                                    <div class="dropdown2 relative inline-flex">
-                                        <span class="
-                                        dropdown-text inline-flex px-12 py-3 items-center hover:bg-white rounded mx-1 my-1
-                                        hover:text-green-nu
-                                        ">{{ $item->nama }}</span>
-                                        <div class="dropdown-menu hidden absolute ">
-                                            <div class="rounded bg-green-nu text-white ml-3">
-                                                @foreach ($item->mata_pelajarans as $mp)
-                                                <div class="dropdown-item p-2 rounded">
-                                                    <div class="dropdown2 relative inline-flex rounded">
-                                                        <span class="
-                                                        dropdown-text inline-flex px-8 py-3 items-center rounded hover:bg-white
-                                                        hover:text-green-nu
-                                                        ">{{ $mp->nama }}</span>
-                                                        <div class="dropdown-menu hidden absolute">
-                                                            <div class="rounded bg-green-nu text-white m-px ml-4">
-                                                                <div class="dropdown-item p-2">
-                                                                    <a href="{{ url("forum-mgmp/$item->id/$mp->id/galeri") }}" class="dropdown-link text-center flex px-8 py-3 whitespace-no-wrap rounded 
-                                                                    hover:text-green-nu hover:bg-white">Galeri</a>
-                                                                </div>
-                                                                <div class="dropdown-item p-2 rounded">
-                                                                    <div class="dropdown2 relative inline-flex rounded">
-                                                                        <span class="
-                                                                        dropdown-text inline-flex px-8 py-3 items-center rounded hover:bg-white
-                                                                        hover:text-green-nu
-                                                                        ">Product</span>
-                                                                        <div class="dropdown-menu hidden absolute pl-2">
-                                                                            <div
-                                                                                class="rounded bg-green-nu text-white m-px">
-                                                                                <div class="dropdown-item p-2">
-                                                                                    <a href="{{ url("forum-mgmp/$item->id/$mp->id/eprint") }}"
-                                                                                        class="dropdown-link text-center flex px-8 py-3 whitespace-no-wrap rounded 
-                                                                                    hover:text-green-nu hover:bg-white">E-Print</a>
-                                                                                </div>
-                                                                                <div class="dropdown-item p-2">
-                                                                                    <a href="{{  url("forum-mgmp/$item->id/$mp->id/digital") }}"
-                                                                                        class="dropdown-link text-center flex px-8 py-3 whitespace-no-wrap rounded 
-                                                                                    hover:text-green-nu hover:bg-white">Digital</a>
-                                                                                </div>
-                                                                            </div>
-
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="dropdown-item p-2">
-                                                                    <a href="{{ url("forum-mgmp/$item->id/$mp->id/event") }}" class="dropdown-link text-center flex px-8 py-3 whitespace-no-wrap rounded 
-                                                                    hover:text-green-nu hover:bg-white">Event</a>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                @endforeach
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="dropdown-item">
-                                    <div class="dropdown2 relative inline-flex">
-                                        <span class="
-                                        dropdown-text inline-flex px-12 py-3 items-center hover:bg-white rounded mx-1 my-1
-                                        hover:text-green-nu
-                                        ">{{ $item->nama }}</span>
-                                        <div class="dropdown-menu hidden absolute ">
-                                            <div class="rounded bg-green-nu text-white ml-3">
-                                                @foreach ($item->mata_pelajarans as $mp)
-                                                <div class="dropdown-item p-2 rounded">
-                                                    <div class="dropdown2 relative inline-flex rounded">
-                                                        <span class="
-                                                        dropdown-text inline-flex px-8 py-3 items-center rounded hover:bg-white
-                                                        hover:text-green-nu
-                                                        ">{{ $mp->nama }}</span>
-                                                        <div class="dropdown-menu hidden absolute">
-                                                            <div class="rounded bg-green-nu text-white m-px ml-4">
-                                                                <div class="dropdown-item p-2">
-                                                                    <a href="{{ url("forum-mgmp/$item->id/$mp->id/galeri") }}" class="dropdown-link text-center flex px-8 py-3 whitespace-no-wrap rounded 
-                                                                    hover:text-green-nu hover:bg-white">Galeri</a>
-                                                                </div>
-                                                                <div class="dropdown-item p-2 rounded">
-                                                                    <div class="dropdown2 relative inline-flex rounded">
-                                                                        <span class="
-                                                                        dropdown-text inline-flex px-8 py-3 items-center rounded hover:bg-white
-                                                                        hover:text-green-nu
-                                                                        ">Product</span>
-                                                                        <div class="dropdown-menu hidden absolute pl-2">
-                                                                            <div
-                                                                                class="rounded bg-green-nu text-white m-px">
-                                                                                <div class="dropdown-item p-2">
-                                                                                    <a href="{{ url("forum-mgmp/$item->id/$mp->id/eprint") }}"
-                                                                                        class="dropdown-link text-center flex px-8 py-3 whitespace-no-wrap rounded 
-                                                                                    hover:text-green-nu hover:bg-white">E-Print</a>
-                                                                                </div>
-                                                                                <div class="dropdown-item p-2">
-                                                                                    <a href="{{  url("forum-mgmp/$item->id/$mp->id/digital") }}"
-                                                                                        class="dropdown-link text-center flex px-8 py-3 whitespace-no-wrap rounded 
-                                                                                    hover:text-green-nu hover:bg-white">Digital</a>
-                                                                                </div>
-                                                                            </div>
-
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="dropdown-item p-2">
-                                                                    <a href="{{ url("forum-mgmp/$item->id/$mp->id/event") }}" class="dropdown-link text-center flex px-8 py-3 whitespace-no-wrap rounded 
-                                                                    hover:text-green-nu hover:bg-white">Event</a>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                @endforeach
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        @endforeach
-                    </div>
-
-                </div>
-
-
-                <div class="mx-4 dropdown flex flex-col">
-                    <span class=" text-sm font-bold text-white hover:text-gray-nu2 cursor-pointer uppercase">
-                        Publikasi
-                    </span>
-
-                    <div class="dropdown-menu hidden pt-5">
-                            <div class=" bg-green-nu opacity-90 text-white py-1 rounded">
-                                <div class="dropdown-item hover:bg-white rounded m-2">
-                                    <div class="dropdown2 relative inline-flex">
-                                        <span class="
-                                        dropdown-text inline-flex px-12 py-3 items-center mx-1 my-1
-                                        hover:text-green-nu
-                                        ">E-Print</span>
-                                    </div>
-                                </div>
-                                <div class="dropdown-item">
-                                    <div class="dropdown2 relative inline-flex">
-                                        <span class="
-                                        dropdown-text inline-flex px-12 py-3 items-center hover:bg-white rounded mx-1 my-1
-                                        hover:text-green-nu
-                                        ">Digital Library</span>
-                                    </div>
-                                </div>
-                                <div class="dropdown-item">
-                                    <div class="dropdown2 relative inline-flex">
-                                        <a href="{{ url("publikasi/karya-ilmiah") }}" class="
-                                        dropdown-text inline-flex px-12 py-3 items-center hover:bg-white rounded mx-1 my-1
-                                        hover:text-green-nu
-                                        ">
-                                 
-                                                Karya Ilmiah
-                                      
-                                    </a>
-                                    </div>
-                                </div>
-                            </div>
-                    </div>
-
-                </div>
-
-                <div class="mx-4  dropdown flex flex-col">
-                    <span class="text-sm font-bold text-white hover:text-gray-nu2 cursor-pointer uppercase">
-                        Lembaga
-                    </span>
-
-                    <div class="dropdown-menu hidden pt-5">
-                        <div class="rounded bg-green-nu bg-opacity-90 font-bold">
-                           @foreach ($lembaga as $item)
-                            <div class="dropdown-item p-2">
-                                    <a href="{{ url("/lembaga/$item->id") }}" class="dropdown-link flex px-10 py-3 text-white whitespace-no-wrap rounded 
-                                    hover:text-green-nu hover:bg-gray-100 uppercase">{{ $item->nama }}</a>
-                                </div>       
-                           @endforeach
-                        </div>
-                    </div>
-                </div>
-
-
-
-            </ul>
-        </div>
-    </div>
-
-    @yield('content')
-
-    @include('fe.layouts.footer')
-
-</div>
-
-
-
-    <script src="https://code.jquery.com/jquery-3.5.1.js"
-        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/umd/popper.min.js"></script>
-    <script src="{{ asset("fe/dist/owl.carousel.min.js")}}"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="{{ asset("fe/dist/lightslider.js")}}"></script>
-
-
-    <script>
-        $(document).ready(function () {
-            $(".dropdown").each(function (_, dropdown) {
-                const dropdownMenu = $(dropdown).find("> .dropdown-menu")[0];
-                let popperInstance = null;
-
-                function create() {
-                    popperInstance = Popper.createPopper(dropdown, dropdownMenu, {
-                        placement: "bottom-start",
-                        strategy: "absolute",
-                        modifiers: [{
-                            name: "flip",
-                            options: {
-                                fallbackPlacements: [
-                                    "top", "bottom", "left", "right"
-                                ]
-                            }
-                        }]
-                    })
-                }
-
-                function destroy() {
-                    if (popperInstance) {
-                        popperInstance.destroy();
-                        popperInstance = null;
-                    }
-                }
-
-                function show() {
-                    $(dropdownMenu).attr("data-show", "");
-                    create();
-                }
-
-                function hide() {
-                    $(dropdownMenu).removeAttr("data-show");
-                    destroy();
-                }
-
-                $(dropdown).on("mouseenter focus", show);
-                $(dropdown).on("mouseleave blur", hide)
-
-            })
-        });
-    </script>
-
-    <script>
-        $(document).ready(function () {
-            // mega menu
-            $(".dropdown2").each(function (_, dropdown) {
-                const dropdownMenu = $(dropdown).find("> .dropdown-menu")[0];
-                let popperInstance = null;
-
-                function create() {
-                    popperInstance = Popper.createPopper(dropdown, dropdownMenu, {
-                        placement: "right-start",
-                        strategy: "absolute",
-                        modifiers: [{
-                            name: "flip",
-                            options: {
-                                fallbackPlacements: [
-                                    "top", "bottom", "left", "right"
-                                ]
-                            }
-                        }]
-                    })
-                }
-
-                function destroy() {
-                    if (popperInstance) {
-                        popperInstance.destroy();
-                        popperInstance = null;
-                    }
-                }
-
-                function show() {
-                    $(dropdownMenu).attr("data-show", "");
-                    create();
-                }
-
-                function hide() {
-                    $(dropdownMenu).removeAttr("data-show");
-                    destroy();
-                }
-
-                $(dropdown).on("mouseenter focus", show);
-                $(dropdown).on("mouseleave blur", hide)
-
-            })
-            //end megamenu
-
-            // corousle
-            var owl = $('.kerja');
-
-            owl.owlCarousel({
-                items: 4,
-                loop: true,
-                margin: 10,
-                autoplay: true,
-                autoplayTimeout: 2000,
-                autoplayHoverPause: false
-            });
-        
-            $(".banner").owlCarousel({
-                items: 1,
-                loop: true,
-                margin: 10,
-                autoplay: true,
-                autoplayTimeout: 2000,
-                autoplayHoverPause: false,
-            });
-        
-
-        });
-    </script>
-
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        $("#lightSlider").lightSlider({
-            item: 1,
-            autoWidth: false,
-            slideMove: 1, // slidemove will be 1 if loop is true
-            slideMargin: 10,
-     
-            addClass: '',
-            mode: "slide",
-            useCSS: true,
-            cssEasing: 'ease', //'cubic-bezier(0.25, 0, 0.25, 1)',//
-            easing: 'linear', //'for jquery animation',////
-     
-            speed: 400, //ms'
-            auto: true,
-            loop: true,
-            slideEndAnimation: true,
-            pause: 2000,
-     
-            keyPress: false,
-            controls: true,
-            prevHtml: '',
-            nextHtml: '',
-     
-            rtl:false,
-            adaptiveHeight:false,
-     
-            vertical:false,
-            verticalHeight:500,
-            vThumbWidth:100,
-     
-            thumbItem:10,
-            pager: true,
-            gallery: false,
-            galleryMargin: 5,
-            thumbMargin: 5,
-            currentPagerPosition: 'middle',
-     
-            enableTouch:true,
-            enableDrag:true,
-            freeMove:true,
-            swipeThreshold: 40,
-     
-            responsive : [],
-     
-            onBeforeStart: function (el) {},
-            onSliderLoad: function (el) {},
-            onBeforeSlide: function (el) {},
-            onAfterSlide: function (el) {},
-            onBeforeNextSlide: function (el) {},
-            onBeforePrevSlide: function (el) {}
-        });
-    });
-    </script>
-</body>
-
-</html>
+@include('fe.layouts.footer')

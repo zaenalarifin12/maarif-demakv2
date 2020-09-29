@@ -20,7 +20,9 @@ class CreateEprintsTable extends Migration
             $table->text("deskripsi");
             $table->unsignedBigInteger("mata_pelajaran_id")->nullable();
             $table->unsignedBigInteger("category_program_kegiatan_id")->nullable();
+            $table->unsignedBigInteger("category_eprint_id");
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -1,62 +1,78 @@
 @extends('fe.layouts.master')
 
-
 @section('content')
-<div class="px-10 py-4 flex justify-end bg-gray-300">
-    <p class="mx-auto">
-        <a href="index.html"><strong>Home</strong></a>
-        / <strong>profil</strong>
-        / jajaran</p>
-</div>
+<section id="sp-body">
+    <div class="container">
+        <div class="row">
+            <div id="sp-component" class="col-sm-12 col-md-12">
+                <div class="sp-column ">
+                    <div id="system-message-container">
+                    </div>
+                    <div class="blog" itemscope itemtype="http://schema.org/Blog">
+                        <div class="page-header">
+                            <h1> E-Print {{ $lembaga->nama }} - {{ $mp->nama }} </h1>
+                        </div>
 
-<div class="px-10 py-10 bg-gray-bg ">
-    <div class="flex py-5 justify-center">
-        <h1 class="custom-heading capitalize">Sekolah {{ $lembaga->nama }} Mata Pelajaran {{ $mp->nama }}</h1>
-    </div>
+                        <div class="items-row row-0 row clearfix">
+                            @forelse ($eprint as $item)
+                            <div class="col-sm-12">
+                                <article class="item column-1" itemprop="blogPost" itemscope
+                                    itemtype="http://schema.org/BlogPosting">
 
-    <div class="flex justify-center">
-        <h1 class=" custom-heading">E-Print</h1>
-    </div>
+                                    <div class="entry-header has-post-format">
 
-    <div class="px-10 py-10">
-        <div class="">
-            <ul class="flex">
-                @forelse ($ce as $item)
-                    <li class="px-2 py-1 mx-2 bg-green-nu text-white font-bold rounded-lg">
-                        <a href="http://">
-                            {{$item->nama }}
-                        </a>
-                    </li>
-                @empty
-                    <li>Belum ada kategori Eprint</li>
-                @endforelse
-            </ul>
-        </div>
+                                        <h2 itemprop="name">
+                                            <a 
+                                            href="#"
+                                                itemprop="url">
+                                                {{ $item->judul }}</a>
+                                            <div class="divider"></div>
+                                        </h2>
 
-        @forelse ($eprint as $item)
-            <div class="my-10">
-                <h1 class="custom-text-title text-xl">{{ $item->judul }}</h1>
-                <p>
-                    <span class="custom-text-date"> {{ $item->created_at }}</span>
-                    @foreach ($item->category_eprints as $item2)
-                        <span class="px-2 py-1 mx-2 bg-green-nu text-white font-bold rounded-lg">{{$item2->nama}}</span>
-                    @endforeach
-                </p>
-                <div class="my-3">
-                    <a href="{{ asset("/storage/$item->banner") }}" target="_blank" class="p-2 bg-green-nu text-white">
-                        Download
-                    </a>
+
+                                        <dl class="article-info">
+
+
+                                            <dt class="article-info-term"></dt>
+
+                                            <dd class="published">
+                                                <i class="fa fa-calendar-o"></i>
+                                                <time datetime="2020-09-25T08:21:58+07:00"
+                                                    itemprop="datePublished" data-toggle="tooltip"
+                                                    title="Published Date">
+                                                    {{ $item->created_at}} </time>
+                                            </dd>
+                                            <p class="" style="color : #0089; font-weight: bold">{{ $item->category_eprint->nama }}</p>
+                                            <a href="{{ url("/files/$item->banner") }}" class="sppb-btn sppb-btn-info sppb-btn">Download</a>
+                                            <p>{!! $item->deskripsi !!}</p>
+
+                                        </dl>
+
+
+                                    </div>
+
+
+
+                                </article>
+                                <!-- end item -->
+                            </div>
+                            @empty
+                            <div class="col-sm-3">
+                                KOSONG
+                            </div>
+                                
+                            @endforelse
+                            
+                        </div>
+
+
+
+                        {{ $eprint->links() }}
+                       
+                    </div>
                 </div>
-                
-                <p class="py-2">
-                    {!! $item->deskripsi !!}
-                </p>
             </div>
-        @empty
-            <div class="text-center">
-                Belum Ada Eprint
-            </div>
-        @endforelse
+        </div>
     </div>
-</div>
+</section>
 @endsection

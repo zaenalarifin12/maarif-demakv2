@@ -31,13 +31,11 @@
                                 @else
                                 
                                     @foreach ($lembaga as $item)
-                                        @foreach (Auth::user()->mata_pelajarans as $item2)
-                                            @if ($item2->lembaga->id == $item->id)
-                                                <li>
-                                                    <a href="{{ url("admin/forum-mgmp/lembaga/$item->id/mata-pelajaran") }}" class="font-weight-bold text-info">{{$item->nama}}</a>
-                                                </li>
-                                            @endif
-                                        @endforeach
+                                        @if (Auth::user()->mata_pelajaran->lembaga->id == $item->id)
+                                            <li>
+                                                <a href="{{ url("admin/forum-mgmp/lembaga/$item->id/mata-pelajaran") }}" class="font-weight-bold text-info">{{$item->nama}}</a>
+                                            </li>
+                                        @endif
                                     @endforeach
                                 @endif
                                

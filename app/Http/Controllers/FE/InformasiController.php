@@ -31,9 +31,10 @@ class InformasiController extends Controller
          *  */        
         
         $category = Category::findOrFail($idc);
-        
+
         $article = Article::where("id", $id)->where("category_id", $idc)->firstOrFail();
-        
+
+        // FIXME NEXT AND PREV
         return view("fe.informasi.show", compact(["article", "category"]));
     }
 }

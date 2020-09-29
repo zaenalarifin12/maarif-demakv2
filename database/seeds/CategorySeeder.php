@@ -14,30 +14,39 @@ class CategorySeeder extends Seeder
     {
         /**
          * NOTE 
-         * FOR INFORMASI
+         * FOR ARTICLE
          */
         Category::insert([
             [
                 "id"    => 1,
-                "nama" => "berita",        
+                "nama"  => "Berita",        
+                "slug"  => "berita",        
                 "color" => "#07689f"
             ],
             [
                 "id"    => 2,
-                "nama" => "pengumuman",    
+                "nama"  => "Pengumuman",    
+                "slug"  => "pengumuman",        
                 "color" => "#00416d"
             ],
             [
                 "id"    => 3,
-                "nama" => "agenda",        
+                "nama"  => "Agenda",   
+                "slug"  => "agenda",             
                 "color" => "#e11d74"
             ],
-            // [p
             // [
-            //     "id"    => 4,
-            //     "nama" => "balai latihan kerja",
-            //     "color" => "#440047"
+                //     "id"    => 4,
+                //     "nama" => "balai latihan kerja",
+                //     "color" => "#440047"
             // ]
+            // NOTE tambahan
+            [
+                "id"    => 5,
+                "nama"  => "Beranda Pers",
+                "slug"  => "beranda-pers",        
+                "color" => "#440047"
+            ]
         ]);
     }
 }

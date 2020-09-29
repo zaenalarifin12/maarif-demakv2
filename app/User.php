@@ -5,10 +5,13 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Traits\Uuid;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use Uuid;
+
 
     /**
      * The attributes that are mass assignable.
@@ -72,8 +75,8 @@ class User extends Authenticatable
 
 
     // ============ relasi
-    public function mata_pelajarans()
+    public function mata_pelajaran()
     {
-        return $this->belongsToMany(MataPelajaran::class, "enroll", "mata_pelajaran_id" ,"user_id");
+        return $this->belongsTo(MataPelajaran::class);
     }
 }

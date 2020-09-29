@@ -22,8 +22,11 @@
                             <input type="text" class="form-control" name="nama">
                         </div>    
                         <div class="form-group">
-                            <label for="">Logo</label>
-                            <input type="file" class="form-control" name="gambar">
+                          <label for="">Logo <br><span class="text-primary"> ukuran maximum: 5 mb <br> jenis file: jpeg,png</span></label><br>
+                          <input id="imgInp"  type="file" name="gambar" accept="image/x-png,image/jpeg">
+                          @include('component.error', ["name" => "gambar"])
+                          <br><br>
+                          <img id="blah" width="50%" src="#" alt="" srcset="">
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-sm btn-primary">Tambah</button>

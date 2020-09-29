@@ -7,33 +7,60 @@ use Illuminate\Support\Facades\Route;
 Route::get("/", "FE\HomeController@index");
 
 //profil
-Route::get("/lembaga/{id}",                                 "FE\LembagaController@index");
-Route::get("/informasi/{id}",                               "FE\InformasiController@index");
-Route::get("/informasi/{id}/{id_a}",                        "FE\InformasiController@show");
-Route::get("/profil/jajaran",                       "FE\ProfilController@jajaran");
-Route::get("/profil/fasilitas",                     "FE\ProfilController@fasilitas");
+Route::get("/lembaga/{id}",             "FE\LembagaController@index");
+Route::get("/informasi/{id}",           "FE\InformasiController@index");
+Route::get("/informasi/{id}/{id_a}",    "FE\InformasiController@show");
+Route::get("/profil/jajaran",           "FE\ProfilController@jajaran");
+Route::get("/profil/fasilitas",         "FE\ProfilController@fasilitas");
+
+// Route::get("/forum-mgmp/{id_l}/{id_mp}/jajaran",     "FE\ForumMGMPController@galeri");
 Route::get("/forum-mgmp/{id_l}/{id_mp}/galeri",     "FE\ForumMGMPController@galeri");
 Route::get("/forum-mgmp/{id_l}/{id_mp}/eprint",     "FE\ForumMGMPController@eprint");
 Route::get("/forum-mgmp/{id_l}/{id_mp}/digital",    "FE\ForumMGMPController@digital");
 Route::get("/forum-mgmp/{id_l}/{id_mp}/event",      "FE\ForumMGMPController@event");
 
+Route::get("/publikasi/eprint",       "FE\PublikasiController@eprint");
+Route::get("/publikasi/digital",      "FE\PublikasiController@digital");
+Route::get("/publikasi/karya",        "FE\PublikasiController@karyaIlmiah");
+
+Route::get("/unit/{slug}/jajaran",        "FE\UnitController@jajaran");
+Route::get("/unit/{slug}/galeri",         "FE\UnitController@galeri");
+Route::get("/unit/{slug}/event",          "FE\UnitController@event");
+Route::get("/unit/{slug}/digital",        "FE\UnitController@digital");
+Route::get("/unit/{slug}/informasi",      "FE\UnitController@informasi");
+
 
 Route::get("/publikasi/karya-ilmiah",               "FE\PublikasiController@karyaIlmiah");
+
+
 
 Route::get("/not-active",     function(){
     return "akun anda belum aktif tunggu beberapa hari";
 });
 
-Route::group(["middleware" => ["auth"]], function(){
+Route::resource('/siswa',                "SiswaController")->only(["store"]);
+
+Route::group(["middleware" => ["customAuth"]], function(){
+
+    Route::get("/files/{file}",         "FileController@download"); // REVIEW 
+
+    Route::resource('/siswa',                   "SiswaController")->except(["store"]);
+    Route::post('/siswa/{no_induk}/approve',                "SiswaController@approve");
+    Route::post('/siswa/{no_induk}/disapprove',                "SiswaController@disapprove");
+    Route::post('/siswa/approve-all',                "SiswaController@approve_all");
+
     Route::group(["prefix"=>"admin"], function(){
 
-
-        Route::get('/enroll',     "EnrollController@index");
-        Route::post('/enroll',     "EnrollController@enroll");
-        // Route::get('/enroll',     "EnrollController@index");
-
-        Route::get('/siswa',                "SiswaController@index");
-        Route::post('/siswa',               "SiswaController@approve");
+        // admin mgmp
+        Route::get('/admin-mgmp',                    "AdminMgmpController@index");
+        Route::post('/admin-mgmp',                   "AdminMgmpController@store");
+        Route::delete('/admin-mgmp/{uuid}',           "AdminMgmpController@destroy");
+        //anggota
+        Route::get('/anggota-mgmp',                    "AnggotaController@index");
+        Route::post('/anggota-mgmp',                   "AnggotaController@store");
+        Route::delete('/anggota-mgmp/{uuid}',           "AnggotaController@destroy");
+        
+        // Route::post('/siswa',               "SiswaController@approve");
 
         Route::get('/', "MenuController@index");
     
@@ -47,7 +74,8 @@ Route::group(["middleware" => ["auth"]], function(){
             "create"
         ]);
     
-        Route::resource('/article',     "ArticleController");
+        Route::resource('/article',       "ArticleController");
+
     
         Route::group(["prefix"=>"home"], function(){
             Route::get('/',             "MenuController@home");
@@ -73,23 +101,28 @@ Route::group(["middleware" => ["auth"]], function(){
             Route::resource('mata-pelajaran.category.digital',   "DigitalController");
             Route::resource('mata-pelajaran.category.eprint',    "EprintController");
             Route::resource('mata-pelajaran.category.event',     "EventController");
+            Route::resource('mata-pelajaran.category.program',   "ProgramKegiatanController");
     
         });
     
         Route::group(["prefix"=>"unit" ], function(){
             Route::get('/',                                         "MenuController@unit");
     
-            Route::resource('{id}/category/{id_category}/galeri',   "GaleriController");
-            Route::resource('{id}/category/{id_category}/e-print',  "EprintController");
-            Route::resource('{id}/category/{id_category}/digital',  "DigitalController");
-            Route::resource('{id}/category/{id_category}/event',    "EventController");
+            
+            Route::resource('{id}/category/{id_category}/galeri',           "GaleriController");
+            Route::resource('{id}/category/{id_category}/eprint',           "EprintController");
+            Route::resource('{id}/category/{id_category}/digital',          "DigitalController");
+            Route::resource('{id}/category/{id_category}/event',            "EventController");
+            Route::resource('{id}/category/{id_category}/informasi',        "InformasiController");
+            Route::resource('{id}/category/{id_category}/program',          "ProgramKegiatanController");
+            
         });
     
         Route::group(["prefix"=>"publikasi" ], function(){
             Route::get('/',                                         "MenuController@publikasi");
     
-            Route::resource('{id}/category/{id_category}/digital',  "DigitalController");
-            Route::resource('{id}/category/{id_category}/event',    "EventController");
+            // Route::resource('{id}/category/{id_category}/e-print',  "EprintController");
+            // Route::resource('{id}/category/{id_category}/digital',  "DigitalController");
         });
     
         Route::resource('/kerja-sama',            "KerjaSamaController")->only([
@@ -104,6 +137,8 @@ Route::group(["middleware" => ["auth"]], function(){
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', function(){
+    return redirect("/admin");
+})->name('home');
 
 Route::post('ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');

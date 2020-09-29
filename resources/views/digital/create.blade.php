@@ -9,18 +9,21 @@
 @section('breadcump')
     <li class="breadcrumb-item"><a href="{{ url("admin") }}">Dashboard</a></li>
 
-    @include('component.breadcump', ["categoryProgramKegiatan" => $categoryProgramKegiatan])
     
-    @if ($mata_pelajaran != null)
-        <li class="breadcrumb-item active" aria-current="page">{{ ucfirst($mata_pelajaran->nama) }}</li>
-    @endif
-
-    @if ($mata_pelajaran != null)
-      <li class="breadcrumb-item"><a href="{{ url("admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/1/digital") }}">
-        Digital
-        </a>
-      </li>
-    @endif
+    @include('component.bc-program',
+      [
+        "category"        => $category,
+        "mata_pelajaran"  => $mata_pelajaran
+      ]
+    )
+    
+    @include('component.bc-program-title',
+      [
+        "category"        => $category,
+        "mata_pelajaran"  => $mata_pelajaran,
+        "name"            => "digital"
+      ]
+    )
     
     <li class="breadcrumb-item active" aria-current="page">Edit</li>
 @endsection
@@ -37,7 +40,7 @@
           @if ($mata_pelajaran != null)
               <form action="{{ url("admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/1/digital") }}" method="post" enctype="multipart/form-data">
           @else
-              <form action="{{ url("/admin/unit/0/category/$categoryProgramKegiatan->id/digital") }}" method="post" enctype="multipart/form-data">
+              <form action="{{ url("/admin/unit/0/category/$category->id/digital") }}" method="post" enctype="multipart/form-data">
           @endif
               <div class="form-group">
                 <label for="">Product Digital</label>

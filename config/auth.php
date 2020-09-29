@@ -41,6 +41,12 @@ return [
             'provider' => 'users',
         ],
 
+        'siswa' => [
+            'driver' => 'session',
+            'provider' => 'siswas',
+        ],
+
+
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -71,6 +77,10 @@ return [
             'model' => App\User::class,
         ],
 
+        'siswas' => [
+            'driver' => 'eloquent',
+            'model'  => App\Siswa::class,
+        ], 
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+   {{ $eprint->judul }}
+@endsection
+
 @section('heading')
    E-Print
 @endsection
@@ -11,13 +15,21 @@
 
 @section('breadcump')
     <li class="breadcrumb-item"><a href="{{ url("admin") }}">Dashboard</a></li>
-    <li class="breadcrumb-item"><a href="{{ url("admin/forum-mgmp/") }}">Forum MGMP</a></li>
-    <li class="breadcrumb-item"><a href="{{ url("admin/forum-mgmp/lembaga/".$mata_pelajaran->lembaga->id."/mata-pelajaran") }}">Lembaga {{ $mata_pelajaran->lembaga->nama }}</a></li>
-
-      <li class="breadcrumb-item active" aria-current="page">Product</li>
-      <li class="breadcrumb-item"><a href="{{ url("admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/$category->id/eprint") }}">E-Print</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">Tambah</li>
+    @include('component.bc-program',
+      [
+        "category"        => $category,
+        "mata_pelajaran"  => $mata_pelajaran
+      ]
+    )
+
+    @include('component.bc-program-title',
+      [
+        "category"        => $category,
+        "mata_pelajaran"  => $mata_pelajaran,
+        "name"            => "eprint"
+        ]
+      )
 
 @endsection
 
@@ -31,20 +43,18 @@
           <div class="container">
             <div class="col-12">
                 <div class="form-group">
-                  @foreach ($eprint->category_eprints as $item)
+                  
                     <span class="h4">
-                      <span class="badge badge-secondary">{{$item->nama}}</span>
+                      <span class="badge badge-secondary">{{$eprint->category_eprint->nama}}</span>
                     </span>  
-                  @endforeach
-                </div>
-                <div class="form-group d-flex justify-content-center">
-                    <img  height="300" src="{{ asset("/storage/$eprint->banner") }}" class="form-group " alt="" srcset="">
                 </div>
                   <div class="form-group">
                     <p class="h3 text-primary font-weight-bold text-center text-justify">{{ ucfirst($eprint->judul) }}</p>
-                    
                   </div>
                   <div class="form-group">
+                    <p>Eprint : <a class="btn btn-primary" href="{{ asset("/storage/$eprint->banner") }}">
+                      Download
+                    </a></p>
                       <p>{!! $eprint->deskripsi !!}</p>
                   </div>
             </div>

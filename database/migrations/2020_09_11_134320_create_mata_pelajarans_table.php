@@ -19,6 +19,7 @@ class CreateMataPelajaransTable extends Migration
 
             $table->unsignedBigInteger("lembaga_id");
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

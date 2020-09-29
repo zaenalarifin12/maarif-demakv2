@@ -4,10 +4,7 @@
 
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-          <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
-          </div>
-          <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+          <div class="sidebar-brand-text mx-3">{{ Auth::user()->name }}</div>
         </a>
   
         <!-- Divider -->
@@ -51,7 +48,8 @@
             </div>
           </div>
         </li>
-  
+        
+
         @if (Auth::user()->role == 4)
   
           <li class="nav-item">
@@ -61,9 +59,10 @@
             </a>
             <div id="collapseUtilities" class="collapse show" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{ url("/admin/users") }}">User</a>
-                <a class="collapse-item" href="{{ url("/admin/enroll") }}">Enroll</a>
-                <a class="collapse-item" href="{{ url("/admin/siswa") }}">Siswa</a>
+                <a class="collapse-item" href="{{ url("/admin/admin-mgmp") }}">Admin  MGMP</a>
+                <a class="collapse-item" href="{{ url("/admin/anggota-mgmp") }}">Anggota MGMP</a>
+                {{-- <a class="collapse-item" href="{{ url("/admin/enroll") }}">Enroll</a> --}}
+                <a class="collapse-item" href="{{ url("/siswa") }}">Siswa</a>
                 <a class="collapse-item" href="{{ url("/admin/article") }}">Artikel</a>
                 <a class="collapse-item" href="{{ url("/admin/category-eprint") }}">Kategori Eprint</a>
               </div>
