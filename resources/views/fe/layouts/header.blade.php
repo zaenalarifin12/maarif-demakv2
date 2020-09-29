@@ -107,75 +107,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 										</div>
 									</li>
 
-									<li class="sp-menu-item sp-has-child"><a href="fakultasnew.html"
-											title="Fakultas">Forum MGMP</a>
-										<div class="sp-dropdown sp-dropdown-main sp-menu-right" style="width: 100px;">
-											<div class="sp-dropdown-inner">
-												<ul class="sp-dropdown-items">
-                                                    @foreach ($lembaga as $item)
-                                                    <li class="sp-menu-item sp-has-child"><a
-                                                        href="http://ekonomi.umk.ac.id/" target="_blank">{{ $item->nama }}</a>
-                                                            <div class="sp-dropdown sp-dropdown-sub sp-menu-right"
-                                                                style="width: 180px;">
-                                                                <div class="sp-dropdown-inner">
-                                                                    <ul class="sp-dropdown-items">
-                                                                        @foreach ($item->mata_pelajarans as $item2)
-                                                                            
-                                                                            <li class="sp-menu-item sp-has-child"><a
-                                                                                href="http://mm.umk.ac.id/"
-                                                                                target="_blank">{{ $item2->nama }}</a>
-                                                                                <div class="sp-dropdown sp-dropdown-sub sp-menu-right"
-                                                                                style="width: 200px;">
-                                                                                <div class="sp-dropdown-inner">
-                                                                                    <ul class="sp-dropdown-items">
-                                                                                        <li class="sp-menu-item"><a
-                                                                                                href="#"
-                                                                                                target="_blank">Jajaran Pengurus</a>
-                                                                                        </li>
-                                                                                        <li class="sp-menu-item"><a
-                                                                                                href="{{ url("forum-mgmp/$item->id/$item2->id/galeri") }}"
-                                                                                                target="_blank">Galeri</a></li>
-                                                                                        <li class="sp-menu-item"><a
-                                                                                                href="{{ url("forum-mgmp/$item->id/$item2->id/event")}}"
-                                                                                                target="_blank">Event</a>
-                                                                                            
-                                                                                            </li>
-                                                                                        <li class="sp-menu-item sp-has-child"><a
-                                                                                            href="http://akuntansi.feb.umk.ac.id/"
-                                                                                            target="_blank">Produk</a>
-                                                                                            <div class="sp-dropdown sp-dropdown-sub sp-menu-right"
-                                                                                            style="width: 150px;">
-                                                                                            <div class="sp-dropdown-inner">
-                                                                                                <ul class="sp-dropdown-items">
-                                                                                                    <li class="sp-menu-item"><a
-                                                                                                            href="{{ url("forum-mgmp/$item->id/$item2->id/eprint")}}"
-                                                                                                            target="_blank">E-Print</a>
-                                                                                                    </li>
-                                                                                                    <li class="sp-menu-item"><a
-                                                                                                            href="{{ url("forum-mgmp/$item->id/$item2->id/digital") }}"
-                                                                                                            target="_blank">Digital</a></li>
-                                                                                                </ul>
-                                                                                            </div>
-                                                                                        </div>
-
-                                                                                            </li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </li>
-                                                                        @endforeach
-                                                                        
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    @endforeach
-												</ul>
-											</div>
-										</div>
-                                    </li>
-                                    
-
                                     <li class="sp-menu-item sp-has-child"><a href="fakultasnew.html"
                                         title="Fakultas">UNIT</a>
                                     <div class="sp-dropdown sp-dropdown-main sp-menu-right" style="width: 240px;">
@@ -280,6 +211,77 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         </div>
                                     </div>
                                 </li>
+
+									<li class="sp-menu-item sp-has-child"><a href="fakultasnew.html"
+											title="Fakultas">Forum MGMP</a>
+										<div class="sp-dropdown sp-dropdown-main sp-menu-right" style="width: 100px;">
+											<div class="sp-dropdown-inner">
+												<ul class="sp-dropdown-items">
+                                                    @foreach ($lembaga as $item)
+                                                    <li class="sp-menu-item sp-has-child"><a
+                                                        href="http://ekonomi.umk.ac.id/" target="_blank">{{ $item->nama }}</a>
+                                                            <div class="sp-dropdown sp-dropdown-sub sp-menu-right"
+                                                                style="width: 180px;">
+                                                                <div class="sp-dropdown-inner">
+                                                                    <ul class="sp-dropdown-items">
+                                                                        @foreach ($item->mata_pelajarans as $item2)
+                                                                            
+                                                                            <li class="sp-menu-item sp-has-child"><a
+                                                                                href="http://mm.umk.ac.id/"
+                                                                                target="_blank">{{ $item2->nama }}</a>
+                                                                                <div class="sp-dropdown sp-dropdown-sub sp-menu-right"
+                                                                                style="width: 200px;">
+                                                                                <div class="sp-dropdown-inner">
+                                                                                    <ul class="sp-dropdown-items">
+                                                                                        <li class="sp-menu-item"><a
+                                                                                                href="#"
+                                                                                                target="_blank">Jajaran Pengurus</a>
+                                                                                        </li>
+                                                                                        <li class="sp-menu-item"><a
+                                                                                                href="{{ url("forum-mgmp/$item->id/$item2->id/galeri") }}"
+                                                                                                target="_blank">Galeri</a></li>
+                                                                                        <li class="sp-menu-item"><a
+                                                                                                href="{{ url("forum-mgmp/$item->id/$item2->id/event")}}"
+                                                                                                target="_blank">Event</a>
+                                                                                            
+                                                                                            </li>
+                                                                                        <li class="sp-menu-item sp-has-child"><a
+                                                                                            href="http://akuntansi.feb.umk.ac.id/"
+                                                                                            target="_blank">Produk</a>
+                                                                                            <div class="sp-dropdown sp-dropdown-sub sp-menu-right"
+                                                                                            style="width: 150px;">
+                                                                                            <div class="sp-dropdown-inner">
+                                                                                                <ul class="sp-dropdown-items">
+                                                                                                    <li class="sp-menu-item"><a
+                                                                                                            href="{{ url("forum-mgmp/$item->id/$item2->id/eprint")}}"
+                                                                                                            target="_blank">E-Print</a>
+                                                                                                    </li>
+                                                                                                    <li class="sp-menu-item"><a
+                                                                                                            href="{{ url("forum-mgmp/$item->id/$item2->id/digital") }}"
+                                                                                                            target="_blank">Digital</a></li>
+                                                                                                </ul>
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                            </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                        @endforeach
+                                                                        
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    @endforeach
+												</ul>
+											</div>
+										</div>
+                                    </li>
+                                    
+
+                                
 
 							
 									

@@ -75,15 +75,21 @@
                     <div class="collapse" id="collapseCardExample-{{ $item->id }}">
                         <div class="card-body">
                             <ul>
-                                <li>
-                                    <a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$item->id/category/1/galeri") }}" class="font-weight-bold text-primary">Galeri</a>
+                            <li>
+                                    <a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$item->id/category/1/galeri") }}" class="font-weight-bold text-primary">Jajaran Pengurus</a>
                                 </li>
+                                
                                 <li>
                                     <a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$item->id/category/1/program") }}" class="font-weight-bold text-primary">Program Kegiatan</a>
                                 </li>
+                        
+                                <li>
+                                    <a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$item->id/category/1/event") }}" class="font-weight-bold text-primary">Event</a>
+                                </li>
                                 <li>
                                     <a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$item->id/category/1/galeri") }}" class="font-weight-bold text-primary">Galeri</a>
                                 </li>
+                                
                                 <li>
                                     <a href="" class="font-weight-bold text-secondary">Product</a>
                                     <div class="container">
@@ -95,9 +101,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li>
-                                    <a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$item->id/category/1/event") }}" class="font-weight-bold text-primary">Event</a>
-                                </li>
+                               
                             </ul>
                         </div>
                     </div>
