@@ -42,7 +42,7 @@
                 <div class="d-flex justify-content-between">
                   <h6 class="m-0 font-weight-bold text-primary">Program Kegiatan</h6>
                     @if ($mata_pelajaran != null)
-                        <a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/1/program/create") }}" class="btn btn-primary btn-sm">Tambah Event</a>
+                        <a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/1/program/create") }}" class="btn btn-primary btn-sm">Tambah Program</a>
                     @else
                        <a href="{{ url("/admin/unit/0/category/$category->id/program/create") }}" class="btn btn-primary btn-sm">Tambah Program</a>     
                     @endif

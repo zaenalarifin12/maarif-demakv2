@@ -26,7 +26,7 @@
            
             @include('layouts.includes.alert-card', [
               "url" => url("/admin/video-promosi"),
-              "name" => "Video Promosi UMK",
+              "name" => "Video Promosi",
             ])
           </div>
 @endsection

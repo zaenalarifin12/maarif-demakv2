@@ -144,21 +144,17 @@ class EventController extends Controller
                 $event->update([
                     "banner"                        => $nama,
                     "judul"                         => $request->judul,
-                    "deskripsi"                     => $request->deskripsi,
-                    "mata_pelajaran_id"             => null,
-                    "category_program_kegiatan_id"  => $id_category
+                    "deskripsi"                     => $request->deskripsi
                 ]);
             }else{
                 $event->update([
                    
                     "judul"                         => $request->judul,
-                    "deskripsi"                     => $request->deskripsi,
-                    "mata_pelajaran_id"             => null,
-                    "category_program_kegiatan_id"  => $id_category
+                    "deskripsi"                     => $request->deskripsi
                 ]);
             }
 
-            return redirect("/admin/unit/0/category/$id_category/event")
+            return redirect("/admin/unit/0/category/$idc/event")
                 ->withSuccess("Event berhasil diedit");
         } else {
         
@@ -169,17 +165,13 @@ class EventController extends Controller
                 $event->update([
                     "banner"                        => $nama,
                     "judul"                         => $request->judul,
-                    "deskripsi"                     => $request->deskripsi,
-                    "mata_pelajaran_id"             => $idmp,
-                    "category_program_kegiatan_id"  => $idc
+                    "deskripsi"                     => $request->deskripsi
                 ]);
             }else{
                 $event->update([
                    
                     "judul"                         => $request->judul,
-                    "deskripsi"                     => $request->deskripsi,
-                    "mata_pelajaran_id"             => $idmp,
-                    "category_program_kegiatan_id"  => $idc
+                    "deskripsi"                     => $request->deskripsi
                 ]);
             }
 
@@ -199,7 +191,7 @@ class EventController extends Controller
         if($idmp == 0) {
             $mata_pelajaran = null;
 
-                return redirect("/admin/unit/0/category/$id_category/program")
+                return redirect("/admin/unit/0/category/$idc/program")
                 ->withSuccess("Program Kegiatan berhasil dihapus");
         }  else {
             $mata_pelajaran = MataPelajaran::findOrFail($idmp);

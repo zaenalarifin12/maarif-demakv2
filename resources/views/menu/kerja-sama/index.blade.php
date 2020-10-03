@@ -22,7 +22,7 @@
                     <p>Jumlah Foto Kerja Sama {{ $kerjaSama->count() }}</p>
                     @foreach ($kerjaSama as $item)
                         <div class="row">
-                        <div class="col-6">
+                        <div class="col-3">
                             <div class="form-group">
                                 <img width="100%" src="{{ asset("/storage/$item->gambar") }}" class="form-group" alt="" srcset="">
                             </div>

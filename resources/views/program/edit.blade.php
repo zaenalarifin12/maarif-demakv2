@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    Edit Program Kegiatan
+@endsection
+
 @section('heading')
     Edit Program Kegiatan
 @endsection
@@ -60,7 +64,7 @@
                     <input id="imgInp"  type="file" name="gambar" accept="image/x-png,image/jpeg">
                     @include('component.error', ["name" => "gambar"])
                     <br><br>
-                    <img id="blah" width="50%" src="{{ asset("/storage/$program->banner") }}" alt="" srcset="">
+                    <img id="blah" style="max-width: 90%" src="{{ asset("/storage/$program->banner") }}" alt="" srcset="">
               </div>
               <button type="submit" class="btn btn-primary btn-block">Edit</button>
               @csrf

@@ -53,21 +53,24 @@
               <div class="form-group">
                 <label for="">Judul</label>
                   <input type="text" class="form-control" name="judul" required value="{{ $eprint->judul }}">
+                  @include('component.error', ["name" => "judul"])
               </div>
               <div class="form-group">
                 <label for="">Deskripsi</label>
-              <textarea class="ckeditor form-control"  name="deskripsi"required cols="30" rows="10">{!! $eprint->deskripsi !!}</textarea>
+              <textarea class="ckeditor form-control"  name="deskripsi" required cols="30" rows="10">{!! $eprint->deskripsi !!}</textarea>
+              @include('component.error', ["name" => "deskripsi"])
               </div>
               <div class="form-group">
 
-                <label for="">File</label>
+                <label for="">File </label>
                   <a class="btn btn-secondary btn-sm" target="_blank" href="{{ asset("/storage/$eprint->banner") }}">Lihat</a>
+                  <span class="text-primary font-weight-bold">Silahkan Diisi Kalau Ingin mengganti file</span>
                   <input type="file" class="form-control" name="banner" accept="image/x-png,image/jpeg">
               </div>
               <div class="form-group">
                 <label for="">Kategori</label><br>
                 @foreach ($categoryEprint as $item)
-                    <input type="radio" name="categoryEprint"
+                    <input type="radio" name="categoryEprint" required
                         @if ($item->id == $eprint->category_eprint->id)
                             checked
                         @endif

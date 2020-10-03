@@ -16,6 +16,11 @@ class SiswaController extends Controller
         return view("siswa.index", compact("siswa"));
     }
 
+    public function create()
+    {
+        return view("siswa.create");
+    }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -35,6 +40,37 @@ class SiswaController extends Controller
         ]);
 
     return redirect("/siswa")->withSuccess("akun berhasil dibuat");
+    }
+
+    public function edit($no_induk)
+    {
+        $siswa = Siswa::findOrFail($no_induk);
+
+        return view("siswa.edit", compact("siswa"));
+    }
+
+    public function update(Request $request, $no_induk)
+    {
+        $request->validate([
+            "nama"          => "required",
+            "no_induk"      => 'required',
+            "asal_sekolah"  => "required",
+            "email"         => "required|string|email",
+            "password"     =>  "nullable|string|min:8"
+        ]);
+
+        $siswa = Siswa::findOrFail($no_induk);
+    
+        $siswa->update([
+            "nama"          => $request->nama,
+            "no_induk"      => $request->no_induk,
+            "asal_sekolah"  => $request->asal_sekolah,
+            "email"         => $request->email,
+            "password"      => Hash::make($request->password)
+        ]);
+
+        return redirect("/siswa")->withSuccess("akun berhasil diperbarui");
+
     }
 
     public function destroy($no_induk)

@@ -10,7 +10,7 @@
                     </div>
                     <div class="blog" itemscope itemtype="http://schema.org/Blog">
                         <div class="page-header">
-                            <h1> Event {{ $lembaga->nama }} - {{ $mp->nama }} </h1>
+                            <h3 class="sppb-addon-title"> Event {{ $lembaga->nama }} - {{ $mp->nama }} </h3>
                         </div>
 
                         <div class="items-row row-0 row clearfix">
@@ -21,10 +21,8 @@
 
 
                                     <div class="entry-image intro-image">
-                                        <a
-                                            href="#") }}">
-                                            <img src="{{ asset("/storage/".$item->banner) }}"
-                                                alt="" itemprop="thumbnailUrl" />
+                                        <a href="{{ url("/forum-mgmp/$lembaga->id/$mp->id/event/$item->id") }}">
+                                            <img src="{{ asset("/storage/".$item->banner) }}" />
                                         </a>
                                     </div>
 

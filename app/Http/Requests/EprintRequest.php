@@ -24,9 +24,10 @@ class EprintRequest extends FormRequest
     public function rules()
     {
         return [
-            "banner"    => "required",
-            "judul"     => "required",
-            "deskripsi" => "required",
+            "banner"        => "required",
+            "judul"         => "required",
+            "deskripsi"     => "required",
+            "categoryEprint"=> "required"
         ];
     }
 }

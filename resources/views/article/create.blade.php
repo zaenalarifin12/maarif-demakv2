@@ -1,7 +1,11 @@
 @extends('layouts.master')
 
+@section('title')
+    Daftar Informasi
+@endsection
+
 @section('heading')
-    Tambah Artikel
+    Tambah Informasi
 @endsection
 
 @section('css')
@@ -10,7 +14,7 @@
 
 @section('breadcump')
     <li class="breadcrumb-item"><a href="{{ url("admin") }}">Dashboard</a></li>
-    <li class="breadcrumb-item"><a href="{{ url("admin/article") }}">Artikel</a></li>
+    <li class="breadcrumb-item"><a href="{{ url("admin/article") }}">Informasi</a></li>
     <li class="breadcrumb-item active" aria-current="page">Tambah</li>
 @endsection
 
@@ -19,7 +23,7 @@
 
 <div class="card shadow mb-4">
   <div class="card-header">
-      Tambah Artikel
+      Tambah Informasi
     </div>
   <div class="card-body">
       <div class="container d-flex justify-content-center">
@@ -27,16 +31,12 @@
           
           <form action="{{ url("admin/article") }}" method="post" enctype="multipart/form-data">
               <div class="form-group">
-                <label for="">Banner</label>
-                  <input type="file" class="form-control @error("banner") is-invalid @enderror"" name="banner" required accept="image/x-png,image/jpeg">
-              </div>
-              <div class="form-group">
                 <label for="">Judul</label>
-                  <input type="text" class="form-control" name="judul" required >
+                  <input type="text" class="form-control" name="judul" required value="{{ old("judul") }}">
               </div>
               <div class="form-group">
                 <label for="">Deskripsi</label>
-                  <textarea class="ckeditor form-control"  name="deskripsi"required cols="30" rows="10"></textarea>
+                  <textarea class="ckeditor form-control"  name="deskripsi"required cols="30" rows="10">{{ old("deskripsi") }}</textarea>
               </div>
               <div class="form-group">
                   <label for="">Kategori</label>
@@ -45,6 +45,13 @@
                             <option value="{{ $item->id }}">{{ $item->nama }}</option>
                         @endforeach
                   </select>
+              </div>
+              <div class="form-group">
+                  <label for="">Foto <br><span class="text-primary"> ukuran maximum: 5 mb <br> jenis file: jpeg,png</span></label><br>
+                  <input id="imgInp" type="file" class="form-control" name="gambar" required accept="image/*">
+                  @include('component.error', ["name" => "gambar"])
+                <br>
+                  <img id="blah" style="max-width: 90%" src="#" alt="" srcset="">
               </div>
               <button type="submit" class="btn btn-primary btn-block">Tambah</button>
               @csrf

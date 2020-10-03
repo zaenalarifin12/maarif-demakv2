@@ -1,5 +1,9 @@
 @extends('fe.layouts.master')
 
+@section('title')
+    Event {{ $cpk->nama }}
+@endsection
+
 @section('content')
 <section id="sp-body">
     <div class="container">
@@ -35,7 +39,7 @@
 
                                         <h2 itemprop="name">
                                             <a 
-                                            href="#"
+                                            href="{{ url("/unit/$cpk->slug/event/$item->id") }}"
                                                 itemprop="url">
                                                 {{ $item->judul }}</a>
                                             <div class="divider"></div>

@@ -12,9 +12,24 @@ use App\Eprint;
 use App\CategoryEprint;
 use App\Digital;
 use App\Event;
+use App\ProgramKegiatan;
 
 class ForumMGMPController extends Controller
 {
+    public function program($id_l, $id_mp)
+    {
+        $lembaga = Lembaga::findOrFail($id_l);
+        $mp      = MataPelajaran::findOrFail($id_mp);
+        
+        $c       = CategoryProgramKegiatan::findOrFail(1);
+        $program   = Programkegiatan::where("mata_pelajaran_id", $id_mp)
+                    ->where("category_program_kegiatan_id", $c->id)->latest()->paginate(3);
+        
+        return view("fe.forum-mgmp.program", compact([
+            "program", "lembaga", "mp"
+        ]));
+    }
+
     public function galeri($id_l, $id_mp)
     {
         $lembaga = Lembaga::findOrFail($id_l);
@@ -67,6 +82,20 @@ class ForumMGMPController extends Controller
                     ->where("category_program_kegiatan_id", $c->id)->latest()->paginate(3);
         
         return view("fe.forum-mgmp.event", compact([
+            "event", "lembaga", "mp"
+        ]));
+    }
+
+    public function eventShow($id_l, $id_mp, $id)
+    {
+        $lembaga = Lembaga::findOrFail($id_l);
+        $mp      = MataPelajaran::findOrFail($id_mp);
+        
+        $c       = CategoryProgramKegiatan::findOrFail(1);
+        $event   = Event::where("mata_pelajaran_id", $id_mp)
+                    ->where("category_program_kegiatan_id", $c->id)->findOrFail($id);
+        
+        return view("fe.forum-mgmp.eventShow", compact([
             "event", "lembaga", "mp"
         ]));
     }

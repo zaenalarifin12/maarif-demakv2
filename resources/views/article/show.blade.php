@@ -1,16 +1,20 @@
 @extends('layouts.master')
 
-@section('heading')
-@endsection
-
 @section('css')
     <link href="{{ asset("assets/vendor/datatables/dataTables.bootstrap4.min.css")}}" rel="stylesheet">
 @endsection
 
+@section('title')
+    {{ $article->judul }}
+@endsection
+
+@section('heading')
+    Daftar Informasi
+@endsection
 
 @section('breadcump')
     <li class="breadcrumb-item"><a href="{{ url("admin") }}">Dashboard</a></li>
-    <li class="breadcrumb-item"><a href="{{ url("admin/article/") }}">Artikel</a></li>
+    <li class="breadcrumb-item"><a href="{{ url("admin/article/") }}">Informasi</a></li>
 
 
 @endsection
@@ -25,7 +29,7 @@
           <div class="container">
             <div class="col-12">
                 <div class="form-group d-flex justify-content-center">
-                    <img  height="300" src="{{ asset("/storage/$article->banner") }}" class="form-group " alt="" srcset="">
+                    <img  style="max-width: 80%" src="{{ asset("/storage/$article->banner") }}" class="form-group " alt="" srcset="">
                 </div>
                   <div class="form-group">
                     <a class="h5 text-white d-flex justify-content-center text-capitalize" href="">

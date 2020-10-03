@@ -44,7 +44,7 @@
           <div class="container">
             <div class="col-12">
                 <div class="form-group d-flex justify-content-center">
-                    <img  height="300" src="{{ asset("/storage/$program->banner") }}" class="form-group " alt="" srcset="">
+                    <img  style="max-width: 90%" src="{{ asset("/storage/$program->banner") }}" class="form-group " alt="" srcset="">
                 </div>
                   <div class="form-group">
                     <p class="h3 text-primary font-weight-bold text-center text-justify">{{ ucfirst($program->judul) }}</p>

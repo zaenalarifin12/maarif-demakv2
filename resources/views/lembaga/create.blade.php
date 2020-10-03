@@ -25,6 +25,7 @@
                   <textarea class="ckeditor form-control"  name="deskripsi" required cols="30" rows="10">
                     {!! $isi_lembaga->deskripsi ?? "" !!}
                   </textarea>
+                  @include('component.error', ["name" => "deskripsi"])
               </div>
               <button type="submit" class="btn btn-primary btn-block">Edit</button>
               @csrf

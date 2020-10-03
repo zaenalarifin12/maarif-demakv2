@@ -1,7 +1,7 @@
 @extends('fe.layouts.master')
 
 @section('title')
-    
+    Ma'arif Demak | Home
 @endsection
 
 @section('content')
@@ -21,13 +21,10 @@
                                     <div class="sppb-addon-container sppb-wow fadeInRight" style="padding:0px;"
                                         data-sppb-wow-duration="600ms" data-sppb-wow-delay="600ms">
                                         <div class="sppb-addon ">
-                                            <div class="slick-carousel-652 clearfix">
+                                            <div class="slick-carousel-652 clearfix" style="height: 332px;">
                                                 @foreach ($banner as $item)
-                                                
                                                     <div class="slick-img"><a href="#"><img
                                                         data-lazy="{{ asset("storage/$item->gambar")}}"></a></div>    
-                                                            
-                                                            
                                                 @endforeach
                                             </div>
                                             </div>
@@ -47,7 +44,7 @@
                                         data-sppb-wow-duration="600ms" data-sppb-wow-delay="300ms">
                                         <div class="sppb-addon sppb-addon-single-image sppb-text-center">
                                             <div class="sppb-addon-content"><a
-                                                    href="profil-umk/index8dca.html?option=com_sppagebuilder&amp;view=page&amp;id=56">
+                                                    href="{{ url("/informasi-terbaru") }}">
                                                     <div class="overlay"><i class="pe pe-7s-link"></i><img
                                                             class="sppb-img-responsive"
                                                             src={{ asset("assetfile/images/2017/03/20/Profil.png") }} alt=""></div>
@@ -56,10 +53,7 @@
                                         <div class="sppb-empty-space  clearfix" style="margin-bottom:0px;">
                                         </div>
                                         <div class="sppb-addon sppb-addon-text-block sppb-text-center ">
-                                            <h3 class="sppb-addon-title"
-                                                style="margin-top:0px;color:#0057a6;font-size:22px;line-height:32px;font-weight:500;">
-                                                BLK</h3>
-                                          
+                                            <h3 class="sppb-addon-title" style="margin-top:0px;color:#0057a6;font-size:22px;line-height:32px;font-weight:500;"> BLK </h3>
                                         </div>
                                     </div>
                                 </div>
@@ -68,7 +62,7 @@
                                         data-sppb-wow-duration="600ms" data-sppb-wow-delay="600ms">
                                         <div class="sppb-addon sppb-addon-single-image sppb-text-center">
                                             <div class="sppb-addon-content"><a
-                                                    href="https://umk.ac.id:443/index.php?option=com_sppagebuilder&amp;view=page&amp;id=3">
+                                                    href="{{ url("/unit/unitendik/program") }}" target="_blank">
                                                     <div class="overlay"><i class="pe pe-7s-link"></i><img
                                                             class="sppb-img-responsive"
                                                             src={{ asset("assetfile/images/2017/03/20/Program-Studi.png") }} alt="">
@@ -92,7 +86,7 @@
                                         data-sppb-wow-duration="600ms" data-sppb-wow-delay="600ms">
                                         <div class="sppb-addon sppb-addon-single-image sppb-text-center">
                                             <div class="sppb-addon-content"><a
-                                                    href="https://umk.ac.id:443/index.php?option=com_sppagebuilder&amp;view=page&amp;id=3">
+                                                    href="{{ url("/publikasi/digital") }}">
                                                     <div class="overlay"><i class="pe pe-7s-link"></i><img
                                                             class="sppb-img-responsive"
                                                             src={{ asset("assetfile/images/2017/03/20/Program-Studi.png") }} alt="">
@@ -115,10 +109,13 @@
                                     <div class="sppb-addon-container sppb-wow flip" style="color:#0057a6;"
                                         data-sppb-wow-duration="600ms" data-sppb-wow-delay="900ms">
                                         <div class="sppb-addon sppb-addon-single-image sppb-text-center">
-                                            <div class="sppb-addon-content"><a href="pmb/beasiswa-umk.html">
-                                                    <div class="overlay"><i class="pe pe-7s-link"></i><img
+                                            <div class="sppb-addon-content"><a href="{{ url("/event-terbaru") }}">
+                                                    <div class="overlay"><i class="pe pe-7s-link"></i>
+                                                        <img
                                                             class="sppb-img-responsive"
-                                                            src={{ asset("assetfile/images/2017/03/20/Beasiswa.png") }} alt=""></div>
+                                                            src={{ asset("assetfile/images/2017/03/20/Beasiswa.png") }} alt=""
+                                                        >
+                                                        </div>
                                                 </a></div>
                                         </div>
                                         <div class="sppb-empty-space  clearfix" style="margin-bottom:0px;">
@@ -136,7 +133,7 @@
                                         data-sppb-wow-duration="600ms" data-sppb-wow-delay="1200ms">
                                         <div class="sppb-addon sppb-addon-single-image sppb-text-center">
                                             <div class="sppb-addon-content"><a
-                                                    href="https://umk.ac.id:443/index.php?option=com_sppagebuilder&amp;view=page&amp;id=57">
+                                                    href="{{ url("/kerja-sama") }}">
                                                     <div class="overlay"><i class="pe pe-7s-link"></i><img
                                                             class="sppb-img-responsive"
                                                             src={{ asset("assetfile/images/2017/03/20/Kerjasama1.png") }} alt=""></div>
@@ -154,7 +151,7 @@
                                 </div>
                             </div>
                         </section>
-                        <section class="sppb-section "
+                        <section class="sppb-section"
                             style="padding:5px 40px 10px 40px;color:#000000;background-color:#ffffff;">
                             <div class="sppb-section-title sppb-text-left">
                                 <h2 class="sppb-title-heading"
@@ -176,17 +173,18 @@
                                                             <div class="latest-post sppb-col-sm-3 columns-4">
                                                                 <div class="latest-post-item">
                                                                     <div class="img-wrapper"><a
-                                                                            href="informasi/berita/3077-fakultas-hukum-umk-teken-mou-dengan-asosiasi-mediator-kudus.html">
-                                                                            <img style="height: 200px; width: 100%"
+                                                                            href="{{ url("/") }}">
+                                                                            <img style="height: 200px; width: 100%; object-fit: cover;" 
                                                                                 class="post-img"
                                                                                 src={{ asset("/storage/$item->banner") }} alt="{{ $item->judul }}" />
                                                                             <div class="caption-content">{{ $item->judul }}</div>
                                                                         </a></div>
                                                                     <div class="latest-post-inner match-height">
                                                                         <h2 class="entry-title"><a href="#">{{ $item->judul }}</a></h2>
-                                                                        <div class="entry-meta"><span
-                                                                                class="entry-date">{{ $item->created_at }}</span></div>
-                                                                        <p class="intro-text">{!! \Illuminate\Support\Str::limit($item->deskripsi, 70, "....") !!}</p>
+                                                                        <div class="entry-meta">
+                                                                            <span class="entry-date">{{ $item->created_at }}</span>
+                                                                        </div>
+                                                                        <p class="intro-text">{!! \Illuminate\Support\Str::limit($item->deskripsi, 30, "....") !!}</p>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -245,7 +243,7 @@
                                                     selengkapnya</span></a></div>
                                         <div class="sppb-addon sppb-addon-latest-posts blog sppb-row ">
                                             <div class="sppb-section-title">
-                                                <h3 class="sppb-addon-title" style=""> Agenda Kampus</h3>
+                                                <h3 class="sppb-addon-title" style=""> Agenda Yayasan</h3>
                                             </div>
                                             <div class="sppb-addon-content">
                                                 <div class="latest-posts clearfix">
@@ -343,13 +341,12 @@
                                             <h3 class="sppb-addon-title" style="color:#ffffff;">Hubungi Kami
                                             </h3>
                                             <div class="sppb-addon-content"><span
-                                                    style="font-size: 14pt;"><strong>Universitas Muria
-                                                        Kudus</strong></span><br />
-                                                <p>Jl. Lingkar Utara UMK, Gondangmanis, Bae, Kudus -
-                                                    59327<br />Jawa Tengah - Indonesia</p>
-                                                <p>Telepon. +62291-438229</p>
-                                                <p>Faks. +62291-437198</p>
-                                                <p>Email: <a href="mailto:muria@umk.ac.id">muria@umk.ac.id</a>
+                                                    style="font-size: 14pt;">
+                                                    <strong>{{ $licensi->nama }}</strong></span><br />
+                                                <p>{{ $licensi->alamat }}</p>
+                                                <p>Telepon. {{ $licensi->telepone }}</p>
+                                                <p>Faks. {{ $licensi->faks }}</p>
+                                                <p>Email: <a href="mailto:{{ $licensi->email }}">{{ $licensi->email }}</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -360,19 +357,20 @@
                                         <div class="sppb-addon sppb-addon-text-block sppb-text-left ">
                                             <h3 class="sppb-addon-title" style="color:#ffffff;">Ikuti Kami</h3>
                                             <div class="sppb-addon-content"><a
-                                                    href="https://id-id.facebook.com/UNIVERSITAS-MURIA-KUDUS-UMK-182450701824294/"
+                                                    href="{{ $licensi->facebook }}"
                                                     target="_blank"><img src={{ asset("assetfile/images/medsos/036-facebook.png"
-                                                       ) }} alt="umk fb" width="20" /></a> .<a
-                                                    href="https://twitter.com/@UMK_mu" target="_blank"><img
+                                                       ) }} alt="{{ $licensi->facebook }}" width="20" /></a> .<a
+                                                    href="{{ $licensi->twitter }}" target="_blank"><img
                                                         class="" src={{ asset("assetfile/images/medsos/008-twitter.png"
-                                                       ) }} alt="umk twitter" width="20" /></a> .<a
-                                                    href="https://www.instagram.com/muriakudusuniversity/"
+                                                       ) }} alt="{{ $licensi->twiiter }}" width="20" /></a> .<a
+                                                    href="{{ $licensi->instagram }}"
                                                     target="_blank"><img src={{ asset("assetfile/images/medsos/029-instagram.png"
-                                                       ) }} alt="umk ig" width="20" /></a> .<a
-                                                    href="https://www.youtube.com/user/channelUMK"
-                                                    target="_blank"><img class=""
-                                                        src={{ asset("assetfile/images/medsos/001-youtube.png") }} alt="umk youtube"
-                                                        width="20" /></a></div>
+                                                       ) }} alt="{{ $licensi->instagram }}" width="20" /></a> .<a
+                                                    href="{{ $licensi->youtube }}"
+                                                    target="_blank">
+                                                    <img class=""
+                                                        src={{ asset("assetfile/images/medsos/001-youtube.png") }} alt="{{ $licensi->youtube }}"
+                                                    width="20" /></a></div>
                                         </div>
                                     </div>
                                 </div>

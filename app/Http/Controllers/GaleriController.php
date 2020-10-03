@@ -28,11 +28,11 @@ class GaleriController extends Controller
 
             $galeri = Galeri::
                 where("mata_pelajaran_id", null)->
-                where("category_program_kegiatan_id", $id_category)->get();
+                where("category_program_kegiatan_id", $id_category)->paginate(1);
         }else{
             $mata_pelajaran = MataPelajaran::findOrFail($id_mp);
             
-            $galeri = Galeri::where("mata_pelajaran_id", $id_mp)->get();
+            $galeri = Galeri::where("mata_pelajaran_id", $id_mp)->paginate(1);
         }
 
         return view("galeri.index", compact([
@@ -42,17 +42,7 @@ class GaleriController extends Controller
         ]));
     }
 
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(GaleriRequest $request, $id, $id_category)
     {
         
@@ -118,20 +108,17 @@ class GaleriController extends Controller
                     "banner"                        => $nama,
                     "judul"                         => $request->judul,
                     "deskripsi"                     => $request->deskripsi,
-                    "mata_pelajaran_id"             => $id,
-                    "category_program_kegiatan_id"  => $id_category
                 ]);
             } else {
                 $galeri->update([
                     "judul"                         => $request->judul,
                     "deskripsi"                     => $request->deskripsi,
-                    "mata_pelajaran_id"             => $id,
-                    "category_program_kegiatan_id"  => $id_category
                 ]);
             }
             
 
-            return redirect("admin/unit/0/category/$id_category/galeri")
+            // return redirect("admin/unit/0/category/$id_category/galeri")
+            return redirect()->back()
             ->withSuccess("galeri berhasil diedit");
 
         } else {
@@ -151,11 +138,11 @@ class GaleriController extends Controller
                 $galeri->update([
                     "judul"                         => $request->judul,
                     "deskripsi"                     => $request->deskripsi,
-
                 ]);
             }
             
-            return redirect("admin/forum-mgmp/mata-pelajaran/$id_mp/category/$id_category/galeri")
+            // return redirect("admin/forum-mgmp/mata-pelajaran/$id_mp/category/$id_category/galeri")
+            return redirect()->back()
             ->withSuccess("galeri berhasil diedit");
         }
         

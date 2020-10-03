@@ -1,5 +1,10 @@
 @extends('layouts.master')
 
+
+@section('title')
+   {{ $event->judul }}
+@endsection
+
 @section('heading')
    Event
 @endsection
@@ -11,13 +16,21 @@
 
 @section('breadcump')
     <li class="breadcrumb-item"><a href="{{ url("admin") }}">Dashboard</a></li>
-    <li class="breadcrumb-item"><a href="{{ url("admin/forum-mgmp/") }}">Forum MGMP</a></li>
-    <li class="breadcrumb-item"><a href="{{ url("admin/forum-mgmp/lembaga/".$mata_pelajaran->lembaga->id."/mata-pelajaran") }}">Lembaga {{ $mata_pelajaran->lembaga->nama }}</a></li>
-
-      <li class="breadcrumb-item active" aria-current="page">Product</li>
-      <li class="breadcrumb-item"><a href="{{ url("admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/$category->id/event") }}">Event</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">Tambah</li>
+    @include('component.bc-program',
+        [
+        "category"        => $category,
+        "mata_pelajaran"  => $mata_pelajaran
+        ]
+    )
+    
+    @include('component.bc-program-title',
+        [
+        "category"        => $category,
+        "mata_pelajaran"  => $mata_pelajaran,
+        "name"            => "event"
+        ]
+    )
 
 @endsection
 
@@ -31,9 +44,9 @@
           <div class="container">
             <div class="col-12">
                 <div class="form-group d-flex justify-content-center">
-                    <img  height="300" src="{{ asset("/storage/$event->banner") }}" class="form-group " alt="" srcset="">
+                    <img  style="max-width: 90%" src="{{ asset("/storage/$event->banner") }}" class="form-group " alt="" srcset="">
                 </div>
-                  <div class="form-group">
+                <div class="form-group">
                     <p class="h3 text-primary font-weight-bold text-center text-justify">{{ ucfirst($event->judul) }}</p>
                     
                   </div>

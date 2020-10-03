@@ -37,11 +37,13 @@
               @if (Auth::user()->role == 4)
                 <a class="collapse-item" href="{{ url("/admin/home") }}">Home</a>
                 <a class="collapse-item" href="{{ url("/admin/profil") }}">Profil</a>
+                <a class="collapse-item" href="{{ url("/admin/article") }}">Informasi</a>
                 <a class="collapse-item" href="{{ url("/admin/unit") }}">Unit</a>
-                <a class="collapse-item" href="{{ url("/admin/sekolah") }}">Lembaga</a>
                 <a class="collapse-item" href="{{ url("/admin/forum-mgmp") }}">Forum MGMP</a>
                 <a class="collapse-item" href="{{ url("/admin/publikasi") }}">Publikasi</a>
+                <a class="collapse-item" href="{{ url("/admin/sekolah") }}">Lembaga</a>
                 <a class="collapse-item" href="{{ url("/admin/kerja-sama") }}">Kerja Sama</a>
+
               @elseif(Auth::user()->role == 3 || Auth::user()->role == 2)
                 <a class="collapse-item" href="{{ url("/admin/forum-mgmp") }}">Forum MGMP</a>
               @endif
@@ -63,8 +65,9 @@
                 <a class="collapse-item" href="{{ url("/admin/anggota-mgmp") }}">Anggota MGMP</a>
                 {{-- <a class="collapse-item" href="{{ url("/admin/enroll") }}">Enroll</a> --}}
                 <a class="collapse-item" href="{{ url("/siswa") }}">Siswa</a>
-                <a class="collapse-item" href="{{ url("/admin/article") }}">Artikel</a>
+                
                 <a class="collapse-item" href="{{ url("/admin/category-eprint") }}">Kategori Eprint</a>
+                <a class="collapse-item" href="{{ url("/admin/licensi") }}">Licensi</a>
               </div>
             </div>
           </li>

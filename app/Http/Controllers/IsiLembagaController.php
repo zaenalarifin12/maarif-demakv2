@@ -26,9 +26,9 @@ class IsiLembagaController extends Controller
 
     public function store(Request $request, $id_lembaga)
     {
-        // $request->validated([
-        //     "deskripsi" => "required"
-        // ]);
+        $request->validate([
+            "deskripsi" => "required"
+        ]);
 
         $lembaga = Lembaga::findOrFail($id_lembaga);
         

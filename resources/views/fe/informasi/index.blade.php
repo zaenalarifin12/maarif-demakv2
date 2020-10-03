@@ -1,5 +1,9 @@
 @extends('fe.layouts.master')
 
+@section('title')
+    {{ $category->nama }}
+@endsection
+
 @section('content')
 <section id="sp-body">
     <div class="container">
@@ -10,7 +14,7 @@
                     </div>
                     <div class="blog" itemscope itemtype="http://schema.org/Blog">
                         <div class="page-header">
-                            <h1> {{ $category->nama }} </h1>
+                            <h1 sppb-addon-title> {{ $category->nama }} </h1>
                         </div>
 
                         <div class="items-row row-0 row clearfix">

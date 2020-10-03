@@ -20,6 +20,7 @@
                         <div class="form-group">
                             <label for="">Nama</label>
                             <input type="text" class="form-control" name="nama">
+                            @include('component.error', ["name" => "nama"])
                         </div>    
                         <div class="form-group">
                           <label for="">Logo <br><span class="text-primary"> ukuran maximum: 5 mb <br> jenis file: jpeg,png</span></label><br>

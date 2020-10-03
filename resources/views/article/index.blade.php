@@ -4,13 +4,17 @@
     <link href="{{ asset("assets/vendor/datatables/dataTables.bootstrap4.min.css")}}" rel="stylesheet">
 @endsection
 
+@section('title')
+    Daftar Informasi
+@endsection
+
 @section('heading')
-    Daftar Article
+    Daftar Informasi
 @endsection
 
 @section('breadcump')
     <li class="breadcrumb-item"><a href="{{ url("admin") }}">Dashboard</a></li>
-    <li class="breadcrumb-item active" aria-current="page"> Article</li>
+    <li class="breadcrumb-item active" aria-current="page"> Informasi</li>
 @endsection
 
 @section('content')
@@ -18,7 +22,6 @@
           <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <div class="row d-flex justify-content-between">
-                    <h5>Article</h5>
                     <div class="mx-2">
                       <form action="{{ url("admin/article") }}" method="get" class="d-flex">
                         <div class="">
@@ -35,7 +38,7 @@
                         
                       </form>
                     </div>
-                    <a href="{{ url("/admin/article/create") }}" class="btn btn-primary">Tambah Artikel</a>
+                    <a href="{{ url("/admin/article/create") }}" class="btn btn-primary">Tambah Informasi</a>
                 </div>
             </div>
             <div class="card-body">

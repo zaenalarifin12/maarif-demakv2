@@ -1,5 +1,9 @@
 @extends('fe.layouts.master')
 
+@section('title')
+    Fasilitas
+@endsection
+
 @section('content')
 <section id="sp-body">
     <div class="row">

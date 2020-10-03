@@ -14,11 +14,17 @@ class CreateLicensisTable extends Migration
     public function up()
     {
         Schema::create('licensis', function (Blueprint $table) {
-            $table->string("nama");
-            $table->string("kota");
-            $table->string("kodepos");
-            $table->string("telpon");
-            $table->string("email");
+            $table->string("nama")->nullable();
+            $table->string("alamat")->nullable();
+            $table->string("email")->nullable();
+            $table->string("telepone")->nullable();
+            $table->string("faks")->nullable();
+            $table->string("jadwal")->nullable();
+            $table->string("hotline")->nullable();
+            $table->string("facebook")->nullable();
+            $table->string("instagram")->nullable();
+            $table->string("youtube")->nullable();
+            $table->string("twitter")->nullable();
             $table->timestamps();
         });
     }

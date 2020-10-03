@@ -20,7 +20,7 @@
                     <div class="sppb-addon-container" style="" data-sppb-wow-duration="300ms">
                       <div class="sppb-addon sppb-addon-text-block sppb-text-left ">
                         <div class="sppb-addon-content">
-                            <h1>Produk Digital Publikasi </h1>
+                            <h1> Digital Library </h1>
                             <p>
                                 {!! $digital->deskripsi ?? "KOSONG" !!}
                             </p>

@@ -9,12 +9,20 @@
 
     @include('component.breadcump', ["categoryProgramKegiatan" => $categoryProgramKegiatan])
     
-    @if ($mata_pelajaran != null)
-        <li class="breadcrumb-item"><a href="{{ url("admin/forum-mgmp/lembaga/".$mata_pelajaran->lembaga->id."/mata-pelajaran") }}">Lembaga {{ $mata_pelajaran->lembaga->nama }}</a></li>
-        <li class="breadcrumb-item active" aria-current="page">{{ ucfirst($mata_pelajaran->nama) }}</li>
-    @endif
+    @include('component.bc-program',
+        [
+        "category"        => $categoryProgramKegiatan,
+        "mata_pelajaran"  => $mata_pelajaran
+        ]
+    )
     
-    <li class="breadcrumb-item active" aria-current="page">Galeri</li>
+    @include('component.bc-program-title',
+        [
+        "category"        => $categoryProgramKegiatan,
+        "mata_pelajaran"  => $mata_pelajaran,
+        "name"            => "galeri"
+        ]
+    )
 @endsection
 
 @section('content')
@@ -29,62 +37,108 @@
                         <div class="col no-gutters align-items-center">
                             <div class="row d-flex justify-content-end mb-3">
                                 @if ($mata_pelajaran != null)
-                                <button type="button" class="btn btn-sm btn-info mx-4" data-toggle="modal" data-target="#exampleModal{{$item->id }}">Edit</button>
 
 
-              {{-- modal --}}
-              <div class="modal fade" id="exampleModal{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <form action="{{url("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/1/galeri/$item->id")}}" method="post" enctype="multipart/form-data">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Edit Galeri</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="card-body">
-                                    <div class="form-group">
-                                        <label for="">Nama</label>
-                                        <input type="text" class="form-control" name="judul" value="{{ $item->judul }}">
+                                    {{-- modal --}}
+                                    <div class="modal fade" id="exampleModal-edit-{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <form action="{{ url("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/$categoryProgramKegiatan->id/galeri/$item->id") }}" method="post" enctype="multipart/form-data">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Edit Galeri</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="card-body">
+                                                            <div class="form-group">
+                                                                <label for="">Nama</label>
+                                                                <input type="text" class="form-control" name="judul" value="{{ $item->judul }}">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="">Deskripsi singkat</label>
+                                                                <textarea name="deskripsi" class="form-control" id="" cols="30" rows="10">{{ $item->deskripsi }}</textarea>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="">Foto  <br><span class="text-primary"> ukuran maximum: 5 mb <br> jenis file: jpeg,png</span></label><br>
+                                                                <input id="imgInp"  type="file" name="banner" accept="image/x-png,image/jpeg">
+                                                                @include('component.error', ["name" => "banner"])
+                                                                <br><br>
+                                                                <img id="blah" style="max-width: 90%" src="{{ asset("/storage/$item->banner") }}" alt="" srcset="">
+                                                            </div>
+                                            
+                                                            @csrf
+                                                            @method("PUT")
+                                                            {{-- </form> --}}
+                                                        </div>
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary">Edit</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="">Deskripsi singkat</label>
-                                        <textarea name="deskripsi" class="form-control" id="" cols="30" rows="10">{{ $item->deskripsi }}</textarea>
-                                    </div>
-                                    <div class="form-group" style="height: 100px !important;">
-                                        <img src="{{ asset("storage/$item->banner") }}" style="height: 100px !important;" width="100%" alt="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="">Foto <span class="text-primary">* Di isi bila ingin mengganti gambar</span> </label> 
-                                        <input type="file" class="form-control" name="banner">
-                                    </div>
-                    
-                                    @csrf
-                                    @method("PUT")
-                                    {{-- </form> --}}
-                                </div>
+                                    {{-- end modal --}}
 
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Edit</button>
-                        </div>
-                    </div>
-                </form>
-                </div>
-              </div>
-            {{-- end modal --}}
+                                    <button type="button" class="btn btn-sm btn-info mx-4" data-toggle="modal" data-target="#exampleModal-edit-{{$item->id }}">Edit</button>
 
-
-                                    <form action="{{ url("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/1/galeri/$item->id") }}" method="post" class="d-inline">
+                                    <form action="{{ url("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/$categoryProgramKegiatan->id/galeri/$item->id") }}" method="post" class="d-inline">
                                         <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
                                         @csrf
                                         @method("DELETE")
                                     </form>
+
                                 @else
-                                    <a href="" class="btn btn-sm btn-info mx-4">Edit</a>
+                                
+                                    {{-- modal --}}
+                                    <div class="modal fade" id="exampleModal-edit-{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <form action="{{url("/admin/unit/0/category/$categoryProgramKegiatan->id/galeri/$item->id")}}" method="post" enctype="multipart/form-data">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Edit Galeri</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="card-body">
+                                                        <div class="form-group">
+                                                            <label for="">Nama</label>
+                                                            <input type="text" class="form-control" name="judul" value="{{ $item->judul }}">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="">Deskripsi singkat</label>
+                                                            <textarea name="deskripsi" class="form-control" id="" cols="30" rows="10">{{ $item->deskripsi }}</textarea>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="">Foto  <br><span class="text-primary"> ukuran maximum: 5 mb <br> jenis file: jpeg,png</span></label><br>
+                                                            <input id="imgInp"  type="file" name="banner" accept="image/x-png,image/jpeg">
+                                                            @include('component.error', ["name" => "banner"])
+                                                            <br><br>
+                                                            <img id="blah" style="max-width: 90%" src="{{ asset("/storage/$item->banner") }}" alt="" srcset="">
+                                                        </div>
+                                                            @csrf
+                                                            @method("PUT")
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary">Edit</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        </div>
+                                    </div>
+                                    {{-- end modal --}}
+
+                                    <button type="button" class="btn btn-sm btn-info mx-4" data-toggle="modal" data-target="#exampleModal-edit-{{$item->id }}">Edit</button>
+
+
                                     <form action="{{ url("/admin/unit/0/category/$categoryProgramKegiatan->id/galeri/$item->id") }}" method="post" class="d-inline">
                                         <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
                                         @csrf
@@ -107,9 +161,14 @@
     
             @endforeach
             
-            </div>
+        </div>
 
-              {{-- modal --}}
+        <div class="d-flex justify-content-center">
+            {{ $galeri->links()}}
+        </div>
+        
+
+            {{-- modal --}}
               <div class="modal fade" id="exampleModal-add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
 
@@ -139,7 +198,9 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="">Foto</label>
-                                        <input type="file" class="form-control" name="banner">
+                                        <input id="imgInp"  type="file" name="banner" required accept="image/x-png,image/jpeg">
+                                        <br>
+                                        <img id="blah" style="max-width: 90%" src="#" alt="" srcset="">
                                     </div>
                     
                                     @csrf

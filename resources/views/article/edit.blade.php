@@ -1,17 +1,21 @@
 @extends('layouts.master')
 
-@section('heading')
-    Tambah Artikel
-@endsection
-
 @section('css')
     <link href="{{ asset("assets/vendor/datatables/dataTables.bootstrap4.min.css")}}" rel="stylesheet">
 @endsection
 
+@section('title')
+    Edit Informasi
+@endsection
+
+@section('heading')
+    Edit Informasi
+@endsection
+
 @section('breadcump')
     <li class="breadcrumb-item"><a href="{{ url("admin") }}">Dashboard</a></li>
-    <li class="breadcrumb-item"><a href="{{ url("admin/article") }}">Artikel</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Tambah</li>
+    <li class="breadcrumb-item"><a href="{{ url("admin/article") }}">Informasi</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Edit</li>
 @endsection
 
 @section('content')
@@ -19,17 +23,14 @@
 
 <div class="card shadow mb-4">
   <div class="card-header">
-      Tambah Artikel
+      Edit Informasi
     </div>
   <div class="card-body">
       <div class="container d-flex justify-content-center">
         <div class="col-12">
           
           <form action="{{ url("admin/article/$article->id") }}" method="post" enctype="multipart/form-data">
-              <div class="form-group">
-                <label for="">Banner</label>
-                  <input type="file" class="form-control @error("banner") is-invalid @enderror"" name="banner" accept="image/x-png,image/jpeg">
-              </div>
+              
               <div class="form-group">
                 <label for="">Judul</label>
                   <input type="text" class="form-control" name="judul" required value="{{ $article->judul }}" >
@@ -52,6 +53,13 @@
                             value="{{ $item->id }}">{{ $item->nama }}</option>
                         @endforeach
                   </select>
+              </div>
+              <div class="form-group">
+                <label for="">Foto</label>
+                <input id="imgInp" type="file" class="form-control" name="gambar" required accept="image/*">
+                @include('component.error', ["name" => "gambar"])
+                <br>
+                  <img id="blah" style="max-width: 90%" src="{{ asset("/storage/$article->banner") }}" alt="" srcset="">
               </div>
               <button type="submit" class="btn btn-primary btn-block">Edit</button>
               @method("PUT")

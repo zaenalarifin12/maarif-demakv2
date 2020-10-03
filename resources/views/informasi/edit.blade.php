@@ -53,9 +53,11 @@
               @include('component.error', ["name" => "deskripsi"])
               </div>
               <div class="form-group">
-                <label for="">Banner</label>
-                  <input type="file" class="form-control" name="banner" accept="image/x-png,image/jpeg">
-                  @include('component.error', ["name" => "gambar"])
+                <label for="">Foto  <br><span class="text-primary"> ukuran maximum: 5 mb <br> jenis file: jpeg,png</span></label><br>
+                <input id="imgInp" type="file" class="form-control" name="banner" accept="image/x-png,image/jpeg">
+                @include('component.error', ["name" => "banner"])
+                <br>
+                <img id="blah" width="50%" src="{{ asset("storage/$informasi->banner") }}" alt="" srcset="">
               </div>
               <button type="submit" class="btn btn-primary btn-block">Edit</button>
               @csrf

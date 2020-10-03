@@ -1,5 +1,9 @@
 @extends('fe.layouts.master')
 
+@section('title')
+    E-Print {{ $lembaga->nama }} - {{ $mp->nama }}
+@endsection
+
 @section('content')
 <section id="sp-body">
     <div class="container">

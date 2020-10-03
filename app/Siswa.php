@@ -13,18 +13,11 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 class Siswa extends Model implements AuthenticatableContract, AuthorizableContract
 {
     use Authenticatable, Authorizable;
-
-    protected $primaryKey = "no_induk";
-    
     
     protected $guarded = [];
 
+    protected $primaryKey = "no_induk";
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password'
     ];

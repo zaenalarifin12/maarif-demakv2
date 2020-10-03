@@ -1,8 +1,8 @@
 @extends('layouts.master')
 
-@section('title', "Home")
+@section('title', "Profil")
   
-@section('heading', "Home")
+@section('heading', "Profil")
 
 
 @section('breadcump')
@@ -11,9 +11,14 @@
 @endsection
 
 @section('content')
-          <!-- Content Row -->
+
           <div class="col">
             
+            @include('layouts.includes.alert-card', [
+              "url" => url("/admin/profil/visi-misi"),
+              "name" => "Visi Misi",
+            ])
+
             @include('layouts.includes.alert-card', [
               "url" => url("/admin/profil/strukur-jajaran"),
               "name" => "Struktur Jajaran ||",

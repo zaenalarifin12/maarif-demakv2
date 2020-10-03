@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('heading')
+@section('title')
     Tambah Program
 @endsection
 
@@ -64,7 +64,7 @@
                     <input id="imgInp"  type="file" name="gambar" required accept="image/x-png,image/jpeg">
                     @include('component.error', ["name" => "gambar"])
                     <br><br>
-                    <img id="blah" width="50%" src="#" alt="" srcset="">
+                    <img id="blah" style="max-width: 90%" src="#" alt="" srcset="">
               </div>
               <button type="submit" class="btn btn-primary btn-block">Tambah</button>
               @csrf

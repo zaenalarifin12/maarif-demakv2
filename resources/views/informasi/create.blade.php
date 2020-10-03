@@ -16,18 +16,18 @@
     <li class="breadcrumb-item"><a href="{{ url("admin") }}">Dashboard</a></li>
 
     @include('component.bc-program',
-    [
-      "category"        => $category,
-    ]
-  )
+        [
+        "category"        => $category,
+        ]
+    )
 
     @include('component.bc-program-title',
-            [
-            "category"        => $category,
-            "mata_pelajaran"  => $mata_pelajaran,
-            "name"            => "informasi"
-            ]
-        )
+        [
+        "category"        => $category,
+        "mata_pelajaran"  => $mata_pelajaran,
+        "name"            => "informasi"
+        ]
+    )
   
     <li class="breadcrumb-item active" aria-current="page">Tambah</li>
 @endsection
@@ -56,10 +56,12 @@
                     @include('component.error', ["name" => "deskripsi"])
                 </div>
                 <div class="form-group">
-                    <label for="">Gambar</label>
-                    <input type="file" class="form-control" name="gambar" required accept="image/x-png,image/jpeg">
-                    @include('component.error', ["name" => "gambar"])
-                </div>
+                    <label for="">Foto  <br><span class="text-primary"> ukuran maximum: 5 mb <br> jenis file: jpeg,png</span></label><br>
+                    <input id="imgInp" type="file" class="form-control" name="gambar" required accept="image/x-png,image/jpeg">
+                      @include('component.error', ["name" => "gambar"])
+                    <br>
+                      <img id="blah" src="#" alt="" srcset="">
+                  </div>
                 <button type="submit" class="btn btn-primary btn-block">Tambah</button>
                 @csrf
           </form>

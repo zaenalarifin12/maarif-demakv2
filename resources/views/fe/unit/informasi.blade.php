@@ -1,5 +1,9 @@
 @extends('fe.layouts.master')
 
+@section('title')
+    {{ $cpk->nama }}
+@endsection
+
 @section('content')
 <section id="sp-body">
     <div class="container">
@@ -22,7 +26,7 @@
 
                                     <div class="entry-image intro-image">
                                         <a
-                                            href="{{ url("/") }}">
+                                            href="{{ url("/unit/$cpk->slug/informasi/$item->slug") }}">
                                             <img src="{{ asset("/storage/".$item->banner) }}"
                                                 alt="" itemprop="thumbnailUrl" />
                                         </a>
@@ -35,7 +39,7 @@
 
                                         <h2 itemprop="name">
                                             <a 
-                                            href="{{ url("/") }}"
+                                            href="{{ url("/unit/$cpk->slug/informasi/$item->slug") }}"
                                                 itemprop="url">
                                                 {{ $item->judul }}</a>
                                             <div class="divider"></div>

@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
 use App\Lembaga;
 use App\Category;
+use App\Licensi;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -42,6 +43,19 @@ class AppServiceProvider extends ServiceProvider
             return $view->with("category", $category);
         });
 
+        view()->composer('fe.layouts.master', function($view) {
+
+            $licensi = Licensi::first();
+
+            return $view->with("licensi", $licensi);
+        });
+
+        view()->composer('fe.home.index', function($view) {
+
+            $licensi = Licensi::first();
+
+            return $view->with("licensi", $licensi);
+        });
 
     }
 }

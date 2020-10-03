@@ -48,20 +48,24 @@
           
               <div class="form-group">
                 <label for="">Judul</label>
-                  <input type="text" class="form-control" name="judul" required >
+                  <input type="text" class="form-control" name="judul" required value="{{ old("judul") }}">
+                  @include('component.error', ["name" => "judul"])
+
               </div>
               <div class="form-group">
                 <label for="">Deskripsi</label>
-                  <textarea class="ckeditor form-control"  name="deskripsi"required cols="30" rows="10"></textarea>
+                  <textarea class="ckeditor form-control"  name="deskripsi" required cols="30" rows="10">{{ old("deskripsi") }}</textarea>
+                  @include('component.error', ["name" => "deskripsi"])
               </div>
               <div class="form-group">
                 <label for="">File</label>
-                  <input type="file" class="form-control" name="banner" required >
+                  <input type="file" class="form-control" name="banner" required value=" {{ old("banner") }}">
+                  @include('component.error', ["name" => "banner"])
               </div>
               <div class="form-group">
                 <label for="">Kategori</label><br>
                 @foreach ($categoryEprint as $item)
-                    <input type="radio" name="categoryEprint" value="{{ $item->id }}"> {{$item->nama}} <br> 
+                    <input required type="radio" name="categoryEprint" value="{{ $item->id }}"> {{$item->nama}} <br> 
                 @endforeach
               </div>
               <button type="submit" class="btn btn-primary btn-block">Tambah</button>

@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    Edit Event
+@endsection
+
 @section('heading')
     Edit Event
 @endsection
@@ -10,14 +14,21 @@
 
 @section('breadcump')
     <li class="breadcrumb-item"><a href="{{ url("admin") }}">Dashboard</a></li>
-    <li class="breadcrumb-item"><a href="{{ url("admin/forum-mgmp/") }}">Forum MGMP</a></li>
-    <li class="breadcrumb-item"><a href="{{ url("admin/forum-mgmp/lembaga/".$mata_pelajaran->lembaga->id."/mata-pelajaran") }}">Lembaga {{ $mata_pelajaran->lembaga->nama }}</a></li>
-    <li class="breadcrumb-item active" aria-current="page">{{ ucfirst($mata_pelajaran->nama) }}</li>
     
+    @include('component.bc-program',
+        [
+        "category"        => $category,
+        "mata_pelajaran"  => $mata_pelajaran
+        ]
+    )
     
-    <li class="breadcrumb-item active" aria-current="page">Product</li>
-    <li class="breadcrumb-item"><a href="{{ url("admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/$category->id/event") }}">Event</a></li>
-  
+    @include('component.bc-program-title',
+        [
+        "category"        => $category,
+        "mata_pelajaran"  => $mata_pelajaran,
+        "name"            => "event"
+        ]
+    )
     <li class="breadcrumb-item active" aria-current="page">Edit</li>
 @endsection
 
@@ -32,7 +43,12 @@
       <div class="container d-flex justify-content-center">
         <div class="col-12">
           
-          <form action="{{ url("admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/$category->id/event/$event->id") }}" method="post" enctype="multipart/form-data">
+          @if ($mata_pelajaran != null)
+            <form action="{{ url("admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/$category->id/event/$event->id") }}" method="post" enctype="multipart/form-data">
+          @else
+              <form action="{{ url("admin/unit/0/category/$category->id/event/$event->id") }}" method="post" enctype="multipart/form-data">
+          @endif
+          
               <div class="form-group">
                 <label for="">Judul</label>
                   <input type="text" class="form-control" name="judul" required value="{{ $event->judul }}">
@@ -44,7 +60,7 @@
                 @include('component.error', ["name" => "deskripsi"])
               </div>
               <div class="form-group">
-               <label for="">Foto </label>
+                <label for="">Foto  <br><span class="text-primary"> ukuran maximum: 5 mb <br> jenis file: jpeg,png</span></label><br>
                 <input id="imgInp" type="file" class="form-control" name="gambar" accept="image/x-png,image/jpeg">
                 @include('component.error', ["name" => "gambar"])
                 <br>

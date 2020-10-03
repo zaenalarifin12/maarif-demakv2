@@ -7,79 +7,32 @@ use Illuminate\Http\Request;
 
 class LicensiController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        
+        $licensi = Licensi::first();
+        
+        return view("licensi.index", compact("licensi"));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
-    }
+        Licensi::query()->truncate();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Licensi  $licensi
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Licensi $licensi)
-    {
-        //
-    }
+        Licensi::create([
+            "nama"      => $request->nama,
+            "alamat"    => $request->alamat,
+            "email"     => $request->email,
+            "telepone"  => $request->telepone,
+            "jadwal"    => $request->jadwal,
+            "hotline"   => $request->hotline,
+            "facebook"  => $request->facebook,
+            "instagram" => $request->instagram,
+            "youtube"   => $request->youtube,
+            "twitter"   => $request->twitter,
+        ]);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Licensi  $licensi
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Licensi $licensi)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Licensi  $licensi
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Licensi $licensi)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Licensi  $licensi
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Licensi $licensi)
-    {
-        //
+        return redirect("/admin/licensi")->withSuccess("licensi berhasil diperbarui");;
     }
 }

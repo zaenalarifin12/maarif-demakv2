@@ -155,18 +155,18 @@ class EprintController extends Controller
                     "banner"                        => $nama,
                     "judul"                         => $request->judul,
                     "deskripsi"                     => $request->deskripsi,
-                    "mata_pelajaran_id"             => null,
-                    "category_program_kegiatan_id"  => $idc,
-                    "category_eprint_id"            => $request->categoryEprint
+                    // "mata_pelajaran_id"             => null,
+                    // "category_program_kegiatan_id"  => $idc,
+                    // "category_eprint_id"            => $request->categoryEprint
                 ]);
             }else{
                 $eprint->update([
                    
                     "judul"                         => $request->judul,
                     "deskripsi"                     => $request->deskripsi,
-                    "mata_pelajaran_id"             => null,
-                    "category_program_kegiatan_id"  => $idc,
-                    "category_eprint_id"            => $request->categoryEprint
+                    // "mata_pelajaran_id"             => null,
+                    // "category_program_kegiatan_id"  => $idc,
+                    // "category_eprint_id"            => $request->categoryEprint
 
                 ]);
             }
@@ -183,9 +183,9 @@ class EprintController extends Controller
                     "banner"                        => $nama,
                     "judul"                         => $request->judul,
                     "deskripsi"                     => $request->deskripsi,
-                    "mata_pelajaran_id"             => $idmp,
-                    "category_program_kegiatan_id"  => $idc,
-                    "category_eprint_id"            => $request->categoryEprint
+                    // "mata_pelajaran_id"             => $idmp,
+                    // "category_program_kegiatan_id"  => $idc,
+                    // "category_eprint_id"            => $request->categoryEprint
 
                 ]);
             }else{
@@ -193,9 +193,9 @@ class EprintController extends Controller
                    
                     "judul"                         => $request->judul,
                     "deskripsi"                     => $request->deskripsi,
-                    "mata_pelajaran_id"             => $idmp,
-                    "category_program_kegiatan_id"  => $idc,
-                    "category_eprint_id"            => $request->categoryEprint
+                    // "mata_pelajaran_id"             => $idmp,
+                    // "category_program_kegiatan_id"  => $idc,
+                    // "category_eprint_id"            => $request->categoryEprint
 
                 ]);
             }

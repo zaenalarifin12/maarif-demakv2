@@ -33,18 +33,20 @@
                                     </li>
           
                                     <li>
-                                    <a href="" class="font-weight-bold text-secondary">Product</a>
-                                    <div class="container">
-                                        <div class="collapse show" id="collapseExample">
-                                            <ul>
-                                                <li>
-                                                    <a href="{{ url("/admin/unit/0/category/6/eprint") }}" class="font-weight-bold text-info">E-Print</a>
-                                                </li>
-                                                <a href="{{ url("/admin/unit/0/category/6/digital") }}" class="font-weight-bold text-info">Digital</a>
-                                            </ul>
+                                        <a href="#" class="font-weight-bold text-secondary">Product</a>
+                                        <div class="container">
+                                            <div class="collapse show" id="collapseExample">
+                                                <ul>
+                                                    <li>
+                                                        <a href="{{ url("/admin/unit/0/category/6/eprint") }}" class="font-weight-bold text-info">E-Print</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{{ url("/admin/unit/0/category/6/digital") }}" class="font-weight-bold text-info">Digital</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
+                                    </li>
                                 </ul>
                             </div>
                         </div>

@@ -40,7 +40,7 @@ class ArticleController extends Controller
 
         $category = Category::findOrFail($request->category);
         
-        $nama = UploadFileServices::image($request, "banner");
+        $nama = UploadFileServices::image($request, "gambar");
 
         
         Article::create([
@@ -74,8 +74,8 @@ class ArticleController extends Controller
         $article = Article::findOrFail($id);
         $category = Category::findOrFail($request->category);
 
-        if ($request->hasFile("banner")) {
-            $nama = UploadFileServices::image($request, "banner");
+        if ($request->hasFile("gambar")) {
+            $nama = UploadFileServices::image($request, "gambar");
         
             $article->update([
                 "banner"        => $nama,

@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" lang="en-gb" dir="ltr">
 
-<!-- Mirrored from umk.ac.id/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 25 Sep 2020 21:28:39 GMT -->
-<!-- Added by HTTrack -->
+
 <meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 
 <head>
@@ -19,21 +18,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 	<base />
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="keywords" content="Universitas Muria Kudus
-UMK
-Kudus
-Muria Kudus
-Web Property ID UA-96589258-1
-Code Version/Syntax Universal" />
-	<meta name="rights" content="Copyright © 2009 - 2020 Universitas Muria Kudus. All rights reserved." />
+	<meta name="keywords" content="Yayasan Maarif Demak" />
+	<meta name="rights" content="Copyright © Yayasan Maarif Demak. All rights reserved." />
 	<meta name="description"
-		content="Menjadi Universitas Kebudayaan (Indigenous University) yang menghasilkan lulusan unggul, berbudi luhur, berkepribadian luhur, berilmu, berteknologi dan seni." />
-	<meta name="generator" content="Joomla! - Open Source Content Management" />
-	<title>Maarif Demak | HOME</title>
+		content="" />
+	{{-- <meta name="generator" content="Joomla! - Open Source Content Management" /> --}}
+	<title>@yield('title') - MA'ARIF DEMAK</title>
 	<link href="images/logo.png" rel="shortcut icon" type="image/vnd.microsoft.icon" />
-	<link href="favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+	<link href="favicon.ico" rel="shortcut icon" type="{{ asset("assetfile/image/vnd.microsoft.icon")}}" />
 	<link href="{{ asset("assetfile/component/search/indexebeb.html?id=1&amp;Itemid=1865&amp;format=opensearch")}}" rel="search"
-		title="Search Universitas Muria Kudus" type="application/opensearchdescription+xml" />
+		title="Search Maarif Demak" type="application/opensearchdescription+xml" />
 	<link href="{{ asset("assetfile/media/k2/assets/css/k2.fonts91f5.css?v2.7.1")}}" rel="stylesheet" type="text/css" />
 	<link href="{{ asset("assetfile/components/com_k2/css/k291f5.css?v2.7.1")}}" rel="stylesheet" type="text/css" />
 	<link
@@ -236,6 +230,9 @@ Code Version/Syntax Universal" />
             .my-center{
                 width: 20% !important;
             }
+			.minus-margin{
+				margin-left: -60px;
+			}
         }
 
     </style>
@@ -352,12 +349,12 @@ Code Version/Syntax Universal" />
 	</script>
 	<meta content="HOME" property="og:title" />
 	<meta content="website" property="og:type" />
-	<meta content="https://umk.ac.id/" property="og:url" />
+	<meta content="#" property="og:url" />
 
 	
 
 
-	<script>
+	{{-- <script>
 		(function (i, s, o, g, r, a, m) {
 			i['GoogleAnalyticsObject'] = r;
 			i[r] = i[r] || function () {
@@ -372,7 +369,7 @@ Code Version/Syntax Universal" />
 
 		ga('create', 'UA-96589258-1', 'umk.ac.id');
 		ga('send', 'pageview');
-	</script>
+	</script> --}}
 	<!-- Universal Google Analytics Plugin by PB Web Development -->
 
 

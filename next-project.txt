@@ -1,0 +1,3 @@
+ajax , serverside
+solid
+lansung saja pake model UUid

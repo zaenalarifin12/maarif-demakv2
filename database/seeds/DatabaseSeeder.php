@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             CategoryEprintSeeder::class,
             LembagaSeeder::class,
             MataPelajaranSeeder::class,
+            LicensiSeeder::class,
         ]);
     }
 }

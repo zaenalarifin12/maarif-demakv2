@@ -26,7 +26,7 @@
                 <div class="row d-flex justify-content-between">
                     <h5>Siswa</h5>
 
-                    <button type="button" class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#exampleModal-add">Tambah</button>
+                    <a href="{{ url("siswa/create") }}" class="btn btn-sm btn-secondary" >Tambah</a>
                     <form action="{{ url("siswa/approve-all") }}" method="post">
                         @csrf
                         <button type="submit" class="btn btn-sm text-white" style="background-color: #28df99" >Aktifkan Semua</button>                        

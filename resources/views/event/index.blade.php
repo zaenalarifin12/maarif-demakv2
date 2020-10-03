@@ -4,6 +4,12 @@
     <link href="{{ asset("assets/vendor/datatables/dataTables.bootstrap4.min.css")}}" rel="stylesheet">
 @endsection
 
+
+@section('title')
+    Daftar Event
+@endsection
+
+
 @section('heading')
     Daftar Event
 @endsection
