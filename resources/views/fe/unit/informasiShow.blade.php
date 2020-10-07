@@ -1,5 +1,9 @@
 @extends('fe.layouts.master')
 
+@section('title')
+    {{ $informasi->judul }} - Informasi
+@endsection
+
 @section('content')
 <section id="sp-body">
     <div class="container">

@@ -49,6 +49,7 @@
                     <tr>
                       <th class="text-primary">Judul</th>
                       <th class="text-primary">Tanggal</th>
+                      <th class="text-primary">Kategori</th>
                       <th class="text-primary">Aksi</th>
                     </tr>
                   </thead>
@@ -56,6 +57,7 @@
                     <tr>
                         <th class="text-primary">Judul</th>
                         <th class="text-primary">Tanggal</th>
+                        <th class="text-primary">Kategori</th>
                         <th class="text-primary">Aksi</th>
                     </tr>
                   </tfoot>
@@ -64,6 +66,7 @@
                     <tr>
                         <td>{{$item->judul}}</td>
                         <td>{{ $item->created_at }}</td>
+                        <td>{{ $item->category_eprint->nama }}</td>
 
                         @if ($mata_pelajaran == null)
                           <td>

@@ -30,6 +30,18 @@ class UnitController extends Controller
         ]));
     }
 
+    public function programShow($slug, $id)
+    {
+        $cpk     = CategoryProgramKegiatan::where("slug", $slug)->firstOrFail();
+
+        $program = ProgramKegiatan::where("category_program_kegiatan_id", $cpk->id)
+                ->where("id", $id)->firstOrFail();
+
+        return view("fe.unit.programShow", compact([
+            "cpk", "program"
+        ]));
+    }
+
     public function galeri($slug)
     {
         $cpk    = CategoryProgramKegiatan::where("slug", $slug)->firstOrFail();

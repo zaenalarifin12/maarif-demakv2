@@ -16,7 +16,8 @@
 
 
               <div class="entry-image full-image"> <img
-                  src="{{ asset("storage/$article->banner") }}" alt="" itemprop="image" /> </div>
+                  src="{{ asset("storage/$article->banner") }}" alt="" itemprop="image" /> 
+              </div>
 
               <div class="entry-header has-post-format">
                 <span class="post-format"><i style="margin-right:-6px;" class="fa fa-pencil-square-o"></i></span>

@@ -1,5 +1,9 @@
 @extends('fe.layouts.master')
 
+@section('title')
+    Program Kegiatan {{ $cpk->nama }}
+@endsection
+
 @section('content')
 <section id="sp-body">
     <div class="container">
@@ -22,7 +26,7 @@
 
                                     <div class="entry-image intro-image">
                                         <a
-                                            href="#") }}">
+                                            href="{{ url("/unit/$cpk->slug/program/$item->id") }}">
                                             <img src="{{ asset("/storage/".$item->banner) }}"
                                                 alt="" itemprop="thumbnailUrl" />
                                         </a>
@@ -30,12 +34,11 @@
 
                                     <div class="entry-header has-post-format">
 
-                                        <span class="post-format"><i style="margin-right:-6px;"
-                                                class="fa fa-pencil-square-o"></i></span>
+                                        <span class="post-format"><i style="margin-right:-6px;" class="fa fa-pencil-square-o"></i></span>
 
                                         <h2 itemprop="name">
                                             <a 
-                                            href="#"
+                                            href="{{ url("/unit/$cpk->slug/program/$item->id") }}"
                                                 itemprop="url">
                                                 {{ $item->judul }}</a>
                                             <div class="divider"></div>

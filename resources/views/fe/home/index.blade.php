@@ -15,13 +15,13 @@
                 <div id="sp-page-builder" class="sp-page-builder  page-1">
 
                     <div class="page-content">
-                        <section class="sppb-section " style="background-color:#fbc800;">
+                        <section class="sppb-section " style="background-color:#14704d;">
                             <div class="sppb-row">
                                 <div class="sppb-col-sm-12">
                                     <div class="sppb-addon-container sppb-wow fadeInRight" style="padding:0px;"
                                         data-sppb-wow-duration="600ms" data-sppb-wow-delay="600ms">
                                         <div class="sppb-addon ">
-                                            <div class="slick-carousel-652 clearfix" style="height: 332px;">
+                                            <div class="slick-carousel-652 clearfix" style="height: auto;">
                                                 @foreach ($banner as $item)
                                                     <div class="slick-img"><a href="#"><img
                                                         data-lazy="{{ asset("storage/$item->gambar")}}"></a></div>    
@@ -155,7 +155,8 @@
                             style="padding:5px 40px 10px 40px;color:#000000;background-color:#ffffff;">
                             <div class="sppb-section-title sppb-text-left">
                                 <h2 class="sppb-title-heading"
-                                    style="font-size:18px;line-height: 18px;color:#ffffff;">Berita Terbaru</h2>
+                                    style="font-size:18px;line-height: 18px;color:#ffffff;">Berita Terbaru
+                                </h2>
                             </div>
                             <div class="sppb-row">
                                 <div class="sppb-col-sm-12">
@@ -307,21 +308,8 @@
                                                 @foreach ($kerjaSama as $item)
                                                 
                                                     <div class="slick-img"><img
-                                                        data-lazy="{{ asset("assetfile/images/2017/06/08/Duy-Tan-University-Baru.png")}}">
+                                                        data-lazy="{{ asset("storage/$item->gambar")}}">
                                                     </div>
-                                                    <div class="slick-img"><img
-                                                            data-lazy="{{ asset("assetfile/images/2017/06/08/Hatyai-Baru.png")}}"></div>
-                                                    <div class="slick-img"><img
-                                                            data-lazy="{{ asset("assetfile/images/2017/06/08/PSB-Singapura-Baru.png")}}">
-                                                    </div>
-                                                    <div class="slick-img"><img
-                                                            data-lazy="{{ asset("assetfile/images/2017/06/08/Adventist-baru.png")}}"></div>
-                                                    <div class="slick-img"><img
-                                                            data-lazy="{{ asset("assetfile/images/2017/03/24/PR-Djarum.png")}}"></div>
-                                                    <div class="slick-img"><img
-                                                            data-lazy="{{ asset("assetfile/images/2017/03/24/PR-Nojorono.png")}}"></div>
-                                                    <div class="slick-img"><img
-                                                            data-lazy="{{ asset("assetfile/images/2017/03/24/PR-Sukun.png")}}"></div>
                                                     
                                                 @endforeach
                                                 
@@ -338,7 +326,7 @@
                                 <div class="sppb-col-sm-5">
                                     <div class="sppb-addon-container" style="color:#ffffff;">
                                         <div class="sppb-addon sppb-addon-text-block sppb-text-left ">
-                                            <h3 class="sppb-addon-title" style="color:#ffffff;">Hubungi Kami
+                                            <h3 class="sppb-addon-title" style="color:#ffffff !important;">Hubungi Kami
                                             </h3>
                                             <div class="sppb-addon-content"><span
                                                     style="font-size: 14pt;">
@@ -355,7 +343,7 @@
                                 <div class="sppb-col-sm-2">
                                     <div class="sppb-addon-container" style="">
                                         <div class="sppb-addon sppb-addon-text-block sppb-text-left ">
-                                            <h3 class="sppb-addon-title" style="color:#ffffff;">Ikuti Kami</h3>
+                                            <h3 class="sppb-addon-title" style="color:#ffffff !important;">Ikuti Kami</h3>
                                             <div class="sppb-addon-content"><a
                                                     href="{{ $licensi->facebook }}"
                                                     target="_blank"><img src={{ asset("assetfile/images/medsos/036-facebook.png"
@@ -377,7 +365,7 @@
                                 <div class="sppb-col-sm-2">
                                     <div class="sppb-addon-container" style="">
                                         <div class="sppb-addon sppb-addon-text-block sppb-text-left ">
-                                            <h3 class="sppb-addon-title" style="color:#ffffff;">Tautan Penting
+                                            <h3 class="sppb-addon-title" style="color:#ffffff !important;">Tautan Penting
                                             </h3>
                                             <div class="sppb-addon-content"><a
                                                     href="index.php/component/content/article4e31.html?id=2983">Pernyataan
@@ -400,7 +388,7 @@
                                 <div class="sppb-col-sm-3">
                                     <div class="sppb-addon-container" style="">
                                         <div class="sppb-addon sppb-addon-text-block sppb-text-left ">
-                                            <h3 class="sppb-addon-title" style="color:#ffffff;">Informasi Untuk
+                                            <h3 class="sppb-addon-title" style="color:#ffffff !important;">Informasi Untuk
                                             </h3>
                                             <div class="sppb-addon-content"><a href="http://pmb.umk.ac.id/"
                                                     target="_blank">Calon Mahasiswa</a><br /><a

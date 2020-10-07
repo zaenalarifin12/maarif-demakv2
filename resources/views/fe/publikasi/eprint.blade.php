@@ -1,5 +1,9 @@
 @extends('fe.layouts.master')
 
+@section('title')
+    Publikasi E-Print 
+@endsection
+
 @section('content')
 <section id="sp-body">
     <div class="container">
@@ -21,10 +25,8 @@
 
                                     <div class="entry-header has-post-format">
 
-                                        <h2 itemprop="name">
-                                            <a 
-                                            href="#"
-                                                itemprop="url">
+                                        <h2 >
+                                            <a itemprop="url">
                                                 {{ $item->judul }}</a>
                                             <div class="divider"></div>
                                         </h2>
@@ -40,10 +42,10 @@
                                                 <time datetime="2020-09-25T08:21:58+07:00"
                                                     itemprop="datePublished" data-toggle="tooltip"
                                                     title="Published Date">
-                                                    {{ $item->created_at}} </time>
+                                                    {{ $item->created_at->format('d F Y') }} </time>
                                             </dd>
                                             <p class="" style="color : #0089; font-weight: bold">{{ $item->category_eprint->nama }}</p>
-                                            <a href="{{ url("/files/$item->banner") }}" class="sppb-btn sppb-btn-info sppb-btn">Download</a>
+                                            <a href="{{ url("/files/upload/$item->banner") }}" class="sppb-btn sppb-btn-info sppb-btn">Download</a>
                                             <p>{!! $item->deskripsi !!}</p>
 
                                         </dl>

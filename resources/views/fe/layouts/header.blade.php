@@ -188,8 +188,8 @@
                                                     <li class="sp-menu-item sp-has-child"><a
                                                         href="#">{{ $item->nama }}</a>
                                                             <div class="sp-dropdown sp-dropdown-sub sp-menu-right"
-                                                                style="width: 180px;">
-                                                                <div class="sp-dropdown-inner">
+                                                                style="width: 240px;" >
+                                                                <div class="sp-dropdown-inner"  >
                                                                     <ul class="sp-dropdown-items" >
                                                                         @foreach ($item->mata_pelajarans as $item2)
                                                                             <li class="sp-menu-item sp-has-child"><a
@@ -222,10 +222,9 @@
                                                                                             </li>
                                                                                     </ul>
                                                                                 </div>
-                                                                            </div>
-                                                                        </li>
-                                                                        @endforeach
-                                                                        
+                                                                                </div>
+                                                                            </li>
+                                                                        @endforeach      
                                                                     </ul>
                                                                 </div>
                                                             </div>

@@ -71,6 +71,7 @@ class Kernel extends HttpKernel
         'adminMgmp' => \App\Http\Middleware\AdminMgmpMiddleware::class,
         'anggota' => \App\Http\Middleware\AnggotaMiddleware::class,
 
-        'isAuth' => \App\Http\Middleware\IsAuthMiddleware::class,
+        'isAuth'    => \App\Http\Middleware\IsAuthMiddleware::class,
+        'isAnggota' => \App\Http\Middleware\IsAnggotaMiddleware::class,
     ];
 }

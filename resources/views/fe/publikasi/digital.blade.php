@@ -1,6 +1,9 @@
 
 @extends('fe.layouts.master')
 
+@section('title')
+    Publikasi Digital Library 
+@endsection
 
 @section('content')
     

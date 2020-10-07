@@ -234,6 +234,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 				margin-left: -60px;
 			}
         }
+		#blah{
+			max-width: 100%;
+		}
 
     </style>
 	<script src="{{ asset("assetfile/media/k2/assets/js/k2.frontende94a.js?v2.7.1&amp;sitepath=/")}}" type="text/javascript"></script>

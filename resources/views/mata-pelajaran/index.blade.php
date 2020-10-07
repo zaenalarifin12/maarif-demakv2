@@ -110,82 +110,81 @@
 
                 
             
-                            @if (Auth::user()->role == 3)
-                            
-                                @if (Auth::user()->mata_pelajaran->id == $item->id)
-                                    <div class="card shadow mb-4">
-                                        <!-- Card Header - Accordion -->
-                                        <div href="#collapseCardExample-{{ $item->id }}" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample-{{ $item->id }}">
-                                            <h6 class="m-0 font-weight-bold text-primary d-inline text-capitalize">{{ $item->nama }} </h6>
-                                        </div>
-                                        <div class="collapse" id="collapseCardExample-{{ $item->id }}">
-                                        <div class="card-body">
-                                            <ul>
-                                                <li>
-                                                    <a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$item->id/category/1/program") }}" class="font-weight-bold text-primary">Jajaran Pengurus</a>
-                                                </li>
-                                                <li>
-                                                    <a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$item->id/category/1/program") }}" class="font-weight-bold text-primary">Program Kegiatan</a>
-                                                </li>
-                                                <li>
-                                                    <a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$item->id/category/1/galeri") }}" class="font-weight-bold text-primary">Galeri</a>
-                                                </li>
-                                                <li>
-                                                    <a href="" class="font-weight-bold text-secondary">Product</a>
-                                                    <div class="container">
-                                                        <div class="collapse show" id="collapseExample">
-                                                            <ul>
-                                                                <li><a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$item->id/category/1/eprint") }}" class="font-weight-bold text-primary">E-print</a></li>
-                                                                <li><a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$item->id/category/1/digital") }}" class="font-weight-bold text-primary">Digital</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$item->id/category/1/event") }}" class="font-weight-bold text-primary">Event</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                    @endif
-
-                            @else
-                                @if (Auth::user()->role == 2)
-                              
-                                @if (Auth::user()->mata_pelajaran->id = $item->id)
-                                    
-                             
-                                    <div class="card shadow mb-4">
-                                        <!-- Card Header - Accordion -->
-                                        <div href="#collapseCardExample-{{ $item->id }}" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample-{{ $item->id }}">
-                                            <h6 class="m-0 font-weight-bold text-primary d-inline text-capitalize">{{ $item->nama }} </h6>
-                                        </div>
-                                        <div class="collapse" id="collapseCardExample-{{ $item->id }}">
-                                            <div class="card-body">
-                                                <ul>
-                                
+                @if (Auth::user()->role == 3)
+                
+                    @if (Auth::user()->mata_pelajaran->id == $item->id)
+                        <div class="card shadow mb-4">
+                            <!-- Card Header - Accordion -->
+                            <div href="#collapseCardExample-{{ $item->id }}" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample-{{ $item->id }}">
+                                <h6 class="m-0 font-weight-bold text-primary d-inline text-capitalize">{{ $item->nama }} </h6>
+                            </div>
+                            <div class="collapse" id="collapseCardExample-{{ $item->id }}">
+                                <div class="card-body">
+                                    <ul>
+                                        <li>
+                                            <a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$item->id/category/1/program") }}" class="font-weight-bold text-primary">Jajaran Pengurus</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$item->id/category/1/program") }}" class="font-weight-bold text-primary">Program Kegiatan</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$item->id/category/1/galeri") }}" class="font-weight-bold text-primary">Galeri</a>
+                                        </li>
                                         <li>
                                             <a href="" class="font-weight-bold text-secondary">Product</a>
                                             <div class="container">
                                                 <div class="collapse show" id="collapseExample">
                                                     <ul>
                                                         <li><a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$item->id/category/1/eprint") }}" class="font-weight-bold text-primary">E-print</a></li>
+                                                        <li><a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$item->id/category/1/digital") }}" class="font-weight-bold text-primary">Digital</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
                                         </li>
-                         
+                                        <li>
+                                            <a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$item->id/category/1/event") }}" class="font-weight-bold text-primary">Event</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                              
-                                    @endif                                
-                                @endif
-                            @endif
+                    @endif
+
+                @else
+                    @if (Auth::user()->role == 2)
+                        
+                        @if (Auth::user()->mata_pelajaran->id = $item->id)
                             
-                       
+                        
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Accordion -->
+                                <div href="#collapseCardExample-{{ $item->id }}" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample-{{ $item->id }}">
+                                    <h6 class="m-0 font-weight-bold text-primary d-inline text-capitalize">{{ $item->nama }} </h6>
+                                </div>
+                                <div class="collapse" id="collapseCardExample-{{ $item->id }}">
+                                    <div class="card-body">
+                                        <ul>
+                        
+                                <li>
+                                    <a href="" class="font-weight-bold text-secondary">Product</a>
+                                    <div class="container">
+                                        <div class="collapse show" id="collapseExample">
+                                            <ul>
+                                                <li><a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$item->id/category/1/eprint") }}" class="font-weight-bold text-primary">E-print</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                    
+                            </ul>
+                            </div>
+                            </div>
+                            </div>
+                        
+                    @endif                                
+                @endif
+            @endif
+                        
             @endif
 
             
@@ -194,26 +193,26 @@
 @endforeach
 
 @if (Auth::user()->role == 4)
-               <!-- Content Row -->
-               <div class="row">
-                <!-- Content Column -->
-                    <div class="col-lg-6 mb-4">
-                        <!-- Project Card Example -->
-                        <div class="card shadow mb-4">
-                            <div class="card-body">
-                                <form action="{{ url("admin/forum-mgmp/lembaga/$lembaga->id/mata-pelajaran") }}" method="post">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" name="nama" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-primary">Tambah</button>
-                                    </div>
-                                    @csrf
-                                </form>
-                            </div>
+    <!-- Content Row -->
+    <div class="row">
+    <!-- Content Column -->
+        <div class="col-lg-6 mb-4">
+            <!-- Project Card Example -->
+            <div class="card shadow mb-4">
+                <div class="card-body">
+                    <form action="{{ url("admin/forum-mgmp/lembaga/$lembaga->id/mata-pelajaran") }}" method="post">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="nama" required>
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Tambah</button>
+                        </div>
+                        @csrf
+                    </form>
                 </div>
+            </div>
+        </div>
+    </div>
 @endif
    
 

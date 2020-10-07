@@ -1,5 +1,9 @@
 @extends('fe.layouts.master')
 
+@section('title')
+    {{ $program->judul }}
+@endsection
+
 @section('content')
 <section id="sp-body">
     <div class="container">
@@ -10,19 +14,17 @@
             </div>
             <article class="item item-page" itemscope itemtype="http://schema.org/Article">
               <meta itemprop="inLanguage" content="en-GB" />
-              <div class="page-header">
-                <h1> Event Forum MGMP {{ $mp->nama }} - {{ $lembaga->nama }} </h1>
-              </div>
+              {{-- <div class="page-header">
+                <h1> {{ $category->nama }} </h1>
+              </div> --}}
 
-              
-
-              <div class="entry-image full-image"> <img style="max-width: 100%"
-                  src="{{ asset("storage/$event->banner") }}" alt="" itemprop="image" /> </div>
+              <div class="entry-image full-image"> <img
+                  src="{{ asset("storage/$program->banner") }}" alt="" itemprop="image" /> </div>
 
               <div class="entry-header has-post-format">
                 <span class="post-format"><i style="margin-right:-6px;" class="fa fa-pencil-square-o"></i></span>
                 <h2 itemprop="name">
-                  {{ $event->judul }} <div class="divider"></div>
+                  {{ $program->judul }} <div class="divider"></div>
                 </h2>
 
                 <dl class="article-info">
@@ -36,7 +38,7 @@
                     <i class="fa fa-calendar-o"></i>
                     <time datetime="2020-06-30T11:15:48+07:00" itemprop="datePublished" data-toggle="tooltip"
                       title="Published Date">
-                      {{ $event->created_at}} </time>
+                      {{ $program->created_at}} </time>
                   </dd>
 
                 </dl>
@@ -44,8 +46,27 @@
 
 
               <div itemprop="articleBody">
-                <p> {!! $event->deskripsi !!}</p>
+                <p> {!! $program->deskripsi !!}</p>
             </div>
+
+
+
+
+              {{-- <nav role="pagination">
+                <ul class="cd-pagination no-space animated-buttons custom-icons">
+                  <li class="button btn-previous">
+                    <a href="3034-kui-umk-siapkan-dua-agenda-virtual-internasional.html" rel="prev"><i>Prev</i></a>
+                  </li>
+
+                  <li class="button btn-next">
+                    <a href="3032-pandemi-50-mahasiswa-umk-dapat-beasiswa-bi.html" rel="next"><i>Next</i></a>
+                  </li>
+                </ul>
+              </nav> --}}
+
+
+
+
 
             </article>
           </div>

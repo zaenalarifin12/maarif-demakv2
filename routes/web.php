@@ -31,14 +31,15 @@ Route::get("/publikasi/eprint",       "FE\PublikasiController@eprint");
 Route::get("/publikasi/digital",      "FE\PublikasiController@digital");
 Route::get("/publikasi/karya",        "FE\PublikasiController@karyaIlmiah");
 
-Route::get("/unit/{slug}/jajaran",        "FE\UnitController@jajaran");
-Route::get("/unit/{slug}/program",        "FE\UnitController@program");
-Route::get("/unit/{slug}/event",          "FE\UnitController@event");
-Route::get("/unit/{slug}/event/{id}",          "FE\UnitController@eventShow");
-Route::get("/unit/{slug}/galeri",         "FE\UnitController@galeri");
-Route::get("/unit/{slug}/digital",        "FE\UnitController@digital");
-Route::get("/unit/{slug}/informasi",      "FE\UnitController@informasi");
-Route::get("/unit/{slug}/informasi/{slug_i}",      "FE\UnitController@informasiShow");
+Route::get("/unit/{slug}/jajaran",                  "FE\UnitController@jajaran");
+Route::get("/unit/{slug}/program",                  "FE\UnitController@program");
+Route::get("/unit/{slug}/program/{id}",             "FE\UnitController@programShow");
+Route::get("/unit/{slug}/event",                    "FE\UnitController@event");
+Route::get("/unit/{slug}/event/{id}",               "FE\UnitController@eventShow");
+Route::get("/unit/{slug}/galeri",                   "FE\UnitController@galeri");
+Route::get("/unit/{slug}/digital",                  "FE\UnitController@digital");
+Route::get("/unit/{slug}/informasi",                "FE\UnitController@informasi");
+Route::get("/unit/{slug}/informasi/{slug_i}",       "FE\UnitController@informasiShow");
 
 
 Route::get("/publikasi/karya-ilmiah",               "FE\PublikasiController@karyaIlmiah");
@@ -54,7 +55,8 @@ Route::get("/not-active",     function(){
 
 Route::resource('/siswa',                "SiswaController")->only(["store"]);
 
-Route::get("/files/{file}",         "FileController@download")->middleware("isAuth"); // REVIEW 
+Route::get("/files/{file}",                 "FileController@download")->middleware("isAuth"); // REVIEW 
+Route::get("/files/upload/{file}",          "FileController@download")->middleware("isAnggota"); // REVIEW 
 
 Route::group(["middleware" => ["auth"]], function(){
 

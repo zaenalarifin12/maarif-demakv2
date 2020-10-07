@@ -66,7 +66,7 @@
                     @foreach ($article as $item)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td class="text-capitalize">{{$item->judul}}</td>
+                        <td class="text-capitalize">{{ Str::limit($item->judul, 20) }}</td>
                         <td class="text-capitalize">{{ $item->created_at }}</td>
                         <td class="text-capitalize ">
                             <a class="h5 text-white" href="">

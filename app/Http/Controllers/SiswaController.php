@@ -27,7 +27,7 @@ class SiswaController extends Controller
             "nama"          => "required",
             "no_induk"      => 'required',
             "asal_sekolah"  => "required",
-            "email"         => "required|string|email",
+            "email"         => "required|string|email|unique:siswas,email",
             "password"     =>  "required|string|min:8"
         ]);
 
@@ -55,7 +55,7 @@ class SiswaController extends Controller
             "nama"          => "required",
             "no_induk"      => 'required',
             "asal_sekolah"  => "required",
-            "email"         => "required|string|email",
+            // "email"         => "required|string|email",
             "password"     =>  "nullable|string|min:8"
         ]);
 
@@ -65,7 +65,7 @@ class SiswaController extends Controller
             "nama"          => $request->nama,
             "no_induk"      => $request->no_induk,
             "asal_sekolah"  => $request->asal_sekolah,
-            "email"         => $request->email,
+            // "email"         => $request->email, FIXME EMAIL TIDAK USAH DIUPDATE
             "password"      => Hash::make($request->password)
         ]);
 
