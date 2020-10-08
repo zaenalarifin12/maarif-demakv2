@@ -244,7 +244,7 @@
                                                     selengkapnya</span></a></div>
                                         <div class="sppb-addon sppb-addon-latest-posts blog sppb-row ">
                                             <div class="sppb-section-title">
-                                                <h3 class="sppb-addon-title" style=""> Agenda Yayasan</h3>
+                                                <h3 class="sppb-addon-title" style=""> Agenda</h3>
                                             </div>
                                             <div class="sppb-addon-content">
                                                 <div class="latest-posts clearfix">

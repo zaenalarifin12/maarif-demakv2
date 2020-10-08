@@ -16,6 +16,16 @@ use App\ProgramKegiatan;
 
 class ForumMGMPController extends Controller
 {
+    public function forum($id_l)
+    {
+        $mp      = MataPelajaran::where("lembaga_id", $id_l)->get();
+        $lembaga = Lembaga::findOrFail($id_l);
+
+        return view("fe.forum-mgmp.menu", compact([
+            "mp", "lembaga"
+        ]));
+    }
+
     public function program($id_l, $id_mp)
     {
         $lembaga = Lembaga::findOrFail($id_l);

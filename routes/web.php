@@ -20,6 +20,7 @@ Route::get("/profil/jajaran",           "FE\ProfilController@jajaran");
 Route::get("/profil/fasilitas",         "FE\ProfilController@fasilitas");
 
 // Route::get("/forum-mgmp/{id_l}/{id_mp}/jajaran",     "FE\ForumMGMPController@galeri");
+Route::get("/forum-mgmp/{id_l}/",                       "FE\ForumMGMPController@forum");
 Route::get("/forum-mgmp/{id_l}/{id_mp}/program",         "FE\ForumMGMPController@program");
 Route::get("/forum-mgmp/{id_l}/{id_mp}/event",           "FE\ForumMGMPController@event");
 Route::get("/forum-mgmp/{id_l}/{id_mp}/event/{id}",      "FE\ForumMGMPController@eventShow");
