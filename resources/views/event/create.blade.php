@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    Tambah Event
+@endsection
+
 @section('heading')
     Tambah Event
 @endsection

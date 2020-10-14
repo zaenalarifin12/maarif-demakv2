@@ -28,11 +28,11 @@ class GaleriController extends Controller
 
             $galeri = Galeri::
                 where("mata_pelajaran_id", null)->
-                where("category_program_kegiatan_id", $id_category)->paginate(1);
+                where("category_program_kegiatan_id", $id_category)->paginate(10);
         }else{
             $mata_pelajaran = MataPelajaran::findOrFail($id_mp);
             
-            $galeri = Galeri::where("mata_pelajaran_id", $id_mp)->paginate(1);
+            $galeri = Galeri::where("mata_pelajaran_id", $id_mp)->paginate(10);
         }
 
         return view("galeri.index", compact([

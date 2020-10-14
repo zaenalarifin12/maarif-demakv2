@@ -4,10 +4,11 @@
     <title>Welcome Email</title>
   </head>
   <body>
-    <h2>Welcome to the site {{ $siswa['nama']}}</h2>
+    <h2>Selamat Datang {{ $siswa['nama']}}</h2>
     <br/>
-    Your registered email-id is {{$siswa['email']}} , Please click on the below link to verify your email account
+      Email Yang teregistrasi adalah {{$siswa['email']}} , 
+      Silahkan Klik Link Dibawah ini untuk menverifikasi
     <br/>
-    <a href="{{url('siswa/verify', $siswa->token)}}">Verify Email</a>
+    <a href="{{url('siswa/verify', $siswa->token)}}">Verifikasi Email</a>
   </body>
 </html>

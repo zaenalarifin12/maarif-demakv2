@@ -54,7 +54,7 @@
                         <br> jenis file: jpeg,png
                     </span>
                 </label>                  
-                <input id="imgInp" type="file" class="form-control" name="gambar" accept="image/*">
+                <input id="imgInp" type="file" required class="form-control" name="gambar" accept="image/*">
                 @include('component.error', ["name" => "gambar"])
                 <br>
                   <img id="blah" 
