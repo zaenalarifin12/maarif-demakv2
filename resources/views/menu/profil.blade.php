@@ -20,8 +20,8 @@
             ])
 
             @include('layouts.includes.alert-card', [
-              "url" => url("/admin/profil/strukur-jajaran"),
-              "name" => "Struktur Jajaran ||",
+              "url" => url("/admin/profil/jajaran"),
+              "name" => "Jajaran Pengurus",
             ])
 
             @include('layouts.includes.alert-card', [

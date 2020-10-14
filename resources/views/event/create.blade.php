@@ -9,19 +9,23 @@
 @endsection
 
 @section('breadcump')
+
     <li class="breadcrumb-item"><a href="{{ url("admin") }}">Dashboard</a></li>
 
-    @if ($mata_pelajaran != null)    
-        <li class="breadcrumb-item"><a href="{{ url("admin/forum-mgmp/") }}">Forum MGMP</a></li>
-        <li class="breadcrumb-item"><a href="{{ url("admin/forum-mgmp/lembaga/".$mata_pelajaran->lembaga->id."/mata-pelajaran") }}">Lembaga {{ $mata_pelajaran->lembaga->nama }}</a></li>
-        <li class="breadcrumb-item active" aria-current="page">{{ ucfirst($mata_pelajaran->nama) }}</li>        
-    @endif
-
-    <li class="breadcrumb-item active" aria-current="page">Product</li>
-
-    @if ($mata_pelajaran != null)
-        <li class="breadcrumb-item"><a href="{{ url("admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/$category->id/event") }}">Event</a></li>
-    @endif
+    @include('component.bc-program',
+      [
+        "category"        => $category,
+        "mata_pelajaran"  => $mata_pelajaran
+      ]
+    )
+    
+    @include('component.bc-program-title',
+      [
+        "category"        => $category,
+        "mata_pelajaran"  => $mata_pelajaran,
+        "name"            => "event"
+      ]
+    )
   
     <li class="breadcrumb-item active" aria-current="page">Tambah</li>
 @endsection
@@ -52,13 +56,25 @@
                   <textarea class="ckeditor form-control"  name="deskripsi"required cols="30" rows="10"></textarea>
                   @include('component.error', ["name" => "deskripsi"])
               </div>
+
               <div class="form-group">
-                <label for="">Foto</label>
-                  <input id="imgInp" type="file" class="form-control" name="gambar" required accept="image/x-png,image/jpeg">
-                  @include('component.error', ["name" => "gambar"])
+                <label for="">Foto  <br>
+                    <span class="text-primary"> 
+                        <strong> 1280 </strong> x <strong> 960 </strong> pixels <br>
+                        ukuran maximum: 5 mb 
+                        <br> jenis file: jpeg,png
+                    </span>
+                </label>                  
+                <input id="imgInp" type="file" class="form-control" name="gambar" required accept="image/*">
+                @include('component.error', ["name" => "gambar"])
                 <br>
-                  <img id="blah" src="#" alt="" srcset="">
+                  <img id="blah" 
+                  style="width: 640px; height: 480px;" 
+                  src="#"
+                  alt="" srcset="">
               </div>
+
+
               <button type="submit" class="btn btn-primary btn-block">Tambah</button>
               @csrf
           </form>

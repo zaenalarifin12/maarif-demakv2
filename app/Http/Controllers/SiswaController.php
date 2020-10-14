@@ -39,7 +39,7 @@ class SiswaController extends Controller
             "password"      => Hash::make($request->password)
         ]);
 
-    return redirect("/siswa")->withSuccess("akun berhasil dibuat");
+        return redirect("/siswa")->withSuccess("akun berhasil dibuat");
     }
 
     public function edit($no_induk)

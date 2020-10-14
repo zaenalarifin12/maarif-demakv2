@@ -20,6 +20,7 @@ class CreateSiswasTable extends Migration
             $table->string("asal_sekolah");
             $table->string("email");
             $table->tinyInteger("role")->default(1);
+            $table->string("token")->nullable();
             $table->text("password");
             $table->tinyInteger("status")->default(0);
             $table->timestamps();

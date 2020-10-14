@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section("title")
+    Lembaga {{ $lembaga->nama }}
+@endsection
+
 @section("heading")
     Lembaga {{ $lembaga->nama }}
 @endsection

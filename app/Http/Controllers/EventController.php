@@ -191,7 +191,7 @@ class EventController extends Controller
         if($idmp == 0) {
             $mata_pelajaran = null;
 
-                return redirect("/admin/unit/0/category/$idc/program")
+                return redirect("/admin/unit/0/category/$idc/event")
                 ->withSuccess("Program Kegiatan berhasil dihapus");
         }  else {
             $mata_pelajaran = MataPelajaran::findOrFail($idmp);

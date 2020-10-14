@@ -45,13 +45,13 @@ Route::get("/unit/{slug}/informasi/{slug_i}",       "FE\UnitController@informasi
 
 Route::get("/publikasi/karya-ilmiah",               "FE\PublikasiController@karyaIlmiah");
 
-
-
-Route::get("/loginSiswa",  "SiswaAuthController@loginView");
-Route::post("/loginSiswa",  "SiswaAuthController@login");
+Route::get("/loginSiswa",                           "SiswaAuthController@loginView");
+Route::post("/loginSiswa",                          "SiswaAuthController@login");
+Route::post("/registerSiswa",                       "SiswaAuthController@register");
+Route::get('/siswa/verify/{token}',                 'SiswaAuthController@verifyUser');
 
 Route::get("/not-active",     function(){
-    return "akun anda belum aktif tunggu beberapa hari";
+    return view("error.not-active");
 });
 
 Route::resource('/siswa',                "SiswaController")->only(["store"]);
@@ -104,9 +104,11 @@ Route::group(["middleware" => ["auth"]], function(){
     
         Route::group(["prefix"=>"profil"], function(){
             Route::get('/',                                 "MenuController@profil");
-            Route::get('/visi-misi',           "VisiMisiController@create");
-            Route::post('/visi-misi',           "VisiMisiController@store");
-            Route::get('/jajaran-struktur',                 "MenuController@profil");
+            Route::get('/visi-misi',                        "VisiMisiController@create");
+            Route::post('/visi-misi',                       "VisiMisiController@store");
+            Route::get('/jajaran',                          "ProfilController@index");
+            Route::post('/jajaran/{uuid}',                   "ProfilController@store");
+            Route::delete('/jajaran/{uuid}',                   "ProfilController@destroy");
             Route::resource('/banner-fasilitas',            "BannerFasilitasController")->only(["index", "store"]);
             Route::resource('/fasilitas',                   "FasilitasController");
         });
@@ -160,6 +162,7 @@ Route::group(["middleware" => ["auth"]], function(){
 Auth::routes();
 
 Route::get('/home', function(){
+
     return redirect("/admin");
 })->name('home');
 

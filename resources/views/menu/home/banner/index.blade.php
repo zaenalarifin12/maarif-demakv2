@@ -1,13 +1,13 @@
 @extends('layouts.master')
 
-@section("title", "Foto")
+@section("title", "Slider")
 
-@section('heading', "Foto")
+@section('heading', "Slider")
 
 @section('breadcump')
     <li class="breadcrumb-item"><a href="{{ url("admin") }}">Dashboard</a></li>
     <li class="breadcrumb-item"><a href="{{ url("admin/home") }}">Home</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Foto</li>
+    <li class="breadcrumb-item active" aria-current="page">Slider</li>
 @endsection
 
 @section('content')

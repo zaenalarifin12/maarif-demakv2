@@ -72,8 +72,6 @@
           <div class="modal fade" id="exampleModal-add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
 
-        
-                
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Tambah Fasilitas</h5>
@@ -95,12 +93,20 @@
                                     @include('component.error', ["name" => "deskripsi"])
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Foto  <br><span class="text-primary"> ukuran maximum: 5 mb <br> jenis file: jpeg,png</span></label><br>
-                                    <input id="imgInp"  type="file" name="gambar" required accept="image/x-png,image/jpeg">
+                                    <label for="">Logo <br><span class="text-primary"> 
+                                      <strong> 500 </strong> x <strong> 500 </strong> pixels
+                                      <br> ukuran maximum: 5 mb 
+          
+                                      <br> jenis file: jpeg,png</span>
+                                    </label><br>
+                                    <input id="imgInp"  type="file" name="gambar" accept="image/x-png,image/jpeg">
                                     @include('component.error', ["name" => "gambar"])
                                     <br><br>
-                                    <img id="blah" width="100%" src="#" alt="" srcset="">
+                                    <img id="blah" 
+                                    style="width: 250px; height: 250px; max-width: 100%;" 
+                                    src="#" alt="" srcset="">
                                 </div>
+                                
                                 @csrf
                             </div>
                     </div>

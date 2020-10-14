@@ -39,7 +39,7 @@
                                         <img class="sppb-img-responsive"
                                         src="{{ asset("storage/$item->gambar")}}" alt="">
                                     </div>
-                                    <h3 class="sppb-addon-title" style="margin-top:0px;margin-bottom:10px;">Kerja Sama</h3>
+                                    <h3 class="sppb-addon-title" style="margin-top:0px;margin-bottom:10px;">{{ $item->nama }}</h3>
                                 </a>
                             </div>
                             </div>

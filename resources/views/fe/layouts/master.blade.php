@@ -217,14 +217,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             background-color: #28df99 !important;
         }
         #sp-header{
-            background-color: #14704d !important;
+            background-color: #007631 !important;
         }
         .sppb-btn-info{
-            background-color: #14704d !important;
+            background-color: #007631 !important;
         }
         .sppb-addon-title, .entry-title{
-            color: #14704d !important;
+            color: #007631 !important;
         }
+		.font-green{
+			color: #007631 !important;
+		}
+		.bg-green{
+			background-color: #007631 !important;
+		}
+		.bg-green::after{
+			background-color: #007631 !important;
+		}
+		.text-informasi{
+			line-height: 25px !important;
+		}
 
         @media screen and (min-width: 800px) {
             .my-center{

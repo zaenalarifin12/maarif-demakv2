@@ -25,11 +25,16 @@
                 <div class="card-body">
                 <form action="{{ url("admin/home/banner") }}" method="post" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label for="">Foto  <br><span class="text-primary"> ukuran maximum: 5 mb <br> jenis file: jpeg,png</span></label><br>
+                            <label for="">Foto  <br><span class="text-primary"> 
+                                <strong>1351</strong> x <strong>328</strong> pixels 
+                                <br> ukuran maximum: <strong> 5 mb </strong> 
+                                <br> jenis file: <strong> jpeg,png </strong></span></label><br>
                             <input id="imgInp"  type="file" name="gambar" accept="image/x-png,image/jpeg">
                             @include('component.error', ["name" => "gambar"])
                             <br><br>
-                            <img id="blah" width="50%" src="#" alt="" srcset="">
+                            <img id="blah"
+                            style="width: 1351px; height=328; max-width: 100%;" 
+                            src="#" alt="" srcset="">
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-sm btn-primary">Upload</button>

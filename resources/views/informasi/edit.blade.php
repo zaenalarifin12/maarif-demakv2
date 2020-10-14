@@ -49,15 +49,25 @@
               </div>
               <div class="form-group">
                 <label for="">Deskripsi</label>
-              <textarea class="ckeditor form-control"  name="deskripsi" required cols="30" rows="10">{!! $informasi->deskripsi !!}</textarea>
-              @include('component.error', ["name" => "deskripsi"])
+                <textarea class="ckeditor form-control"  name="deskripsi" required cols="30" rows="10">{!! $informasi->deskripsi !!}</textarea>
+                @include('component.error', ["name" => "deskripsi"])
               </div>
+
               <div class="form-group">
-                <label for="">Foto  <br><span class="text-primary"> ukuran maximum: 5 mb <br> jenis file: jpeg,png</span></label><br>
-                <input id="imgInp" type="file" class="form-control" name="banner" accept="image/x-png,image/jpeg">
-                @include('component.error', ["name" => "banner"])
+                <label for="">Foto  <br>
+                    <span class="text-primary"> 
+                        <strong> 1280 </strong> x <strong> 960 </strong> pixels <br>
+                        ukuran maximum: 5 mb 
+                        <br> jenis file: jpeg,png
+                    </span>
+                </label>                  
+                <input id="imgInp" type="file" class="form-control" name="gambar" accept="image/*">
+                @include('component.error', ["name" => "gambar"])
                 <br>
-                <img id="blah" width="50%" src="{{ asset("storage/$informasi->banner") }}" alt="" srcset="">
+                  <img id="blah" 
+                  style="width: 640px; height: 480px;" 
+                  src="{{ asset("storage/$informasi->banner") }}"
+                  alt="" srcset="">
               </div>
               <button type="submit" class="btn btn-primary btn-block">Edit</button>
               @csrf

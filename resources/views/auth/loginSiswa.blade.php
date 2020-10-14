@@ -37,8 +37,21 @@
               <div class="col-lg-6">
                 <div class="p-5">
                   <div class="text-center">
+                    
                     <h1 class="h4 text-gray-900 mb-4">Selamat Datang</h1>
-                    <h2 class="h4 text-gray-900 mb-4">Silahkan Login Dengan Akun siswa</h2>
+                    <h2 class="h6 text-gray-900 mb-4">Silahkan Login Dengan Akun siswa</h2>
+
+                    @if (!empty(session("status")))
+                      <div class="row justify-content-center">
+                          <div class="col-12">
+                              <div class="alert alert-warning alert-notif" role="alert">
+                              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                              <strong> {{session("status")}} </strong>
+                          </div>
+                          </div>
+                      </div>
+                    @endif
+                    
                   </div>
                   @include('component.all-error');
                   <form class="user" action="{{ url("/loginSiswa") }}" method="POST">
@@ -59,6 +72,11 @@
                   {{-- <div class="text-center">
                     <a class="small" href="register.html">Create an Account!</a>
                   </div> --}}
+                  <div class="text-center my-3">
+                    <span>Belum Punya Akun ? </span>
+                    <a class="" href="{{ url("/register") }}">Daftar</a>
+                  </div>
+
                 </div>
               </div>
             </div>

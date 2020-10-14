@@ -13,16 +13,12 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $berita     = Article::isBerita()->take(4)->get();
-        $pengumuman = Article::isPengumuman()->take(2)->get();
-        $agenda     = Article::isAgenda()->take(2)->get();
+        $berita     = Article::isBerita()->take(4)->latest()->get();
+        $pengumuman = Article::isPengumuman()->take(2)->latest()->get();
+        $agenda     = Article::isAgenda()->take(2)->latest()->get();
         $video      = Video::first();
         $kerjaSama  = KerjaSama::get();
         $banner     = BannerHome::get();         
-
-        //licensi
-        //social media
-        //
 
         return view("fe.home.index", compact([
             "berita",

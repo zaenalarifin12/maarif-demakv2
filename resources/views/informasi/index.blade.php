@@ -66,7 +66,10 @@
                     @foreach ($informasi as $item)
                     <tr>
                         <td>{{$item->judul}}</td>
-                        <td>{{ $item->created_at }}</td>
+                        <td>
+                          
+                          {{ $item->created_at }}
+                        </td>
 
                           <td>
                             <a href="{{ url("/admin/unit/0/category/$category->id/informasi/$item->slug") }}" class="btn btn-sm btn-secondary">Detail</a>

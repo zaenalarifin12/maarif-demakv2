@@ -15,12 +15,12 @@ class ArticleController extends Controller
     {
         $search = urlencode($request->search);
 
-        $category = Category::get();
+        $category = Category::latest()->get();
 
         if(!empty($search))
             $article = Article::where("category_id", $search)->get();
         else
-            $article = Article::get();
+            $article = Article::latest()->get();
 
         return view("article.index", compact(["article", "category"]));
     }

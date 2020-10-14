@@ -38,8 +38,10 @@
                     <div class="row">
                         <form action="{{ url("admin/video-promosi") }}" method="post" >
                             <div class="form-group">
-                                <label for="">Ganti Link</label>
-                                <textarea name="link" class="form-control" id="" cols="40" rows="10"></textarea>
+                                <label for="">Ganti Link <br>
+                                    <span class="text-primary">https://www.youtube.com/watch?v=<strong>FC8aDMaVc6Q</strong> </span>
+                                </label>
+                                <textarea name="link" class="form-control" id="" cols="20" rows="3"></textarea>
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-sm btn-primary">Ganti</button>

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\BannerFasilitas;
 use App\Fasilitas;
 use App\VisiMisi;
+use App\JajaranPengurus;
 
 class ProfilController extends Controller
 {
@@ -18,7 +19,9 @@ class ProfilController extends Controller
 
     public function jajaran()
     {
-        return view("fe.profil.jajaran");
+        $jajaran = JajaranPengurus::get();
+
+        return view("fe.profil.jajaran", compact("jajaran"));
     }
 
     public function fasilitas()

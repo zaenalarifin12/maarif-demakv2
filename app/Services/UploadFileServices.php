@@ -10,7 +10,7 @@ class UploadFileServices {
         $originName = $request->file($name)->getClientOriginalName();
         $fileName = pathinfo($originName, PATHINFO_FILENAME);
         $extension = $request->file($name)->getClientOriginalExtension();
-        $fileName = $fileName.'_'.time().'.'.$extension;
+        $fileName = trim($fileName).'_'.time().'.'.$extension;
 
         if($type == 0)
         {

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Daftar Informasi
+    Tambah Informasi
 @endsection
 
 @section('heading')
@@ -47,11 +47,20 @@
                   </select>
               </div>
               <div class="form-group">
-                  <label for="">Foto <br><span class="text-primary"> ukuran maximum: 5 mb <br> jenis file: jpeg,png</span></label><br>
-                  <input id="imgInp" type="file" class="form-control" name="gambar" required accept="image/*">
-                  @include('component.error', ["name" => "gambar"])
+                <label for="">Foto  <br>
+                    <span class="text-primary"> 
+                        <strong> 1280 </strong> x <strong> 960 </strong> pixels <br>
+                        ukuran maximum: 5 mb 
+                        <br> jenis file: jpeg,png
+                    </span>
+                </label>                  
+                <input id="imgInp" type="file" class="form-control" name="gambar" accept="image/*">
+                @include('component.error', ["name" => "gambar"])
                 <br>
-                  <img id="blah" style="max-width: 90%" src="#" alt="" srcset="">
+                  <img id="blah" 
+                  style="width: 640px; height: 480px;" 
+                  src="#"
+                  alt="" srcset="">
               </div>
               <button type="submit" class="btn btn-primary btn-block">Tambah</button>
               @csrf

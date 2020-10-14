@@ -15,14 +15,13 @@
             
             @include('layouts.includes.alert-card', [
               "url" => url("/admin/home/banner"),
-              "name" => "Foto",
+              "name" => "Slider",
             ])
 
             @include('layouts.includes.alert-card', [
               "url" => url("/admin/kerja-sama"),
               "name" => "Kerja Sama",
             ])
-
            
             @include('layouts.includes.alert-card', [
               "url" => url("/admin/video-promosi"),

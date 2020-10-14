@@ -55,11 +55,20 @@
                   </select>
               </div>
               <div class="form-group">
-                <label for="">Foto</label>
-                <input id="imgInp" type="file" class="form-control" name="gambar" required accept="image/*">
+                <label for="">Foto  <br>
+                    <span class="text-primary"> 
+                        <strong> 1280 </strong> x <strong> 960 </strong> pixels <br>
+                        ukuran maximum: 5 mb 
+                        <br> jenis file: jpeg,png
+                    </span>
+                </label>                  
+                <input id="imgInp" type="file" class="form-control" name="gambar" accept="image/*">
                 @include('component.error', ["name" => "gambar"])
                 <br>
-                  <img id="blah" style="max-width: 90%" src="{{ asset("/storage/$article->banner") }}" alt="" srcset="">
+                  <img id="blah" 
+                  style="width: 640px; height: 480px;" 
+                  src="{{ asset("/storage/$article->banner") }}"
+                  alt="" srcset="">
               </div>
               <button type="submit" class="btn btn-primary btn-block">Edit</button>
               @method("PUT")

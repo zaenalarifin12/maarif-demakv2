@@ -20,15 +20,12 @@
                         <div class="items-row row-0 row clearfix">
                             @forelse ($article as $item)
                             <div class="col-sm-3">
-                                <article class="item column-1" itemprop="blogPost" itemscope
-                                    itemtype="http://schema.org/BlogPosting">
-
+                                <article class="item column-1">
 
                                     <div class="entry-image intro-image">
                                         <a
                                             href="{{ url("informasi/$category->id/$item->id") }}">
-                                            <img src="{{ asset("/storage/".$item->banner) }}"
-                                                alt="" itemprop="thumbnailUrl" />
+                                            <img src="{{ asset("/storage/".$item->banner) }}" alt="" />
                                         </a>
                                     </div>
 
@@ -46,19 +43,14 @@
                                         </h2>
 
 
-                                        <dl class="article-info">
-
-
+                                        <dl class="article-info text-informasi">
                                             <dt class="article-info-term"></dt>
 
                                             <dd class="published">
                                                 <i class="fa fa-calendar-o"></i>
-                                                <time datetime="2020-09-25T08:21:58+07:00"
-                                                    itemprop="datePublished" data-toggle="tooltip"
-                                                    title="Published Date">
-                                                    {{ $item->created_at}} </time>
+                                                <time>{{ $item->created_at}} </time>
                                             </dd>
-                                            <p>{!! $item->deskripsi !!}</p>
+                                            <p class="text-informasi">{!! $item->deskripsi !!}</p>
 
                                         </dl>
 

@@ -15,7 +15,7 @@
                 <div id="sp-page-builder" class="sp-page-builder  page-1">
 
                     <div class="page-content">
-                        <section class="sppb-section " style="background-color:#14704d;">
+                        <section class="sppb-section " style="background-color:white;">
                             <div class="sppb-row">
                                 <div class="sppb-col-sm-12">
                                     <div class="sppb-addon-container sppb-wow fadeInRight" style="padding:0px;"
@@ -29,10 +29,8 @@
                                             </div>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
-                                
                             </div>
                         </section>
                         <section class="sppb-section center-block"
@@ -173,15 +171,16 @@
                                                         @foreach ($berita as $item)
                                                             <div class="latest-post sppb-col-sm-3 columns-4">
                                                                 <div class="latest-post-item">
-                                                                    <div class="img-wrapper"><a
-                                                                            href="{{ url("/") }}">
-                                                                            <img style="height: 200px; width: 100%; object-fit: cover;" 
+                                                                    <div class="img-wrapper bg-green"><a
+                                                                            class="bg-green"
+                                                                            href="{{ url("/informasi/1/$item->id") }}">
+                                                                            <img style="width: 100%;" 
                                                                                 class="post-img"
-                                                                                src={{ asset("/storage/$item->banner") }} alt="{{ $item->judul }}" />
+                                                                                src="{{ asset("/storage/$item->banner") }}" alt="{{ $item->judul }}" />
                                                                             <div class="caption-content">{{ $item->judul }}</div>
                                                                         </a></div>
                                                                     <div class="latest-post-inner match-height">
-                                                                        <h2 class="entry-title"><a href="#">{{ $item->judul }}</a></h2>
+                                                                        <h2 class="entry-title "><a href="{{ url("/informasi/1/$item->id") }}" class="font-green">{{ $item->judul }}</a></h2>
                                                                         <div class="entry-meta">
                                                                             <span class="entry-date">{{ $item->created_at }}</span>
                                                                         </div>
@@ -195,10 +194,10 @@
                                             </div>
                                         </div>
                                         <div class="sppb-text-right"><a href="{{ url("informasi/1") }}"
-                                                class="sppb-btn sppb-btn-info sppb-btn- sppb-selector  "
-                                                role="button"><i class="pe pe-7s-play"></i> <span
-                                                    style=color:#ffffff>Lihat selengkapnya</span></a></div>
-                                    </div>
+                                            class="sppb-btn sppb-btn-info sppb-btn-sppb-selector"
+                                            role="button"><i class="pe pe-7s-play"></i> <span
+                                            style=color:#ffffff>Lihat selengkapnya</span></a></div>
+                                        </div>
                                 </div>
                             </div>
                         </section>
@@ -222,9 +221,9 @@
                                                                         <div class="sppb-col-sm-12 column-1">
                                                                             <div class="entry-meta"><span
                                                                                     class="entry-date"> {{ $item->created_at }} </span></div>
-                                                                            <h2 style="font-size:180%;line-height:1.4;"
-                                                                                class="entry-title"><a
-                                                                                    href="{{ url("informasi/2/$item->id") }}">{{ $item->judul }}</a></h2>
+                                                                            <h2 style="font-size:180%;line-height:1.4;" class="entry-title ">
+                                                                                <a class="font-green" href="{{ url("informasi/2/$item->id") }}">{{ $item->judul }}</a>
+                                                                            </h2>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -257,7 +256,7 @@
                                                                             <div class="entry-meta"><span
                                                                                     class="entry-date"> {{ $item->created_at }}</span></div>
                                                                             <h2 style="font-size:180%;line-height:1.4;"
-                                                                                class="entry-title"><a href="{{ url("informasi/3/$item->id") }}">
+                                                                                class="entry-title"><a class="font-green" href="{{ url("informasi/3/$item->id") }}">
                                                                                     {{ $item->judul }}
                                                                                 </a>
                                                                             </h2>
