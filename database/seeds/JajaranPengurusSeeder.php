@@ -16,14 +16,15 @@ class JajaranPengurusSeeder extends Seeder
 
             [
                 "id"        => 1,
-                "nama"      => "Ketua", 
+                "nama"      => "Ketua PC LP Ma'arif NU", 
                 "posisi"    => 1,
                 "type"      => 1
             ],
             [
                 "id"        => 2,
                 "nama"      => "Wakil Ketua", 
-                "posisi"    => 2
+                "posisi"    => 2,
+                "type"      => 0
             ],
             [
                 "id"        => 3,
@@ -34,7 +35,8 @@ class JajaranPengurusSeeder extends Seeder
             [
                 "id"        => 4,
                 "nama"      => "Wakil Sekertaris", 
-                "posisi"    => 4
+                "posisi"    => 4,
+                "type"      => 0
             ],
             [
                 "id"        => 5,
@@ -45,7 +47,8 @@ class JajaranPengurusSeeder extends Seeder
             [
                 "id"        => 6,
                 "nama"      => "Wakil Bendahara", 
-                "posisi"    => 6
+                "posisi"    => 6,
+                "type"      => 0
             ],
             [
                 "id"        => 7,
@@ -56,27 +59,32 @@ class JajaranPengurusSeeder extends Seeder
             [
                 "id"        => 8,
                 "nama"      => "Koordinator bidang SMA/SMK", 
-                "posisi"    => 8
+                "posisi"    => 8,
+                "type"      => 0
             ],
             [
                 "id"        => 9,
                 "nama"      => "Koordinator Bidang MA", 
-                "posisi"    => 9
+                "posisi"    => 9,
+                "type"      => 0
             ],
             [
                 "id"        => 10,
                 "nama"      => "Koordinator Bidang Mts", 
-                "posisi"    => 10
+                "posisi"    => 10,
+                "type"      => 0
             ],
             [
                 "id"        => 11,
                 "nama"      => "Koordinator Bidang SD", 
-                "posisi"    => 11
+                "posisi"    => 11,
+                "type"      => 0
             ],
             [
                 "id"        => 12,
                 "nama"      => "Koordinator Bidang MI", 
-                "posisi"    => 12
+                "posisi"    => 12,
+                "type"      => 0
             ],
             
         ];
@@ -86,7 +94,8 @@ class JajaranPengurusSeeder extends Seeder
                 ["id" => $key["id"]],
                 [
                     "nama"      => $key["nama"], 
-                    "posisi"    => $key["posisi"]
+                    "posisi"    => $key["posisi"],
+                    "type"      => $key["type"]
                 ],            
             );
         }

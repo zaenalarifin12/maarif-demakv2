@@ -42,7 +42,7 @@
                                                 <div class="card-body">
                                                     <div class="form-group">
                                                         <label for="">Nama</label>
-                                                        <input type="text" class="form-control" name="nama">
+                                                        <input type="text" required class="form-control" name="nama">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="">Foto (Ukuran 152 x 227 pixels )</label>
@@ -119,7 +119,7 @@
 
                                                         <div class="form-group">
                                                             <label for="">Nama</label>
-                                                            <input type="text" class="form-control" name="nama">
+                                                            <input type="text" required class="form-control" name="nama">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="">Foto (Ukuran 152 x 227 pixels )</label>

@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             LembagaSeeder::class,
             MataPelajaranSeeder::class,
             LicensiSeeder::class,
+            JajaranPengurusSeeder::class,
         ]);
     }
 }
