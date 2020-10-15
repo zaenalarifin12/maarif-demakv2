@@ -17,7 +17,7 @@ class InformasiController extends Controller
          *  */        
         $category = Category::findOrFail($id);
         
-        $article = Article::where("category_id", $id)->latest()->paginate(3);
+        $article = Article::where("category_id", $id)->latest()->paginate(4);
         
         return view("fe.informasi.index", compact(["article", "category"]));
     }

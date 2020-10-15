@@ -50,7 +50,7 @@
                                                 <i class="fa fa-calendar-o"></i>
                                                 <time>{{ $item->created_at}} </time>
                                             </dd>
-                                            <p class="text-informasi">{!! $item->deskripsi !!}</p>
+                                            {{-- <p class="text-informasi">{!! $item->deskripsi !!}</p> --}}
 
                                         </dl>
 

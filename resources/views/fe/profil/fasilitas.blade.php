@@ -20,8 +20,10 @@
                   <div class="sppb-col-sm-12">
                     <div class="sppb-addon-container" style="">
                       <div class="sppb-addon sppb-addon-single-image sppb-text-center">
+                        @if ($banner != null)
                         <div class="sppb-addon-content"><img class="sppb-img-responsive"
-                            src="{{ asset("/storage/$banner->banner_fasilitas")}}" alt=""></div>
+                          src="{{ asset("/storage/$banner->banner_fasilitas")}}" alt=""></div>
+                        @endif
                       </div>
                       <div class="sppb-empty-space  clearfix" style="margin-bottom:20px;"></div>
                       <div class="sppb-addon sppb-addon-text-block sppb-text-left ">

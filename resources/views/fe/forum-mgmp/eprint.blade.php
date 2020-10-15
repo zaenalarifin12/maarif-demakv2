@@ -21,13 +21,13 @@
                             @forelse ($eprint as $item)
                             <div class="col-sm-12">
                                 <article class="item column-1" itemprop="blogPost" itemscope
-                                    itemtype="http://schema.org/BlogPosting">
+                                    itemtype="http://schema.org/BlogPosting" style="margin-bottom: 0px !important; margin-top: 0px !important">
 
-                                    <div class="entry-header has-post-format">
+                                    <div class="entry-header has-post-format" >
 
                                         <h2 itemprop="name">
-                                            <a 
-                                            href="#"
+                                            <a target="_blank" style="font-size: 20px"
+                                            href="{{ url("/files/$item->banner") }}"
                                                 itemprop="url">
                                                 {{ $item->judul }}</a>
                                             <div class="divider"></div>
@@ -47,8 +47,8 @@
                                                     {{ $item->created_at}} </time>
                                             </dd>
                                             <p class="" style="color : #0089; font-weight: bold">{{ $item->category_eprint->nama }}</p>
-                                            <a href="{{ url("/files/$item->banner") }}" class="sppb-btn sppb-btn-info sppb-btn">Download</a>
-                                            <p>{!! $item->deskripsi !!}</p>
+                                            {{-- <a href="" class="sppb-btn sppb-btn-info sppb-btn">Download</a> --}}
+                                            {{-- <p>{!! $item->deskripsi !!}</p> --}}
 
                                         </dl>
 

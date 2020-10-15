@@ -46,7 +46,9 @@
                                                     title="Published Date">
                                                     {{ $item->created_at}} </time>
                                             </dd>
-                                            <a href="{{ url("/files/$item->banner") }}" class="sppb-btn sppb-btn-info sppb-btn">Download</a>
+                                            <a href="{{ url("/files/$item->banner") }}" 
+                                                style="font-weight: bold; color: red;"
+                                            >Download</a>
                                             <p>{!! $item->deskripsi !!}</p>
 
                                         </dl>
