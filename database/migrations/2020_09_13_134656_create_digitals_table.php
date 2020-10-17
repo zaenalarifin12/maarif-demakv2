@@ -15,6 +15,7 @@ class CreateDigitalsTable extends Migration
     {
         Schema::create('digitals', function (Blueprint $table) {
             $table->id();
+            $table->text("nama");
             $table->text("deskripsi");
             $table->unsignedBigInteger("mata_pelajaran_id")->nullable();
             $table->unsignedBigInteger("category_program_kegiatan_id")->nullable();

@@ -15,13 +15,9 @@ class CreateProgramKegiatansTable extends Migration
     {
         Schema::create('program_kegiatans', function (Blueprint $table) {
             $table->id();
-            $table->string("banner");
-            $table->string("judul", 100);
-            $table->string("slug", 150);
             $table->text("deskripsi");
             $table->unsignedBigInteger("mata_pelajaran_id")->nullable();
             $table->unsignedBigInteger("category_program_kegiatan_id")->nullable();
-            $table->softDeletes();
             $table->timestamps();
         });
     }

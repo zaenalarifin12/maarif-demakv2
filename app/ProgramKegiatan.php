@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ProgramKegiatan extends Model
 {
-    use SoftDeletes;
+    protected $primaryKey = null;
+    public $incrementing = false;
 
     protected $guarded = [];
 }

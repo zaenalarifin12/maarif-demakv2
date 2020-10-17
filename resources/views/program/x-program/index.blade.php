@@ -5,11 +5,11 @@
 @endsection
 
 @section('title')
-    Daftar Produk Digital
+    Daftar Program Kegiatan
 @endsection
 
 @section('heading')
-    Daftar Produk Digital
+    Daftar Program Kegiatan
 @endsection
 
 @section('breadcump')
@@ -27,7 +27,7 @@
       [
         "category"        => $category,
         "mata_pelajaran"  => $mata_pelajaran,
-        "name"            => "digital"
+        "name"            => "program"
       ]
     )
     
@@ -40,11 +40,11 @@
             <div class="card-header py-3">
                 
                 <div class="d-flex justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Produk Digital</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Program Kegiatan</h6>
                     @if ($mata_pelajaran != null)
-                        <a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/1/digital/create") }}" class="btn btn-primary btn-sm">Tambah Produk Digital</a>
+                        <a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/1/program/create") }}" class="btn btn-primary btn-sm">Tambah Program</a>
                     @else
-                       <a href="{{ url("/admin/unit/0/category/$category->id/digital/create") }}" class="btn btn-primary btn-sm">Tambah Produk Digital</a>     
+                       <a href="{{ url("/admin/unit/0/category/$category->id/program/create") }}" class="btn btn-primary btn-sm">Tambah Program</a>     
                     @endif
                 </div>
 
@@ -55,7 +55,6 @@
                   <thead>
                     <tr>
                       <th class="text-primary">Judul</th>
-                      <th class="text-primary">Link</th>
                       <th class="text-primary">Tanggal</th>
                       <th class="text-primary">Aksi</th>
                     </tr>
@@ -63,33 +62,33 @@
                   <tfoot>
                     <tr>
                         <th class="text-primary">Judul</th>
-                        <th class="text-primary">Link</th>
                         <th class="text-primary">Tanggal</th>
                         <th class="text-primary">Aksi</th>
                     </tr>
                   </tfoot>
                   <tbody>
-                    @foreach ($digital as $item)
+                    @foreach ($program as $item)
                     <tr>
                         <td>{{$item->judul}}</td>
-                        <td>
-                          <a target="_blank" href="{{$item->deskripsi}}">{{$item->deskripsi}}</a>
-                        </td>
                         <td>{{ $item->created_at }}</td>
 
                         @if ($mata_pelajaran == null)
                           <td>
-                            <a href="{{ url("/admin/unit/0/category/$category->id/digital/$item->id/edit") }}" class="btn btn-sm btn-info">Edit</a>
-                            <form action="{{ url("/admin/unit/0/category/$category->id/digital/$item->id") }}" method="post" class="d-inline">
+                            <a href="{{ url("/admin/unit/0/category/$category->id/program/$item->slug") }}" class="btn btn-sm btn-secondary">Detail</a>
+                            <a href="{{ url("/admin/unit/0/category/$category->id/program/$item->slug/edit") }}" class="btn btn-sm btn-info">Edit</a>
+                            <form action="{{ url("/admin/unit/0/category/$category->id/program/$item->slug") }}" method="post" class="d-inline">
                                 <button class="btn btn-sm btn-danger">Hapus</button>
                                 @csrf
                                 @method("DELETE")
                             </form>
                           </td>
+                        
                         @else
+                        
                           <td>
-                            <a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/1/digital/$item->id/edit") }}" class="btn btn-sm btn-info">Edit</a>
-                            <form action="{{ url("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/1/digital/$item->id") }}" method="post" class="d-inline">
+                            <a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/1/program/$item->slug") }}" class="btn btn-sm btn-secondary">Detail</a>
+                            <a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/1/program/$item->slug/edit") }}" class="btn btn-sm btn-info">Edit</a>
+                            <form action="{{ url("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/1/program/$item->slug") }}" method="post" class="d-inline">
                                 <button class="btn btn-sm btn-danger">Hapus</button>
                                 @csrf
                                 @method("DELETE")

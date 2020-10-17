@@ -55,11 +55,11 @@
                   <input type="text" class="form-control" name="judul" required value="{{ $eprint->judul }}">
                   @include('component.error', ["name" => "judul"])
               </div>
-              <div class="form-group">
+              {{-- <div class="form-group">
                 <label for="">Deskripsi</label>
               <textarea class="ckeditor form-control"  name="deskripsi" required cols="30" rows="10">{!! $eprint->deskripsi !!}</textarea>
               @include('component.error', ["name" => "deskripsi"])
-              </div>
+              </div> --}}
               <div class="form-group">
 
                 <label for="">File </label>

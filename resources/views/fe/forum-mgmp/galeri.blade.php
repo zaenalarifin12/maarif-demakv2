@@ -41,8 +41,8 @@
                             <div class="sppb-empty-space  clearfix" style="margin-bottom:0px;"></div>
                             <div class="sppb-addon sppb-addon-text-block sppb-text-center ">
                                 <h3 class="sppb-addon-title"
-                                style="margin-top:0px;color:#0057a6;font-size:22px;line-height:32px;font-weight:500;">{{ $item->nama }}</h3>
-                                <div class="sppb-addon-content">{{ $item->deskripsi }}</div>
+                                style="margin-top:0px;color:#0057a6;font-size:22px;line-height:32px;font-weight:500;">{{ $item->judul }}</h3>
+                                {{-- <div class="sppb-addon-content">{{ $item->deskripsi }}</div> --}}
                             </div>
                             </div>
                         </div>

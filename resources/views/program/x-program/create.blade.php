@@ -1,7 +1,11 @@
 @extends('layouts.master')
 
+@section('title')
+    Tambah Program
+@endsection
+
 @section('heading')
-    Tambah E-Print
+    Tambah Program
 @endsection
 
 @section('css')
@@ -10,23 +14,23 @@
 
 @section('breadcump')
     <li class="breadcrumb-item"><a href="{{ url("admin") }}">Dashboard</a></li>
-    
-    @include('component.bc-program',
-      [
-        "category"        => $category,
-      ]
-    )
 
+    @include('component.bc-program',
+        [
+        "category"        => $category,
+        "mata_pelajaran"  => $mata_pelajaran
+        ]
+    )
+    
     @include('component.bc-program-title',
         [
         "category"        => $category,
         "mata_pelajaran"  => $mata_pelajaran,
-        "name"            => "eprint"
+        "name"            => "program"
         ]
     )
   
     <li class="breadcrumb-item active" aria-current="page">Tambah</li>
-    
 @endsection
 
 @section('content')
@@ -40,34 +44,39 @@
       <div class="container d-flex justify-content-center">
         <div class="col-12">
           
-          @if ($mata_pelajaran != null)
-            <form action="{{ url("admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/$category->id/eprint") }}" method="post" enctype="multipart/form-data">
+        @if ($mata_pelajaran != null)
+            <form action="{{ url("admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/$category->id/program") }}" method="post" enctype="multipart/form-data">
         @else
-            <form action="{{ url("admin/unit/0/category/$category->id/eprint") }}" method="post" enctype="multipart/form-data">
+            <form action="{{ url("admin/unit/0/category/$category->id/program") }}" method="post" enctype="multipart/form-data">
         @endif
-          
-              <div class="form-group">
+                <div class="form-group">
                 <label for="">Judul</label>
                   <input type="text" class="form-control" name="judul" required value="{{ old("judul") }}">
                   @include('component.error', ["name" => "judul"])
-
               </div>
-              {{-- <div class="form-group">
+              <div class="form-group">
                 <label for="">Deskripsi</label>
-                  <textarea class="ckeditor form-control"  name="deskripsi" required cols="30" rows="10">{{ old("deskripsi") }}</textarea>
+                  <textarea class="ckeditor form-control"  name="deskripsi"required cols="30" rows="10">{{ old("deskripsi") }}</textarea>
                   @include('component.error', ["name" => "deskripsi"])
-              </div> --}}
-              <div class="form-group">
-                <label for="">File</label>
-                  <input type="file" class="form-control" name="banner" required value=" {{ old("banner") }}">
-                  @include('component.error', ["name" => "banner"])
               </div>
+              
               <div class="form-group">
-                <label for="">Kategori</label><br>
-                @foreach ($categoryEprint as $item)
-                    <input required type="radio" name="categoryEprint" value="{{ $item->id }}"> {{$item->nama}} <br> 
-                @endforeach
+                <label for="">Foto  <br>
+                    <span class="text-primary"> 
+                        <strong> 1280 </strong> x <strong> 960 </strong> pixels <br>
+                        ukuran maximum: 5 mb 
+                        <br> jenis file: jpeg,png
+                    </span>
+                </label>                  
+                <input id="imgInp" type="file" class="form-control" required name="gambar" accept="image/*">
+                @include('component.error', ["name" => "gambar"])
+                <br>
+                  <img id="blah" 
+                  style="width: 640px; height: 480px;" 
+                  src="#"
+                  alt="" srcset="">
               </div>
+              
               <button type="submit" class="btn btn-primary btn-block">Tambah</button>
               @csrf
           </form>

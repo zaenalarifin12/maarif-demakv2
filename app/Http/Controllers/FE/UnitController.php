@@ -9,6 +9,9 @@ use App\Galeri;
 use App\Event;
 use App\Informasi;
 use App\ProgramKegiatan;
+use App\Eprint;
+use App\CategoryEprint;
+use App\Digital;
 
 class UnitController extends Controller
 {
@@ -23,10 +26,34 @@ class UnitController extends Controller
     {
         $cpk    = CategoryProgramKegiatan::where("slug", $slug)->firstOrFail();
 
-        $program = ProgramKegiatan::where("category_program_kegiatan_id", $cpk->id)->latest()->paginate(10);
-
+        $program = ProgramKegiatan::where("category_program_kegiatan_id", $cpk->id)->first();
+        
         return view("fe.unit.program", compact([
             "cpk", "program"
+        ]));
+    }
+
+    public function eprint($slug)
+    {
+        $cpk    = CategoryProgramKegiatan::where("slug", $slug)->firstOrFail();
+        
+        $eprint = Eprint::where("category_program_kegiatan_id", $cpk->id)->latest()->paginate(10);
+
+        $ce     = CategoryEprint::orderBy("nama", "asc")->get();
+
+        return view("fe.unit.eprint", compact([
+            "cpk","eprint", "ce"
+        ]));
+    }
+
+    public function digital($slug)
+    {
+        $cpk    = CategoryProgramKegiatan::where("slug", $slug)->firstOrFail();
+        
+        $digital = Digital::where("category_program_kegiatan_id", $cpk->id)->latest()->paginate(10);
+
+        return view("fe.unit.digital", compact([
+            "cpk","digital"
         ]));
     }
 

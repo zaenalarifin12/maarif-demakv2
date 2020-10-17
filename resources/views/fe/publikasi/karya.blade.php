@@ -21,7 +21,10 @@
                             @forelse ($karyaIlmiah as $item)
                             <div class="col-sm-12">
                                 <article class="item column-1" itemprop="blogPost" itemscope
-                                    itemtype="http://schema.org/BlogPosting">
+                                    itemtype="http://schema.org/BlogPosting"
+                                    style="margin-bottom: 0px;
+                                    margin-top: 0px;"
+                                    >
 
                                     <div class="entry-header has-post-format">
 
@@ -34,7 +37,9 @@
                                         </h2>
 
 
-                                        <dl class="article-info">
+                                        <dl class="article-info"
+                                        style="line-height: 25px !important;"
+                                        >
 
 
                                             <dt class="article-info-term"></dt>
@@ -49,7 +54,8 @@
                                             <a href="{{ url("/files/$item->banner") }}" 
                                                 style="font-weight: bold; color: red;"
                                             >Download</a>
-                                            <p>{!! $item->deskripsi !!}</p>
+                                            <p
+                                            >{!! $item->deskripsi !!}</p>
 
                                         </dl>
 

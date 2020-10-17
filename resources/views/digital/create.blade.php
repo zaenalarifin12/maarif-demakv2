@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section("heading", "Edit Product Digital")
+@section("heading", "Edit Produk Digital")
 
 @section('css')
     <link href="{{ asset("assets/vendor/datatables/dataTables.bootstrap4.min.css")}}" rel="stylesheet">
@@ -8,7 +8,6 @@
 
 @section('breadcump')
     <li class="breadcrumb-item"><a href="{{ url("admin") }}">Dashboard</a></li>
-
     
     @include('component.bc-program',
       [
@@ -43,10 +42,12 @@
               <form action="{{ url("/admin/unit/0/category/$category->id/digital") }}" method="post" enctype="multipart/form-data">
           @endif
               <div class="form-group">
-                <label for="">Product Digital</label>
-                  <textarea class="ckeditor form-control"  name="deskripsi" required cols="30" rows="10">
-                    {!! $digital->deskripsi ?? "" !!}
-                  </textarea>
+                <label for="">Nama</label>
+                <input type="text" value="" name="judul" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="">Link</label>
+                <input type="text" value="" name="deskripsi" class="form-control" required>
               </div>
               <button type="submit" class="btn btn-primary btn-block">Edit</button>
               @csrf
@@ -74,11 +75,11 @@
           $('.ckeditor').ckeditor();
       });
   </script>
-  <script type="text/javascript">
+  {{-- <script type="text/javascript">
     CKEDITOR.replace('deskripsi', {
         filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
         filebrowserUploadMethod: 'form'
     });
-</script>
+</script> --}}
 
 @endsection

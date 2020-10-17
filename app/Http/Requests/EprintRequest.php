@@ -26,7 +26,7 @@ class EprintRequest extends FormRequest
         return [
             "banner"        => "required",
             "judul"         => "required",
-            "deskripsi"     => "required",
+            // "deskripsi"     => "required",
             "categoryEprint"=> "required"
         ];
     }

@@ -56,19 +56,23 @@
                                                                 <label for="">Nama</label>
                                                                 <input type="text" class="form-control" name="judul" value="{{ $item->judul }}">
                                                             </div>
-                                                            <div class="form-group">
+                                                            {{-- <div class="form-group">
                                                                 <label for="">Deskripsi singkat</label>
                                                                 <textarea name="deskripsi" class="form-control" id="" cols="30" rows="10">{{ $item->deskripsi }}</textarea>
-                                                            </div>
+                                                            </div> --}}
                                             
                                                             <div class="form-group">
-                                                                <label for="">Foto  <br><span class="text-primary"> ukuran maximum: 5 mb <br> jenis file: jpeg,png</span></label><br>
+                                                                <label for="">Logo <br><span class="text-primary"> 
+                                                                    <strong> 500 </strong> x <strong> 500 </strong> pixels
+                                                                    <br> ukuran maximum: 5 mb 
+                                        
+                                                                    <br> jenis file: jpeg,png</span>
+                                                                </label><br>
                                                                 <input class="imgInp"  type="file" name="banner" accept="image/x-png,image/jpeg">
                                                                 @include('component.error', ["name" => "banner"])
                                                                 <br><br>
                                                                 <img class="blah" style="max-width: 90%" src="{{ asset("/storage/$item->banner") }}" alt="" srcset="">
-    
-                                                    </div>
+                                                            </div>
 
                                                             @csrf
                                                             @method("PUT")
@@ -113,10 +117,10 @@
                                                             <label for="">Nama</label>
                                                             <input type="text" class="form-control" name="judul" value="{{ $item->judul }}">
                                                         </div>
-                                                        <div class="form-group">
+                                                        {{-- <div class="form-group">
                                                             <label for="">Deskripsi singkat</label>
                                                             <textarea name="deskripsi" class="form-control" id="" cols="30" rows="10">{{ $item->deskripsi }}</textarea>
-                                                        </div>
+                                                        </div> --}}
 
                                                         <div class="form-group">
                                                             <label for="">Logo <br><span class="text-primary"> 
@@ -124,16 +128,7 @@
                                                                 <br> ukuran maximum: 5 mb 
                                     
                                                                 <br> jenis file: jpeg,png</span>
-                                                            </label><br>
-                                                            <input id="imgInp"  type="file" name="banner" accept="image/x-png,image/jpeg">
-                                                            <br><br>
-                                                            <img id="blah" 
-                                                            style="width: 250px; height: 250px; max-width: 100%;" 
-                                                            src="#" alt="" srcset="">
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <label for="">Foto  <br><span class="text-primary"> ukuran maximum: 5 mb <br> jenis file: jpeg,png</span></label><br>
+                                                            </label>
                                                             <input class="imgInp"  type="file" name="banner" accept="image/x-png,image/jpeg">
                                                             @include('component.error', ["name" => "banner"])
                                                             <br><br>
@@ -170,7 +165,7 @@
                             </div>
                             <div>
                                 <p class="text-primary font-weight-bold text-center h3">{{ ucfirst($item->judul) }}</p>
-                                <p class="text-capitalize">{{ $item->deskripsi }}</p>
+                                {{-- <p class="text-capitalize">{{ $item->deskripsi }}</p> --}}
                             </div>
                             
                         </div>
@@ -211,10 +206,10 @@
                                         <label for="">Nama</label>
                                         <input type="text" class="form-control" name="judul">
                                     </div>
-                                    <div class="form-group">
+                                    {{-- <div class="form-group">
                                         <label for="">Deskripsi singkat</label>
                                         <textarea name="deskripsi" class="form-control" id="" cols="30" rows="10"></textarea>
-                                    </div>
+                                    </div> --}}
 
                                     <div class="form-group">
                                         <label for="">Logo <br><span class="text-primary"> 
@@ -225,9 +220,9 @@
                                         </label><br>
                                         <input class="imgInp"  type="file" name="banner" accept="image/x-png,image/jpeg">
                                         <br><br>
-                                        <img class="blah" 
+                                        {{-- <img class="blah" 
                                         style="width: 250px; height: 250px; max-width: 100%;" 
-                                        src="#" alt="" srcset="">
+                                        src="#" alt="" srcset=""> --}}
                                     </div>
                     
                                     @csrf

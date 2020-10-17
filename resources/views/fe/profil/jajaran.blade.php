@@ -81,37 +81,39 @@
                   @endforeach
                    
                 @else
-                  @foreach ($item->jajaranPengurusOrang as $item2)
-                    <section class="sppb-section " style="">
-                      <div class="sppb-row">
-                        <div class="sppb-col-sm-12">
-                          <div class="sppb-addon-container" style="">
-                            <div class="sppb-addon sppb-addon-text-block sppb-text-center ">
-                              <h3 class="sppb-addon-title" style="">{{ $item->nama }}</h3>
-                              <div class="sppb-addon-content"></div>
-                            </div>
-                            <div class="sppb-empty-space  clearfix" style="margin-bottom:20px;"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </section>
 
-                    <section class="sppb-section" style="padding:0px 20px 50px 20px;">
-                      <div class="sppb-row">
-                        <div class="sppb-col-sm-3">
-                          <div class="sppb-addon-container" style="">
-                            <div class="sppb-addon sppb-addon-single-image sppb-text-center">
-                              <div class="sppb-addon-content"><img class="sppb-img-responsive"
-                                  src="{{ asset("storage/$item2->foto") }}" alt=""></div>
-                            </div>
-                            <div class="sppb-addon sppb-addon-text-block sppb-text-center ">
-                              <div class="sppb-addon-content"><strong>{{ $item2->nama }}</strong><br />{{ $item->nama }}</div>
-                            </div>
+                  <section class="sppb-section " style="">
+                    <div class="sppb-row">
+                      <div class="sppb-col-sm-12">
+                        <div class="sppb-addon-container" style="">
+                          <div class="sppb-addon sppb-addon-text-block sppb-text-center ">
+                            <h3 class="sppb-addon-title" style="">{{ $item->nama }}</h3>
+                            <div class="sppb-addon-content"></div>
                           </div>
+                          <div class="sppb-empty-space  clearfix" style="margin-bottom:20px;"></div>
                         </div>
                       </div>
-                    </section>
-                  @endforeach
+                    </div>
+                  </section>
+                  
+                  <section class="sppb-section" style="padding:0px 20px 50px 20px;">
+                    <div class="sppb-row">
+                      @foreach ($item->jajaranPengurusOrang as $item2)
+                            <div class="sppb-col-sm-3">
+                              <div class="sppb-addon-container" style="">
+                                <div class="sppb-addon sppb-addon-single-image sppb-text-center">
+                                  <div class="sppb-addon-content"><img class="sppb-img-responsive"
+                                      src="{{ asset("storage/$item2->foto") }}" alt=""></div>
+                                </div>
+                                <div class="sppb-addon sppb-addon-text-block sppb-text-center ">
+                                  <div class="sppb-addon-content"><strong>{{ $item2->nama }}</strong><br />{{ $item->nama }}</div>
+                                </div>
+                              </div>
+                            </div>
+                          
+                      @endforeach
+                  </div>
+                </section>
                 @endif
 
               @endforeach

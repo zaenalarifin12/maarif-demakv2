@@ -8,7 +8,7 @@ class UploadFileServices {
     public static function image($request, $name, $type = 1){
         
         $originName = $request->file($name)->getClientOriginalName();
-        $fileName = pathinfo($originName, PATHINFO_FILENAME);
+        $fileName = pathinfo(trim($originName), PATHINFO_FILENAME);
         $extension = $request->file($name)->getClientOriginalExtension();
         $fileName = trim($fileName).'_'.time().'.'.$extension;
 

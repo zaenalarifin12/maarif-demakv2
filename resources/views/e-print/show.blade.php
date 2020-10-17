@@ -55,7 +55,7 @@
                     <p>Eprint : <a class="btn btn-primary" href="{{ asset("/storage/$eprint->banner") }}">
                       Download
                     </a></p>
-                      <p>{!! $eprint->deskripsi !!}</p>
+                      {{-- <p>{!! $eprint->deskripsi !!}</p> --}}
                   </div>
             </div>
         </div>

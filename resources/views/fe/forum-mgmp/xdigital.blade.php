@@ -1,11 +1,9 @@
+
 @extends('fe.layouts.master')
 
-@section('title')
-    Program Kegiatan
-@endsection
 
 @section('content')
-
+    
 <section id="sp-body">
     <div class="row">
       <div id="sp-component" class="col-sm-12 col-md-12">
@@ -22,8 +20,10 @@
                     <div class="sppb-addon-container" style="" data-sppb-wow-duration="300ms">
                       <div class="sppb-addon sppb-addon-text-block sppb-text-left ">
                         <div class="sppb-addon-content">
-                            <h2>Program Kegiatan - {{ $cpk->nama }} MA'ARIF DEMAK</h2> <br>
-                            {!! $program->deskripsi ?? "KOSONG" !!}
+                            <h1>Produk Digital {{ $lembaga->nama }} - {{ $mp->nama }} </h1>
+                            <p>
+                                {!! $digital->deskripsi ?? "KOSONG" !!}
+                            </p>
                         </div>
                       </div>
                     </div>
@@ -36,6 +36,6 @@
         </div>
       </div>
     </div>
-</section>
-
+  </section>
 @endsection
+

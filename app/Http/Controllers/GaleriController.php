@@ -58,7 +58,7 @@ class GaleriController extends Controller
             $galeri = Galeri::create([
                 "banner"                        => $nama,
                 "judul"                         => $request->judul,
-                "deskripsi"                     => $request->deskripsi,
+                // "deskripsi"                     => $request->deskripsi,
                 "mata_pelajaran_id"             => null,
                 "category_program_kegiatan_id"  => $id_category
             ]);
@@ -73,7 +73,7 @@ class GaleriController extends Controller
             $galeri = Galeri::create([
                 "banner"                        => $nama,
                 "judul"                         => $request->judul,
-                "deskripsi"                     => $request->deskripsi,
+                // "deskripsi"                     => $request->deskripsi,
                 "mata_pelajaran_id"             => $id,
                 "category_program_kegiatan_id"  => $id_category
             ]);
@@ -107,12 +107,12 @@ class GaleriController extends Controller
                 $galeri->update([
                     "banner"                        => $nama,
                     "judul"                         => $request->judul,
-                    "deskripsi"                     => $request->deskripsi,
+                    // "deskripsi"                     => $request->deskripsi,
                 ]);
             } else {
                 $galeri->update([
                     "judul"                         => $request->judul,
-                    "deskripsi"                     => $request->deskripsi,
+                    // "deskripsi"                     => $request->deskripsi,
                 ]);
             }
             
@@ -132,12 +132,12 @@ class GaleriController extends Controller
                 $galeri->update([
                     "banner"                        => $nama,
                     "judul"                         => $request->judul,
-                    "deskripsi"                     => $request->deskripsi,
+                    // "deskripsi"                     => $request->deskripsi,
                 ]);
             } else {
                 $galeri->update([
                     "judul"                         => $request->judul,
-                    "deskripsi"                     => $request->deskripsi,
+                    // "deskripsi"                     => $request->deskripsi,
                 ]);
             }
             

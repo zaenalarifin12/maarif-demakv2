@@ -33,7 +33,7 @@ class ForumMGMPController extends Controller
         
         $c       = CategoryProgramKegiatan::findOrFail(1);
         $program   = Programkegiatan::where("mata_pelajaran_id", $id_mp)
-                    ->where("category_program_kegiatan_id", $c->id)->latest()->paginate(3);
+                    ->where("category_program_kegiatan_id", $c->id)->first();
         
         return view("fe.forum-mgmp.program", compact([
             "program", "lembaga", "mp"
@@ -73,9 +73,10 @@ class ForumMGMPController extends Controller
         $lembaga = Lembaga::findOrFail($id_l);
         $mp      = MataPelajaran::findOrFail($id_mp);
 
-        $c       = CategoryProgramKegiatan::findOrFail(1);
+        $c      = CategoryProgramKegiatan::findOrFail(1);
+        
         $digital = Digital::where("mata_pelajaran_id", $id_mp)
-                    ->where("category_program_kegiatan_id", $c->id)->first();
+                    ->where("category_program_kegiatan_id", $c->id)->paginate(10);
 
         return view("fe.forum-mgmp.digital", compact([
             "digital", "lembaga", "mp"

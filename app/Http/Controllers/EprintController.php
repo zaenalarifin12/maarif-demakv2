@@ -63,7 +63,7 @@ class EprintController extends Controller
             $eprint = Eprint::create([
                 "banner"                        => $nama,
                 "judul"                         => $request->judul,
-                "deskripsi"                     => $request->deskripsi,
+                // "deskripsi"                     => $request->deskripsi,
                 "mata_pelajaran_id"             => null,
                 "category_program_kegiatan_id"  => $id_category,
                 "category_eprint_id"            => $request->categoryEprint
@@ -79,7 +79,7 @@ class EprintController extends Controller
             $eprint = Eprint::create([
                 "banner"                        => $nama,
                 "judul"                         => $request->judul,
-                "deskripsi"                     => $request->deskripsi,
+                // "deskripsi"                     => $request->deskripsi,
                 "mata_pelajaran_id"             => $id_mp,
                 "category_program_kegiatan_id"  => $id_category,
                 "category_eprint_id"            => $request->categoryEprint
@@ -154,7 +154,7 @@ class EprintController extends Controller
                 $eprint->update([
                     "banner"                        => $nama,
                     "judul"                         => $request->judul,
-                    "deskripsi"                     => $request->deskripsi,
+                    // "deskripsi"                     => $request->deskripsi,
                     // "mata_pelajaran_id"             => null,
                     // "category_program_kegiatan_id"  => $idc,
                     // "category_eprint_id"            => $request->categoryEprint
@@ -163,7 +163,7 @@ class EprintController extends Controller
                 $eprint->update([
                    
                     "judul"                         => $request->judul,
-                    "deskripsi"                     => $request->deskripsi,
+                    // "deskripsi"                     => $request->deskripsi,
                     // "mata_pelajaran_id"             => null,
                     // "category_program_kegiatan_id"  => $idc,
                     // "category_eprint_id"            => $request->categoryEprint
@@ -182,7 +182,7 @@ class EprintController extends Controller
                 $eprint->update([
                     "banner"                        => $nama,
                     "judul"                         => $request->judul,
-                    "deskripsi"                     => $request->deskripsi,
+                    // "deskripsi"                     => $request->deskripsi,
                     // "mata_pelajaran_id"             => $idmp,
                     // "category_program_kegiatan_id"  => $idc,
                     // "category_eprint_id"            => $request->categoryEprint
@@ -192,7 +192,7 @@ class EprintController extends Controller
                 $eprint->update([
                    
                     "judul"                         => $request->judul,
-                    "deskripsi"                     => $request->deskripsi,
+                    // "deskripsi"                     => $request->deskripsi,
                     // "mata_pelajaran_id"             => $idmp,
                     // "category_program_kegiatan_id"  => $idc,
                     // "category_eprint_id"            => $request->categoryEprint

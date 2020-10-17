@@ -39,9 +39,9 @@ Route::get("/unit/{slug}/event",                    "FE\UnitController@event");
 Route::get("/unit/{slug}/event/{id}",               "FE\UnitController@eventShow");
 Route::get("/unit/{slug}/galeri",                   "FE\UnitController@galeri");
 Route::get("/unit/{slug}/digital",                  "FE\UnitController@digital");
+Route::get("/unit/{slug}/eprint",                  "FE\UnitController@eprint");
 Route::get("/unit/{slug}/informasi",                "FE\UnitController@informasi");
 Route::get("/unit/{slug}/informasi/{slug_i}",       "FE\UnitController@informasiShow");
-
 
 Route::get("/publikasi/karya-ilmiah",               "FE\PublikasiController@karyaIlmiah");
 

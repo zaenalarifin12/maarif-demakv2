@@ -23,7 +23,6 @@
                                 <article class="item column-1" itemprop="blogPost" itemscope
                                     itemtype="http://schema.org/BlogPosting">
 
-
                                     <div class="entry-image intro-image">
                                         <a
                                             href="#") }}">
@@ -46,7 +45,7 @@
                                         </h2>
 
 
-                                        <dl class="article-info">
+                                        <dl class="article-info" style="line-height: 25px">
 
 
                                             <dt class="article-info-term"></dt>
