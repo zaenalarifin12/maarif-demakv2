@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class DigitalRequest extends FormRequest
+class GaleriUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,8 @@ class DigitalRequest extends FormRequest
     public function rules()
     {
         return [
-            "deskripsi" => "required"
+            "banner"    => "nullable",
+            "judul"     => "required",
         ];
     }
 }

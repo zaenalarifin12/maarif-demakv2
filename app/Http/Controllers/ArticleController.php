@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Article;
-use App\Http\Requests\ArticleRequest;
-use Illuminate\Http\Request;
 use App\Category;
+use Illuminate\Http\Request;
 use App\Services\UploadFileServices;
+use App\Http\Requests\ArticleRequest;
+use App\Http\Requests\ArticleStoreRequest;
+use App\Http\Requests\ArticleUpdateRequest;
 
 
 class ArticleController extends Controller
@@ -32,23 +34,19 @@ class ArticleController extends Controller
         return view("article.create", compact("category"));
     }
 
-    public function store(ArticleRequest $request)
+    public function store(ArticleStoreRequest $request)
     {
-        // masih belum validaasi
+        $data = $request->validated();
 
-        // 'gambar' => 'required|mimes:jpeg,png|max:10240',
-
-        $category = Category::findOrFail($request->category);
-        
         $nama = UploadFileServices::image($request, "gambar");
 
-        
-        Article::create([
-            "banner"        => $nama,
-            "judul"         => $request->judul,
-            "deskripsi"     => $request->deskripsi,
-            "category_id"      => $request->category
-        ]);
+        $data["banner"] = $data["gambar"];
+        unset($data["gambar"]);
+        $data["banner"] = $nama;
+
+        Article::create($data);
+
+        $category = Category::findOrFail($request->category_id);
 
         return redirect("/admin/article")->withSuccess($category->nama . " berhasil ditambahkan");
     }
@@ -69,26 +67,28 @@ class ArticleController extends Controller
         return view("article.edit", compact(["article", "category"]));
     }
 
-    public function update(ArticleRequest $request, $id)
+    public function update(ArticleUpdateRequest $request, $id)
     {
-        $article = Article::findOrFail($id);
-        $category = Category::findOrFail($request->category);
 
+        $data = $request->validated();
+
+        $article = Article::findOrFail($id);
+
+        $category = Category::findOrFail($request->category_id);
+        
         if ($request->hasFile("gambar")) {
             $nama = UploadFileServices::image($request, "gambar");
-        
-            $article->update([
-                "banner"        => $nama,
-                "judul"         => $request->judul,
-                "deskripsi"     => $request->deskripsi,
-                "category_id"   => $request->category
-            ]);
+            
+            $data["banner"] = $data["gambar"];
+            unset($data["gambar"]);
+            $data["banner"] = $nama;
+
+            $article->update($data);
+
         } else {
-            $article->update([
-                "judul"         => $request->judul,
-                "deskripsi"     => $request->deskripsi,
-                "category_id"   => $request->category
-            ]);
+
+            $article->update($data);
+
         }
 
         return redirect("/admin/article/$article->id")->withSuccess("$category->nama berhasil diedit");

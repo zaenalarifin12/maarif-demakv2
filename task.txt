@@ -1,11 +1,19 @@
+====    TASK    =====
+BUAT LOGO MAARIF
+DOWNLOAD LOGO NU
+FORUM KKM 
+VALIDASI USER 
+ADD FIELD USER_ID (OBSERVER)
+PERBAIKAN TAMPILAN
+
+
+
 === revisi ====
 
 NAMA , MENU , LOGO NU
 
 forum => KAPITAL
 
-TODO  FORUM KKM 
-TODO MENU KAPITAL
 TODO GARIS MENU 1 PUTIH
 TODO GARIS MENU 1 MERAH
 
@@ -13,11 +21,16 @@ TODO GARIS MENU 1 MERAH
 
 
 
+Tip 17. Set logged in user with Observers
+'photo' => 'dimensions:max_width=4096,max_height=4096'
+Tip 61. Generate Images with Seeds/Factories
+Tip 94. Prepare for Validation
+
+https://www.youtube.com/playlist?list=PLxFwlLOncxFLazmEPiB4N0iYc3Dwst6m4
 
 
 
-
-TODO LINK => DIGITAL LIBRARY | PERPUSTAKAAN SEKOLAH KEMENAG / KEMENDIKBUD /NASIONAL
+REVIEW LINK => DIGITAL LIBRARY | PERPUSTAKAAN SEKOLAH KEMENAG / KEMENDIKBUD /NASIONAL
         => LOGO | NAMA | LINK
 
 https://www.perpusnas.go.id/            PERPUSTAKAAN NASIONAL

@@ -38,7 +38,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">No Induk</label>
-                        <input type="number" name="no_induk" class="form-control" required value="{{ old("no_induk") ? old("no_induk") :  $siswa->no_induk }}">
+                        <input type="number" name="no_induk" class="form-control" disabled value="{{ old("no_induk") ? old("no_induk") :  $siswa->no_induk }}">
                         @include('component.error', ["name" => "no_induk"])
 
                     </div>
@@ -49,7 +49,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Email</label>
-                        <input type="email" name="email" class="form-control" required value="{{ old("email") ? old("email") : $siswa->email }}">
+                        <input type="email" name="email" class="form-control" disabled value="{{ old("email") ? old("email") : $siswa->email }}">
                         @include('component.error', ["name" => "email"])
                     </div>
                     <div class="form-group">

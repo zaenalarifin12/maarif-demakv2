@@ -43,7 +43,7 @@
               </div>
               <div class="form-group">
                   <label for="">Kategori</label>
-                  <select name="category" id="" class="form-control">
+                  <select name="category_id" id="" class="form-control">
      
                         @foreach ($category as $item)
                             <option

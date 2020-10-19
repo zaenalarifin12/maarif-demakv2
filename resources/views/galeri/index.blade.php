@@ -7,18 +7,18 @@
 @section('breadcump')
     <li class="breadcrumb-item"><a href="{{ url("admin") }}">Dashboard</a></li>
 
-    @include('component.breadcump', ["categoryProgramKegiatan" => $categoryProgramKegiatan])
+    @include('component.breadcump', ["categoryProgramKegiatan" => $category])
     
     @include('component.bc-program',
         [
-        "category"        => $categoryProgramKegiatan,
+        "category"        => $category,
         "mata_pelajaran"  => $mata_pelajaran
         ]
     )
     
     @include('component.bc-program-title',
         [
-        "category"        => $categoryProgramKegiatan,
+        "category"        => $category,
         "mata_pelajaran"  => $mata_pelajaran,
         "name"            => "galeri"
         ]
@@ -42,7 +42,7 @@
                                     {{-- modal --}}
                                     <div class="modal fade" id="exampleModal-edit-{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
-                                            <form action="{{ url("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/$categoryProgramKegiatan->id/galeri/$item->id") }}" method="post" enctype="multipart/form-data">
+                                            <form action="{{ url("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/$category->id/galeri/$item->id") }}" method="post" enctype="multipart/form-data">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="exampleModalLabel">Edit Galeri</h5>
@@ -92,7 +92,7 @@
 
                                     <button type="button" class="btn btn-sm btn-info mx-4" data-toggle="modal" data-target="#exampleModal-edit-{{$item->id }}">Edit</button>
 
-                                    <form action="{{ url("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/$categoryProgramKegiatan->id/galeri/$item->id") }}" method="post" class="d-inline">
+                                    <form action="{{ url("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/$category->id/galeri/$item->id") }}" method="post" class="d-inline">
                                         <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
                                         @csrf
                                         @method("DELETE")
@@ -103,7 +103,7 @@
                                     {{-- modal --}}
                                     <div class="modal fade" id="exampleModal-edit-{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
-                                            <form action="{{url("/admin/unit/0/category/$categoryProgramKegiatan->id/galeri/$item->id")}}" method="post" enctype="multipart/form-data">
+                                            <form action="{{url("/admin/unit/0/category/$category->id/galeri/$item->id")}}" method="post" enctype="multipart/form-data">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="exampleModalLabel">Edit Galeri</h5>
@@ -153,7 +153,7 @@
                                     <button type="button" class="btn btn-sm btn-info mx-4" data-toggle="modal" data-target="#exampleModal-edit-{{$item->id }}">Edit</button>
 
 
-                                    <form action="{{ url("/admin/unit/0/category/$categoryProgramKegiatan->id/galeri/$item->id") }}" method="post" class="d-inline">
+                                    <form action="{{ url("/admin/unit/0/category/$category->id/galeri/$item->id") }}" method="post" class="d-inline">
                                         <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
                                         @csrf
                                         @method("DELETE")
@@ -189,7 +189,7 @@
                     @if ($mata_pelajaran != null)
                         <form action="{{url("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/1/galeri")}}" method="post" enctype="multipart/form-data">
                     @else
-                        <form action="{{url("/admin/unit/0/category/$categoryProgramKegiatan->id/galeri")}}" method="post" enctype="multipart/form-data">
+                        <form action="{{url("/admin/unit/0/category/$category->id/galeri")}}" method="post" enctype="multipart/form-data">
                     @endif
                     
                     <div class="modal-content">

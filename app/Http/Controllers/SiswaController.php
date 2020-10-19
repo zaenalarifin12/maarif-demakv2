@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Http\Request;
 use App\Siswa;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\SiswaStoreRequest;
+use App\Http\Requests\SiswaUpdateRequest;
 
 
 class SiswaController extends Controller
@@ -21,23 +23,12 @@ class SiswaController extends Controller
         return view("siswa.create");
     }
 
-    public function store(Request $request)
+    public function store(SiswaStoreRequest $request)
     {
-        $request->validate([
-            "nama"          => "required",
-            "no_induk"      => 'required',
-            "asal_sekolah"  => "required",
-            "email"         => "required|string|email|unique:siswas,email",
-            "password"     =>  "required|string|min:8"
-        ]);
+        $data = $request->validated();
+        $data["password"] = Hash::make($request->password);
 
-        Siswa::create([
-            "nama"          => $request->nama,
-            "no_induk"      => $request->no_induk,
-            "asal_sekolah"  => $request->asal_sekolah,
-            "email"         => $request->email,
-            "password"      => Hash::make($request->password)
-        ]);
+        Siswa::create($data);
 
         return redirect("/siswa")->withSuccess("akun berhasil dibuat");
     }
@@ -49,25 +40,15 @@ class SiswaController extends Controller
         return view("siswa.edit", compact("siswa"));
     }
 
-    public function update(Request $request, $no_induk)
+    public function update(SiswaUpdateRequest $request, $no_induk)
     {
-        $request->validate([
-            "nama"          => "required",
-            "no_induk"      => 'required',
-            "asal_sekolah"  => "required",
-            // "email"         => "required|string|email",
-            "password"     =>  "nullable|string|min:8"
-        ]);
+        $data = $request->validated();
 
+        $data["password"]      = Hash::make($request->password);
+        
         $siswa = Siswa::findOrFail($no_induk);
     
-        $siswa->update([
-            "nama"          => $request->nama,
-            "no_induk"      => $request->no_induk,
-            "asal_sekolah"  => $request->asal_sekolah,
-            // "email"         => $request->email, FIXME EMAIL TIDAK USAH DIUPDATE
-            "password"      => Hash::make($request->password)
-        ]);
+        $siswa->update($data);
 
         return redirect("/siswa")->withSuccess("akun berhasil diperbarui");
 

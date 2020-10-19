@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use Illuminate\Support\Facades\Hash;
 use App\MataPelajaran;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\AnggotaStoreRequest;
 
 class AnggotaController extends Controller
 {
@@ -18,21 +19,15 @@ class AnggotaController extends Controller
         return view("anggota-mgmp.index", compact(["users", "mp"]));
     }    
 
-    public function store(Request $request)
+    public function store(AnggotaStoreRequest $request)
     {
-        $this->validate($request, [
-            "name"              => "required",
-            "email"             => "required|email|unique:users",
-            "password"          => "required|string|min:8",
-            "mata_pelajaran"    => "required"
-        ]);
+        $data = $request->validated();
 
-        $user = User::create([
-            "name"              => $request->name,
-            "email"             => $request->email,
-            "password"          => Hash::make($request->password),
-            "role"              => 2,
-        ]);
+
+        $data["password"]  = Hash::make($request->password);
+        $data["role"]      = 2;
+
+        $user = User::create($data);
 
         $user->mata_pelajaran()->associate($request->mata_pelajaran);
         $user->save();

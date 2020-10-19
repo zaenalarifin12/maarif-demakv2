@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CategoryEprintRequest extends FormRequest
+class SiswaRegisterRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,11 @@ class CategoryEprintRequest extends FormRequest
     public function rules()
     {
         return [
-            "nama"  => "required"
+            "nama"          => "required",
+            "no_induk"      => 'required|numeric|unique:siswas,no_induk',
+            "asal_sekolah"  => "required",
+            "email"         => "required|string|email|unique:siswas,email",
+            "password"     =>  "required|string|min:8"
         ];
     }
 }

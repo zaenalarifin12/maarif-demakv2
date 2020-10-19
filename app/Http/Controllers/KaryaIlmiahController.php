@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Storage;
-use App\Services\UploadFileServices;
-use Illuminate\Http\Request;
 use App\KaryaIlmiah;
+use Illuminate\Http\Request;
+use App\Services\UploadFileServices;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\KaryaStoreRequest;
+use App\Http\Requests\KaryaUpdateRequest;
 // use App\
 
 class KaryaIlmiahController extends Controller
@@ -21,17 +23,15 @@ class KaryaIlmiahController extends Controller
         return view("karya.create");
     }
 
-    public function store(Request $request)
+    public function store(KaryaStoreRequest $request)
     {
+        $data = $request->validated();
         // TODO VALIDASI
         $nama = UploadFileServices::image($request, "banner", 0);
 
-        KaryaIlmiah::create([
-            "banner"    => $nama,
-            "judul"     => $request->judul,
-            "pengarang" => $request->pengarang,
-            "deskripsi" => $request->deskripsi
-        ]);
+        $data["banner"] = $nama;
+
+        KaryaIlmiah::create($data);
 
         return redirect("admin/karya")->withSuccess("karya ilmiah berhasil diupload");
     }
@@ -50,27 +50,21 @@ class KaryaIlmiahController extends Controller
         return view("karya.edit", compact("karya"));
     }
 
-    public function update(Request $request, $id)
+    public function update(KaryaUpdateRequest $request, $id)
     {
-        // TODO VALIDASI
+        $data = $request->validated();
+
         $karya = KaryaIlmiah::findOrFail($id);
         
         if($request->has("banner")){
             $nama = UploadFileServices::image($request, "banner", 0);
+            
+            $data["banner"] = $nama;
 
-            $karya->update([
-                "banner"    => $nama,
-                "judul"     => $request->judul,
-                "pengarang" => $request->pengarang,
-                "deskripsi" => $request->deskripsi
-            ]);
+            $karya->update($data);
 
         }else{
-            $karya->update([
-                "judul"     => $request->judul,
-                "pengarang" => $request->pengarang,
-                "deskripsi" => $request->deskripsi
-            ]);
+            $karya->update($data);
         }
     
         return redirect("/admin/karya")->withSuccess("karya ilmiah sudah berhasil diperbarui");

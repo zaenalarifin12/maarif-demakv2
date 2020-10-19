@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+@section("title", "Program Kegiatan")
+
 @section("heading", "Program Kegiatan")
 
 @section('css')

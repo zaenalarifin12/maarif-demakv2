@@ -9,8 +9,7 @@ class LicensiController extends Controller
 {
 
     public function create()
-    {
-        
+    {   
         $licensi = Licensi::first();
         
         return view("licensi.index", compact("licensi"));

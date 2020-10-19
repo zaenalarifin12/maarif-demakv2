@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Fasilitas;
+use Illuminate\Http\Request;
 use App\Services\UploadFileServices;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\Request;
+use App\Http\Requests\FasilitasStoreRequest;
 
 class FasilitasController extends Controller
 {
@@ -37,17 +38,14 @@ class FasilitasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FasilitasStoreRequest $request)
     {
-        // $validated = $request->validated();
+        $data = $request->validated();
 
         $nama = UploadFileServices::image($request, "gambar");
 
-        Fasilitas::create([
-            "nama"      => $request->nama,
-            "gambar"    => $nama,
-            "deskripsi" => $request->deskripsi
-        ]);
+        $data["gambar"] = $nama;
+        Fasilitas::create($data);
 
         return  redirect("/admin/profil/fasilitas")->withSuccess("fasilitas berhasil ditambahkan");
     }

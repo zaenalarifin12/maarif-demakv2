@@ -11,7 +11,6 @@ use Illuminate\Http\Request;
 class BannerHomeController extends Controller
 {
 
-
     public function index()
     {
         $banner = BannerHome::get();
@@ -26,11 +25,11 @@ class BannerHomeController extends Controller
 
     public function store(BannerHomeRequest $request)
     {
-        $validated = $request->validated();
+        $data = $request->validated();
 
         $nama = UploadFileServices::image($request, "gambar");
 
-        BannerHome::create(["gambar" => $nama]);
+        BannerHome::create($data);
 
         return redirect("/admin/home/banner")->withSuccess("foto berhasil diupload");
     }

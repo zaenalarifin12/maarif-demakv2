@@ -2,7 +2,6 @@
 
 namespace App\Services;
 
-
 class UploadFileServices {
     
     public static function image($request, $name, $type = 1){

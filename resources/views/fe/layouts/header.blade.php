@@ -180,7 +180,21 @@
                                         </div>
                                     </li>
 
-                                    <li class="sp-menu-item sp-has-child"><a href="#" >Forum MGMP</a>
+                                    <li class="sp-menu-item sp-has-child"><a href="#" >FORUM KKM</a>
+										<div class="sp-dropdown sp-dropdown-main" style="width: 240px;">
+											<div class="sp-dropdown-inner">
+												<ul class="sp-dropdown-items">
+                                                    @foreach ($lembaga as $item)
+                                                    <li class="sp-menu-item "><a
+                                                        href="{{ url("forum-mgmp/$item->id") }}">{{ $item->nama }}</a>
+                                                    </li>
+                                                    @endforeach
+												</ul>
+											</div>
+										</div>
+                                    </li>
+
+                                    <li class="sp-menu-item sp-has-child"><a href="#" >FORUM MGMP</a>
 										<div class="sp-dropdown sp-dropdown-main" style="width: 240px;">
 											<div class="sp-dropdown-inner">
 												<ul class="sp-dropdown-items">

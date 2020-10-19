@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\KerjaSama;
 use Illuminate\Http\Request;
 use App\Services\UploadFileServices;
+use App\Http\Requests\KerjaSamaStoreRequest;
 
 class KerjaSamaController extends Controller
 {
@@ -21,19 +22,15 @@ class KerjaSamaController extends Controller
         return view("menu.kerja-sama.create");
     }
 
-    public function store(Request $request)
+    public function store(KerjaSamaStoreRequest $request)
     {
-        $validatedData = $request->validate([
-            'nama'      => 'required',
-            'gambar'    => 'required|mimes:jpeg,png|max:10240',
-        ]);
+        $data = $request->validated();
 
         $nama = UploadFileServices::image($request, "gambar");
+        
+        $data["gambar"] = $nama;
 
-        KerjaSama::create([
-            "nama"      => $request->nama,
-            "gambar"    => $nama
-        ]);
+        KerjaSama::create($data);
 
         return redirect("admin/kerja-sama")->withSuccess("Logo Kerja sama berhasil ditambahkan");
     }

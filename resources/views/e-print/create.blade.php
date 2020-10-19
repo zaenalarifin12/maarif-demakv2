@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    Tambah E-Print
+@endsection
+
 @section('heading')
     Tambah E-Print
 @endsection
@@ -65,7 +69,7 @@
               <div class="form-group">
                 <label for="">Kategori</label><br>
                 @foreach ($categoryEprint as $item)
-                    <input required type="radio" name="categoryEprint" value="{{ $item->id }}"> {{$item->nama}} <br> 
+                    <input required type="radio" name="category_eprint_id" value="{{ $item->id }}"> {{$item->nama}} <br> 
                 @endforeach
               </div>
               <button type="submit" class="btn btn-primary btn-block">Tambah</button>

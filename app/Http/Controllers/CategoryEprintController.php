@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\CategoryEprint;
 use Illuminate\Http\Request;
-use App\Http\Requests\CategoryEprintRequest;
+use App\Http\Requests\CategoryEprintStoreRequest;
 
 class CategoryEprintController extends Controller
 {
@@ -26,13 +26,11 @@ class CategoryEprintController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CategoryEprintRequest $request)
+    public function store(CategoryEprintStoreRequest $request)
     {
-        $request->validated();
+        $data = $request->validated();
 
-        CategoryEprint::create([
-            "nama"  => $request->nama
-        ]);
+        CategoryEprint::create($data);
 
         return redirect("/admin/category-eprint")->withSuccess("kategori eprint berhasil ditambahkan");
     }
@@ -44,15 +42,13 @@ class CategoryEprintController extends Controller
      * @param  \App\CategoryEprint  $categoryEprint
      * @return \Illuminate\Http\Response
      */
-    public function update(CategoryEprintRequest $request, $id)
+    public function update(CategoryEprintStoreRequest $request, $id)
     {
-        $request->validated();
+        $data = $request->validated();
 
         $category = CategoryEprint::findOrFail($id);
 
-        $category->update([
-            "nama"  => $request->nama
-        ]);
+        $category->update($data);
 
         return redirect("/admin/category-eprint")->withSuccess("kategori eprint berhasil diperbarui");
     }

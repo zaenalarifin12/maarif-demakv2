@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
-use App\Siswa;
-use Illuminate\Support\Facades\Hash;
 use Mail;
+use App\Siswa;
 use App\Mail\VerifyEmail;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\SiswaRegisterRequest;
+use App\Http\Requests\SiswaLoginRequest;
 
 class SiswaAuthController extends Controller
 {
@@ -16,12 +18,9 @@ class SiswaAuthController extends Controller
         return view("auth.loginSiswa");
     }
 
-    public function login(Request $request)
+    public function login(SiswaLoginRequest $request)
     {
-        $request->validate([
-            "email"     => "required",
-            "password"  => "required"
-        ]);
+        $request->validated();
 
         $siswa = Siswa::where("email", $request->email)->first();
         
@@ -35,29 +34,17 @@ class SiswaAuthController extends Controller
         
     }
 
-
-    public function register(Request $request)
+    public function register(SiswaRegisterRequest $request)
     {
-        $request->validate([
-            "nama"          => "required",
-            "no_induk"      => 'required|numeric|unique:siswas,no_induk',
-            "asal_sekolah"  => "required",
-            "email"         => "required|string|email|unique:siswas,email",
-            "password"     =>  "required|string|min:8"
-        ]);
+      $data = $request->validated();
+      $data["password"] = Hash::make($request->password);
+      $data["token"]    = sha1(time());
 
-        $siswa = Siswa::create([
-            "nama"          => $request->nama,
-            "no_induk"      => $request->no_induk,
-            "asal_sekolah"  => $request->asal_sekolah,
-            "email"         => $request->email,
-            "password"      => Hash::make($request->password),
-            "token"         => sha1(time())
-        ]);
+      $siswa = Siswa::create($data);
 
-        Mail::to($siswa->email)->send(new VerifyEmail($siswa));
+      Mail::to($siswa->email)->send(new VerifyEmail($siswa));
 
-        return redirect("/loginSiswa")->withStatus("Silahkan Check Email Anda");
+      return redirect("/loginSiswa")->withStatus("Silahkan Check Email Anda");
     }
 
     public function verifyUser($token)

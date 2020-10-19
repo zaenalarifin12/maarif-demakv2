@@ -11,6 +11,5 @@ class CategoryEprint extends Model
     public function eprints()
     {
         return $this->hasMany(Eprint::class);
-
     }
 }

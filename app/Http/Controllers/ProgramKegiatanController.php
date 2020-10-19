@@ -2,30 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\ProgramKegiatan;
 use App\MataPelajaran;
+use App\ProgramKegiatan;
+use Illuminate\Http\Request;
 // use App\Http\Requests\DigitalRequest;
+use App\Services\RedirectLink;
 use App\CategoryProgramKegiatan;
+use App\Http\Requests\ProgramKegiatanStoreRequest;
 
 class ProgramKegiatanController extends Controller
 {
     public function index($idmp, $id_category)
     {
-        if ($idmp == 0 ) {
-            $mata_pelajaran = null;
-            
-            $program = ProgramKegiatan::where("mata_pelajaran_id", $mata_pelajaran)
-                ->where("category_program_kegiatan_id", $id_category)->first();
-        } else  {
-            $mata_pelajaran = MataPelajaran::findOrFail($idmp);
-
-            $program = ProgramKegiatan::where("mata_pelajaran_id", $idmp)
-            ->where("category_program_kegiatan_id", $id_category)->first();
-        }
+        $result         = RedirectLink::checkMataPelajaranDanCategory($idmp, $id_category);
         
-        $category = CategoryProgramKegiatan::findOrFail($id_category);
+        $mata_pelajaran = $result["mata-pelajaran"];
 
+        $category       = $result["category"];
+
+        $program        = ProgramKegiatan::where("mata_pelajaran_id", $mata_pelajaran->id ?? null)
+                        ->where("category_program_kegiatan_id", $category->id)->first();
+        
         return view("program.index", compact([
             "mata_pelajaran", 
             "program",
@@ -36,19 +33,14 @@ class ProgramKegiatanController extends Controller
     public function create($idmp, $id_category)
     {
 
-        $category = CategoryProgramKegiatan::findOrFail($id_category);
+        $result = RedirectLink::checkMataPelajaranDanCategory($idmp, $id_category);
+        
+        $mata_pelajaran = $result["mata-pelajaran"];
 
-        if ($idmp == 0 ) {
-            $mata_pelajaran = null;
-            
-            $program = ProgramKegiatan::where("mata_pelajaran_id", $mata_pelajaran)
-                ->where("category_program_kegiatan_id", $id_category)->first();
-        } else  {
-            $mata_pelajaran = MataPelajaran::findOrFail($idmp);
+        $category = $result["category"];
 
-            $program = ProgramKegiatan::where("mata_pelajaran_id", $idmp)
-            ->where("category_program_kegiatan_id", $id_category)->first();
-        }
+        $program = ProgramKegiatan::where("mata_pelajaran_id", $mata_pelajaran->id ?? null)
+                ->where("category_program_kegiatan_id", $category->id)->first();
 
         return view("program.create", compact([
             "mata_pelajaran",
@@ -57,42 +49,24 @@ class ProgramKegiatanController extends Controller
         ]));
     }
 
-    public function store(Request $request, $idmp,  $id_category)
+    public function store(ProgramKegiatanStoreRequest $request, $id_mp,  $id_category)
     {
-        // $validated = $request->validated();
+        $validated = $request->validated();
         
-        $category = CategoryProgramKegiatan::findOrFail($id_category);
+        $data = RedirectLink::checkValidation($request, $id_category, $id_mp);
 
-        if ($idmp == 0) {
+        $data["category_program_kegiatan_id"] = $id_category;
+
+        ProgramKegiatan::where("category_program_kegiatan_id", $data["category_program_kegiatan_id"])
+        ->where("mata_pelajaran_id", $data["mata_pelajaran_id"])
+        ->delete();
+
+        return RedirectLink::redirect($data["mata_pelajaran_id"], $id_category, 
         
-            $d = ProgramKegiatan::where("category_program_kegiatan_id", $id_category)->delete();    
-
-            $program = ProgramKegiatan::create([
-                "deskripsi"                     => $request->deskripsi,
-                "mata_pelajaran_id"             => null,
-                "category_program_kegiatan_id"  => $id_category
-            ]);
-
-            return redirect("/admin/unit/0/category/$id_category/program")
-            ->withSuccess("program kegiatan berhasil ditambahkan");
-
-        }else{
-            $mata_pelajaran = MataPelajaran::findOrFail($idmp);
-
-            $d = ProgramKegiatan::where("category_program_kegiatan_id", $id_category)
-                        ->where("mata_pelajaran_id", $idmp)
-                        ->delete();
-            
-            $digital = ProgramKegiatan::create([
-                "deskripsi"                     => $request->deskripsi,
-                "mata_pelajaran_id"             => $idmp,
-                "category_program_kegiatan_id"  => $id_category
-            ]);
-
-            return redirect("/admin/forum-mgmp/mata-pelajaran/$idmp/category/$id_category/program")
-            ->withSuccess("program kegiatan berhasil ditambahkan");
-        }
-
+        ProgramKegiatan::create($data) , "program")
+        
+        ->withSuccess("Program Kegiatan berhasil ditambahkan");
+       
     }
 
 }

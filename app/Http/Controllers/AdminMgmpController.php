@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\User;
 use App\MataPelajaran;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\AdminMgmpStoreRequest;
 
 class AdminMgmpController extends Controller
 {
@@ -18,21 +19,14 @@ class AdminMgmpController extends Controller
         return view("admin-mgmp.index", compact(["users", "mp"]));
     }    
 
-    public function store(Request $request)
+    public function store(AdminMgmpStoreRequest $request)
     {
-        $this->validate($request, [
-            "name"              => "required",
-            "email"             => "required|email|unique:users",
-            "password"          => "required|string|min:8",
-            "mata_pelajaran"    => "required"
-        ]);
+        $data = $request->validated();
 
-        $user = User::create([
-            "name"              => $request->name,
-            "email"             => $request->email,
-            "password"          => Hash::make($request->password),
-            "role"              => 3,
-        ]);
+        $data["password"]  = Hash::make($request->password);
+        $data["role"]      = 3;
+
+        $user = User::create($data);
 
         $user->mata_pelajaran()->associate($request->mata_pelajaran);
         $user->save();

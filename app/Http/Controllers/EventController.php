@@ -3,31 +3,29 @@
 namespace App\Http\Controllers;
 
 
-use Illuminate\Http\Request;
 use App\Event;
 use App\MataPelajaran;
-use App\Http\Requests\EventRequest;
+use Illuminate\Http\Request;
+use App\Services\RedirectLink;
 use App\CategoryProgramKegiatan;
+use App\Http\Requests\EventRequest;
 use App\Services\UploadFileServices;
+use App\Http\Requests\EventStoreRequest;
+use App\Http\Requests\EventUpdateRequest;
 
 class EventController extends Controller
 {
     public function index($idmp, $id_category)
     {
-        $category = CategoryProgramKegiatan::findOrFail($id_category);
+        $result         = RedirectLink::checkMataPelajaranDanCategory($idmp, $id_category);
+        
+        $mata_pelajaran = $result["mata-pelajaran"];
 
-        if ($idmp == 0 ) {
-            $mata_pelajaran = null;
-            
-            $event = Event::where("mata_pelajaran_id", $mata_pelajaran)
-                ->where("category_program_kegiatan_id", $id_category)->latest()->get();
-        } else  {
-            $mata_pelajaran = MataPelajaran::findOrFail($idmp);
+        $category       = $result["category"];
 
-            $event = Event::where("mata_pelajaran_id", $idmp)
-            ->where("category_program_kegiatan_id", $id_category)->latest()->get();
-        }
-                
+        $event          = Event::where("mata_pelajaran_id", $mata_pelajaran->id ?? null)
+                            ->where("category_program_kegiatan_id", $category->id)->latest()->get();
+                                
         return view("event.index", compact([
             "mata_pelajaran", 
             "event",
@@ -37,52 +35,34 @@ class EventController extends Controller
 
     public function create($idmp, $id_category)
     {
-        if($idmp == 0) {
-            $mata_pelajaran = null;
-        }  else {
-            $mata_pelajaran = MataPelajaran::findOrFail($idmp);
-        } 
+        $result = RedirectLink::checkMataPelajaranDanCategory($idmp, $id_category);
         
-        $category = CategoryProgramKegiatan::findOrFail($id_category);
+        $mata_pelajaran = $result["mata-pelajaran"];
+
+        $category = $result["category"];
 
         return view("event.create", compact(["mata_pelajaran", "category"]));
     }
 
-    public function store(EventRequest $request ,$id_mp, $id_category)
+    public function store(EventStoreRequest $request ,$id_mp, $id_category)
     {
-        $validated = $request->validated();
-    
+        
+        $data = RedirectLink::checkValidation($request, $id_category, $id_mp);
+
         $nama = UploadFileServices::image($request, "gambar");
         
-        if ($id_mp == 0) {
+        $data["banner"] = $data["gambar"];
+        unset($data["gambar"]);
+        $data["banner"] = $nama;
+        $data["category_program_kegiatan_id"] = $id_category;
 
-            $event = Event::create([
-                "banner"                        => $nama,
-                "judul"                         => $request->judul,
-                "deskripsi"                     => $request->deskripsi,
-                "mata_pelajaran_id"             => null,
-                "category_program_kegiatan_id"  => $id_category
-            ]);
 
-            return redirect("/admin/unit/0/category/$id_category/event")
-            ->withSuccess("Event berhasil ditambahkan");
-        } else {
-
-            $mata_pelajaran = MataPelajaran::findOrFail($id_mp);
-
-            $event = Event::create([
-                "banner"                        => $nama,
-                "judul"                         => $request->judul,
-                "deskripsi"                     => $request->deskripsi,
-                "mata_pelajaran_id"             => $id_mp,
-                "category_program_kegiatan_id"  => $id_category
-            ]);
-
-            return redirect("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/$id_category/event")
-            ->withSuccess("Event berhasil ditambahkan");
-        }
-
+        return RedirectLink::redirect($data["mata_pelajaran_id"], $id_category, 
         
+        Event::create($data) , "event")
+        
+        ->withSuccess("Event berhasil ditambahkan");
+    
     }
 
     public function show($idmp, $idc, $id)
@@ -104,15 +84,11 @@ class EventController extends Controller
         ]));
     }
 
-    public function edit(Request $request, $idmp, $idc, $id)
+    public function edit($id_mp, $id_category, $id)
     {
-        if($idmp == 0) {
-            $mata_pelajaran = null;
-        }  else {
-            $mata_pelajaran = MataPelajaran::findOrFail($idmp);
-        } 
+        $mata_pelajaran   = RedirectLink::checkMataPelajaran($id_mp);
 
-        $category           = CategoryProgramKegiatan::findOrfail($idc);
+        $category         = CategoryProgramKegiatan::findOrFail($id_category);
 
         $event              = Event::findOrFail($id);
 
@@ -123,83 +99,36 @@ class EventController extends Controller
         ]));
     }
 
-    public function update(Request $request, $idmp, $idc, $id)
+    public function update(EventUpdateRequest $request, $id_mp, $id_category, $id)
     {
-        if($idmp == 0) {
-            $mata_pelajaran = null;
-        }  else {
-            $mata_pelajaran = MataPelajaran::findOrFail($idmp);
-        } 
-    
-        $category         = CategoryProgramKegiatan::findOrfail($idc);
+        $data = RedirectLink::checkValidation($request, $id_category, $id_mp);
 
         $event           = Event::findOrFail($id);
 
-        if ($idmp == 0) {
+        // $data["banner"] = $data["gambar"];
+        // unset($data["gambar"]);
 
-            if($request->has("gambar"))
-            {
-                $nama = UploadFileServices::image($request, "gambar");
+        $data["category_program_kegiatan_id"] = $id_category;
 
-                $event->update([
-                    "banner"                        => $nama,
-                    "judul"                         => $request->judul,
-                    "deskripsi"                     => $request->deskripsi
-                ]);
-            }else{
-                $event->update([
-                   
-                    "judul"                         => $request->judul,
-                    "deskripsi"                     => $request->deskripsi
-                ]);
-            }
+        if($request->has("gambar"))
+        {
+            $nama = UploadFileServices::image($request, "gambar");
+            $data["banner"] = $data["gambar"];
+            unset($data["gambar"]);
+            $data["banner"] = $nama;
 
-            return redirect("/admin/unit/0/category/$idc/event")
-                ->withSuccess("Event berhasil diedit");
-        } else {
-        
-            if($request->has("gambar"))
-            {
-                $nama = UploadFileServices::image($request, "gambar");
-
-                $event->update([
-                    "banner"                        => $nama,
-                    "judul"                         => $request->judul,
-                    "deskripsi"                     => $request->deskripsi
-                ]);
-            }else{
-                $event->update([
-                   
-                    "judul"                         => $request->judul,
-                    "deskripsi"                     => $request->deskripsi
-                ]);
-            }
-
-            return redirect("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/$idc/event")
-            ->withSuccess("Event berhasil diedit");
+            return RedirectLink::redirect($data["mata_pelajaran_id"], $id_category, $event->update($data) , "event")->withSuccess("Event berhasil diedit");
+        }else{
+            return RedirectLink::redirect($data["mata_pelajaran_id"], $id_category, $event->update($data) , "event")->withSuccess("Event berhasil diedit");
         }
 
-        
     }
 
-    public function destroy($idmp, $idc ,$id)
+    public function destroy($id_mp, $id_category ,$id)
     {
-        
         $event = Event::findOrFail($id);
-        $event->delete();
 
-        if($idmp == 0) {
-            $mata_pelajaran = null;
-
-                return redirect("/admin/unit/0/category/$idc/event")
-                ->withSuccess("Program Kegiatan berhasil dihapus");
-        }  else {
-            $mata_pelajaran = MataPelajaran::findOrFail($idmp);
-
-            return redirect("/admin/forum-mgmp/mata-pelajaran/$idmp/category/$idc/event")
-            ->withSuccess("Event berhasil dihapus");
-        } 
-
+        return RedirectLink::redirect($id_mp, $id_category, $event->delete(), "event")->withSuccess("Event berhasil dihapus");
     }
 
 }

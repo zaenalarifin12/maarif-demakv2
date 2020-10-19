@@ -13,7 +13,7 @@ class MataPelajaranSeeder extends Seeder
      */
     public function run()
     {
-        $mi = ["FKMI"]  ;
+        $mi = ["FGMI"]  ;
 
         $mts = [
             "ALQURAN HADIST",

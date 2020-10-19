@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    Edit Karya Ilmiah
+@endsection
+
 @section('heading')
     Edit Karya Ilmiah
 @endsection

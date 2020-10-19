@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
-@section('heading')
-
+@section('title')
+    {{ $karya->judul }}
 @endsection
 
 @section('css')

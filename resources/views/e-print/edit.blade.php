@@ -70,7 +70,7 @@
               <div class="form-group">
                 <label for="">Kategori</label><br>
                 @foreach ($categoryEprint as $item)
-                    <input type="radio" name="categoryEprint" required
+                    <input type="radio" name="category_eprint_id" required
                         @if ($item->id == $eprint->category_eprint->id)
                             checked
                         @endif
