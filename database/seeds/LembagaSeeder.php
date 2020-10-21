@@ -19,7 +19,7 @@ class LembagaSeeder extends Seeder
             ],
             [
                 "id"        => 2,
-                "nama"      => "Mts",
+                "nama"      => "MTs",
             ],
             [
                 "id"        => 3,

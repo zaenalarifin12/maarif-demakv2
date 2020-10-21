@@ -24,6 +24,7 @@ class KaryaStoreRequest extends FormRequest
     public function rules()
     {
         return [
+            "cover"     => "required",
             "banner"    => "required",
             "judul"     => "required",
             "pengarang" => "required",

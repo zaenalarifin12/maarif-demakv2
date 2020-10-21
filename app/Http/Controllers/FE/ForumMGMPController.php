@@ -18,7 +18,7 @@ class ForumMGMPController extends Controller
 {
     public function forum($id_l)
     {
-        $mp      = MataPelajaran::where("lembaga_id", $id_l)->get();
+        $mp      = MataPelajaran::where("lembaga_id", $id_l)->isMgmp()->get();
         $lembaga = Lembaga::findOrFail($id_l);
 
         return view("fe.forum-mgmp.menu", compact([

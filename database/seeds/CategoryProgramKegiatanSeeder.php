@@ -15,7 +15,7 @@ class CategoryProgramKegiatanSeeder extends Seeder
         $wrap = [
             [
                 "id"    => 1,
-                "nama" => "Forum MGMP",
+                "nama" => "FORUM MGMP",
                 "slug" => "forum-mgmp"
             ],
             [
@@ -42,7 +42,12 @@ class CategoryProgramKegiatanSeeder extends Seeder
                 "id"    => 6,
                 "nama" => "UNITENDIK",
                 "slug" => "unitendik"
-            ]
+            ],
+            [
+                "id"    => 7,
+                "nama" => "FORUM KKM",
+                "slug" => "forum-kkm"
+            ],
         ];
 
         foreach($wrap as $item){

@@ -51,11 +51,23 @@
                   <div class="form-group">
                     <p class="h3 text-primary font-weight-bold text-center text-justify">{{ ucfirst($eprint->judul) }}</p>
                   </div>
-                  <div class="form-group">
-                    <p>Eprint : <a class="btn btn-primary" href="{{ asset("/storage/$eprint->banner") }}">
-                      Download
-                    </a></p>
-                      {{-- <p>{!! $eprint->deskripsi !!}</p> --}}
+                  <div class="row">
+                    <div class="col">
+                      <div class="form-group">
+                        <img 
+                        style="width: 400px; height: 640px;" 
+                        src="{{ asset("storage/$eprint->cover") }}"
+                        alt="" srcset="">
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="form-group">
+                        <p>Eprint : <a class="font-weight-bold" href="{{ asset("/storage/$eprint->banner") }}">
+                          Download
+                        </a></p>
+                          <p>{!! $eprint->deskripsi !!}</p>
+                      </div>
+                    </div>
                   </div>
             </div>
         </div>

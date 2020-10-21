@@ -52,22 +52,21 @@ class EprintController extends Controller
     {
         $data = RedirectLink::checkValidation($request, $id_category, $id_mp);
 
+        //file foto
+        $foto = UploadFileServices::image($request, "cover");
+        // file pdf
         $nama = UploadFileServices::image($request, "banner");
 
-        // TODO , TAMBAHKAN FILE COVER DAN FILE PDF
-        
-        // $data["banner"] = $data["gambar"];
-        // unset($data["gambar"]);
+
+        $data["cover"] = $foto;
         $data["banner"] = $nama;
         $data["category_program_kegiatan_id"] = $id_category;
-
 
         return RedirectLink::redirect($data["mata_pelajaran_id"], $id_category, 
         
         Eprint::create($data) , "eprint")
         
         ->withSuccess("Produk E-Print berhasil ditambahkan");
-
     }
 
     public function show($id_mp, $id_category, $id)
@@ -117,13 +116,32 @@ class EprintController extends Controller
 
         $data["category_program_kegiatan_id"] = $id_category;
 
-        if($request->has("banner"))
+        if($request->has("banner") && $request->has("cover"))
         {
             $nama = UploadFileServices::image($request, "banner");
             $data["banner"] = $nama;
 
+            $nama2 = UploadFileServices::image($request, "cover");
+            $data["cover"] = $nama2;
+
             return RedirectLink::redirect($data["mata_pelajaran_id"], $id_category, $eprint->update($data) , "eprint")->withSuccess("Produk E-Print berhasil diedit");
-        }else{
+        
+        }elseif($request->has("banner")){
+
+            $nama = UploadFileServices::image($request, "banner");
+            $data["banner"] = $nama;
+
+            return RedirectLink::redirect($data["mata_pelajaran_id"], $id_category, $eprint->update($data) , "eprint")->withSuccess("Produk E-Print berhasil diedit");
+        
+        }elseif($request->has("cover")){
+
+            $nama = UploadFileServices::image($request, "cover");
+            $data["cover"] = $nama;
+            
+            return RedirectLink::redirect($data["mata_pelajaran_id"], $id_category, $eprint->update($data) , "eprint")->withSuccess("Produk E-Print berhasil diedit");
+        }
+        
+        else{
             return RedirectLink::redirect($data["mata_pelajaran_id"], $id_category, $eprint->update($data) , "eprint")->withSuccess("Produk E-Print berhasil diedit");
         }
         

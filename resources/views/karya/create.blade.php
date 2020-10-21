@@ -48,6 +48,23 @@
                 <label for="">File</label>
                   <input type="file" class="form-control" name="banner" required>
               </div>
+
+              <div class="form-group">
+                <label for="">Foto  <br>
+                    <span class="text-primary"> 
+                        <strong> 1600 </strong> x <strong> 2560 </strong> pixels <br>
+                        ukuran maximum: 5 mb 
+                        <br> jenis file: jpeg,png
+                    </span>
+                </label>                  
+                <input id="imgInp" type="file" class="form-control" name="cover" required accept="image/*">
+                @include('component.error', ["name" => "gambar"])
+                <br>
+                  <img id="blah" 
+                  style="width: 400px; height: 640px;" 
+                  src="#"
+                  alt="" srcset="">
+              </div>
           
               <button type="submit" class="btn btn-primary btn-block">Tambah</button>
               @csrf

@@ -1,6 +1,6 @@
 
 @if ($category->id == 1) 
-    <li class="breadcrumb-item"><a href="{{ url("admin/forum-mgmp/") }}">Forum MGMP</a></li>
+    {{-- <li class="breadcrumb-item"><a href="{{ url("admin/forum-mgmp/") }}">Forum MGMP</a></li> --}}
     <li class="breadcrumb-item"><a href="{{ url("admin/forum-mgmp/lembaga/".$mata_pelajaran->lembaga->id."/mata-pelajaran") }}">Lembaga {{ $mata_pelajaran->lembaga->nama }}</a></li>        
     <li class="breadcrumb-item active" aria-current="page">{{ ucfirst($mata_pelajaran->nama) }}</li>    
         
@@ -10,4 +10,10 @@
 
 @elseif($category->id == 5)
     <li class="breadcrumb-item"><a href="{{ url("admin/publikasi/") }}">Publikasi</a></li>
+
+@elseif ($category->id == 7) 
+    {{-- <li class="breadcrumb-item"><a href="{{ url("admin/forum-kkm/") }}">Forum KKM</a></li> --}}
+    <li class="breadcrumb-item"><a href="{{ url("admin/forum-kkm/lembaga/".$mata_pelajaran->lembaga->id."/mata-pelajaran") }}">Lembaga {{ $mata_pelajaran->lembaga->nama }}</a></li>        
+    <li class="breadcrumb-item active" aria-current="page">{{ ucfirst($mata_pelajaran->nama) }}</li>    
+        
 @endif

@@ -73,5 +73,53 @@ class MataPelajaranSeeder extends Seeder
             ]);
         }
 
+        // ========= FORUM KKM ====================
+
+        $f_mi   = ["FKKMI"];
+        $f_mts  = [
+                    "KKM MTs NU ROUM WEDUNG",
+                    "KKM MTs NU DEMAK",
+                    "KKM MTs SULFA GAJI",
+                    "KKM MTs MAZDA WONORENGGO"
+                ];
+        $f_ma   = ["KKM MA NU DEMAK"];
+
+        foreach ($f_mi as $key => $value) {
+            MataPelajaran::create([
+                "nama"                      => $value,
+                "lembaga_id"                => 1,
+                "category_forum"            => 2
+            ]);
+        }
+
+        foreach ($f_mts as $key => $value) {
+            MataPelajaran::create([
+                "nama"                      => $value,
+                "lembaga_id"                => 2,
+                "category_forum"            => 2
+            ]);
+        }
+
+        foreach ($f_ma as $key => $value) {
+            MataPelajaran::create([
+                "nama"                      => $value,
+                "lembaga_id"                => 3,
+                "category_forum"            => 2
+            ]);
+        }
+
+        /**
+         * solusi
+         * - buat tabke forum lembaga-> id nama category
+         *  gabnti relasinya ke mata pelajarn
+         */
+
+
+
+        /**
+         * solusi 
+         * gunakan category untuk mengetaui apakah ini forum mgmp atau kkm
+         * 
+         */
     }
 }

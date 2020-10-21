@@ -15,6 +15,7 @@ class CreateKaryaIlmiahsTable extends Migration
     {
         Schema::create('karya_ilmiahs', function (Blueprint $table) {
             $table->id();
+            $table->string("cover");
             $table->string("banner");
             $table->string("judul");
             $table->string("pengarang");

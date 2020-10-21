@@ -28,6 +28,14 @@ Route::get("/forum-mgmp/{id_l}/{id_mp}/galeri",          "FE\ForumMGMPController
 Route::get("/forum-mgmp/{id_l}/{id_mp}/eprint",          "FE\ForumMGMPController@eprint");
 Route::get("/forum-mgmp/{id_l}/{id_mp}/digital",         "FE\ForumMGMPController@digital");
 
+
+Route::get("/forum-kkm/{id_l}/",                        "FE\ForumKkmController@forum");
+Route::get("/forum-kkm/{id_l}/{id_mp}/program",         "FE\ForumMGMPController@program");
+Route::get("/forum-kkm/{id_l}/{id_mp}/event",           "FE\ForumMGMPController@event");
+Route::get("/forum-mgmp/{id_l}/{id_mp}/event/{id}",      "FE\ForumMGMPController@eventShow");
+Route::get("/forum-mgmp/{id_l}/{id_mp}/galeri",          "FE\ForumMGMPController@galeri");
+
+
 Route::get("/publikasi/eprint",       "FE\PublikasiController@eprint");
 Route::get("/publikasi/digital",      "FE\PublikasiController@digital");
 Route::get("/publikasi/karya",        "FE\PublikasiController@karyaIlmiah");
@@ -57,7 +65,7 @@ Route::get("/not-active",     function(){
 Route::resource('/siswa',                "SiswaController")->only(["store"]);
 
 Route::get("/files/{file}",                 "FileController@download")->middleware("isAuth"); // REVIEW 
-Route::get("/files/upload/{file}",          "FileController@download")->middleware("isAnggota"); // REVIEW 
+Route::get("/files/upload/{file}",          "FileController@download")->middleware("isAnggota"); // REVIEW INI TODO
 
 Route::group(["middleware" => ["auth"]], function(){
 
@@ -67,6 +75,11 @@ Route::group(["middleware" => ["auth"]], function(){
     Route::post('/siswa/approve-all',                "SiswaController@approve_all");
 
     Route::group(["prefix"=>"admin"], function(){
+
+        // admin kkm
+        Route::get('/admin-kkm',                    "AdminKkmController@index");
+        Route::post('/admin-kkm',                   "AdminKkmController@store");
+        Route::delete('/admin-kkm/{uuid}',          "AdminKkmController@destroy");
 
         // admin mgmp
         Route::get('/admin-mgmp',                    "AdminMgmpController@index");
@@ -117,6 +130,15 @@ Route::group(["middleware" => ["auth"]], function(){
         Route::get('/sekolah',                      "MenuController@sekolah");
         Route::resource("lembaga.isi-lembaga",      "IsiLembagaController");
     
+        Route::group(["prefix"=>"forum-kkm" ], function(){
+            Route::get('/',                                     "MenuController@forum_kkm");
+    
+            Route::resource('lembaga.mata-pelajaran',            "ForumKkmController")->except(["create", "edit"]);
+            Route::resource('mata-pelajaran.category.galeri',    "GaleriController");
+            Route::resource('mata-pelajaran.category.event',     "EventController");
+    
+        });
+
         Route::group(["prefix"=>"forum-mgmp" ], function(){
             Route::get('/',                 "MenuController@forum_mgmp");
     

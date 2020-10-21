@@ -26,10 +26,12 @@ class KaryaIlmiahController extends Controller
     public function store(KaryaStoreRequest $request)
     {
         $data = $request->validated();
-        // TODO VALIDASI
-        $nama = UploadFileServices::image($request, "banner", 0);
+        
+        $nama  = UploadFileServices::image($request, "banner", 0);
+        $nama2 = UploadFileServices::image($request, "cover");
 
         $data["banner"] = $nama;
+        $data["cover"] = $nama2;
 
         KaryaIlmiah::create($data);
 

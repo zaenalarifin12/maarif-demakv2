@@ -81,10 +81,22 @@
                         
                         @else
                           <td>
-                            <a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/1/eprint/$item->id") }}" class="btn btn-sm btn-secondary">Detail</a>    
-                            @if (Auth::user()->role == 4 || Auth::user()->role == 3)
-                              <a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/1/eprint/$item->id/edit") }}" class="btn btn-sm btn-info">Edit</a>
-                              <form action="{{ url("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/1/eprint/$item->id") }}" method="post" class="d-inline">
+                            @if (Auth::user()->role == 5 || Auth::user()->role == 3 || Auth::user()->role == 2)
+                              
+                              <a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/1/eprint/$item->id") }}" class="btn btn-sm btn-secondary">Detail</a>    
+                              @if (Auth::user()->role == 5 || Auth::user()->role == 3)
+                                <a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/1/eprint/$item->id/edit") }}" class="btn btn-sm btn-info">Edit</a>
+                                <form action="{{ url("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/1/eprint/$item->id") }}" method="post" class="d-inline">
+                                    <button class="btn btn-sm btn-danger">Hapus</button>
+                                    @csrf
+                                    @method("DELETE")
+                                </form>   
+                              @endif
+                              
+                            @elseif (Auth::user()->role == 5 || Auth::user()->role == 4)
+                              <a href="{{ url("/admin/forum-kkm/mata-pelajaran/$mata_pelajaran->id/category/1/eprint/$item->id") }}" class="btn btn-sm btn-secondary">Detail</a>    
+                              <a href="{{ url("/admin/forum-kkm/mata-pelajaran/$mata_pelajaran->id/category/1/eprint/$item->id/edit") }}" class="btn btn-sm btn-info">Edit</a>
+                              <form action="{{ url("/admin/forum-kkm/mata-pelajaran/$mata_pelajaran->id/category/1/eprint/$item->id") }}" method="post" class="d-inline">
                                   <button class="btn btn-sm btn-danger">Hapus</button>
                                   @csrf
                                   @method("DELETE")

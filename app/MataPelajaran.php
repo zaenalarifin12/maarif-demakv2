@@ -11,6 +11,19 @@ class MataPelajaran extends Model
 
     protected $guarded = [];
 
+    public function scopeIsMgmp($q)
+    {
+        return $q->where("category_forum", 1);
+    }
+
+    public function scopeIsKkm($q)
+    {
+        return $q->where("category_forum", 2);
+    }
+
+    // ================    RELASI   =================
+
+
     public function galeries()
     {
         return $this->hasMany(Galeri::class);

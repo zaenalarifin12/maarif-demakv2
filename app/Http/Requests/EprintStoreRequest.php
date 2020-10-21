@@ -24,9 +24,10 @@ class EprintStoreRequest extends FormRequest
     public function rules()
     {
         return [
+            "cover"                         => "required",
             "banner"                        => "required",
             "judul"                         => "required",
-            // "deskripsi"     => "required",
+            "deskripsi"                     => "required",
             // "mata_pelajaran_id"             => "nullable|integer|exists:mata_pelajarans,id",
             // "category_program_kegiatan_id"  => "required|integer|exists:category_program_kegiatans,id",
             "category_eprint_id"            => "required|integer|exists:category_eprints,id",

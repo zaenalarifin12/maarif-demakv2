@@ -17,49 +17,68 @@
                             <h1> E-Print {{ $lembaga->nama }} - {{ $mp->nama }} </h1>
                         </div>
 
-                        <div class="items-row row-0 row clearfix">
                             @forelse ($eprint as $item)
-                            <div class="col-sm-12">
-                                <article class="item column-1" itemprop="blogPost" itemscope
-                                    itemtype="http://schema.org/BlogPosting" style="margin-bottom: 0px !important; margin-top: 0px !important">
+                            
+                            <div class="items-row row-0 row clearfix">
 
-                                    <div class="entry-header has-post-format" >
+                                <div class="col-sm-2">
+                                    <article class="item column-1" itemprop="blogPost" itemscope
+                                        itemtype="http://schema.org/BlogPosting" style="margin-bottom: 0px !important; margin-top: 0px !important">
 
-                                        <h2 itemprop="name">
-                                            <a target="_blank" style="font-size: 20px"
-                                            href="{{ url("/files/$item->banner") }}"
-                                                itemprop="url">
-                                                {{ $item->judul }}</a>
-                                            <div class="divider"></div>
-                                        </h2>
-
-
-                                        <dl class="article-info">
-
-
-                                            <dt class="article-info-term"></dt>
-
-                                            <dd class="published">
-                                                <i class="fa fa-calendar-o"></i>
-                                                <time datetime="2020-09-25T08:21:58+07:00"
-                                                    itemprop="datePublished" data-toggle="tooltip"
-                                                    title="Published Date">
-                                                    {{ $item->created_at}} </time>
-                                            </dd>
-                                            <p class="" style="color : #0089; font-weight: bold">{{ $item->category_eprint->nama }}</p>
-                                            {{-- <a href="" class="sppb-btn sppb-btn-info sppb-btn">Download</a> --}}
-                                            {{-- <p>{!! $item->deskripsi !!}</p> --}}
-
-                                        </dl>
-
-
-                                    </div>
+                                        <img style="margin: 0px auto"
+                                            src="{{ asset("storage/$item->cover") }}" 
+                                            style="width: 100px; height: 160px;" 
+                                            alt="" itemprop="image" />
 
 
 
-                                </article>
-                                <!-- end item -->
+                                    </article>
+                                    <!-- end item -->
+                                </div>
+
+                                <div class="col-sm-10">
+                                    <article class="item column-1" itemprop="blogPost" itemscope
+                                        itemtype="http://schema.org/BlogPosting" style="margin-bottom: 0px !important; margin-top: 0px !important">
+
+                                        <div class="entry-header has-post-format" >
+
+                                            <h2 itemprop="name">
+                                                <a target="_blank" style="font-size: 20px"
+                                                href="{{ url("/files/$item->banner") }}"
+                                                    itemprop="url">
+                                                    {{ $item->judul }}</a>
+                                                <div class="divider"></div>
+                                            </h2>
+
+
+                                            <dl class="article-info">
+
+
+                                                <dt class="article-info-term"></dt>
+
+                                                <dd class="published">
+                                                    <i class="fa fa-calendar-o"></i>
+                                                    <time datetime="2020-09-25T08:21:58+07:00"
+                                                        itemprop="datePublished" data-toggle="tooltip"
+                                                        title="Published Date">
+                                                        {{ $item->created_at}} </time>
+                                                </dd>
+                                                <p class="" style="color : #0089; font-weight: bold">{{ $item->category_eprint->nama }}</p>
+                                                {{-- <a href="" class="sppb-btn sppb-btn-info sppb-btn">Download</a> --}}
+                                                <p>{!! $item->deskripsi !!}</p>
+
+                                            </dl>
+
+
+                                        </div>
+
+
+
+                                    </article>
+                                    <!-- end item -->
+                                </div>
                             </div>
+
                             @empty
                             <div class="col-sm-3">
                                 KOSONG
@@ -67,7 +86,6 @@
                                 
                             @endforelse
                             
-                        </div>
 
 
 

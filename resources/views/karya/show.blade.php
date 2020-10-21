@@ -24,22 +24,36 @@
     </div>
         <div class="card-body">
           <div class="container">
+
+
             <div class="col-12">
                 <div class="form-group">
+                  
+                </div>
+                  <div class="form-group">
                     <p class="h3 text-primary font-weight-bold text-center text-justify">{{ ucfirst($karya->judul) }}</p>
-                </div>
-                <div class="form-group">
-                    <p class="text-primary font-weight-bold text-center text-justify">Pengarang: {{ ucfirst($karya->pengarang) }}</p>
-                </div>
-                <div class="form-group d-flex justify-content-center">
-                    <a href="{{ asset("/storage/files/$karya->banner") }}" target="_blank" class="btn btn-success">
-                        Download
-                    </a>
-                </div>
-                <div class="form-group">
-                    <p>{!! $karya->deskripsi !!}</p>
-                </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <div class="form-group">
+                        <img 
+                        style="width: 400px; height: 640px;" 
+                        src="{{ asset("storage/$karya->cover") }}"
+                        alt="" srcset="">
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="form-group">
+                        <p>Eprint : <a class="font-weight-bold" href="{{ asset("/storage/files/$karya->banner") }}">
+                          Download
+                        </a></p>
+                          <p>{!! $karya->deskripsi !!}</p>
+                      </div>
+                    </div>
+                  </div>
             </div>
+
+    
         </div>
     </div>
 </div>

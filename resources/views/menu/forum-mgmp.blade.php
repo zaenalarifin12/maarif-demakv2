@@ -20,7 +20,7 @@
                     <div class="collapse" id="collapseCardExample-Sekolah">
                         <div class="card-body">
                             <ul>
-                                @if (Auth::user()->role == 4)
+                                @if (Auth::user()->isAdmin())
                                 
                                     @foreach ($lembaga as $item)
                                         <li>

@@ -18,9 +18,15 @@
   <!-- Custom styles for this template-->
   <link href="{{ asset("assets/css/sb-admin-2.min.css")}}" rel="stylesheet">
 
+  <style>
+    .bg-green{
+      background-color: #17A673 !important;
+      background-image: none;
+    }
+  </style>
 </head>
 
-<body class="bg-gradient-primary">
+<body class="bg-gradient-primary bg-green" >
 
   <div class="container">
 
@@ -70,14 +76,14 @@
                         @include('component.error', ["name" => "password"])
                     </div>
 
-                    <button type="submit" class="btn btn-primary btn-user btn-block">Daftar</button>
+                    <button type="submit" class="btn btn-success btn-user btn-block">Daftar</button>
                   </form>
                   {{-- <div class="text-center">
                     <a class="small" href="forgot-password.html">Forgot Password?</a>
                   </div> --}}
                   <div class="text-center my-3">
                     <span>Sudah Punya Akun ? </span>
-                    <a class="" href="{{ url("/loginSiswa") }}">Masuk</a>
+                    <a class="text-success" href="{{ url("/loginSiswa") }}">Masuk</a>
                   </div>
                 </div>
               </div>

@@ -48,29 +48,34 @@ class User extends Authenticatable
     * 3 => admin mgmp
     * 4 => admin
     */
-    public function scopeisSiswa($q)
+    public function scopeIsSiswa($q)
     {
         return $q->where("role", "=", 1);
     }
 
-    public function scopeisAnggota($q)
+    public function scopeIsAnggota($q)
     {
         return $q->where("role", "=", 2);
     }
 
-    public function scopeisAdminMgmp($q)
+    public function scopeIsAdminMgmp($q)
     {
         return $q->where("role", "=", 3);
     }
 
-    public function scopeisAdmin($q)
+    public function scopeIsAdminKkm($q)
     {
         return $q->where("role", "=", 4);
     }
 
-    public function scopeisNotAdmin($q)
+    public function scopeIsAdmin($q)
     {
-        return $q->where("role", "!=", 4);
+        return $q->where("role", "=", 5);
+    }
+
+    public function scopeIsNotAdmin($q)
+    {
+        return $q->where("role", "!=", 5);
     }
 
 

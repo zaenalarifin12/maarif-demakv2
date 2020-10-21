@@ -2,7 +2,7 @@
 <html prefix="og: http://ogp.me/ns#" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" lang="en-gb" dir="ltr">
 
 
-<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -214,11 +214,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <style>
         #sp-top-menu{
-            background-color: #28df99 !important;
+            background-color: white !important;
+			margin: 0px 0px 0px 0px; important;
+			font-weight: bold;
+			font-size: 1.7rem;
         }
         #sp-header{
-            background-color: #007631 !important;
+            background-color: #f9f8f7 !important;
         }
+		.soma-header{
+			border-bottom: 4px solid #ec0101;
+			
+		}
+		.soma-footer{
+			border-bottom: 4px solid #00B050
+		}
+		.my-text-black{
+			color: black !important;
+		}
+		.my-container{
+			padding: 0 10px;
+		}
         .sppb-btn-info{
             background-color: #007631 !important;
         }
@@ -228,6 +244,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		.font-green{
 			color: #007631 !important;
 		}
+		.text-green{
+			color: #007631 !important;
+		}
+		.bg-white{
+			background-color: #f9f8f7;
+		}
 		.bg-green{
 			background-color: #007631 !important;
 		}
@@ -236,6 +258,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		}
 		.text-informasi{
 			line-height: 25px !important;
+		}
+		.article-info{
+			line-height: 25px;
 		}
 
         @media screen and (min-width: 800px) {

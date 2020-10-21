@@ -2,23 +2,23 @@
 <body class="site com-sppagebuilder view-page no-layout no-task itemid-1865 en-gb ltr  sticky-header layout-fluid">
 
 	<div class="body-innerwrapper">
-		<section id="sp-top-menu" class="flex">
-			<div class="container">
+		<section id="sp-top-menu" class="flex soma-header">
+			 <div class="container"> {{-- container --}}
 				<div class="row">
 					<div id="sp-menu-top" class="col-sm-9 col-md-9">
 						<div class="sp-column flex">
 							<ul class="sp-contact-info">
-								<li class="sp-contact-phone"><i class="pe pe-7s-headphones"></i> Hotline {{ $licensi->hotline }}
+								<li class="sp-contact-phone"><i class="pe pe-7s-headphones text-green"></i> Hotline {{ $licensi->hotline }}
 								</li>
-								<li class="sp-office-hours"><i class="pe pe-7s-timer"></i> {{ $licensi->jadwal }}
+								<li class="sp-office-hours"><i class="pe pe-7s-timer text-green"></i> {{ $licensi->jadwal }}
 								</li>
-								<li class="sp-contact-email"><i class="pe pe-7s-mail"></i> <a
+								<li class="sp-contact-email"><i class="pe pe-7s-mail text-green"></i> <a
 										href="mailto:{{ $licensi->email }}">{{ $licensi->email }}</a></li>
 							</ul>
 							<ul class="social-icons">
 								<li><a target="_blank"
 										href="https://id-id.facebook.com/UNIVERSITAS-MURIA-KUDUS-UMK-182450701824294/"><i
-											class="fa fa-facebook"></i></a></li>
+											class="fa fa-facebook "></i></a></li>
 								<li><a target="_blank" href="https://twitter.com/@UMK_mu"><i
 											class="fa fa-twitter"></i></a></li>
 								<li><a target="_blank" href="https://www.instagram.com/muriakudusuniversity/"><i
@@ -30,8 +30,8 @@
 					</div>
 				
 					<div id="sp-search" class="col-sm-2 col-md-2">
-						<div class="sp-column ">
-							<div class="sp-module ">
+						<div class=" " style="margin: 4px 0px">
+							<div class=" ">
 								<div class="sp-module-content">
 
                                     @if (Auth::guard("siswa")->guest() && Auth::guest())
@@ -55,11 +55,11 @@
 			</div>
 		</section>
 		<header id="sp-header" class="flex soma-footer">
-			<div class="container">
+			<div class="my-container">
 				<div class="row">
-					<div id="sp-logo" class="col-xs-8 col-sm-2 col-md-2">
+					<div id="sp-logo" class="col-xs-8 col-sm-2 col-md-1" style="width: 10% !important">
 						<div class="sp-column logobckg"><a class="logo" href="{{ url("/") }}">
-                                <h1><img class="sp-default-logo hidden-xs" src="{{ asset("assetfile/images/umk/logo.png")}}"
+                                <h1><img class="sp-default-logo hidden-xs" src="{{ asset("assetfile/images/umk/logo-primary.png")}}"
                                         style="height:80px;" 
                                         alt="Universitas Muria Kudus"><img class="sp-retina-logo hidden-xs"
                                         style="height:80px;" 
@@ -75,14 +75,14 @@
 								<a id="offcanvas-toggler" class="visible-xs visible-sm" href="#"><i
 										class="fa fa-bars"></i></a>
 								<ul class="sp-megamenu-parent menu-fade-down hidden-xs hidden-sm">
-									<li class="sp-menu-item"><a href="{{url("/")}}" title="Home">HOME</a></li>
+									<li class="sp-menu-item"><a href="{{url("/")}}" class="my-text-black" title="Home">HOME</a></li>
                          
-                                    <li class="sp-menu-item sp-has-child"><a href="#"
+                                    <li class="sp-menu-item sp-has-child"><a href="#" class="my-text-black"
 											title="Profil">PROFIL</a>
 										<div class="sp-dropdown sp-dropdown-main sp-menu-right" style="width: 240px;">
 											<div class="sp-dropdown-inner">
 												<ul class="sp-dropdown-items">
-													<li class="sp-menu-item"><a
+													<li class="sp-menu-item"><a 
 															href="{{ url("/profil/visi-misi") }}">Visi Misi</a></li>
 											
 													<li class="sp-menu-item"><a
@@ -95,7 +95,7 @@
 										</div>
                                     </li>
 
-                                    <li class="sp-menu-item sp-has-child"><a href="#">INFORMASI</a>
+                                    <li class="sp-menu-item sp-has-child"><a href="#" class="my-text-black">INFORMASI</a>
 										<div class="sp-dropdown sp-dropdown-main sp-menu-right" style="width: 240px;">
 											<div class="sp-dropdown-inner">
 												<ul class="sp-dropdown-items">
@@ -108,7 +108,7 @@
 										</div>
 									</li>
 
-                                    <li class="sp-menu-item sp-has-child"><a href="#">UNIT</a>
+                                    <li class="sp-menu-item sp-has-child"><a href="#" class="my-text-black">UNIT</a>
                                         <div class="sp-dropdown sp-dropdown-main sp-menu-right" style="width: 240px;">
                                             <div class="sp-dropdown-inner">
                                                 <ul class="sp-dropdown-items">
@@ -180,13 +180,13 @@
                                         </div>
                                     </li>
 
-                                    <li class="sp-menu-item sp-has-child"><a href="#" >FORUM KKM</a>
+                                    <li class="sp-menu-item sp-has-child"><a href="#" class="my-text-black" >FORUM KKM</a>
 										<div class="sp-dropdown sp-dropdown-main" style="width: 240px;">
 											<div class="sp-dropdown-inner">
 												<ul class="sp-dropdown-items">
                                                     @foreach ($lembaga as $item)
                                                     <li class="sp-menu-item "><a
-                                                        href="{{ url("forum-mgmp/$item->id") }}">{{ $item->nama }}</a>
+                                                        href="{{ url("forum-kkm/$item->id") }}">{{ $item->nama }}</a>
                                                     </li>
                                                     @endforeach
 												</ul>
@@ -194,7 +194,7 @@
 										</div>
                                     </li>
 
-                                    <li class="sp-menu-item sp-has-child"><a href="#" >FORUM MGMP</a>
+                                    <li class="sp-menu-item sp-has-child"><a href="#" class="my-text-black">FORUM MGMP</a>
 										<div class="sp-dropdown sp-dropdown-main" style="width: 240px;">
 											<div class="sp-dropdown-inner">
 												<ul class="sp-dropdown-items">
@@ -209,7 +209,7 @@
                                     </li>
 
                                     
-                                    <li class="sp-menu-item sp-has-child"><a href="#">PUBLIKASI</a>
+                                    <li class="sp-menu-item sp-has-child"><a href="#" class="my-text-black">PUBLIKASI</a>
                                         <div class="sp-dropdown sp-dropdown-main sp-menu-right" style="width: 240px;">
                                             <div class="sp-dropdown-inner">
                                                 <ul class="sp-dropdown-items">
@@ -226,7 +226,7 @@
                                         </div>
                                     </li>
 
-                                <li class="sp-menu-item sp-has-child"><a href="#">LEMBAGA</a>
+                                <li class="sp-menu-item sp-has-child"><a href="#" class="my-text-black">LEMBAGA</a>
                                     <div class="sp-dropdown sp-dropdown-main sp-menu-right" style="width: 200px;">
                                         <div class="sp-dropdown-inner">
                                             <ul class="sp-dropdown-items">
@@ -239,11 +239,23 @@
                                     </div>
                                 </li>
                                 
-                                <li class="sp-menu-item"><a href="{{url("/kerja-sama")}}" title="Kerja Sama">KERJA SAMA</a></li>
+                                <li class="sp-menu-item"><a href="{{url("/kerja-sama")}}" class="my-text-black" title="Kerja Sama">KERJA SAMA</a></li>
 
 								</ul>
 							</div>
 						</div>
+                    </div>
+                    <div id="sp-logo" class="col-xs-8 col-sm-2 col-md-1" style="width: 11% !important">
+						<div class="sp-column logobckg"><a class="logo" href="{{ url("/") }}">
+                                <h1><img class="sp-default-logo hidden-xs" src="{{ asset("assetfile/images/umk/logo.png")}}"
+                                        style="height:80px;" 
+                                        alt="Universitas Muria Kudus"><img class="sp-retina-logo hidden-xs"
+                                        style="height:80px;" 
+										src="{{ asset("assetfile/images/umk/logo.png")}}" alt="Yayasan Maarif Demak" width="265"
+                                        height="66"><img class="sp-default-logo visible-xs"
+                                        style="height:80px;" 
+										src="{{ asset("assetfile/images/umk/logo.png")}}" alt="Yayasan Maarif Demak"></h1>
+							</a></div>
 					</div>
 				</div>
 			</div>

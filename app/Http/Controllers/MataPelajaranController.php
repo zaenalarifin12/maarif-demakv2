@@ -11,8 +11,8 @@ class MataPelajaranController extends Controller
     public function index($id_lembaga)
     {
         
-        $lembaga =  Lembaga::findOrFail($id_lembaga);
-        $mata_pelajaran = MataPelajaran::where("lembaga_id", $id_lembaga)->get();        
+        $lembaga        = Lembaga::findOrFail($id_lembaga);
+        $mata_pelajaran = MataPelajaran::where("lembaga_id", $id_lembaga)->isMgmp()->get();        
 
         return view("mata-pelajaran.index", compact(["mata_pelajaran", "lembaga"]));
     }

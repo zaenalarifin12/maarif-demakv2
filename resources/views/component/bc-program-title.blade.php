@@ -16,4 +16,12 @@
     </li>  
 @elseif($category->id == 5)
     {{-- <li class="breadcrumb-item"><a href="{{ url("admin/unit/0/category/" . $category->id ."/digital") }}">Digital</a></li> --}}
+
+@elseif ($category->id == 7) 
+
+    <li class="breadcrumb-item">
+        <a href="{{ url("admin/forum-kkm/mata-pelajaran/". $mata_pelajaran->id . "/category/" . $category->id . "/" . $name) }}">
+        {{ ucfirst($name) }}
+        </a>
+    </li>   
 @endif

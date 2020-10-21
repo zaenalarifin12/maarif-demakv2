@@ -29,6 +29,15 @@ class MenuController extends Controller
         
         return view("menu.sekolah", compact("lembaga"));
     }
+
+    public function forum_kkm()
+    {
+        $lembaga        = Lembaga::get();
+        $mata_pelajaran = MataPelajaran::get();
+
+        return view("menu.forum-kkm", compact(["mata_pelajaran", "lembaga"]));
+    }
+
     public function forum_mgmp()
     {
         $lembaga = Lembaga::get();

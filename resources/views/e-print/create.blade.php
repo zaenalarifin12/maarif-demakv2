@@ -56,14 +56,14 @@
                   @include('component.error', ["name" => "judul"])
 
               </div>
-              {{-- <div class="form-group">
+              <div class="form-group">
                 <label for="">Deskripsi</label>
                   <textarea class="ckeditor form-control"  name="deskripsi" required cols="30" rows="10">{{ old("deskripsi") }}</textarea>
                   @include('component.error', ["name" => "deskripsi"])
-              </div> --}}
+              </div>
               <div class="form-group">
                 <label for="">File</label>
-                  <input type="file" class="form-control" name="banner" required value=" {{ old("banner") }}">
+                  <input type="file" class="form-control" name="banner" accept="application/pdf" required value=" {{ old("banner") }}">
                   @include('component.error', ["name" => "banner"])
               </div>
               <div class="form-group">
@@ -72,6 +72,24 @@
                     <input required type="radio" name="category_eprint_id" value="{{ $item->id }}"> {{$item->nama}} <br> 
                 @endforeach
               </div>
+
+              <div class="form-group">
+                <label for="">Foto  <br>
+                    <span class="text-primary"> 
+                        <strong> 1600 </strong> x <strong> 2560 </strong> pixels <br>
+                        ukuran maximum: 5 mb 
+                        <br> jenis file: jpeg,png
+                    </span>
+                </label>                  
+                <input id="imgInp" type="file" class="form-control" name="cover" required accept="image/*">
+                @include('component.error', ["name" => "gambar"])
+                <br>
+                  <img id="blah" 
+                  style="width: 400px; height: 640px;" 
+                  src="#"
+                  alt="" srcset="">
+              </div>
+
               <button type="submit" class="btn btn-primary btn-block">Tambah</button>
               @csrf
           </form>

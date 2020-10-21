@@ -16,7 +16,7 @@ class CreateMataPelajaransTable extends Migration
         Schema::create('mata_pelajarans', function (Blueprint $table) {
             $table->id();
             $table->string("nama");
-
+            $table->integer("category_forum")->default(1);
             $table->unsignedBigInteger("lembaga_id");
             $table->timestamps();
             $table->softDeletes();

@@ -55,11 +55,11 @@
                   <input type="text" class="form-control" name="judul" required value="{{ $eprint->judul }}">
                   @include('component.error', ["name" => "judul"])
               </div>
-              {{-- <div class="form-group">
+              <div class="form-group">
                 <label for="">Deskripsi</label>
               <textarea class="ckeditor form-control"  name="deskripsi" required cols="30" rows="10">{!! $eprint->deskripsi !!}</textarea>
               @include('component.error', ["name" => "deskripsi"])
-              </div> --}}
+              </div>
               <div class="form-group">
 
                 <label for="">File </label>
@@ -78,6 +78,24 @@
                     value="{{ $item->id }}"> {{$item->nama}} <br> 
                 @endforeach
               </div>
+
+              <div class="form-group">
+                <label for="">Foto <br>
+                    <span class="text-primary"> 
+                        <strong> 1600 </strong> x <strong> 2560 </strong> pixels <br>
+                        ukuran maximum: 5 mb 
+                        <br> jenis file: jpeg,png
+                    </span>
+                </label>                  
+                <input id="imgInp" type="file" class="form-control" name="cover" accept="image/*">
+                @include('component.error', ["name" => "gambar"])
+                <br>
+                  <img id="blah" 
+                  style="width: 400px; height: 640px;" 
+                  src="{{ asset("storage/$eprint->cover") }}"
+                  alt="" srcset="">
+              </div>
+
               <button type="submit" class="btn btn-primary btn-block">Edit</button>
               @csrf
               @method("PUT")
