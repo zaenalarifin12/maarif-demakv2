@@ -52,26 +52,26 @@ class MataPelajaranSeeder extends Seeder
             "BAHASA ARAB",
         ];
 
-        foreach ($mi as $key => $value) {
-            MataPelajaran::create([
-                "nama"          => $value,
-                "lembaga_id"    => 1
-            ]);
-        }
+        // foreach ($mi as $key => $value) {
+        //     MataPelajaran::create([
+        //         "nama"          => $value,
+        //         "lembaga_id"    => 1
+        //     ]);
+        // }
 
-        foreach ($mts as $key => $value) {
-            MataPelajaran::create([
-                "nama"          => $value,
-                "lembaga_id"    => 2
-            ]);
-        }
+        // foreach ($mts as $key => $value) {
+        //     MataPelajaran::create([
+        //         "nama"          => $value,
+        //         "lembaga_id"    => 2
+        //     ]);
+        // }
 
-        foreach ($ma as $key => $value) {
-            MataPelajaran::create([
-                "nama"          => $value,
-                "lembaga_id"    => 3
-            ]);
-        }
+        // foreach ($ma as $key => $value) {
+        //     MataPelajaran::create([
+        //         "nama"          => $value,
+        //         "lembaga_id"    => 3
+        //     ]);
+        // }
 
         // ========= FORUM KKM ====================
 
@@ -80,7 +80,8 @@ class MataPelajaranSeeder extends Seeder
                     "KKM MTs NU ROUM WEDUNG",
                     "KKM MTs NU DEMAK",
                     "KKM MTs SULFA GAJI",
-                    "KKM MTs MAZDA WONORENGGO"
+                    "KKM MTs MAZDA WONORENGGO",
+                    "KKM MTs TARBIYATUL MUBTADI'IN WILALONG"
                 ];
         $f_ma   = ["KKM MA NU DEMAK"];
 

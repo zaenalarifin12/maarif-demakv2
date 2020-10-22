@@ -49,7 +49,7 @@
                             <th class="text-primary">No</th>
                             <th class="text-primary">Email</th>
                             <th class="text-primary">Nama</th>
-                            <th class="text-primary">Mata Pelajaran</th>
+                            <th class="text-primary">Forum KKM</th>
                             <th class="text-primary">Aksi</th>
                         </tr>
                     </thead>
@@ -58,7 +58,7 @@
                             <th class="text-primary">No</th>
                             <th class="text-primary">Email</th>
                             <th class="text-primary">Nama</th>
-                            <th class="text-primary">Mata Pelajaran</th>
+                            <th class="text-primary">Forum KKM</th>
                             <th class="text-primary">Aksi</th>
                         </tr>
                     </tfoot>
@@ -109,7 +109,7 @@
                             <input type="text" class="form-control" name="name" value="{{ old('name') }}">
                         </div>
                         <div class="form-group">
-                            <label for="">Mata Pelajaran</label>
+                            <label for="">Forum KKM</label>
                             <select name="mata_pelajaran" id="" class="form-control">
                                 @foreach ($mp as $item)
                                     <option value="{{ $item->id }}">{{ $item->lembaga->nama }} - {{ $item->nama }}</option>

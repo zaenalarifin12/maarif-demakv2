@@ -1,3 +1,23 @@
+
+=== Validasi download eprint ====
+eprint -> message box -> login
+
+
+=== akses file oleh siswa ===
+EXC => FORUM2
+ONLY => PUBLIKASI
+
+=== LOGO MAARIF ==
+-> UKURAN SAMA DENGAN MENU
+
+
+eprint , user id , user ->delete , oto eprint user id null
+
+FORGET PASSWORD =====> user kkm, mgmp, siswa, 
+--> KE ADMIN 
+
+
+
 ====    TASK    =====
 REVIEW FORUM KKM 
 VALIDASI USER 
@@ -5,9 +25,11 @@ ADD FIELD USER_ID (OBSERVER)
 PERBAIKAN TAMPILAN
 
 
+
+
 TODO , 
 FORUM KKM DIGANTI TAMPILAN
-FORGET PASSWORD
+SOFT DELETE
 SHOW SISWA / YANG SEDANG LOGIN
 
 REVIEW GARIS MENU 1 PUTIH

@@ -44,7 +44,7 @@
 
                                             <h2 itemprop="name">
                                                 <a target="_blank" style="font-size: 20px"
-                                                href="{{ url("/files/$item->banner") }}"
+                                                href="{{ url("/files/upload/$item->banner") }}"
                                                     itemprop="url">
                                                     {{ $item->judul }}</a>
                                                 <div class="divider"></div>
@@ -63,6 +63,10 @@
                                                         title="Published Date">
                                                         {{ $item->created_at}} </time>
                                                 </dd>
+                                                <a href="{{ url("/files/upload/$item->banner") }}" 
+                                                    style="font-weight: bold; color: red;"
+                                                >Download</a>
+
                                                 <p class="" style="color : #0089; font-weight: bold">{{ $item->category_eprint->nama }}</p>
                                                 {{-- <a href="" class="sppb-btn sppb-btn-info sppb-btn">Download</a> --}}
                                                 <p>{!! $item->deskripsi !!}</p>
