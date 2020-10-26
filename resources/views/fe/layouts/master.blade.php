@@ -25,7 +25,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	{{-- <meta name="generator" content="Joomla! - Open Source Content Management" /> --}}
 	<title>@yield('title') - MA'ARIF DEMAK</title>
 	<link href="images/logo.png" rel="shortcut icon" type="image/vnd.microsoft.icon" />
-	<link href="favicon.ico" rel="shortcut icon" type="{{ asset("assetfile/image/vnd.microsoft.icon")}}" />
+	<link rel="shortcut icon" href="{{ asset("favicon.ico") }}">
+	{{-- <link href="favicon.ico" rel="shortcut icon" type="{{ asset("assetfile/image/vnd.microsoft.icon")}}" /> --}}
 	<link href="{{ asset("assetfile/component/search/indexebeb.html?id=1&amp;Itemid=1865&amp;format=opensearch")}}" rel="search"
 		title="Search Maarif Demak" type="application/opensearchdescription+xml" />
 	<link href="{{ asset("assetfile/media/k2/assets/css/k2.fonts91f5.css?v2.7.1")}}" rel="stylesheet" type="text/css" />
@@ -35,6 +36,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		rel="stylesheet" type="text/css" />
 	<link href="{{ asset("assetfile/cache/com_templates/templates/flex/7b84d00e7bf910f8673b4c6374ea5c2c.css")}}" rel="stylesheet"
 		type="text/css" />
+
+
 	<style type="text/css">
 		.slick-carousel-652 .slick-slide {
 			margin: 0 0px;
@@ -223,7 +226,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             background-color: #f9f8f7 !important;
         }
 		.soma-header{
-			border-bottom: 4px solid #ec0101;
+			border-top: 4px solid #ec0101;
+			border-bottom: 4px solid #00B050;
 			
 		}
 		.soma-footer{
@@ -233,7 +237,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			color: black !important;
 		}
 		.my-container{
-			padding: 0 10px;
+			margin: 0px auto !important;
+			margin-left: 60px !important; 
+		}
+		.my-container-2{
+			margin: 0px 60px !important;
+			
 		}
         .sppb-btn-info{
             background-color: #007631 !important;
@@ -273,6 +282,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 		#blah{
 			max-width: 100%;
+		}
+
+		.sppb-panel-flex > .sppb-panel-heading.active{
+			border-bottom: 1px solid #00B050;
+			background-color: #00B050;
+		}
+		.sppb-panel-flex > .sppb-panel-heading.active .sppb-panel-title > i{
+			color: white;
+		}
+		a{
+			color: #00B050;
+		}
+		header.flex .sp-megamenu-parent .sp-dropdown li.sp-menu-item a:hover{
+			background-color: #00B050;
+		}
+		.post-format{
+			background-color: #00B050;
+		}
+		.entry-header h2 .divider{
+			background-color: #00B050;
+		}
+		.sppb-addon h3.sppb-addon-title::after{
+			background-color: #00B050;
+		}
+		.article-info > dt > i, .article-info > dt > span.fa, .article-info > dd > i, .article-info > dd > span.fa{
+			color: #00B050;
 		}
 
     </style>
@@ -391,63 +426,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	<meta content="website" property="og:type" />
 	<meta content="#" property="og:url" />
 
-	
 
 
-	{{-- <script>
-		(function (i, s, o, g, r, a, m) {
-			i['GoogleAnalyticsObject'] = r;
-			i[r] = i[r] || function () {
-				(i[r].q = i[r].q || []).push(arguments)
-			}, i[r].l = 1 * new Date();
-			a = s.createElement(o),
-				m = s.getElementsByTagName(o)[0];
-			a.async = 1;
-			a.src = g;
-			m.parentNode.insertBefore(a, m)
-		})(window, document, 'script', 'http://www.google-analytics.com/analytics.js', 'ga');
-
-		ga('create', 'UA-96589258-1', 'umk.ac.id');
-		ga('send', 'pageview');
-	</script> --}}
-	<!-- Universal Google Analytics Plugin by PB Web Development -->
-
-
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
 </head>
-
-<!-- START custom script for google analytic -->
-<script>
-	(function (i, s, o, g, r, a, m) {
-		i
-
-			['GoogleAnalyticsObject'] = r;
-		i[r] = i[r] ||
-
-			function () {
-				(i[r].q = i[r].q || []).push(arguments)
-			}, i
-
-		[r].l = 1 * new Date();
-		a = s.createElement(o),
-			m = s.getElementsByTagName(o)
-
-		[0];
-		a.async = 1;
-		a.src = g;
-		m.parentNode.insertBefo
-
-		re(a, m)
-	})
-
-	(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-	ga('create', 'UA-96589258-1', 'auto');
-	ga('send', 'pageview');
-</script>
-<!-- END custom script for google analytic -->
 
 @include('fe.layouts.header')
 
+
 @yield('content')
 
+
 @include('fe.layouts.footer')
+
+@yield('script')
+</body>
+
+</html>

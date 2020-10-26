@@ -2,8 +2,9 @@
 
 namespace App\Http\Middleware;
 
-use Closure;
 use Auth;
+use Closure;
+use App\MataPelajaran;
 
 class IsAnggotaMiddleware
 {
@@ -16,8 +17,11 @@ class IsAnggotaMiddleware
      */
     public function handle($request, Closure $next)
     {
+
         if (Auth::check() ){
-            return $next($request);
+            if (Auth::user()->checkIsAnggotaMgmp() || Auth::user()->checkIsAdminMgmp() || Auth::user()->checkIsAdmin()) {
+                return $next($request);
+            }
         }
 
         return redirect("/login");

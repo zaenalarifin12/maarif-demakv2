@@ -7,6 +7,7 @@ use App\MataPelajaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\AdminMgmpStoreRequest;
+use App\Http\Requests\AdminMgmpUpdateRequest;
 
 class AdminMgmpController extends Controller
 {
@@ -14,7 +15,7 @@ class AdminMgmpController extends Controller
     {
         $users = User::with("mata_pelajaran")->isAdminMgmp()->latest()->get();
 
-        $mp = MataPelajaran::orderBy("lembaga_id")->get();
+        $mp = MataPelajaran::orderBy("lembaga_id")->isMgmp()->get();
 
         return view("admin-mgmp.index", compact(["users", "mp"]));
     }    
@@ -24,7 +25,7 @@ class AdminMgmpController extends Controller
         $data = $request->validated();
 
         $data["password"]  = Hash::make($request->password);
-        $data["role"]      = 3;
+        $data["role"]      = 2;
 
         $user = User::create($data);
 
@@ -33,6 +34,27 @@ class AdminMgmpController extends Controller
 
         return redirect("admin/admin-mgmp")->withSuccess("Admin Mgmp berhasil ditambahkan");
     }
+
+    public function edit($uuid)
+    {
+        $user = User::where("uuid", $uuid)->firstOrFail();
+
+        return view("admin-mgmp.edit", compact("user"));
+    }
+
+    public function update(AdminMgmpUpdateRequest $request, $uuid)
+    {
+        $data = $request->validated();
+
+        $data["password"]  = Hash::make($request->password);
+
+        $user = User::where("uuid", $uuid)->firstOrFail();
+
+        $user->update($data);
+
+        return redirect("/admin/admin-mgmp")->withSuccess("Akun $user->email berhasil diedit");
+    }
+
 
     public function destroy($id)
     {

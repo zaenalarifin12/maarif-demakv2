@@ -6,6 +6,8 @@ use App\Lembaga;
 use App\MataPelajaran;
 use Illuminate\Http\Request;
 
+
+
 class MenuController extends Controller
 {
     public function index()
@@ -15,11 +17,14 @@ class MenuController extends Controller
 
     public function home()
     {
+
         return view("menu.home");
     }
 
     public function profil()
     {
+        alert()->success('You have been logged out.', 'Good bye!');
+
         return view("menu.profil");
     }
 

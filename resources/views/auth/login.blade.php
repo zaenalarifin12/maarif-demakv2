@@ -92,6 +92,11 @@
   <!-- Custom styles for this template-->
   <link href="{{ asset("assets/css/sb-admin-2.min.css")}}" rel="stylesheet">
 
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
+
+
 </head>
 
 <body class="bg-gradient-primary">
@@ -158,6 +163,22 @@
 
   <!-- Custom scripts for all pages-->
   <script src="{{ asset("assets/js/sb-admin-2.min.js")}}"></script>
+
+  {{dd(session()->has("warning"))}}
+  @section('script')
+    @if(session()->has('info'))
+        <script>
+    
+            swal({
+                    title : "Informasi !!", 
+                    text: "{{ session('info') }}", 
+                    type: "info",
+                    timer: 3000,
+                }
+                );
+        </script>
+    @endif
+  @endsection
 
 </body>
 

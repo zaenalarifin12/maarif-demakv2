@@ -43,16 +43,18 @@
                                         <li class="sp-menu-item"><a href="{{ url("forum-mgmp/$lembaga->id/$item->id/galeri") }}">Galeri</a></li>
 
 
-                                        <li class="sp-menu-item sp-has-child"><a
-                                              href="#">Produk</a>
+                                        <li class="sp-menu-item sp-has-child"><span
+                                            style="color: black">Produk</span>
                                               <div class="sp-dropdown sp-dropdown-sub sp-menu-right"
                                               style="width: 150px;">
                                               <div class="sp-dropdown-inner">
                                                   <ul class="sp-dropdown-items">
                                                       <li class="sp-menu-item"><a
+                                                        style="padding-left: 2em"
                                                               href="{{ url("forum-mgmp/$lembaga->id/$item->id/eprint")}}">E-Print</a>
                                                       </li>
                                                       <li class="sp-menu-item"><a
+                                                        style="padding-left: 2em"
                                                               href="{{ url("forum-mgmp/$lembaga->id/$item->id/digital") }}">Digital</a></li>
                                                   </ul>
                                               </div>

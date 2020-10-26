@@ -1,5 +1,9 @@
 @extends('fe.layouts.master')
 
+@section('title')
+    Lembaga {{ $lembaga->nama }}
+@endsection
+
 @section('content')
     
 <section id="sp-body">

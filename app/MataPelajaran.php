@@ -34,7 +34,7 @@ class MataPelajaran extends Model
         return $this->belongsTo(Lembaga::class);
     }
 
-    public function users()
+    public function user()
     {
         return $this->hasMany(User::class);
     }
@@ -42,5 +42,10 @@ class MataPelajaran extends Model
     public function events()
     {
         return $this->hasMany(Event::class);
+    }
+
+    public function eprints()
+    {
+        return $this->hasMany(Eprint::class);
     }
 }

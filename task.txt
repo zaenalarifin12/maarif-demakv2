@@ -1,6 +1,21 @@
+TODO SORE INI
+SERVER SIDE
+
+INFORMASI
+EPRINT
+KARYA ILMIAH
+EVENT
+BLK INFORMASI
+DIGITAL LIBRARY
+
+
+---
+
+GALERI
+
 
 === Validasi download eprint ====
-eprint -> message box -> login
+TODO eprint -> message box -> login ------> BELUM FIX
 
 
 === akses file oleh siswa ===
@@ -8,14 +23,10 @@ EXC => FORUM2
 ONLY => PUBLIKASI
 
 === LOGO MAARIF ==
--> UKURAN SAMA DENGAN MENU
+REVIEW UKURAN SAMA DENGAN MENU
 
 
 eprint , user id , user ->delete , oto eprint user id null
-
-FORGET PASSWORD =====> user kkm, mgmp, siswa, 
---> KE ADMIN 
-
 
 
 ====    TASK    =====

@@ -67,11 +67,12 @@
                         @foreach ($users as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td class="text-capitalize">{{ $item->email }}</td>
+                                <td class="">{{ $item->email }}</td>
                                 <td class="text-capitalize">{{ $item->name }}</td>
                                 <td class="text-capitalize">{{ $item->mata_pelajaran->nama ?? "KOSONG" }}</td>
                                 <td>
-                                    <form action="{{ url("/admin/admin-kkm/$item->id") }}" method="post" class="d-inline">
+                                    <a href="{{ url("admin/admin-kkm/$item->uuid/edit") }}" class="btn btn-primary btn-sm">Edit</a>
+                                    <form action="{{ url("/admin/admin-kkm/$item->uuid") }}" method="post" class="d-inline">
                                         <button class="btn btn-sm btn-danger">Hapus</button>
                                         @method("DELETE")
                                         @csrf
@@ -110,7 +111,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Forum KKM</label>
-                            <select name="mata_pelajaran" id="" class="form-control">
+                            <select name="mata_pelajaran" required id="" class="form-control">
                                 @foreach ($mp as $item)
                                     <option value="{{ $item->id }}">{{ $item->lembaga->nama }} - {{ $item->nama }}</option>
                                 @endforeach

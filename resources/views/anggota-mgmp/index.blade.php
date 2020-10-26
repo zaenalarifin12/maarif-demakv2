@@ -67,11 +67,12 @@
                         @foreach ($users as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td class="text-capitalize">{{ $item->email }}</td>
+                                <td class="">{{ $item->email }}</td>
                                 <td class="text-capitalize">{{ $item->name }}</td>
                                 <td class="text-capitalize">{{ $item->mata_pelajaran->nama ?? "KOSONG" }}</td>
                                 <td>
-                                    <form action="{{ url("/admin/admin-mgmp/$item->id") }}" method="post" class="d-inline">
+                                    <a href="{{ url("/admin/anggota-mgmp/$item->uuid/edit") }}" class="btn btn-primary btn-sm">Edit</a>
+                                    <form action="{{ url("/admin/anggota-mgmp/$item->id") }}" method="post" class="d-inline">
                                         <button class="btn btn-sm btn-danger">Hapus</button>
                                         @method("DELETE")
                                         @csrf
@@ -94,7 +95,7 @@
                 @csrf
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Tambah Admin MGMP</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Tambah Anggota MGMP</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

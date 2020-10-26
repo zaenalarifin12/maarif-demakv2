@@ -27,7 +27,8 @@ class BannerHomeController extends Controller
     {
         $data = $request->validated();
 
-        $nama = UploadFileServices::image($request, "gambar");
+        $nama2 = UploadFileServices::image($request, "gambar");
+        $data["gambar"] = $nama2;
 
         BannerHome::create($data);
 

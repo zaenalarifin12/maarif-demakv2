@@ -48,17 +48,30 @@ class User extends Authenticatable
     * 3 => admin mgmp
     * 4 => admin
     */
-    public function scopeIsSiswa($q)
+    // public function scopeIsSiswa($q)
+    // {
+    //     return $q->where("role", "=", 1);
+    // }
+
+
+
+
+    public function scopeIsNotAdmin($q)
+    {
+        return $q->where("role", "!=", 1);
+    }
+
+    public function scopeIsAdmin($q)
     {
         return $q->where("role", "=", 1);
     }
 
-    public function scopeIsAnggota($q)
+    public function scopeIsAdminMgmp($q)
     {
         return $q->where("role", "=", 2);
     }
 
-    public function scopeIsAdminMgmp($q)
+    public function scopeIsAnggotaMgmp($q)
     {
         return $q->where("role", "=", 3);
     }
@@ -68,15 +81,37 @@ class User extends Authenticatable
         return $q->where("role", "=", 4);
     }
 
-    public function scopeIsAdmin($q)
+    public function scopeIsAnggotaKkm($q)
     {
         return $q->where("role", "=", 5);
     }
 
-    public function scopeIsNotAdmin($q)
+
+    public function checkIsAdmin()
     {
-        return $q->where("role", "!=", 5);
+        return $this->role == 1;
     }
+
+    public function checkIsAdminMgmp()
+    {
+        return $this->role == 2;
+    }
+
+    public function checkIsAnggotaMgmp()
+    {
+        return $this->role == 3;
+    }
+
+    public function checkIsAdminKkm()
+    {
+        return $this->role == 4;
+    }
+
+    public function checkIsAnggotaKkm()
+    {
+        return $this->role == 5;
+    }
+
 
 
     // ============ relasi

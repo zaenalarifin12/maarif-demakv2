@@ -65,7 +65,7 @@ Route::get("/not-active",     function(){
 Route::resource('/siswa',                "SiswaController")->only(["store"]);
 
 Route::get("/files/{file}",                 "FileController@download")->middleware("isAuth"); // REVIEW 
-Route::get("/files/upload/{file}",          "FileController@download")->middleware("isAnggota"); // REVIEW INI TODO
+Route::get("/files/upload/{file}",          "FileController@downloadMgmp")->middleware("isAnggota"); // REVIEW INI TODO
 
 Route::group(["middleware" => ["auth"]], function(){
 
@@ -77,18 +77,11 @@ Route::group(["middleware" => ["auth"]], function(){
     Route::group(["prefix"=>"admin"], function(){
 
         // admin kkm
-        Route::get('/admin-kkm',                    "AdminKkmController@index");
-        Route::post('/admin-kkm',                   "AdminKkmController@store");
-        Route::delete('/admin-kkm/{uuid}',          "AdminKkmController@destroy");
+        Route::resource('/admin-kkm',                    "AdminKkmController");
+        Route::resource('/anggota-kkm',                  "AnggotaKkmController");
 
-        // admin mgmp
-        Route::get('/admin-mgmp',                    "AdminMgmpController@index");
-        Route::post('/admin-mgmp',                   "AdminMgmpController@store");
-        Route::delete('/admin-mgmp/{uuid}',           "AdminMgmpController@destroy");
-        //anggota
-        Route::get('/anggota-mgmp',                    "AnggotaController@index");
-        Route::post('/anggota-mgmp',                   "AnggotaController@store");
-        Route::delete('/anggota-mgmp/{uuid}',           "AnggotaController@destroy");
+        Route::resource('/admin-mgmp',                   "AdminMgmpController");
+        Route::resource('/anggota-mgmp',                 "AnggotaController");
 
         Route::get('/licensi',            "LicensiController@create");
         Route::post('/licensi',           "LicensiController@store");

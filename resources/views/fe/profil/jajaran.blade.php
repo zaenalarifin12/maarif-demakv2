@@ -20,7 +20,7 @@
                   <div class="sppb-col-sm-12">
                     <div class="sppb-addon-container" style="">
                       <div class="sppb-addon sppb-addon-text-block sppb-text-center ">
-                        <h3 class="sppb-addon-title" style="">JAJARAN PEBGURUS MAARIF DEMAK</h3>
+                        <h3 class="sppb-addon-title" style="">JAJARAN PENGURUS MAARIF DEMAK</h3>
                         <div class="sppb-addon-content"></div>
                       </div>
                       <div class="sppb-empty-space  clearfix" style="margin-bottom:20px;"></div>

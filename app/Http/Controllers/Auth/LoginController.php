@@ -31,17 +31,23 @@ class LoginController extends Controller
      */
     // protected $redirectTo = RouteServiceProvider::HOME;
     // protected $redirectTo = "/admin";
-    protected function authenticated(Request $request, $user)
-    {
-        if(Auth::guard('web')->check()){
-            if ( $user->role == 2 || $user->role == 3 || $user->role == 4) {// do your magic here
-                return redirect("/admin");
-                // jika role == 1 , maka ia siswa
-            }
-        }
+    // protected function authenticated(Request $request, $user)
+    // {
+    //     if(Auth::guard('web')->check()){
+    //         if (    $user->checkisAdmin() || 
+    //                 $user->checkIsAdminMgmp() || 
+    //                 $user->checkIsAnggotaMgmp() ||
+    //                 $user->checkIsAdminKkm() ||
+    //                 $user->checkIsAnggotaKkm()
+    //                 ) {
+                        
+    //             return redirect("/admin");
+    //             // jika role == 1 , maka ia siswa
+    //         }
+    //     }
         
-        return redirect("/");
-    }
+    //     return redirect("/");
+    // }
 
     /**
      * Create a new controller instance.

@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
                 "name"      => 'admin',
                 "email_verified_at" => date("Y-m-d H:i:s"),
                 "password"  => Hash::make("admin1234"),
-                "role"      => 4
+                "role"      => 1
             ],
             [   
                 'uuid'      => \Ramsey\Uuid\Uuid::uuid4()->toString(),
@@ -29,7 +29,7 @@ class UserSeeder extends Seeder
                 "name"      => 'admin mgmp',
                 "email_verified_at" => date("Y-m-d H:i:s"),
                 "password"  => Hash::make("adminmgmp1234"),
-                "role"      => 3
+                "role"      => 2
             ],
             [   
                 'uuid'      => \Ramsey\Uuid\Uuid::uuid4()->toString(),
@@ -37,16 +37,36 @@ class UserSeeder extends Seeder
                 "name"      => 'anggota mgmp',
                 "email_verified_at" => date("Y-m-d H:i:s"),
                 "password"  => Hash::make("anggota1234"),
-                "role"      => 2
+                "role"      => 3
             ],
+
             [   
                 'uuid'      => \Ramsey\Uuid\Uuid::uuid4()->toString(),
-                'email'     => 'siswa@gmail.com',
-                "name"      => 'siswa',
+                'email'     => 'adminkkm@gmail.com',
+                "name"      => 'admin kkm',
                 "email_verified_at" => date("Y-m-d H:i:s"),
-                "password"  => Hash::make("siswa1234"),
-                "role"      => 1
-            ]
+                "password"  => Hash::make("anggota1234"),
+                "role"      => 4
+            ],
+
+            [   
+                'uuid'      => \Ramsey\Uuid\Uuid::uuid4()->toString(),
+                'email'     => 'anggotakkm@gmail.com',
+                "name"      => 'anggota kkm',
+                "email_verified_at" => date("Y-m-d H:i:s"),
+                "password"  => Hash::make("anggota1234"),
+                "role"      => 5
+            ],
+
+            // not
+            // [   
+            //     'uuid'      => \Ramsey\Uuid\Uuid::uuid4()->toString(),
+            //     'email'     => 'siswa@gmail.com',
+            //     "name"      => 'siswa',
+            //     "email_verified_at" => date("Y-m-d H:i:s"),
+            //     "password"  => Hash::make("siswa1234"),
+            //     "role"      => 6
+            // ]
         ]);
     }
 }

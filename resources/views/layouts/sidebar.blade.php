@@ -35,7 +35,8 @@
             <div class="bg-white py-2 collapse-inner rounded">
               
               {{-- <h6 class="collapse-header">Custom Components:</h6> --}}
-              @if (Auth::user()->role == 5)
+              {{-- {{ dd(Auth::user()->checkIsAdmin(?) == false)}} --}}
+              @if (Auth::user()->checkIsAdmin())
                 <a class="collapse-item" href="{{ url("/admin/home") }}">Home</a>
                 <a class="collapse-item" href="{{ url("/admin/profil") }}">Profil</a>
                 <a class="collapse-item" href="{{ url("/admin/article") }}">Informasi</a>
@@ -46,10 +47,10 @@
                 <a class="collapse-item" href="{{ url("/admin/sekolah") }}">Lembaga</a>
                 <a class="collapse-item" href="{{ url("/admin/kerja-sama") }}">Kerja Sama</a>
 
-              @elseif(Auth::user()->role == 4)
+              @elseif(Auth::user()->checkIsAdminKkm() | Auth::user()->checkIsAnggotaKkm())
               <a class="collapse-item" href="{{ url("/admin/forum-kkm") }}">FORUM KKM</a>
 
-              @elseif(Auth::user()->role == 3 || Auth::user()->role == 2)
+              @elseif(Auth::user()->checkIsAdminMgmp()|| Auth::user()->checkIsAnggotaMgmp())
                 <a class="collapse-item" href="{{ url("/admin/forum-mgmp") }}">FORUM MGMP</a>
 
               @endif
@@ -58,7 +59,7 @@
         </li>
         
 
-        @if (Auth::user()->role == 5)
+        @if (Auth::user()->checkIsAdmin())
   
           <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
@@ -68,6 +69,7 @@
             <div id="collapseUtilities" class="collapse show" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="{{ url("/admin/admin-kkm") }}">Admin  KKM</a>
+                <a class="collapse-item" href="{{ url("/admin/anggota-kkm") }}">Anggota  KKM</a>
                 <a class="collapse-item" href="{{ url("/admin/admin-mgmp") }}">Admin  MGMP</a>
                 <a class="collapse-item" href="{{ url("/admin/anggota-mgmp") }}">Anggota MGMP</a>
                 {{-- <a class="collapse-item" href="{{ url("/admin/enroll") }}">Enroll</a> --}}

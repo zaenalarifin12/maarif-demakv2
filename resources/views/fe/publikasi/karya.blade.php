@@ -31,8 +31,6 @@
                                             style="width: 100px; height: 160px;" 
                                             alt="" itemprop="image" />
 
-
-
                                     </article>
                                     <!-- end item -->
                                 </div>
@@ -51,7 +49,6 @@
                                                 <div class="divider"></div>
                                             </h2>
 
-
                                             <dl class="article-info">
 
 
@@ -65,8 +62,6 @@
                                                         {{ $item->created_at}} </time>
                                                 </dd>
 
-                                                
-                                                
                                                 <a href="{{ url("/files/$item->banner") }}" 
                                                     style="font-weight: bold; color: red;"
                                                 >Download</a>
@@ -79,10 +74,7 @@
 
                                             </dl>
 
-
                                         </div>
-
-
 
                                     </article>
                                     <!-- end item -->

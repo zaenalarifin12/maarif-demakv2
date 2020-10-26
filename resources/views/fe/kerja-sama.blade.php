@@ -34,13 +34,11 @@
                             <div class="sppb-addon-container" style="color:#0057a6;">
                             <div class="sppb-addon sppb-text-center">
                                 <div class="sppb-addon-content">
-                                    <a href="#">
-                                    <div class="overlay"><i class="pe pe-7s-link"></i>
+                                    <div class="overlay">
                                         <img class="sppb-img-responsive"
                                         src="{{ asset("storage/$item->gambar")}}" alt="">
                                     </div>
                                     <h3 class="sppb-addon-title" style="margin-top:0px;margin-bottom:10px;">{{ $item->nama }}</h3>
-                                </a>
                             </div>
                             </div>
                         </div>

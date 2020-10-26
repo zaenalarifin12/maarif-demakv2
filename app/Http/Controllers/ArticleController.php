@@ -20,7 +20,7 @@ class ArticleController extends Controller
         $category = Category::latest()->get();
 
         if(!empty($search))
-            $article = Article::where("category_id", $search)->get();
+            $article = Article::where("category_id", $search)->latest()->get();
         else
             $article = Article::latest()->get();
 

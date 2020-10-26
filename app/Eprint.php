@@ -16,4 +16,9 @@ class Eprint extends Model
     {
         return $this->belongsTo(CategoryEprint::class);
     }
+
+    public function mata_pelajaran()
+    {
+        return $this->belongsTo(MataPelajaran::class);
+    }
 }

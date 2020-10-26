@@ -67,10 +67,11 @@
                         @foreach ($users as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td class="text-capitalize">{{ $item->email }}</td>
-                                <td class="text-capitalize">{{ $item->name }}</td>
+                                <td >{{ $item->email }}</td>
+                                <td >{{ $item->name }}</td>
                                 <td class="text-capitalize">{{ $item->mata_pelajaran->nama ?? "KOSONG" }}</td>
                                 <td>
+                                    <a href="{{ url("/admin/admin-mgmp/$item->uuid/edit") }}" class="btn btn-sm btn-primary">Edit</a>
                                     <form action="{{ url("/admin/admin-mgmp/$item->id") }}" method="post" class="d-inline">
                                         <button class="btn btn-sm btn-danger">Hapus</button>
                                         @method("DELETE")

@@ -102,3 +102,18 @@
     </div>
 </section>
 @endsection
+
+@section('script')
+    @if(session()->has('warning'))
+        <script>
+    
+            swal({
+                    title : "Informasi !!", 
+                    text: "{{ session('warning') }}", 
+                    type: "warning",
+                    timer: 3000,
+                }
+                );
+        </script>
+    @endif
+@endsection
