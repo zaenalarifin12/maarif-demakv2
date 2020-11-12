@@ -81,7 +81,6 @@
                   @endforeach
                    
                 @else
-
                   <section class="sppb-section " style="">
                     <div class="sppb-row">
                       <div class="sppb-col-sm-12">
@@ -112,8 +111,8 @@
                             </div>
                           
                       @endforeach
-                  </div>
-                </section>
+                    </div>
+                  </section>
                 @endif
 
               @endforeach

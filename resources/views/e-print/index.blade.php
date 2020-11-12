@@ -33,10 +33,12 @@
                 
                 <div class="d-flex justify-content-between">
                   <h6 class="m-0 font-weight-bold text-primary">E-print</h6>
-                  @if ($mata_pelajaran != null)
-                    <a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/1/eprint/create") }}" class="btn btn-primary btn-sm">Tambah E-print</a>
-                  @else
-                    <a href="{{ url("/admin/unit/0/category/$category->id/eprint/create") }}" class="btn btn-primary btn-sm">Tambah E-print</a>
+                  @if (Auth::user()->checkIsAdmin() || Auth::user()->checkIsAdminMgmp())
+                    @if ($mata_pelajaran != null)
+                      <a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/1/eprint/create") }}" class="btn btn-primary btn-sm">Tambah E-print</a>
+                    @else
+                      <a href="{{ url("/admin/unit/0/category/$category->id/eprint/create") }}" class="btn btn-primary btn-sm">Tambah E-print</a>
+                    @endif
                   @endif
                   
                 </div>
@@ -68,8 +70,37 @@
                         <td>{{ $item->created_at }}</td>
                         <td>{{ $item->category_eprint->nama }}</td>
 
-                        
-                    </tr>
+                        @if ($mata_pelajaran == null)
+                          <td>
+                              <a href="{{ url("/admin/unit/0/category/$category->id/eprint/$item->id") }}" class="btn btn-sm btn-secondary">Detail</a>
+                              <a href="{{ url("/admin/unit/0/category/$category->id/eprint/$item->id/edit") }}" class="btn btn-sm btn-info">Edit</a>
+                              <form action="{{ url("/admin/unit/0/category/$category->id/eprint/$item->id") }}" method="post" class="d-inline">
+                                  <button class="btn btn-sm btn-danger">Hapus</button>
+                                  @csrf
+                                  @method("DELETE")
+                              </form>
+                          </td>
+
+                        @else
+                          <td>
+                            @if ($mata_pelajaran->category_forum == 1)
+                                
+                                <a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/1/eprint/$item->id") }}" class="btn btn-sm btn-secondary">Detail</a>    
+                                @if (Auth::user()->checkIsAdmin() || Auth::user()->checkIsAdminMgmp() )
+                                    <a href="{{ url("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/1/eprint/$item->id/edit") }}" class="btn btn-sm btn-info">Edit</a>
+                                    <form action="{{ url("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/1/eprint/$item->id") }}" method="post" class="d-inline">
+                                        <button class="btn btn-sm btn-danger">Hapus</button>
+                                        @csrf
+                                        @method("DELETE")
+                                    </form>   
+                                @endif
+                                
+                            @endif
+
+                          </td>
+                        @endif
+
+                      </tr>
                     @endforeach
                   </tbody>
                 </table>

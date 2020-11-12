@@ -47,7 +47,7 @@
                 <a class="collapse-item" href="{{ url("/admin/sekolah") }}">Lembaga</a>
                 <a class="collapse-item" href="{{ url("/admin/kerja-sama") }}">Kerja Sama</a>
 
-              @elseif(Auth::user()->checkIsAdminKkm() | Auth::user()->checkIsAnggotaKkm())
+              @elseif(Auth::user()->checkIsAdminKkm())
               <a class="collapse-item" href="{{ url("/admin/forum-kkm") }}">FORUM KKM</a>
 
               @elseif(Auth::user()->checkIsAdminMgmp()|| Auth::user()->checkIsAnggotaMgmp())
@@ -69,7 +69,7 @@
             <div id="collapseUtilities" class="collapse show" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="{{ url("/admin/admin-kkm") }}">Admin  KKM</a>
-                <a class="collapse-item" href="{{ url("/admin/anggota-kkm") }}">Anggota  KKM</a>
+                {{-- <a class="collapse-item" href="{{ url("/admin/anggota-kkm") }}">Anggota  KKM</a> --}}
                 <a class="collapse-item" href="{{ url("/admin/admin-mgmp") }}">Admin  MGMP</a>
                 <a class="collapse-item" href="{{ url("/admin/anggota-mgmp") }}">Anggota MGMP</a>
                 {{-- <a class="collapse-item" href="{{ url("/admin/enroll") }}">Enroll</a> --}}

@@ -9,22 +9,6 @@ BLK INFORMASI
 DIGITAL LIBRARY
 
 
----
-
-GALERI
-
-saya ingin membuat component untuk masalah edit dan hapus 
-berdasarkan forum mgmp/ kkm / null mp 
-
-perbedaannya, user , routing, 
-
-uji [
-        mata pelajaran 
-                category mata pelajaran
-                        
-]
-
-
 
 
 === Validasi download eprint ====

@@ -26,9 +26,11 @@
 @endsection
 
 @section('content')
-        <div class="container mb-4">
-            <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exampleModal-add">Tambah</button>
-        </div>
+        @if (Auth::user()->checkIsAdmin() || Auth::user()->checkIsAdminMgmp() || Auth::user()->checkIsAdminMgmp() || Auth::user()->checkIsAdminKkm())
+            <div class="container mb-4">
+                <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exampleModal-add">Tambah</button>
+            </div>
+        @endif
           <div class="d-flex flex-wrap">
             @foreach ($galeri as $item)
                 <div class="col-xl-4 col-md-4 mb-4">
@@ -67,11 +69,14 @@
                                                                     <br> ukuran maximum: 5 mb 
                                         
                                                                     <br> jenis file: jpeg,png</span>
-                                                                </label><br>
-                                                                <input class="imgInp"  type="file" name="banner" accept="image/x-png,image/jpeg">
+                                                                </label>
+                                                                <input onchange="loadFile_{{ $item->id }}(event)"  type="file" name="banner" accept="image/x-png,image/jpeg">
                                                                 @include('component.error', ["name" => "banner"])
                                                                 <br><br>
-                                                                <img class="blah" style="max-width: 90%" src="{{ asset("/storage/$item->banner") }}" alt="" srcset="">
+                                                                <img id="output_{{$item->id }}" style="
+                                                                width: 250px;
+                                                                height: 250px;
+                                                                " src="{{ asset("/storage/$item->banner") }}" alt="" srcset="">
                                                             </div>
 
                                                             @csrf
@@ -90,14 +95,15 @@
                                     </div>
                                     {{-- end modal --}}
 
-                                    <button type="button" class="btn btn-sm btn-info mx-4" data-toggle="modal" data-target="#exampleModal-edit-{{$item->id }}">Edit</button>
+                                    @if (Auth::user()->checkIsAdmin() || Auth::user()->checkIsAdminMgmp() || Auth::user()->checkIsAdminMgmp() || Auth::user()->checkIsAdminKkm())
+                                        <button type="button" class="btn btn-sm btn-info mx-4" data-toggle="modal" data-target="#exampleModal-edit-{{$item->id }}">Edit</button>
 
-                                    <form action="{{ url("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/$category->id/galeri/$item->id") }}" method="post" class="d-inline">
-                                        <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
-                                        @csrf
-                                        @method("DELETE")
-                                    </form>
-
+                                        <form action="{{ url("/admin/forum-mgmp/mata-pelajaran/$mata_pelajaran->id/category/$category->id/galeri/$item->id") }}" method="post" class="d-inline">
+                                            <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                                            @csrf
+                                            @method("DELETE")
+                                        </form>
+                                    @endif
                                 @else
                                 
                                     {{-- modal --}}
@@ -122,6 +128,7 @@
                                                             <textarea name="deskripsi" class="form-control" id="" cols="30" rows="10">{{ $item->deskripsi }}</textarea>
                                                         </div> --}}
 
+
                                                         <div class="form-group">
                                                             <label for="">Logo <br><span class="text-primary"> 
                                                                 <strong> 500 </strong> x <strong> 500 </strong> pixels
@@ -129,12 +136,13 @@
                                     
                                                                 <br> jenis file: jpeg,png</span>
                                                             </label>
-                                                            <input class="imgInp"  type="file" name="banner" accept="image/x-png,image/jpeg">
+                                                            <input onchange="loadFile_{{ $item->id }}(event)"  type="file" name="banner" accept="image/x-png,image/jpeg">
                                                             @include('component.error', ["name" => "banner"])
                                                             <br><br>
-                                                            <img class="blah" style="max-width: 90%" src="{{ asset("/storage/$item->banner") }}" alt="" srcset="">
-
-                                                            
+                                                            <img id="output_{{$item->id }}" style="
+                                                            width: 250px;
+                                                            height: 250px;
+                                                            " src="{{ asset("/storage/$item->banner") }}" alt="" srcset="">
                                                         </div>
                                                             @csrf
                                                             @method("PUT")
@@ -150,14 +158,15 @@
                                     </div>
                                     {{-- end modal --}}
 
-                                    <button type="button" class="btn btn-sm btn-info mx-4" data-toggle="modal" data-target="#exampleModal-edit-{{$item->id }}">Edit</button>
+                                    @if (Auth::user()->checkIsAdmin() || Auth::user()->checkIsAdminMgmp() || Auth::user()->checkIsAdminMgmp() || Auth::user()->checkIsAdminKkm())
+                                        <button type="button" class="btn btn-sm btn-info mx-4" data-toggle="modal" data-target="#exampleModal-edit-{{$item->id }}">Edit</button>
 
-
-                                    <form action="{{ url("/admin/unit/0/category/$category->id/galeri/$item->id") }}" method="post" class="d-inline">
-                                        <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
-                                        @csrf
-                                        @method("DELETE")
-                                    </form>
+                                        <form action="{{ url("/admin/unit/0/category/$category->id/galeri/$item->id") }}" method="post" class="d-inline">
+                                            <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                                            @csrf
+                                            @method("DELETE")
+                                        </form>
+                                    @endif
                                 @endif
                             </div>
                             <div class="d-flex justify-content-center">
@@ -212,18 +221,21 @@
                                     </div> --}}
 
                                     <div class="form-group">
-                                        <label for="">Logo <br><span class="text-primary"> 
-                                            <strong> 500 </strong> x <strong> 500 </strong> pixels
-                                            <br> ukuran maximum: 5 mb 
-                
-                                            <br> jenis file: jpeg,png</span>
-                                        </label><br>
-                                        <input class="imgInp"  type="file" name="banner" accept="image/x-png,image/jpeg">
-                                        <br><br>
-                                        {{-- <img class="blah" 
-                                        style="width: 250px; height: 250px; max-width: 100%;" 
-                                        src="#" alt="" srcset=""> --}}
-                                    </div>
+                                        <label for="">Logo  <br>
+                                            <span class="text-primary"> 
+                                                <strong> 500 </strong> x <strong> 500 </strong> pixels <br>
+                                                ukuran maximum: 5 mb 
+                                                <br> jenis file: jpeg,png
+                                            </span>
+                                        </label>                  
+                                        <input id="imgInp" type="file" class="form-control" name="banner" required accept="image/*">
+                                        @include('component.error', ["name" => "banner"])
+                                        <br>
+                                          <img id="blah" 
+                                          style="width: 250px; height: 250px;" 
+                                          src="#"
+                                          alt="" srcset="">
+                                      </div>
                     
                                     @csrf
                                 </div>
@@ -240,3 +252,18 @@
             {{-- end modal --}}
     
 @endsection
+
+@section('script')
+    @foreach ($galeri as $item)
+    <script>
+        var loadFile_{!! $item->id !!} = function(event) {
+          var output = document.getElementById('output_{{ $item->id }}');
+          output.src = URL.createObjectURL(event.target.files[0]);
+          output.onload = function() {
+            URL.revokeObjectURL(output.src) // free memory
+          }
+        };
+      </script>
+    @endforeach
+@endsection
+

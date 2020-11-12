@@ -3,3 +3,6 @@ solid
 lansung saja pake model UUid
 component message (sweet alert)
 
+
+phpinfo()
+ubah size upload 

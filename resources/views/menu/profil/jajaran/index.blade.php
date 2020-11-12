@@ -99,10 +99,11 @@
                                 </div>
                             
                         @empty
+                        
                             <div class="row mb-4 justify-content-center">
                                 <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exampleModal-add-{{ $item->uuid }}">Tambah</button>
                             </div>
-
+                    
                             <div class="modal fade" id="exampleModal-add-{{ $item->uuid }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <form action="{{url("/admin/profil/jajaran/$item->uuid")}}" method="post" enctype="multipart/form-data">

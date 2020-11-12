@@ -7,10 +7,16 @@
                         <div class="sp-module-content">
 
                             <div class="custom">
-                                <p style="text-align: center;">Copyright © 2020 - {{ date("Y") }} Universitas Muria Kudus |
-                                    Support by <span style="color: #000000;"><strong><a style="color: #000000;"
+                                <p style="text-align: center;">Copyright © 2020 - {{ date("Y") }} Ma'arif Demak |
+                                    Support by 
+                                    <span style="color: #000000;">
+                                        <strong>
+                                            <a style="color: #000000;"
                                                 href="http://ti.umk.ac.id"
-                                                target="_blank">Teknik Informatika UMK</a></strong></span></p>
+                                                target="_blank">Teknik Informatika UMK</a>
+                                            </strong>
+                                        </span>
+                                    </p>
                             </div>
                         </div>
                     </div>

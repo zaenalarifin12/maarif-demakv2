@@ -59,7 +59,7 @@
 										src="{{ asset("assetfile/images/umk/logo.png")}}" alt="Yayasan Maarif Demak"></h1>
 							</a></div>
 					</div> --}}
-					<div id="sp-menu" class="col-xs-4 col-sm-10 col-md-10" style="margin: 0px auto !important">
+					<div id="sp-menu" class="col-xs-4 col-sm-10 col-md-11" style="margin: 0px auto !important">
 						<div class="sp-column flex" >
 							<div class="sp-megamenu-wrapper" >
 								<a id="offcanvas-toggler" class="visible-xs visible-sm" href="#"><i
@@ -231,6 +231,24 @@
                                 
                                     <li class="sp-menu-item"><a href="{{url("/kerja-sama")}}" class="my-text-black" title="Kerja Sama">KERJA SAMA</a></li>
 
+                                    @if (Auth::guard("siswa")->check() || Auth::check())
+                                        <li class="sp-menu-item">
+                                            <a href="{{ route('logout') }}" style="color: red" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" >
+                                                Logout
+                                            </a>
+                                        </li>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>    
+                                    
+                                    @else
+                                        <li class="sp-menu-item">
+                                            <a href="{{url("/loginSiswa")}}"
+                                            style="color: green;"
+                                            title="Login">Login</a>
+                                        </li>    
+                                    @endif
 								</ul>
 							</div>
 						</div>

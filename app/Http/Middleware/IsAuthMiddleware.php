@@ -20,6 +20,6 @@ class IsAuthMiddleware
             return $next($request);
         }
 
-        return redirect("/loginSiswa");
+        return redirect()->intended("/loginSiswa")->with("info", "Anda Harus Login Dulu");
     }
 }

@@ -18,6 +18,11 @@
   <!-- Custom styles for this template-->
   <link href="{{ asset("assets/css/sb-admin-2.min.css")}}" rel="stylesheet">
 
+  <script src="{{ asset("assets/vendor/jquery/jquery.js")}}"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
+
   <style>
     .bg-green{
       background-color: #17A673 !important;
@@ -97,7 +102,6 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="{{ asset("assets/vendor/jquery/jquery.min.js")}}"></script>
   <script src="{{ asset("assets/vendor/bootstrap/js/bootstrap.bundle.min.js")}}"></script>
 
   <!-- Core plugin JavaScript-->
@@ -105,6 +109,20 @@
 
   <!-- Custom scripts for all pages-->
   <script src="{{ asset("assets/js/sb-admin-2.min.js")}}"></script>
+
+  
+    @if(session()->has('info'))
+        <script>
+    
+            swal({
+                    title : "Informasi !!", 
+                    text: "{{ session('info') }}", 
+                    type: "info",
+                    timer: 3000,
+                }
+                );
+        </script>
+    @endif
 
 </body>
 

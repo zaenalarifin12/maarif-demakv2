@@ -19,11 +19,14 @@ class IsAnggotaMiddleware
     {
 
         if (Auth::check() ){
-            if (Auth::user()->checkIsAnggotaMgmp() || Auth::user()->checkIsAdminMgmp() || Auth::user()->checkIsAdmin()) {
+            if (    Auth::user()->checkIsAnggotaMgmp() ||
+                    Auth::user()->checkIsAdminMgmp() || 
+                    Auth::user()->checkIsAdmin() ||
+                    Auth::user()->checkIsAdminKkm()
+                    ) {
                 return $next($request);
             }
         }
-
-        return redirect("/login");
+        return redirect("/login")->with("info", "Anda Harus Login Dulu");;
     }
 }

@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-
+Route::get("/cek",                function(){
+    die(phpinfo());
+});
 //home
 Route::get("/",                 "FE\HomeController@index");
 Route::get("/event-terbaru",    "FE\HomeLinkController@event");
@@ -32,13 +34,13 @@ Route::get("/forum-mgmp/{id_l}/{id_mp}/digital",         "FE\ForumMGMPController
 Route::get("/forum-kkm/{id_l}/",                        "FE\ForumKkmController@forum");
 Route::get("/forum-kkm/{id_l}/{id_mp}/program",         "FE\ForumMGMPController@program");
 Route::get("/forum-kkm/{id_l}/{id_mp}/event",           "FE\ForumMGMPController@event");
-Route::get("/forum-mgmp/{id_l}/{id_mp}/event/{id}",      "FE\ForumMGMPController@eventShow");
-Route::get("/forum-mgmp/{id_l}/{id_mp}/galeri",          "FE\ForumMGMPController@galeri");
+Route::get("/forum-mgmp/{id_l}/{id_mp}/event/{id}",     "FE\ForumMGMPController@eventShow");
+Route::get("/forum-mgmp/{id_l}/{id_mp}/galeri",         "FE\ForumMGMPController@galeri");
 
 
-Route::get("/publikasi/eprint",       "FE\PublikasiController@eprint");
-Route::get("/publikasi/digital",      "FE\PublikasiController@digital");
-Route::get("/publikasi/karya",        "FE\PublikasiController@karyaIlmiah");
+Route::get("/publikasi/eprint",                         "FE\PublikasiController@eprint");
+Route::get("/publikasi/digital",                        "FE\PublikasiController@digital");
+Route::get("/publikasi/karya",                          "FE\PublikasiController@karyaIlmiah");
 
 Route::get("/unit/{slug}/jajaran",                  "FE\UnitController@jajaran");
 Route::get("/unit/{slug}/program",                  "FE\UnitController@program");
@@ -47,7 +49,7 @@ Route::get("/unit/{slug}/event",                    "FE\UnitController@event");
 Route::get("/unit/{slug}/event/{id}",               "FE\UnitController@eventShow");
 Route::get("/unit/{slug}/galeri",                   "FE\UnitController@galeri");
 Route::get("/unit/{slug}/digital",                  "FE\UnitController@digital");
-Route::get("/unit/{slug}/eprint",                  "FE\UnitController@eprint");
+Route::get("/unit/{slug}/eprint",                   "FE\UnitController@eprint");
 Route::get("/unit/{slug}/informasi",                "FE\UnitController@informasi");
 Route::get("/unit/{slug}/informasi/{slug_i}",       "FE\UnitController@informasiShow");
 
@@ -62,10 +64,17 @@ Route::get("/not-active",     function(){
     return view("error.not-active");
 });
 
-Route::resource('/siswa',                "SiswaController")->only(["store"]);
+Route::resource('/siswa',                           "SiswaController")->only(["store"]);
 
-Route::get("/files/{file}",                 "FileController@download")->middleware("isAuth"); // REVIEW 
-Route::get("/files/upload/{file}",          "FileController@downloadMgmp")->middleware("isAnggota"); // REVIEW INI TODO
+Route::get("/files/{file}",                         "FileController@public"); 
+Route::get("/files/siswa/{file}",                   "FileController@siswa")->middleware("isAuth"); 
+Route::get("/files/anggota/{file}",                 "FileController@anggota")->middleware("isAnggota");
+
+/**
+ * file untuk publik
+ * file untuk proteksi siswa 
+ * file untuk proteksi bahwa ini anggota
+ */
 
 Route::group(["middleware" => ["auth"]], function(){
 
