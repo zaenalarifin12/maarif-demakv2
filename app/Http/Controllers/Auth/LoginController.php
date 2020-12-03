@@ -59,4 +59,35 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    /**
+     * Log the user out of the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return void
+     *
+     * @throws \Illuminate\Auth\AuthenticationException
+     */
+
+    protected function logout(Request $request)
+    {
+
+        if ($this->guard()->check()) {
+            $this->guard()->logout();
+        } elseif ($this->guard("siswa")->check()) {
+            $this->guard("siswa")->logout();
+        } 
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        if ($response = $this->loggedOut($request)) {
+            return $response;
+        }
+
+        return $request->wantsJson()
+            ? new JsonResponse([], 204)
+            : redirect('/');
+    }
+
 }
