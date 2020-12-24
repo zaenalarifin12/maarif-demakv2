@@ -36,6 +36,13 @@ class AppServiceProvider extends ServiceProvider
             return $view->with('lembaga', $lembaga);
         });
 
+        view()->composer('fe.layouts.footer', function($view) {
+
+            $lembaga  = lembaga::get();
+
+            return $view->with('lembaga', $lembaga);
+        });
+
         view()->composer('fe.layouts.master', function($view) {
 
             $category = Category::get();

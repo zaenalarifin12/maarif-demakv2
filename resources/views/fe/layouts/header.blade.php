@@ -47,23 +47,29 @@
 		<header id="sp-header" class="flex soma-footer">
 			<div class="my-container">
 				<div class="row">
-					{{-- <div id="sp-logo" class="col-xs-8 col-sm-2 col-md-1" style="width: 10% !important">
+					<div id="sp-logo" class="col-xs-8 col-sm-2 col-md-1 logo-mobile">
 						<div class="sp-column logobckg"><a class="logo" href="{{ url("/") }}">
-                                <h1><img class="sp-default-logo hidden-xs" src="{{ asset("assetfile/images/umk/logo-primary.png")}}"
+                            <h1>
+                                {{-- <img class="sp-default-logo hidden-xs" src="{{ asset("assetfile/images/umk/logo-primary.png")}}"
                                         style="height:80px;" 
-                                        alt="Universitas Muria Kudus"><img class="sp-retina-logo hidden-xs"
+                                        alt="Yayasan Maarif Demak"> --}}
+                                <img class="sp-retina-logo hidden-xs"
                                         style="height:80px;" 
-										src="{{ asset("assetfile/images/umk/logo.png")}}" alt="Yayasan Maarif Demak" width="265"
-                                        height="66"><img class="sp-default-logo visible-xs"
+										src="{{ asset("assetfile/images/umk/logo-primary.png")}}" alt="Yayasan Maarif Demak" width="265"
+                                        height="66">
+                                <img class="sp-default-logo visible-xs"
                                         style="height:80px;" 
-										src="{{ asset("assetfile/images/umk/logo.png")}}" alt="Yayasan Maarif Demak"></h1>
-							</a></div>
-					</div> --}}
+										src="{{ asset("assetfile/images/umk/logo-primary.png")}}" alt="Yayasan Maarif Demak"></h1>
+                                </a>
+                        </div>
+					</div>
 					<div id="sp-menu" class="col-xs-4 col-sm-10 col-md-11" style="margin: 0px auto !important">
 						<div class="sp-column flex" >
 							<div class="sp-megamenu-wrapper" >
-								<a id="offcanvas-toggler" class="visible-xs visible-sm" href="#"><i
-										class="fa fa-bars"></i></a>
+								<a id="offcanvas-toggler" class="visible-xs visible-sm" href="#">
+                                    
+                                    <i class="fa fa-bars"></i>
+                                </a>
 								<ul class="sp-megamenu-parent menu-fade-down hidden-xs hidden-sm">
 									<li class="sp-menu-item"><a href="{{url("/")}}" class="my-text-black" title="Home">HOME</a></li>
                          
@@ -72,14 +78,16 @@
 										<div class="sp-dropdown sp-dropdown-main sp-menu-right" style="width: 240px;">
 											<div class="sp-dropdown-inner">
 												<ul class="sp-dropdown-items">
-													<li class="sp-menu-item"><a 
-															href="{{ url("/profil/visi-misi") }}">Visi Misi</a></li>
+													<li class="sp-menu-item">
+                                                        <a href="{{ url("/profil/visi-misi") }}">Visi Misi</a>
+                                                    </li>
 											
-													<li class="sp-menu-item"><a
-															href="{{ url("/profil/jajaran") }}">Jajaran Pengurus</a>
+													<li class="sp-menu-item">
+                                                        <a href="{{ url("/profil/jajaran") }}">Jajaran Pengurus</a>
 													</li>
-													<li class="sp-menu-item"><a
-															href="{{ url("/profil/fasilitas") }}">Fasilitas</a></li>
+													<li class="sp-menu-item">
+                                                        <a href="{{ url("/profil/fasilitas") }}">Fasilitas</a>
+                                                    </li>
 												</ul>
 											</div>
 										</div>
@@ -115,16 +123,15 @@
                                                                     <li class="sp-menu-item sp-has-child"><a
                                                                         href="#">Produk</a>
                                                                         <div class="sp-dropdown sp-dropdown-sub sp-menu-right"
-                                                                        style="width: 150px;">
-                                                                        <div class="sp-dropdown-inner">
-                                                                            <ul class="sp-dropdown-items">
-                                                                                <li class="sp-menu-item"><a href="{{ url("/unit/unitendik/eprint") }}" >E-Print</a> </li>
-                                                                                <li class="sp-menu-item"><a href="{{ url("/unit/unitendik/digital") }}">Digital</a></li>
-                                                                            </ul>
+                                                                            style="width: 150px;">
+                                                                            <div class="sp-dropdown-inner">
+                                                                                <ul class="sp-dropdown-items">
+                                                                                    <li class="sp-menu-item"><a href="{{ url("/unit/unitendik/eprint") }}" >E-Print</a> </li>
+                                                                                    <li class="sp-menu-item"><a href="{{ url("/unit/unitendik/digital") }}">Digital</a></li>
+                                                                                </ul>
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
-
-                                                                        </li>
+                                                                    </li>
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -137,7 +144,7 @@
                                                             style="width: 240px;">
                                                             <div class="sp-dropdown-inner">
                                                                 <ul class="sp-dropdown-items">
-                                                                    <li class="sp-menu-item"><a href="#" >Jajaran Pengurus</a> </li>
+                                                                    <li class="sp-menu-item"><a href="#">Jajaran Pengurus</a> </li>
                                                                     <li class="sp-menu-item"><a href="{{ url("/unit/penjaminan-mutu/program") }}">Program Kegiatan</a></li>
                                                                     <li class="sp-menu-item"><a href="{{ url("/unit/penjaminan-mutu/event") }}">Event</a></li>
                                                                     <li class="sp-menu-item"><a href="{{ url("/unit/penjaminan-mutu/galeri") }}">Galeri</a></li>
@@ -152,14 +159,10 @@
                                                         style="width: 240px;">
                                                         <div class="sp-dropdown-inner">
                                                             <ul class="sp-dropdown-items">
-                                                                <li class="sp-menu-item"><a href="#">Jajaran Pengurus</a>
-                                                                </li>
-                                                                <li class="sp-menu-item"><a href="{{ url("/unit/balai-latihan-kerja/program") }}">Program Kegiatan</a>
-                                                                </li>
-                                                                <li class="sp-menu-item"><a href="{{ url("/unit/balai-latihan-kerja/galeri") }}">Galeri</a>
-                                                                </li>
-                                                                <li class="sp-menu-item"><a href="{{ url("/unit/balai-latihan-kerja/informasi") }}">informasi</a>
-                                                                </li>
+                                                                <li class="sp-menu-item"><a href="#">Jajaran Pengurus</a></li>
+                                                                <li class="sp-menu-item"><a href="{{ url("/unit/balai-latihan-kerja/program") }}">Program Kegiatan</a></li>
+                                                                <li class="sp-menu-item"><a href="{{ url("/unit/balai-latihan-kerja/galeri") }}">Galeri</a></li>
+                                                                <li class="sp-menu-item"><a href="{{ url("/unit/balai-latihan-kerja/informasi") }}">Informasi</a></li>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -221,8 +224,7 @@
                                             <div class="sp-dropdown-inner">
                                                 <ul class="sp-dropdown-items">
                                                     @foreach ($lembaga as $item)
-                                                        <li class="sp-menu-item"><a href="{{ url("lembaga/$item->id") }}"
-                                                            >{{ $item->nama }}</a></li>    
+                                                        <li class="sp-menu-item"><a href="{{ url("lembaga/$item->id") }}">{{ $item->nama }}</a></li>    
                                                     @endforeach
                                                 </ul>
                                             </div>

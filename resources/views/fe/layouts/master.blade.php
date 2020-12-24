@@ -58,11 +58,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			color:
 		}
 
+
+		.logo-mobile {
+			display: none; 
+		}
 		@media screen and (max-width: 768px) {
 			.img-wrapper a {
 				font-size: 150%;
 				line-height: 1.5;
 			}
+
+			.logo-mobile {
+				display: inline; 
+			}
+
 		}
 
 		@media screen and (min-width: 992px) and (max-width: 1199px) {
@@ -75,6 +84,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			.columns-4 {
 				width: 50%
 			}
+			
+			
 		}
 
 		.slick-carousel-620 .slick-slide {
