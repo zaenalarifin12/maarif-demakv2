@@ -52,26 +52,26 @@ class MataPelajaranSeeder extends Seeder
             "BAHASA ARAB",
         ];
 
-        // foreach ($mi as $key => $value) {
-        //     MataPelajaran::create([
-        //         "nama"          => $value,
-        //         "lembaga_id"    => 1
-        //     ]);
-        // }
+        foreach ($mi as $key => $value) {
+            MataPelajaran::create([
+                "nama"          => $value,
+                "lembaga_id"    => 1
+            ]);
+        }
 
-        // foreach ($mts as $key => $value) {
-        //     MataPelajaran::create([
-        //         "nama"          => $value,
-        //         "lembaga_id"    => 2
-        //     ]);
-        // }
+        foreach ($mts as $key => $value) {
+            MataPelajaran::create([
+                "nama"          => $value,
+                "lembaga_id"    => 2
+            ]);
+        }
 
-        // foreach ($ma as $key => $value) {
-        //     MataPelajaran::create([
-        //         "nama"          => $value,
-        //         "lembaga_id"    => 3
-        //     ]);
-        // }
+        foreach ($ma as $key => $value) {
+            MataPelajaran::create([
+                "nama"          => $value,
+                "lembaga_id"    => 3
+            ]);
+        }
 
         // ========= FORUM KKM ====================
 
