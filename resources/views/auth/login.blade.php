@@ -111,7 +111,9 @@
           <div class="card-body p-0">
             <!-- Nested Row within Card Body -->
             <div class="row">
-              <div class="col-lg-6 d-none d-lg-block"></div>
+              <div class="col-lg-6 d-none d-lg-block">
+                <img src="{{ asset("assets/img/side_admin.png") }}" alt="" srcset="">
+              </div>
               <div class="col-lg-6">
                 <div class="p-5">
                   <div class="text-center">

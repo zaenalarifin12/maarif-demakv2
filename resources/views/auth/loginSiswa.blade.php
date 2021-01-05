@@ -45,11 +45,14 @@
           <div class="card-body p-0">
             <!-- Nested Row within Card Body -->
             <div class="row">
-              <div class="col-lg-6 d-none d-lg-block"></div>
+              <div class="col-lg-6 d-none d-lg-block">
+                <img src="{{ asset("assets/img/side_siswa.png") }}" class="mx auto" alt="" srcset="">
+              </div>
               <div class="col-lg-6">
                 <div class="p-5">
                   <div class="text-center">
                     
+                    <img src="{{ asset("assets/img/up_siswa.png") }}" width="auto" height="30" class="mb-3" alt="" srcset="">
                     <h1 class="h4 text-gray-900 mb-4">Selamat Datang</h1>
                     <h2 class="h6 text-gray-900 mb-4">Silahkan Login Dengan Akun siswa</h2>
 
