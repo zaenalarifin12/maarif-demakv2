@@ -20,9 +20,9 @@
                         <div class="collapse" id="collapseCardExample-unit">
                             <div class="card-body">
                                 <ul>
-                                <li>
+                                {{-- <li>
                                         <a href="" class="font-weight-bold text-danger">Jajaran Pengurus</a>
-                                    </li>
+                                    </li> --}}
                                     <li>
                                         <a href="{{ url("/admin/unit/0/category/6/program") }}" class="font-weight-bold text-info">Program Kegiatan</a>                                    </li>
                                     <li>

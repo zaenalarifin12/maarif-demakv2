@@ -56,7 +56,7 @@
                   <input type="text" class="form-control" name="judul" required value="{{ $digital->judul }}">
               </div>
               <div class="form-group">
-                <label for="">Deskripsi</label>
+                <label for="">Linkv</label>
                 <input type="text" class="form-control" name="deskripsi" required value="{{ $digital->deskripsi }}">
               </div>
 

@@ -16,7 +16,7 @@ class Siswa extends Model implements AuthenticatableContract, AuthorizableContra
     
     protected $guarded = [];
 
-    protected $primaryKey = "no_induk";
+    // protected $primaryKey = "no_induk";
 
     protected $hidden = [
         'password'

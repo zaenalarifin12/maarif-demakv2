@@ -35,7 +35,7 @@ class SiswaController extends Controller
 
     public function edit($no_induk)
     {
-        $siswa = Siswa::findOrFail($no_induk);
+        $siswa = Siswa::where("no_induk", "=",$no_induk)->firstOrFail();
 
         return view("siswa.edit", compact("siswa"));
     }
@@ -46,7 +46,7 @@ class SiswaController extends Controller
 
         $data["password"]      = Hash::make($request->password);
         
-        $siswa = Siswa::findOrFail($no_induk);
+        $siswa = Siswa::where("no_induk", "=",$no_induk)->firstOrFail();
     
         $siswa->update($data);
 
@@ -56,7 +56,9 @@ class SiswaController extends Controller
 
     public function destroy($no_induk)
     {
-        $siswa = Siswa::findOrFail($no_induk);
+
+        $siswa = Siswa::where("no_induk", "=",$no_induk)->firstOrFail();
+
         $siswa->delete();
 
         return redirect("/siswa")->withSuccess("siswa berhasil dihapus");
@@ -72,7 +74,7 @@ class SiswaController extends Controller
     // setujui individu
     public function approve($no_induk)
     {
-        $siswa = Siswa::findOrFail($no_induk);
+        $siswa = Siswa::where("no_induk", "=",$no_induk)->firstOrFail();
         $siswa->update(["status" => 1]);
 
         return redirect("/siswa")->withSuccess("siswa dengan no induk $no_induk berhasil diaktifkan");
@@ -80,7 +82,7 @@ class SiswaController extends Controller
 
     public function disapprove($no_induk)
     {
-        $siswa = Siswa::findOrFail($no_induk);
+        $siswa = Siswa::where("no_induk", "=",$no_induk)->firstOrFail();
         $siswa->update(["status" => 0]);
 
         return redirect("/siswa")->withSuccess("siswa dengan no induk $no_induk berhasil dinonaktifkan");

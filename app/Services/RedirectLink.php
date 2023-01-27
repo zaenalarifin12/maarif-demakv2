@@ -16,7 +16,7 @@ class RedirectLink {
 
         $data["category_program_kegiatan_id"] = $id_category;
 
-        $data["mata_pelajaran_id"] = ($mata_pelajaran == 0) ? null : $mata_pelajaran;
+        $data["mata_pelajaran_id"] = ($mata_pelajaran == 0) ? 0 : $mata_pelajaran; // TODO UBAH DARI NULL KE 0 
 
         return $data;
     }

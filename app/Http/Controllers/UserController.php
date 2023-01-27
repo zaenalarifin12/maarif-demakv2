@@ -31,12 +31,9 @@ class UserController extends Controller
         return redirect("admin/users")->withSuccess("pengguna berhasil ditambahkan");
     }
 
-    //update
 
     public function destroy($id)
     {
-        // validasi request
-        // TODO
         $user = User::findOrFail($id);
         $user->delete();
 

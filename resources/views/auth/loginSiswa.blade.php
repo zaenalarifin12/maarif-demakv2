@@ -68,7 +68,7 @@
                     @endif
                     
                   </div>
-                  @include('component.all-error');
+                  @include('component.all-error')
                   <form class="user" action="{{ url("/loginSiswa") }}" method="POST">
                       @csrf
                     <div class="form-group">

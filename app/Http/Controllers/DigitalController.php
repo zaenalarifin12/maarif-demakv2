@@ -16,6 +16,7 @@ class DigitalController extends Controller
 {
     public function index($idmp, $id_category)
     {
+
         $category = CategoryProgramKegiatan::findOrFail($id_category);
 
         $mata_pelajaran = RedirectLink::checkMataPelajaran($idmp);

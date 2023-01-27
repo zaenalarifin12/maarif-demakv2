@@ -65,7 +65,7 @@ class ProgramKegiatanController extends Controller
         
         ProgramKegiatan::create($data) , "program")
         
-        ->withSuccess("Program Kegiatan berhasil ditambahkan");
+        ->withSuccess("Program Kegiatan berhasil diedit");
        
     }
 

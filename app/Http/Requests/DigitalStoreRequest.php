@@ -24,7 +24,7 @@ class DigitalStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            "judul"         => "required|min:5",
+            "judul"         => "required",
             "deskripsi"     => "required",
         ];
     }

@@ -19,7 +19,7 @@
 
 @section('content')
 
-@include('component.all-error');
+@include('component.all-error')
 
           <div class="card shadow mb-4">
             <div class="card-header py-3">

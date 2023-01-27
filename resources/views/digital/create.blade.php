@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section("heading", "Edit Produk Digital")
+@section("heading", "Tambah Produk Digital")
 
 @section('css')
     <link href="{{ asset("assets/vendor/datatables/dataTables.bootstrap4.min.css")}}" rel="stylesheet">
@@ -49,7 +49,7 @@
                 <label for="">Link</label>
                 <input type="text" value="" name="deskripsi" class="form-control" required>
               </div>
-              <button type="submit" class="btn btn-primary btn-block">Edit</button>
+              <button type="submit" class="btn btn-primary btn-block">Tambah</button>
               @csrf
           </form>
 
